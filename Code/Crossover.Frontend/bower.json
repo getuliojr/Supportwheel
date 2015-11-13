@@ -1,0 +1,38 @@
+{
+  "name": "Crossover",
+  "version": "0.0.1",
+  "description": "Ultima atualização dos pacotes: 05/02/2015",
+  "authors": [
+    "Getulio Romão Campos Junior"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-animate": "~1.4.0",
+    "angular-loading-bar": "~0.7.0",
+    "angular-resource": "~1.4.0",
+    "angular-sanitize": "~1.4.0",
+    "angular-ui-router": "^0.2.15",
+    "es5-shim": "~4.1.0",
+    "font-awesome": "~4.4.0",
+    "jquery": "~2.1.3",
+    "json3": "~3.3.2",
+    "lodash": "~3.10.0",
+    "toastr": "~2.1.0",
+    "ngstorage": "~0.3.9",
+    "angular-jwt": "~0.0.9",
+    "angular-material": "~0.11.4",
+    "angular-messages": "~1.4.7"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.0"
+  },
+  "appPath": "app",
+  "resolutions": {
+    "angular": "~1.4.0"
+  }
+}
