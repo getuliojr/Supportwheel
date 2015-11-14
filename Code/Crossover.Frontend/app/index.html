@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <!-- General META -->
@@ -28,7 +28,7 @@
     <!-- endfileblock -->
     <base href="/">
 </head>
-<body ng-app="CrossoverApp" ng-activity-indicator ng-cloak>
+<body ng-app="CrossoverApp" ng-activity-indicator class="ng-cloak">
     <!--[if lt IE 7]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -39,17 +39,9 @@
                     <md-icon>menu</md-icon>
                 </md-button>
                 <h2>
-                    <span>ASA Cooperation</span>
+                    <span>Crossover - Chief Architect Front-end Exam Demo</span>
                 </h2>
                 <span flex></span>
-                <md-button aria-label="Search Projects">
-                    <md-icon>search</md-icon>
-                    Search
-                </md-button>
-                <md-button aria-label="Change Language">
-                    <md-icon>language</md-icon>
-                    Português
-                </md-button>
                 <span ng-controller="LoginController as login">
                     <span ="!login.isAuthenticated()" ng-if="!login.isAuthenticated()">
                         <md-button aria-label="Login" ng-click="login.showLogin()">

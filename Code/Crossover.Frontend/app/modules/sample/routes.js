@@ -12,8 +12,6 @@
     //Define rotas
     function novasRotas($stateProvider, $urlRouterProvider, authorizationProvider) {
 
-        //$urlRouterProvider.when('', 'sample');
-
         $stateProvider
             .state('sample', {
                 url: '/sample',

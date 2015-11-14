@@ -8,7 +8,7 @@ angular.module('CrossoverApp', ['ngAnimate', 'ngResource', 'angular-loading-bar'
 
 
         //url padrão para todos os casos que nao encontrar nada
-        $urlRouterProvider.otherwise("/sample");
+        $urlRouterProvider.otherwise("/");
 
         // FIX for trailing slashes. Gracefully "borrowed" from https://github.com/angular-ui/ui-router/issues/50
         $urlRouterProvider.rule(function ($injector, $location) {

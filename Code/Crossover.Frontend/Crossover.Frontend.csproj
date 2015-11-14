@@ -25,7 +25,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
-    <TypeScriptToolsVersion>1.5</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.6</TypeScriptToolsVersion>
     <TargetFrameworkProfile />
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -644,10 +644,6 @@
     <Content Include="app\modules\common\services\value\index.js" />
     <Content Include="app\modules\common\views\formMessages.html" />
     <Content Include="app\modules\common\views\login.html" />
-    <Content Include="app\modules\instituicao\controllers\index.js" />
-    <Content Include="app\modules\instituicao\controllers\manterInstituicao.js" />
-    <Content Include="app\modules\instituicao\index.js" />
-    <Content Include="app\modules\instituicao\services\index.js" />
     <Content Include="content\fonts\app-icons.eot" />
     <Content Include="content\fonts\app-icons.ttf" />
     <Content Include="content\fonts\app-icons.woff" />
@@ -812,7 +808,7 @@
     <Content Include="content\fonts\ElegantIcons.svg" />
     <Content Include="content\styles\appIcons.css" />
     <Content Include="content\styles\elegantIcons.css" />
-    <Content Include="content\styles\appBootstrap.css" />
+    <Content Include="content\styles\appCustom.css" />
     <Content Include="gruntfile.js" />
     <Content Include="karma.conf.js" />
     <Content Include="protractor.conf.js" />
@@ -825,7 +821,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\modules\common\tests\" />
-    <Folder Include="app\modules\instituicao\views\" />
     <Folder Include="content\images\" />
   </ItemGroup>
   <ItemGroup>

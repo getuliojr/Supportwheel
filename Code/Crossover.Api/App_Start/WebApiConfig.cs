@@ -1,15 +1,11 @@
-﻿using System.Linq;
+﻿using Crossover.Api.Filters;
+using Crossover.Api.Providers;
+using Microsoft.Owin.Security.OAuth;
+using Newtonsoft.Json.Serialization;
+using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
-using System.Web.Http.Cors;
-using Newtonsoft.Json.Serialization;
-using Owin;
-using Microsoft.Owin.Security.OAuth;
-using System.Web.Http.Routing;
-using System.Web.Http.Controllers;
-using Crossover.Api.Filters;
 using System.Web.Http.ExceptionHandling;
-using Crossover.Api.Providers;
 
 namespace Crossover.Api
 {
