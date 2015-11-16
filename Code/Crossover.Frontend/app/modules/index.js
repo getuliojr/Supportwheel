@@ -6,7 +6,9 @@
     angular
         .module('modules', [
             'modules.common',
+            'modules.topic',
             'modules.sample'
+            
         ]);
  
 })();

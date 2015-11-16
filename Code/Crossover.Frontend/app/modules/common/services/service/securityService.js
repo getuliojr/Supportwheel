@@ -61,7 +61,7 @@
         function isAuthenticated() {
             var user = that.currentUser();
             var token = that.token();
-            return !!user && !!user.strNomeUsuario && !!token && !!token.access_token;
+            return !!user && !!user.strFullName && !!token && !!token.access_token;
         };
         function login(user) {
             //Mapeia dados
@@ -114,8 +114,8 @@
                     return retryQueueService.pushRetryFn('unauthenticated-client', that.requestCurrentUser);
                 }
                     //TODO busca usuario atual e salva em currentUser
-                    var usuarioAtual = appResourceFactory("usuario/atual", null);
-                    return usuarioAtual.carregar()
+                    var User = appResourceFactory("user/current", null);
+                    return User.carregar()
                             .then(function (dados) {
                                 $localStorage.user = dados;
                                 return that.requestCurrentUser();

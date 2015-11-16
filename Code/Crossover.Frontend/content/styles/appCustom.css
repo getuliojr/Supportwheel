@@ -1,0 +1,7 @@
+﻿.bgGrey{
+    background-color:#e5e5e5;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+

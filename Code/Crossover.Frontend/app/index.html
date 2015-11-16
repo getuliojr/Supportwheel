@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <!-- General META -->
@@ -22,24 +22,24 @@
     <!-- endbower -->
 
     <!-- fileblock:css clientCSS -->
-    <link href="/content/styles/appBootstrap.css" rel="stylesheet" />
     <link href="/content/styles/appIcons.css" rel="stylesheet" />
     <link href="/content/styles/elegantIcons.css" rel="stylesheet" />
+    <link href="/content/styles/appCustom.css" rel="stylesheet" />
     <!-- endfileblock -->
     <base href="/">
 </head>
-<body ng-app="CrossoverApp" ng-activity-indicator class="ng-cloak">
+<body ng-app="CrossoverApp" ng-activity-indicator class="ng-cloak bgGrey" >
     <!--[if lt IE 7]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2" layout-fill>
-        <md-toolbar layout="row" class="md-whiteframe-z1">
+    <div flex tabIndex="-1" role="main" class="md-whiteframe-z2" layout-fill>
+        <md-toolbar class="md-whiteframe-z1">
             <div class="md-toolbar-tools">
                 <md-button class="md-icon-button" aria-label="Show Menu Options">
                     <md-icon>menu</md-icon>
                 </md-button>
                 <h2>
-                    <span>Crossover - Chief Architect Front-end Exam Demo</span>
+                    <span>Crossover</span><span hide-sm> - Chief Architect Front-end Exam</span>
                 </h2>
                 <span flex></span>
                 <span ng-controller="LoginController as login">
@@ -53,7 +53,7 @@
                         <md-menu >
                             <md-button aria-label="User Information / Log-out" ng-click="$mdOpenMenu($event)" md-menu-origin md-menu-align-target>
                                 <md-icon><i class="material-icons">face</i></md-icon>
-                                {{login.currentUser().strNomeUsuario}}
+                                {{login.currentUser().strFullName}}
                             </md-button>
                             <md-menu-content>
                                 <md-button aria-label="Log-out" ng-click="login.logout()">
@@ -66,17 +66,11 @@
                 </span>
             </div>
         </md-toolbar>
-        <md-content flex>
-            Conteudo
-
+        <md-content class="bgGrey" layout="row" layout-align="center center">
+            <div flex-initial style="width:900px;" ui-view>
+            </div>
         </md-content>
     </div>
-
-        <br /><br />
-        Exemplo de rotas com autenticação: <a ui-sref='sample'>Usuário Autenticado</a> - <a ui-sref='sampleNew'>Admin Only</a> -   <a ui-sref='sampleEdit'>SuperUser Only</a> - <a ui-sref='sampleResource'>Resource Autenticado</a><br />
-        <div ui-view>Servidor... live</div>
-
-
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
         <script>
             (function (i, s, o, g, r, a, m) {
@@ -122,18 +116,14 @@
         <script src="/app/directives/index.js"></script>
         <script src="/app/directives/restrictDirectiva.js"></script>
         <script src="/app/filters/index.js"></script>
-        <script src="/app/modules/Instituicao/index.js"></script>
         <script src="/app/modules/common/index.js"></script>
         <script src="/app/modules/index.js"></script>
         <script src="/app/modules/sample/index.js"></script>
         <script src="/app/modules/sample/routes.js"></script>
-        <script src="/app/modules/Instituicao/controllers/index.js"></script>
-        <script src="/app/modules/Instituicao/controllers/manterInstituicao.js"></script>
         <script src="/app/modules/common/controllers/LoginController.js"></script>
         <script src="/app/modules/common/controllers/index.js"></script>
         <script src="/app/modules/sample/controllers/index.js"></script>
         <script src="/app/modules/sample/controllers/sampleController.js"></script>
-        <script src="/app/modules/Instituicao/services/index.js"></script>
         <script src="/app/modules/common/services/factory/appResourceFactory.js"></script>
         <script src="/app/modules/common/services/factory/index.js"></script>
         <script src="/app/modules/common/services/factory/interceptorFactory.js"></script>
@@ -152,6 +142,13 @@
         <script src="/app/modules/common/services/value/index.js"></script>
         <script src="/app/modules/sample/services/index.js"></script>
         <script src="/app/modules/sample/services/newSampleService.js"></script>
+        <script src="/app/modules/topic/index.js"></script>
+        <script src="/app/modules/topic/controllers/index.js"></script>
+        <script src="/app/modules/topic/services/index.js"></script>
+        <script src="/app/modules/topic/services/service/index.js"></script>
+        <script src="/app/modules/topic/services/service/topicService.js"></script>
+        <script src="/app/modules/topic/routes.js"></script>
+        <script src="/app/modules/topic/controllers/TopicController.js"></script>
         <!-- endfileblock -->
 
 </body>

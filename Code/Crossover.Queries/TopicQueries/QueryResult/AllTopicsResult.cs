@@ -7,6 +7,7 @@ namespace Crossover.Queries.TopicQueries.QueryResult
       
         public int intIdTopic { get; set; }
         public string strTitle { get; set; }
+        public string txtDescription { get; set; }
         public int intIdUserCreated { get; set; }
         public string strFullNameCreated { get; set; }
         public DateTime dteCreated { get; set; }

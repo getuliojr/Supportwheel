@@ -7,7 +7,6 @@ namespace Crossover.Api.Controllers
 {
 
     [RoutePrefix("api/topic")]
-    [Authorize]
     public class TopicController : ApiController
     {
 
@@ -19,6 +18,7 @@ namespace Crossover.Api.Controllers
 
         //Create New Topic
         [Route("")]
+        [Authorize]
         public IHttpActionResult PostTopic([FromBody]CreateTopicCommand command)
         {
             var resposta = _mediator.Send(command);
@@ -28,6 +28,7 @@ namespace Crossover.Api.Controllers
 
         //Get All Topics
         [Route("")]
+        [AllowAnonymous]
         public IHttpActionResult GetTopics()
         {
             var query = new AllTopicsQuery();
@@ -40,6 +41,7 @@ namespace Crossover.Api.Controllers
 
         //Get one Topic by ID
         [Route("{id:int}")]
+        [Authorize]
         public IHttpActionResult GetTopic(int id)
         {
             var query = new TopicByIdQuery
@@ -54,6 +56,7 @@ namespace Crossover.Api.Controllers
 
         //Update one Topic
         [Route("{id:int}")]
+        [Authorize]
         public IHttpActionResult PutTopic(int id, [FromBody]UpdateTopicCommand command)
         {
             command.intIdTopic = id;
@@ -64,6 +67,7 @@ namespace Crossover.Api.Controllers
         
         //Delete a Topic 
         [Route("{id:int}")]
+        [Authorize]
         public IHttpActionResult DeleteTopic(int id)
         {
 

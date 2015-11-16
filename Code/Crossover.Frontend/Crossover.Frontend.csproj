@@ -644,6 +644,15 @@
     <Content Include="app\modules\common\services\value\index.js" />
     <Content Include="app\modules\common\views\formMessages.html" />
     <Content Include="app\modules\common\views\login.html" />
+    <Content Include="app\modules\topic\controllers\index.js" />
+    <Content Include="app\modules\topic\controllers\TopicController.js" />
+    <Content Include="app\modules\topic\index.js" />
+    <Content Include="app\modules\topic\routes.js" />
+    <Content Include="app\modules\topic\services\index.js" />
+    <Content Include="app\modules\topic\services\service\index.js" />
+    <Content Include="app\modules\topic\services\service\topicService.js" />
+    <Content Include="app\modules\topic\views\newTopic.html" />
+    <Content Include="app\modules\topic\views\listTopics.html" />
     <Content Include="content\fonts\app-icons.eot" />
     <Content Include="content\fonts\app-icons.ttf" />
     <Content Include="content\fonts\app-icons.woff" />
@@ -657,6 +666,7 @@
     <Content Include=".jshintrcForTests" />
     <Content Include="bower.json" />
     <Content Include="app\index.html" />
+    <Content Include="content\styles\appCustom.css" />
     <Content Include="package.json" />
   </ItemGroup>
   <ItemGroup>
@@ -808,7 +818,6 @@
     <Content Include="content\fonts\ElegantIcons.svg" />
     <Content Include="content\styles\appIcons.css" />
     <Content Include="content\styles\elegantIcons.css" />
-    <Content Include="content\styles\appCustom.css" />
     <Content Include="gruntfile.js" />
     <Content Include="karma.conf.js" />
     <Content Include="protractor.conf.js" />
@@ -821,6 +830,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\modules\common\tests\" />
+    <Folder Include="app\modules\topic\tests\" />
     <Folder Include="content\images\" />
   </ItemGroup>
   <ItemGroup>
