@@ -13,10 +13,10 @@
         .controller('ManterTopicController', ManterTopicController);
 
     //Injeta dependencias
-    ManterTopicController.$inject = ['topic', 'securityService', 'topicService', 'notificationService', '$state'];
+    ManterTopicController.$inject = ['topic', 'securityService', 'topicService', 'notificationService', '$state','$scope'];
     
     //Cria o módulo
-    function ManterTopicController(topic, securityService, topicService, notificationService, $state) {
+    function ManterTopicController(topic, securityService, topicService, notificationService, $state, $scope) {
         var vm = this;
 
         //Instancia variáveis que irão receber os dados
@@ -28,9 +28,26 @@
         vm.save = save;
         vm.deleteTopic = deleteTopic;
 
+
+        
+        init();
+
+
         //******************************
         //Abaixo métodos do controle
         //******************************
+
+        function init() {
+            $scope.on("commentService", reloadTopic);
+
+            function reloadTopic() {
+                topicService.carregar({ intIdTopic: vm.data.intIdTopic })
+                    .then(function (reloadedTopic) {
+                        vm.data = reloadedTopic;
+                    });
+            }
+        }
+
         //Check if the current user created the topic, if so, allow to edit
         function userCreatedTopic(intIdUserCreated) {
             var currentUser = securityService.currentUser();

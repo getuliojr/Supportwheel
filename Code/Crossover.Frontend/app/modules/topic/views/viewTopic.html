@@ -12,7 +12,7 @@
                     <h2>{{topic.data.strTitle }}</h2>
                 </span>
                 <small layout="column">
-                    <span>{{topic.data.txtDescription}}</span><br />
+                    <span class="breakLines">{{topic.data.txtDescription}}</span><br />
                     <span><b>{{topic.data.comments.length}}</b> answers</b></span>
                     <span style="color:gray;">{{ topic.data.dteCreated | date:"MM/dd/yyyy 'at' h:mma"}} - {{topic.data.strFullNameCreated}}</span>
                 </small><br />
@@ -20,5 +20,7 @@
 
         </md-card-content>
     </md-card>
+    <list-comments commentsList="topic.data.comments" ng-if="topic.data.comments.length > 0"></list-comments>
+    <add-comment intIdTopic="topic.data.intIdTopic"></add-comment>
 </div>
 

@@ -9,3 +9,7 @@
     background-color: #8C9EFF;
     cursor:pointer;
 }
+
+.breakLines {
+    white-space: pre-wrap;
+}

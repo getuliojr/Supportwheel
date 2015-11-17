@@ -20,7 +20,10 @@
         service.validar = function (dados) {
             var erros = [];
 
-            if (!dados.txtDescription)
+            if (!dados.intIdTopic)
+                erros.push("The id of the topic is required!");
+
+            if (!dados.txtComment)
                 erros.push("The reply message is required!");
 
             return erros;
