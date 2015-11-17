@@ -5,3 +5,7 @@
   display: none !important;
 }
 
+.allowMouseOver:hover{
+    background-color: #8C9EFF;
+    cursor:pointer;
+}

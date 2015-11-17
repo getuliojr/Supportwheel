@@ -4,22 +4,20 @@
 
     //Define o módulo
     angular
-        .module('modules.topic.controllers.topic', [
-            'modules.common.services.service.security'
+        .module('modules.topic.controllers.newTopic', [
+            'modules.common.services.service.notification'
         ])
-        .controller('TopicController', TopicController);
+        .controller('NewTopicController', NewTopicController);
 
     //Injeta dependencias
-    TopicController.$inject = ['topicService', 'topicList', 'securityService'];
+    NewTopicController.$inject = ['topicService', 'notificationService', '$state'];
     
     //Cria o módulo
-    function TopicController(topicService, topicList, securityService) {
+    function NewTopicController(topicService, notificationService, $state) {
         var vm = this;
 
         //Instancia variáveis que irão receber os dados
         vm.dados = {};
-        vm.topicList = topicList;
-        vm.isAuthenticated = securityService.isAuthenticated;
 
         //Referencia os metodos disponíveis
         vm.save = save;
@@ -32,14 +30,15 @@
         function save(topic) {
             topicService.salvar(topic).then(success, error);
 
-            function success(sucess) {
-                console.log("salvo com sucesso");
+            function success(insertedTopic) {
+                notificationService.show('success', "The topic has been successfully created.");               
+                $state.go('topic.view', { intIdTopic: insertedTopic.intIdTopic });
             }
 
             function error(error) {
                 console.log("erro:" + error);
             }
         }
-        
+
     }
 })();

@@ -1,11 +1,15 @@
 ﻿<!-- Validação do form apenas pelo angular e não pelo navegador e atualiza o ng-model a cada 300 milisegundos ou no submit -->
 <form name="topicForm" novalidate="novalidate" data-ng-model-options="{updateOn: 'default submit', debounce:{default:200, blur:0}}">
     <md-card>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                Topic
+            </div>
+        </md-toolbar>
         <md-card-content>
-            <h2>New Topic</h2>
             <md-input-container flex>
                 <label>Title</label>
-                <textarea name="title" type="text" ng-model="topic.data.strTitle" required columns="1" rows="2" md-maxlength="150"></textarea>
+                <input name="title" type="text" ng-model="topic.data.strTitle" required md-maxlength="150"></input>
                 <div ng-messages="topicForm.title.$error" ng-if="topicForm.title.$touched || topicForm.$submitted" role="alert">
                     <div ng-messages-include="form-messages"></div>
                 </div>
@@ -17,10 +21,17 @@
                     <div ng-messages-include="form-messages"></div>
                 </div>
             </md-input-container>
-            <md-button flex class="md-raised md-primary" ng-click="topic.save(topic.data)" ng-disabled='topicForm.$invalid'>
+            <md-button class="md-raised md-primary" ng-click="topic.save(topic.data)" ng-disabled='topicForm.$invalid'>
                 Save
+            </md-button>
+            <md-button class="md-raised md-warn" ng-click="topic.deleteTopic(topic.data.intIdTopic)" ng-if='topic.data.intIdTopic != undefined && topic.userCreatedTopic(topic.data.intIdUserCreated)'>
+                Delete
+            </md-button>
+            <md-button class="md-raised" ng-if="topic.data.intIdTopic != undefined">
+                <span ui-sref="topic.view({intIdTopic:{{topic.data.intIdTopic}}})">Cancel</span>
             </md-button>
         </md-card-content>
     </md-card>
+    
 </form>
 

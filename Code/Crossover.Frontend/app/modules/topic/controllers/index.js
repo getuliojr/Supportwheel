@@ -5,6 +5,8 @@
     //Define o módulo
     angular
         .module('modules.topic.controllers', [
-            'modules.topic.controllers.topic'
+            'modules.topic.controllers.listTopic',
+            'modules.topic.controllers.newTopic',
+            'modules.topic.controllers.viewTopic'
         ]);
 })();

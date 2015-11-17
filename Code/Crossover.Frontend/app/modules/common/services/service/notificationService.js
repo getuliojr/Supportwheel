@@ -2,17 +2,17 @@
 
     'use strict';
 
-    angular.module('modules.common.services.service.notificacao', [])
-    .service('notificacaoService', notificacaoService);
+    angular.module('modules.common.services.service.notification', [])
+    .service('notificationService', notificationService);
 
 
-    function notificacaoService() {
+    function notificationService() {
 
         //Api Pública
         this.show = show;
-        
+
         //Funções
-        function show (tipo, mensagens, layout) {
+        function show(tipo, mensagens, layout) {
             var bufferMsg = '';
 
             if (angular.isObject(mensagens)) {
@@ -40,7 +40,7 @@
                 "debug": false,
                 "newestOnTop": true,
                 "progressBar": true,
-                "positionClass": "toast-top-right",
+                "positionClass": "toast-bottom-right",
                 "preventDuplicates": false,
                 "onclick": null,
                 "showDuration": "300",

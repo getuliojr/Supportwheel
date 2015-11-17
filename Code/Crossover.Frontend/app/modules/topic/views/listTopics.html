@@ -1,19 +1,19 @@
 ﻿<md-card>
     <md-card-content>
         <section layout="row" layout-align="end start">
-            <md-button class="md-raised md-primary" ng-disabled="!topic.isAuthenticated()" ui-sref="newTopic">
+            <md-button class="md-raised md-primary" ng-disabled="!topic.isAuthenticated()" ui-sref="topic.new" alt="New Topic">
                 New Topic
             </md-button>
         </section>
         <md-list>
-            <md-list-item class="md-2-line" ng-repeat="item in topic.topicList">
+            <md-list-item class="md-2-line allowMouseOver" ng-repeat="item in topic.topicList | orderBy:'-dteCreated'">
                 <md-divider ng-if="$index > -1"></md-divider>
-                <div class="md-list-item-text" layout="column" layout-align="start">
+                <div class="md-list-item-text" layout="column" layout-align="start" ui-sref="topic.view({intIdTopic:{{item.intIdTopic}}})">
                     <span>
                         <h2>{{item.strTitle }}</h2>
                     </span>
                     <small layout="column">
-                        <span>{{item.txtDescription | limitTo: 150}}{{item.txtDescription > 150 ? '...' : ''}}</span><br />
+                        <span>{{item.txtDescription | limitTo: 150}}{{item.txtDescription.length > 150 ? '...' : ''}}</span><br />
                         <span><b>{{item.intQtyComments}}</b> answers</b></span>
                         <span style="color:gray;">{{ item.dteCreated | date:"MM/dd/yyyy 'at' h:mma"}} - {{item.strFullNameCreated}}</span>
                     </small><br />

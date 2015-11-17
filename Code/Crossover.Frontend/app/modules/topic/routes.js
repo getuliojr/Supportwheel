@@ -12,34 +12,64 @@
     //Define rotas
     function novasRotas($stateProvider) {
 
+        var resolve = {};
+
+        //function lists
+        resolve.loadTopicList = loadTopicList;                  //Load All Topics 
+        resolve.loadCurrentTopic = loadCurrentTopic;            //Load Current Topic
+
         $stateProvider
-            .state('listTopics', {
+            .state('topic', {
+                abstract: true,
+                url: '',
+                template: '<ui-view/>',
+            })
+            .state('topic.list', {
                 url: '/',
                 templateUrl: 'app/modules/topic/views/listTopics.html',
-                controller: 'TopicController as topic',
+                controller: 'ListTopicController as topic',
                 resolve: {
-                    topicService: 'topicService',
-                    topicList: function (topicService) {
-                        return topicService.carregar();
-                    }
+                    topicList: resolve.loadTopicList
                 }
             })
-            .state('newTopic', {
+            .state('topic.new', {
                 url: '/topic',
-                templateUrl: 'app/modules/topic/views/newTopic.html',
-                controller: 'TopicController as topic',
+                templateUrl: 'app/modules/topic/views/formTopic.html',
+                controller: 'NewTopicController as topic',
+                requireAuthenticatedUser: true
+            })
+            .state('topic.view', {
+                url: '/topic/{intIdTopic:[0-9]*}',
+                templateUrl: 'app/modules/topic/views/viewTopic.html',
+                controller: 'ManterTopicController as topic',
                 requireAuthenticatedUser: true,
                 resolve: {
-                    topicService: 'topicService',
-                    topicList: function (topicService) {
-                        return topicService.carregar();
-                    }
+                    topic: resolve.loadCurrentTopic
                 }
-            });
-            
-            
+            })
+            .state('topic.view.edit', {
+                url: '/edit',
+                templateUrl: 'app/modules/topic/views/formTopic.html',
+                controller: 'ManterTopicController as topic',
+                requireAuthenticatedUser: true
+            })
+            ;
+
+    }
 
 
+    //Resolve Dependencies
+    loadTopicList.$inject = ['topicService'];
+    loadCurrentTopic.$inject = ['$stateParams', 'topicService']
+
+    //Functions in route resolves
+    function loadTopicList (topicService) {
+        return topicService.carregar();
+    }
+
+    function loadCurrentTopic($stateParams, topicService) {
+        var intIdTopic = $stateParams.intIdTopic;
+        return topicService.carregar({ intIdTopic: intIdTopic });
     }
     
 })();

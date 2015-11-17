@@ -10,10 +10,10 @@
         .controller('LoginController', LoginController);
 
     //Injeta dependencias
-    LoginController.$inject = ['notificacaoService', 'excecaoService', 'securityService'];
+    LoginController.$inject = ['securityService'];
 
     //Cria o módulo
-    function LoginController(notificacaoService, excecaoService, securityService) {
+    function LoginController(securityService) {
         var vm = this;
 
         //Instancia variáveis que irão receber os dados

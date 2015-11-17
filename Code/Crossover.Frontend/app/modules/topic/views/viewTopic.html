@@ -1,0 +1,43 @@
+﻿<div ui-view>
+    <md-card>
+        <md-card-content>
+            <section layout="row" layout-align="end start">
+                <md-button class="md-fab md-primary" alt="Edit Topic" ng-if="topic.userCreatedTopic(topic.data.intIdUserCreated)"
+                           ui-sref="topic.view.edit">
+                    <md-icon>mode_edit</md-icon>
+                </md-button>
+            </section>
+            <div layout="column" layout-align="start">
+                <span>
+                    <h2>{{topic.data.strTitle }}</h2>
+                </span>
+                <small layout="column">
+                    <span>{{topic.data.txtDescription}}</span><br />
+                    <span><b>{{topic.data.comments.length}}</b> answers</b></span>
+                    <span style="color:gray;">{{ topic.data.dteCreated | date:"MM/dd/yyyy 'at' h:mma"}} - {{topic.data.strFullNameCreated}}</span>
+                </small><br />
+            </div>
+
+        </md-card-content>
+    </md-card>
+    <md-card>
+        <md-card-content>
+            <form name="commentForm" novalidate="novalidate" data-ng-model-options="{updateOn: 'default submit', debounce:{default:200, blur:0}}">
+                <md-input-container flex>
+                    <label>Add new answer:</label>
+                    <textarea name="comment" type="text" ng-model="topic.data.txtComment" required column="1" rows="4"></textarea>
+                    <div ng-messages="commentForm.comment.$error" ng-if="commentForm.comment.$touched || commentForm.$submitted" role="alert">
+                        <div ng-messages-include="form-messages"></div>
+                    </div>
+                </md-input-container>
+                <md-button class="md-raised md-primary" ng-disabled="!topic.data.txtComment.length > 0">
+                    Answer
+                </md-button>
+                <md-button class="md-raised" ng-if="topic.data.txtComment.length > 0" ng-click="topic.data.txtComment=undefined;">
+                    Cancel
+                </md-button>
+                </form>
+</md-card-content>
+    </md-card>
+</div>
+

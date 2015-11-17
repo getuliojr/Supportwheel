@@ -3,15 +3,15 @@
     'use strict';
 
     angular.module('modules.common.services.service.excecao', [
-        'modules.common.services.service.notificacao'
+        'modules.common.services.service.notification'
     ])
 
     .service('excecaoService', excecaoService);
 
     //Injeta dependencias
-    excecaoService.$inject = ['notificacaoService'];
+    excecaoService.$inject = ['notificationService'];
 
-    function excecaoService(notificacaoService) {
+    function excecaoService(notificationService) {
 
         //Api Pública
         this.tratarErro = tratarErro;
@@ -56,7 +56,7 @@
                 }
             }
 
-            notificacaoService.notificar(type, msg);
+            notificationService.notificar(type, msg);
         }
     }
 })();
