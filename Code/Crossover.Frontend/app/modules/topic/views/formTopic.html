@@ -24,7 +24,9 @@
             <md-button class="md-raised md-primary" ng-click="topic.save(topic.data)" ng-disabled='topicForm.$invalid'>
                 Save
             </md-button>
-            <md-button class="md-raised md-warn" ng-click="topic.deleteTopic(topic.data.intIdTopic)" ng-if='topic.data.intIdTopic != undefined && topic.userCreatedTopic(topic.data.intIdUserCreated)'>
+            <md-button class="md-raised md-warn" ng-click="topic.deleteTopic(topic.data.intIdTopic)" 
+                       data-msg-confirm="{textContent : 'Are you sure you want to delete this Topic ?'}"
+                       ng-if='topic.data.intIdTopic != undefined && topic.userCreatedTopic(topic.data.intIdUserCreated)'>
                 Delete
             </md-button>
             <md-button class="md-raised" ng-if="topic.data.intIdTopic != undefined">

@@ -635,6 +635,7 @@
     <Content Include="app\modules\comment\services\index.js" />
     <Content Include="app\modules\comment\services\service\index.js" />
     <Content Include="app\modules\comment\services\service\commentService.js" />
+    <Content Include="app\modules\comment\views\formComment.html" />
     <Content Include="app\modules\common\controllers\index.js" />
     <Content Include="app\modules\common\controllers\LoginController.js" />
     <Content Include="app\modules\common\services\factory\index.js" />
@@ -680,7 +681,7 @@
   <ItemGroup>
     <Content Include=".gitattributes" />
     <Content Include="app\directives\bindOnceDirective.js" />
-    <Content Include="app\directives\clickConfirmDirective.js" />
+    <Content Include="app\directives\msgConfirmDirective.js" />
     <Content Include="app\directives\index.js" />
     <Content Include="app\directives\restrictDirectiva.js" />
     <Content Include="app\filters\index.js" />
@@ -836,6 +837,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\modules\comment\controllers\" />
+    <Folder Include="app\modules\comment\tests\" />
     <Folder Include="app\modules\common\tests\" />
     <Folder Include="app\modules\topic\tests\" />
     <Folder Include="content\images\" />

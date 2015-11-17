@@ -58,7 +58,7 @@ TESTE: Usuario Atual<br />
                         <i class="fa fa-check"> editar</i>
                     </a>
                     <a role="button" ng-click="sample.removerSample(sampleItem.sample_id)"
-                       data-click-confirm="{message : 'Tem certeza que deseja apagar este registro ?'}"
+                       data-click-confirm="{message : 'Tem certeza que deseja apagar este registro ?', ok: 'DELETE', cancel:'CANCEL'}"
                        class="btn btn-danger btn-xs">
                         <i class="fa fa-times"> excluir</i>
                     </a>

@@ -1,0 +1,19 @@
+﻿<md-card>
+    <md-card-content>
+        <form name="commentForm" novalidate="novalidate" data-ng-model-options="{updateOn: 'default submit', debounce:{default:200, blur:0}}">
+            <md-input-container flex>
+                <label>Add new answer:</label>
+                <textarea name="comment" type="text" ng-model="comment.data.txtComment" required column="1" rows="4"></textarea>
+                <div ng-messages="commentForm.comment.$error" ng-if="commentForm.comment.$touched || commentForm.$submitted" role="alert">
+                    <div ng-messages-include="form-messages"></div>
+                </div>
+            </md-input-container>
+            <md-button class="md-raised md-primary" ng-disabled="!comment.data.txtComment.length > 0">
+                Answer
+            </md-button>
+            <md-button class="md-raised" ng-if="comment.data.txtComment.length > 0" ng-click="comment.data.txtComment=undefined;">
+                Cancel
+            </md-button>
+        </form>
+    </md-card-content>
+</md-card>
