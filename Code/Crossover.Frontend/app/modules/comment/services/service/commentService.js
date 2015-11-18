@@ -4,17 +4,20 @@
 
     //Define o módulo
     angular.module('modules.comment.services.service.comment', [
-        'modules.common.services.factory.appResource'
+        'modules.common.services.factory.appResource',
+        'modules.common.services.factory.hubResource'
         ])
         .service('commentService', commentService);
 
     //Injeta dependencias
-    commentService.$inject = ['appResourceFactory'];
+    commentService.$inject = ['appResourceFactory','hubResourceFactory'];
 
     //Cria o serviço
-    function commentService(appResourceFactory) {
+    function commentService(appResourceFactory, hubResourceFactory) {
 
         var service = appResourceFactory("comment", "intIdComment");
+        service.hub = hubResourceFactory("comment");
+        service.hub.subscribe("comment");
 
         //Responsável pela validação dos dados no cliente
         service.validar = function (dados) {

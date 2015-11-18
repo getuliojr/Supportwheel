@@ -646,6 +646,7 @@
     <Content Include="app\modules\comment\views\formComment.html" />
     <Content Include="app\modules\common\controllers\index.js" />
     <Content Include="app\modules\common\controllers\AuthController.js" />
+    <Content Include="app\modules\common\services\factory\hubResourceFactory.js" />
     <Content Include="app\modules\common\services\factory\index.js" />
     <Content Include="app\modules\common\services\factory\interceptorFactory.js" />
     <Content Include="app\modules\common\services\provider\authorizationProvider.js" />

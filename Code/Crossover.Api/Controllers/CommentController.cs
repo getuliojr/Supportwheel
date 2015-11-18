@@ -2,13 +2,15 @@
 using MediatR;
 using Crossover.Commands.CommentCommands.Command;
 using Crossover.Queries.CommentQueries.Query;
+using Crossover.Api.Controllers;
+using Crossover.Api.Hubs;
 
 namespace Crossover.Api.Controllers
 {
 
     [RoutePrefix("api/comment")]
     [Authorize]
-    public class CommentController : ApiController
+    public class CommentController : HubApiController<ApiHub>
     {
 
         private readonly IMediator _mediator;
@@ -23,6 +25,8 @@ namespace Crossover.Api.Controllers
         {
             var response = _mediator.Send(command);
 
+            var subscribed = Hub.Clients.Group("comment");
+            subscribed.inserted(response);
             return Ok(response);
         }
 
