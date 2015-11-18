@@ -69,17 +69,19 @@
 
 
     //Resolve Dependencies
-    loadTopicList.$inject = ['topicService'];
-    loadCurrentTopic.$inject = ['$stateParams', 'topicService']
+    loadTopicList.$inject = ['topicService', 'handleExceptionFactory'];
+    loadCurrentTopic.$inject = ['$stateParams', 'topicService', 'handleExceptionFactory']
 
     //Functions in route resolves
-    function loadTopicList (topicService) {
-        return topicService.carregar();
+    function loadTopicList (topicService, handleExceptionFactory) {
+        return topicService.carregar()
+            .catch(handleExceptionFactory);
     }
 
-    function loadCurrentTopic($stateParams, topicService) {
+    function loadCurrentTopic($stateParams, topicService, handleExceptionFactory) {
         var intIdTopic = $stateParams.intIdTopic;
-        return topicService.carregar({ intIdTopic: intIdTopic });
+        return topicService.carregar({ intIdTopic: intIdTopic })
+            .catch(handleExceptionFactory);
     }
     
 })();

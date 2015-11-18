@@ -47,7 +47,15 @@ namespace Crossover.Api.Providers
 
                 if (context.Exception.InnerException != null)
                 {
-                    ErrorMessage = context.Exception.InnerException.Message;
+                    StringBuilder sb = new StringBuilder();
+                    Exception ex = context.Exception;
+                    while(ex.InnerException != null)
+                    {
+                        //Get All InnerExceptions Level
+                        sb.AppendLine(ex.InnerException.Message);
+                        ex = ex.InnerException;
+                    }
+                    ErrorMessage = sb.ToString();
                 }
                 else
                 {

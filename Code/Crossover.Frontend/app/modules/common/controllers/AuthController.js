@@ -4,16 +4,16 @@
 
     //Define o módulo
     angular
-        .module('modules.common.controllers.login', [
+        .module('modules.common.controllers.auth', [
             'modules.common.services.service.security'
         ])
-        .controller('LoginController', LoginController);
+        .controller('AuthController', AuthController);
 
     //Injeta dependencias
-    LoginController.$inject = ['securityService'];
+    AuthController.$inject = ['securityService'];
 
     //Cria o módulo
-    function LoginController(securityService) {
+    function AuthController(securityService) {
         var vm = this;
 
         //Instancia variáveis que irão receber os dados
@@ -27,13 +27,16 @@
         vm.showLogin = securityService.showLogin;
         vm.authReason = securityService.getLoginReason;
         vm.authError = securityService.getLastAuthError; //Recebe possíveis erros
+        vm.showSignup = showSignup;
 
 
         //******************************
         //Abaixo métodos do controle
         //******************************
 
-
+        function showSignup() {
+            //TODO: show signup form
+        }
         
     }
 })();

@@ -6,6 +6,7 @@
     angular
         .module('modules.topic.controllers.viewTopic', [
             'modules.common.services.service.notification',
+            'modules.common.services.factory.handleException',
             'modules.common.services.service.security',
             'modules.topic.services.service.topic',
             'modules.comment.services.service.comment'
@@ -14,10 +15,10 @@
         .controller('ManterTopicController', ManterTopicController);
 
     //Injeta dependencias
-    ManterTopicController.$inject = ['topic', 'securityService', 'topicService', 'notificationService', '$state','commentService'];
+    ManterTopicController.$inject = ['topic', 'securityService', 'topicService', 'notificationService', '$state','commentService', 'handleExceptionFactory'];
     
     //Cria o módulo
-    function ManterTopicController(topic, securityService, topicService, notificationService, $state, commentService) {
+    function ManterTopicController(topic, securityService, topicService, notificationService, $state, commentService, handleExceptionFactory) {
         var vm = this;
 
         //Instancia variáveis que irão receber os dados
@@ -56,28 +57,20 @@
         
         //Save topic
         function save(topic) {
-            topicService.salvar(topic).then(success, error);
+            topicService.salvar(topic).then(success, handleExceptionFactory);
 
             function success(updatedTopic) {
                 notificationService.show('success', "The topic has been successfully updated.");
                 $state.go('topic.view.index', { intIdTopic: topic.intIdTopic }, { reload: true });
             }
-
-            function error(error) {
-                console.log("erro:" + error);
-            }
         }
 
         function deleteTopic(intIdTopic) {
-            topicService.remover({ intIdTopic: intIdTopic }).then(success, error);
+            topicService.remover({ intIdTopic: intIdTopic }).then(success, handleExceptionFactory);
 
             function success() {
                 notificationService.show('success', "The topic has been deleted.");
                 $state.go('topic.list');
-            }
-
-            function error(error) {
-                console.log("erro:" + error);
             }
         }
     }

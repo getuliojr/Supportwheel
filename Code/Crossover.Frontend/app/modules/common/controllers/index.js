@@ -5,6 +5,6 @@
     //Define o módulo
     angular
         .module('modules.common.controllers', [
-            'modules.common.controllers.login'
+            'modules.common.controllers.auth'
         ]);
 })();

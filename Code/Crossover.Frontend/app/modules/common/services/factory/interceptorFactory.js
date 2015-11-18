@@ -39,7 +39,7 @@
             if (rejection.status === 401) {
 
                 if (rejection.config.url.indexOf("token") > -1) {
-                    //Se o erro de autenticação foi ao solicitar o token (logar), então sobre o erro ao invés de rejeitar
+                    //Se o erro de autenticação foi ao solicitar o token (logar), então sobe o erro ao invés de rejeitar
                     return rejection;
                 } else {
                     //Recurso no servidor não autorizado, solicita login para o usuario

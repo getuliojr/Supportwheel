@@ -6,15 +6,16 @@
     angular
         .module('modules.comment.controllers.newComment', [
             'modules.comment.services.service.comment',
-            'modules.common.services.service.notification'
+            'modules.common.services.service.notification',
+            'modules.common.services.factory.handleException'
         ])
         .controller('NewCommentController', NewCommentController);
 
     //Injeta dependencias
-    NewCommentController.$inject = ['commentService', 'notificationService', '$state'];
+    NewCommentController.$inject = ['commentService', 'notificationService', '$state', 'handleExceptionFactory'];
     
     //Cria o módulo
-    function NewCommentController(commentService, notificationService, $state) {
+    function NewCommentController(commentService, notificationService, $state, handleExceptionFactory) {
         var vm = this;
 
         //Instancia variáveis que irão receber os dados
@@ -35,17 +36,13 @@
             }
 
             //Save comment
-            commentService.salvar(comment).then(success, error);
+            commentService.salvar(comment).then(success, handleExceptionFactory);
 
             function success(inserted) {
                 vm.data.txtComment = undefined;
                 notificationService.show('success', "The comment has been successfully added.");
                 //Reload state, so it show new comments
                 $state.go('topic.view.index', { intIdTopic: inserted.intIdTopic }, { reload: true });
-            }
-
-            function error(error) {
-                console.log("erro:" + error);
             }
         }
 

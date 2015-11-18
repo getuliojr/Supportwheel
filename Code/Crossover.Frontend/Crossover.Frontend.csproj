@@ -644,7 +644,7 @@
     <Content Include="app\modules\comment\views\ListComments.html" />
     <Content Include="app\modules\comment\views\formComment.html" />
     <Content Include="app\modules\common\controllers\index.js" />
-    <Content Include="app\modules\common\controllers\LoginController.js" />
+    <Content Include="app\modules\common\controllers\AuthController.js" />
     <Content Include="app\modules\common\services\factory\index.js" />
     <Content Include="app\modules\common\services\factory\interceptorFactory.js" />
     <Content Include="app\modules\common\services\provider\authorizationProvider.js" />
@@ -816,7 +816,7 @@
     <Content Include="app\libs\toastr\toastr.min.js" />
     <Content Include="app\modules\common\index.js" />
     <Content Include="app\modules\common\services\value\constantes.js" />
-    <Content Include="app\modules\common\services\service\excecaoService.js" />
+    <Content Include="app\modules\common\services\factory\handleExceptionFactory.js" />
     <Content Include="app\modules\common\services\index.js" />
     <Content Include="app\modules\common\services\factory\mockHttpFactory.js" />
     <Content Include="app\modules\common\services\factory\appResourceFactory.js" />

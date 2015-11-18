@@ -10,14 +10,14 @@
                 </div>
             </md-toolbar>
             <md-content layout-padding>
-                <div style="color:darkblue;" ng-show="login.authReason() && !login.authError()">
+                <div style="color:darkblue;" ng-show="auth.authReason() && !auth.authError()">
                     <ul>
-                        {{login.authReason()}}
+                        {{auth.authReason()}}
                     </ul>
                 </div>
-                <div style="color:red;" ng-show="login.authError()">
+                <div style="color:red;" ng-show="auth.authError()">
                     <ul>
-                        {{login.authError().error_description}}
+                        {{auth.authError().error_description}}
                     </ul>
                 </div>
                 <br />
@@ -25,7 +25,7 @@
                     <!-- Use floating label instead of placeholder -->
                     <label>E-mail</label>
                     <md-icon>email</md-icon>
-                    <input name="email" type="email" ng-model="login.dados.user.username" required>
+                    <input name="email" type="email" ng-model="auth.dados.user.username" required>
                     <div ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched || loginForm.$submitted" role="alert">
                         <div ng-messages-include="form-messages"></div>
                     </div>
@@ -34,7 +34,7 @@
                     <!-- Use floating label instead of placeholder -->
                     <label>Senha</label>
                     <md-icon>lock</md-icon>
-                    <input name="password" type="password" ng-model="login.dados.user.password" required>
+                    <input name="password" type="password" ng-model="auth.dados.user.password" required>
                     <div ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched || loginForm.$submitted" role="alert">
                         <div ng-messages-include="form-messages"></div>
                     </div>
@@ -43,7 +43,7 @@
             </md-content>
             <md-dialog-actions>
                 <div layout="column">
-                    <md-button flex class="md-raised md-primary" ng-click="login.login(login.dados.user)" ng-disabled='loginForm.$invalid'>
+                    <md-button flex class="md-raised md-primary" ng-click="auth.login(auth.dados.user)" ng-disabled='loginForm.$invalid'>
                         Sign in
                     </md-button>
                 </div>

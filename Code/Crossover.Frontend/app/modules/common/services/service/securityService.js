@@ -8,7 +8,7 @@
         'modules.common.services.service.baseUrl',
         'modules.common.services.service.retryQueue',
         'modules.common.services.factory.appResource',
-        'modules.common.controllers.login'
+        'modules.common.controllers.auth'
     ])
 
     .service('securityService', securityService);
@@ -56,7 +56,14 @@
             return _lastAuthError;
         }
         function getLoginReason () {
-            return retryQueueService.retryReason();
+            var reason = retryQueueService.retryReason();
+            if (reason == "unauthenticated-client") {
+                return "This resource requires an authenticated user. Please enter your information below."
+            } else if (reason == "unauthorized-client" || reason == "unauthorized-server") {
+                return "You are not authorized to view this resource. Please provide an account with the required permission."
+            }else{
+                return reason;
+            }
         };
         function isAuthenticated() {
             var user = that.currentUser();
@@ -127,8 +134,8 @@
             if (!loginModalOpened) {
                 loginModalOpened = true;
                 $mdDialog.show({
-                    controller: 'LoginController',
-                    controllerAs: 'login',
+                    controller: 'AuthController',
+                    controllerAs: 'auth',
                     templateUrl: 'app/modules/common/views/login.html',
                     parent: angular.element(document.body),
                     clickOutsideToClose: false
