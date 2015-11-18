@@ -43,45 +43,10 @@
                     <span>Crossover</span><span hide-sm> - Chief Architect Front-end Exam</span>
                 </h2>
                 <span flex></span>
-                <span ng-controller="LoginController as login">
-                    <span ng-if="!login.isAuthenticated()">
-                        <md-button aria-label="Login" ng-click="login.showLogin()">
-                            <md-icon>account_circle</md-icon>
-                            Login
-                        </md-button>
-                    </span>
-                    <span ng-if="login.isAuthenticated()">
-                        <md-menu >
-                            <md-button aria-label="User Information / Log-out" ng-click="$mdOpenMenu($event)" md-menu-origin md-menu-align-target>
-                                <md-icon><i class="material-icons">face</i></md-icon>
-                                {{login.currentUser().strFullName}}
-                            </md-button>
-                            <md-menu-content>
-                                <md-button aria-label="Log-out" ng-click="login.logout()">
-                                    <md-icon>exit_to_app</md-icon>
-                                    Log-out
-                                </md-button>
-                            </md-menu-content>
-                        </md-menu>
-                    </span>
-                </span>
+                <auth></auth>
             </div>
         </md-toolbar>
-        <div ng-controller="LoginController as nav">
-            <md-toolbar ng-if="nav.isAuthenticated()" style="background-color:#8C9EFF;color:black;min-height:44px;" md-scroll-shrink>
-                <div class="md-toolbar-tools" style="height:44px" layout-align="start center">
-                    <md-button aria-label="Show Topics" ui-sref="topic.list">
-                        <md-icon>list</md-icon>
-                        List Topics
-                    </md-button>
-                    <md-button aria-label="New Topic" ui-sref="topic.new">
-                        <md-icon>add_box</md-icon>
-                        New Topic
-                    </md-button>
-
-                </div>
-            </md-toolbar>
-        </div>
+        <authenticated-menu></authenticated-menu>
         <md-content class="bgGrey" layout="row" layout-align="center center">
             <div flex-initial style="width:900px;" ui-view>
             </div>
@@ -127,7 +92,6 @@
         <!-- endbower -->
         <!-- fileblock:js clientJS -->
         <script src="/app/CrossoverApp.js"></script>
-        <script src="/app/directives/bindOnceDirective.js"></script>
         <script src="/app/directives/index.js"></script>
         <script src="/app/directives/restrictDirectiva.js"></script>
         <script src="/app/filters/index.js"></script>
@@ -175,6 +139,8 @@
         <script src="/app/modules/comment/controllers/NewCommentController.js"></script>
         <script src="/app/directives/addCommentDirective.js"></script>
         <script src="/app/directives/animateOnLoadDirective.js"></script>
+        <script src="/app/directives/authDirective.js"></script>
+        <script src="/app/directives/authenticatedMenuDirective.js"></script>
         <!-- endfileblock -->
 
 </body>

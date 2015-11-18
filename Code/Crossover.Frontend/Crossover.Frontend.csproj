@@ -54,6 +54,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="app\directives\authenticatedMenuDirective.js" />
+    <Content Include="app\directives\authDirective.js" />
     <Content Include="app\directives\addCommentDirective.js" />
     <Content Include="app\directives\animateOnLoadDirective.js" />
     <Content Include="app\directives\listCommentsDirective.js" />
@@ -653,6 +655,8 @@
     <Content Include="app\modules\common\services\service\retryQueueService.js" />
     <Content Include="app\modules\common\services\service\securityService.js" />
     <Content Include="app\modules\common\services\value\index.js" />
+    <Content Include="app\modules\common\views\auth.html" />
+    <Content Include="app\modules\common\views\authenticatedMenu.html" />
     <Content Include="app\modules\common\views\formMessages.html" />
     <Content Include="app\modules\common\views\login.html" />
     <Content Include="app\modules\topic\controllers\index.js" />
@@ -686,7 +690,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitattributes" />
-    <Content Include="app\directives\bindOnceDirective.js" />
     <Content Include="app\directives\msgConfirmDirective.js" />
     <Content Include="app\directives\index.js" />
     <Content Include="app\directives\restrictDirectiva.js" />
