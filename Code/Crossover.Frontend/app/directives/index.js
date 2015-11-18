@@ -5,5 +5,6 @@
     'directives.addComment',
     'directives.animateOnLoad',
     'directives.auth',
-    'directives.authenticatedMenu'
+    'directives.authenticatedMenu',
+    'directives.compareTo'
 ]);

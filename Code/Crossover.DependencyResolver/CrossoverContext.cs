@@ -67,6 +67,7 @@ namespace Crossover.DependencyResolver
                 .Where(entry => entry.Entity is AuditableEntity
                        && (entry.State == EntityState.Added || entry.State == EntityState.Modified));
 
+
             foreach (var entry in modifiedEntries)
             {
                 var entity = entry.Entity as AuditableEntity;
@@ -82,6 +83,7 @@ namespace Crossover.DependencyResolver
                         {
                             entity.intIdUserCreated = Convert.ToInt32(intIdUserCreated);
                         }
+                        
                     }
                     else
                     {

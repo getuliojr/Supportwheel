@@ -5,10 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Crossover.Domain
 {
-    public abstract class AuditableEntity
+    public abstract class AuditableEntityAllowNull
     {
         [ForeignKey("UserCreated")] 
-        public int intIdUserCreated { get; set; }
+        public int? intIdUserCreated { get; set; }
         public virtual User UserCreated { get; set; }
 
         [Column(TypeName = "smalldatetime")]

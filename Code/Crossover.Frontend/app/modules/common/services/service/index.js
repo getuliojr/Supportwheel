@@ -6,7 +6,8 @@
         'modules.common.services.service.retryQueue',
         'modules.common.services.service.security',
         'modules.common.services.service.notification',
-        'modules.common.services.service.viewstate'
+        'modules.common.services.service.viewstate',
+        'modules.common.services.service.user'
     ]);
 
 })();

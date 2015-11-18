@@ -2,7 +2,7 @@
 
 namespace Crossover.Domain.Entities
 {
-    public class User : AuditableEntity
+    public class User : AuditableEntityAllowNull
     {
         [Key]
         public int intIdUser { get; set; }

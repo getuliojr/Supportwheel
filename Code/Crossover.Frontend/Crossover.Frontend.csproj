@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="app\directives\compareToDirective.js" />
     <Content Include="app\directives\authenticatedMenuDirective.js" />
     <Content Include="app\directives\authDirective.js" />
     <Content Include="app\directives\addCommentDirective.js" />
@@ -654,10 +655,12 @@
     <Content Include="app\modules\common\services\service\notificationService.js" />
     <Content Include="app\modules\common\services\service\retryQueueService.js" />
     <Content Include="app\modules\common\services\service\securityService.js" />
+    <Content Include="app\modules\common\services\service\userService.js" />
     <Content Include="app\modules\common\services\value\index.js" />
     <Content Include="app\modules\common\views\auth.html" />
     <Content Include="app\modules\common\views\authenticatedMenu.html" />
     <Content Include="app\modules\common\views\formMessages.html" />
+    <Content Include="app\modules\common\views\signup.html" />
     <Content Include="app\modules\common\views\login.html" />
     <Content Include="app\modules\topic\controllers\index.js" />
     <Content Include="app\modules\topic\controllers\ListTopicController.js" />

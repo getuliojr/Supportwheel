@@ -37,6 +37,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AuditableEntityAllowNull.cs" />
     <Compile Include="AuditableEntity.cs" />
     <Compile Include="Entities\Audience.cs" />
     <Compile Include="Entities\Comment.cs" />
