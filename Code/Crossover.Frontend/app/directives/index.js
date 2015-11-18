@@ -3,5 +3,6 @@
     'directives.restrict',
     'directives.msgConfirm',
     'directives.listComments',
-    'directives.addComment'
+    'directives.addComment',
+    'directives.animateOnLoad'
 ]);

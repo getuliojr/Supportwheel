@@ -18,7 +18,6 @@
         var retryQueue = [];
 
         // The public API of the service
-        this.queue = function () { return that.retryQueue;}
         this.onItemAddedCallbacks = [];                   // The security service puts its own handler in here!
         this.cancelAll = cancelAll;
         this.hasMore = hasMore;

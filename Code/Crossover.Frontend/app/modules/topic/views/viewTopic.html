@@ -1,26 +1,24 @@
-﻿<div ui-view>
-    <md-card>
-        <md-card-content>
-            <section layout="row" layout-align="end start">
-                <md-button class="md-fab md-primary" alt="Edit Topic" ng-if="topic.userCreatedTopic(topic.data.intIdUserCreated)"
-                           ui-sref="topic.view.edit">
-                    <md-icon>mode_edit</md-icon>
-                </md-button>
-            </section>
-            <div layout="column" layout-align="start">
-                <span>
-                    <h2>{{topic.data.strTitle }}</h2>
-                </span>
-                <small layout="column">
-                    <span class="breakLines">{{topic.data.txtDescription}}</span><br />
-                    <span><b>{{topic.data.comments.length}}</b> answers</b></span>
-                    <span style="color:gray;">{{ topic.data.dteCreated | date:"MM/dd/yyyy 'at' h:mma"}} - {{topic.data.strFullNameCreated}}</span>
-                </small><br />
-            </div>
+﻿<md-card >
+    <md-card-content>
+        <section layout="row" layout-align="end start">
+            <md-button class="md-fab md-primary" alt="Edit Topic" ng-if="topic.userCreatedTopic(topic.data.intIdUserCreated)"
+                        ui-sref="topic.view.edit">
+                <md-icon>mode_edit</md-icon>
+            </md-button>
+        </section>
+        <div layout="column" layout-align="start">
+            <span>
+                <h2>{{topic.data.strTitle }}</h2>
+            </span>
+            <small layout="column">
+                <span class="breakLines">{{topic.data.txtDescription}}</span><br />
+                <span><b>{{topic.data.comments.length}}</b> answers</b></span>
+                <span style="color:gray;">{{ topic.data.dteCreated | date:"MM/dd/yyyy 'at' h:mma"}} - {{topic.data.strFullNameCreated}}</span>
+            </small><br />
+        </div>
 
-        </md-card-content>
-    </md-card>
-    <list-comments commentsList="topic.data.comments" ng-if="topic.data.comments.length > 0"></list-comments>
-    <add-comment intIdTopic="topic.data.intIdTopic"></add-comment>
-</div>
+    </md-card-content>
+</md-card>
+<list-comments commentsList="topic.data.comments" ng-if="topic.data.comments.length > 0"></list-comments>
+<add-comment intIdTopic="topic.data.intIdTopic"></add-comment>
 

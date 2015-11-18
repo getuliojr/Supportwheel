@@ -17,6 +17,7 @@
         //Variáveis Privadas
         var _cache = {};
         var baseUrl = baseUrlService.getBaseUrl() + "api/";
+        var _eventListenQueue = [];
 
         return function (recurso, surrogateKey) {
 
@@ -30,7 +31,7 @@
             service.remover = remover;              //Apaga um registro no recurso com base na chave substituta
             service.validar = validar;              //Responsável por validar o modelo, tem que ser incluida a parte o código
             service.limparCache = limparCache;      //Remove qualquer registro do cache
-
+            service.listenService = listenService;  //When an item is added, updated or deleted this callback will be called
             return service;
 
 
@@ -128,7 +129,35 @@
             function limparCache() {
                 return webService.clearCache();
             };
+            function listenService(callbackFunction) {
+                var hashValue = hashFunction(callbackFunction);
 
+                //Add new Subscriber if it is not already in the list
+                if (_.findIndex(_eventListenQueue, { Hash: hashValue }) == -1) {
+                    var listenItem = { Resource: recurso, CallBack: callbackFunction, Hash: hashValue };
+                    _eventListenQueue.push(listenItem);
+                }
+                //Return an Unsubscribe Event
+                return function () {
+                    var indexItem = _eventListenQueue.indexOf(listenItem);
+                    if (indexItem > -1) {
+                        _eventListenQueue.splice(indexItem, 1);
+                    }
+                }
+                //Helper Function
+                function hashFunction(data) {
+                    var value = data.toString();
+                    var hash = 0;
+                    if (value.length == 0) return hash;
+                    for (var i = 0; i < value.length; i++) {
+                        var char = value.charCodeAt(i);
+                        hash = ((hash<<5)-hash)+char;
+                        hash = hash & hash; // Convert to 32bit integer
+                    }
+                    return hash;
+                }
+
+            }
 
             //***************************
             // Funções auxiliares
@@ -210,7 +239,18 @@
             //Responsável por disparar mensagens de que um registro foi carregado, excluido, alterado, salvo
             function _disparaEvento(tipo, data) {
                 var serviceName = recurso + "Service";
-                $rootScope.$broadcast(serviceName, { tipo: tipo, data: data });
+                var broadcastMessage = { tipo: tipo, data: data };
+
+                //Send event throurh rootscope
+                $rootScope.$broadcast(serviceName, broadcastMessage);
+
+                //Call users who subscribed to event
+                var lengthEvent = _eventListenQueue.length;
+                for (var e = 0; e < lengthEvent; e++) {
+                    if (_eventListenQueue[e].Resource == recurso) {
+                        _eventListenQueue[e].CallBack(broadcastMessage);
+                    }
+                }
             }
 
             //Remove all undefined, null, empty values and functions

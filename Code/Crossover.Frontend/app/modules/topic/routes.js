@@ -22,12 +22,14 @@
             .state('topic', {
                 abstract: true,
                 url: '',
+                controller: false,
                 template: '<ui-view/>',
             })
             .state('topic.list', {
                 url: '/',
                 templateUrl: 'app/modules/topic/views/listTopics.html',
-                controller: 'ListTopicController as topic',
+                controller: 'ListTopicController',
+                controllerAs: 'listTopic',
                 resolve: {
                     topicList: resolve.loadTopicList
                 }
@@ -35,22 +37,30 @@
             .state('topic.new', {
                 url: '/topic',
                 templateUrl: 'app/modules/topic/views/formTopic.html',
-                controller: 'NewTopicController as topic',
+                controller: 'NewTopicController',
+                controllerAs: 'topic',
                 requireAuthenticatedUser: true
             })
             .state('topic.view', {
+                abstract: true,
                 url: '/topic/{intIdTopic:[0-9]*}',
-                templateUrl: 'app/modules/topic/views/viewTopic.html',
-                controller: 'ManterTopicController as topic',
-                requireAuthenticatedUser: true,
+                template: '<ui-view/>',
+                controller: 'ManterTopicController',
+                controllerAs: 'topic',
                 resolve: {
                     topic: resolve.loadCurrentTopic
                 }
             })
+            .state('topic.view.index', {
+                url: '',
+                templateUrl: 'app/modules/topic/views/viewTopic.html',
+                requireAuthenticatedUser: true,
+               
+            })
+            
             .state('topic.view.edit', {
                 url: '/edit',
                 templateUrl: 'app/modules/topic/views/formTopic.html',
-                controller: 'ManterTopicController as topic',
                 requireAuthenticatedUser: true
             })
             ;

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <!-- General META -->
@@ -25,6 +25,7 @@
     <link href="/content/styles/appIcons.css" rel="stylesheet" />
     <link href="/content/styles/elegantIcons.css" rel="stylesheet" />
     <link href="/content/styles/appCustom.css" rel="stylesheet" />
+    <link href="/content/styles/animation.css" rel="stylesheet" />
     <!-- endfileblock -->
     <base href="/">
 </head>
@@ -43,7 +44,7 @@
                 </h2>
                 <span flex></span>
                 <span ng-controller="LoginController as login">
-                    <span ="!login.isAuthenticated()" ng-if="!login.isAuthenticated()">
+                    <span ng-if="!login.isAuthenticated()">
                         <md-button aria-label="Login" ng-click="login.showLogin()">
                             <md-icon>account_circle</md-icon>
                             Login
@@ -173,6 +174,7 @@
         <script src="/app/directives/listCommentsDirective.js"></script>
         <script src="/app/modules/comment/controllers/NewCommentController.js"></script>
         <script src="/app/directives/addCommentDirective.js"></script>
+        <script src="/app/directives/animateOnLoadDirective.js"></script>
         <!-- endfileblock -->
 
 </body>

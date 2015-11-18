@@ -17,7 +17,7 @@ namespace Crossover.Api.Controllers
             _mediator = mediator;
         }
 
-        //Create New Topic
+        //Create New
         [Route("")]
         public IHttpActionResult PostComment([FromBody]CreateCommentCommand command)
         {

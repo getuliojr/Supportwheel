@@ -7,21 +7,21 @@
         .module('modules.topic.controllers.viewTopic', [
             'modules.common.services.service.notification',
             'modules.common.services.service.security',
-            'modules.topic.services.service.topic'
+            'modules.topic.services.service.topic',
+            'modules.comment.services.service.comment'
             
         ])
         .controller('ManterTopicController', ManterTopicController);
 
     //Injeta dependencias
-    ManterTopicController.$inject = ['topic', 'securityService', 'topicService', 'notificationService', '$state','$scope'];
+    ManterTopicController.$inject = ['topic', 'securityService', 'topicService', 'notificationService', '$state','commentService'];
     
     //Cria o módulo
-    function ManterTopicController(topic, securityService, topicService, notificationService, $state, $scope) {
+    function ManterTopicController(topic, securityService, topicService, notificationService, $state, commentService) {
         var vm = this;
 
         //Instancia variáveis que irão receber os dados
         vm.data = topic;
-
 
         //Referencia os metodos disponíveis
         vm.userCreatedTopic = userCreatedTopic;
@@ -30,7 +30,7 @@
 
 
         
-        init();
+        //init();
 
 
         //******************************
@@ -38,12 +38,12 @@
         //******************************
 
         function init() {
-            $scope.on("commentService", reloadTopic);
+            var subscribeCommentService = commentService.listenService(reloadTopic);
 
-            function reloadTopic() {
-                topicService.carregar({ intIdTopic: vm.data.intIdTopic })
-                    .then(function (reloadedTopic) {
-                        vm.data = reloadedTopic;
+            function reloadTopic(broadcastedMessage) {
+                topicService.carregar({ intIdTopic: broadcastedMessage.data.intIdTopic })
+                    .then(function (data) {
+                        angular.extend(vm.data.comments, data.comments);
                     });
             }
         }
@@ -60,7 +60,7 @@
 
             function success(updatedTopic) {
                 notificationService.show('success', "The topic has been successfully updated.");
-                $state.go('topic.view', { intIdTopic: topic.intIdTopic });
+                $state.go('topic.view.index', { intIdTopic: topic.intIdTopic }, { reload: true });
             }
 
             function error(error) {
