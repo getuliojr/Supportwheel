@@ -11,12 +11,10 @@ namespace Crossover.Domain
         public int intIdUserCreated { get; set; }
         public virtual User UserCreated { get; set; }
 
-        [Column(TypeName = "smalldatetime")]
         public DateTime dteCreated { get; set; }
 
         public int? intIdUserModified { get; set; }
 
-        [Column(TypeName = "smalldatetime")]
         public DateTime? dteModified { get; set; }
 
     }
