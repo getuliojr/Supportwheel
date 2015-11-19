@@ -977,8 +977,8 @@ xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\app\index.html" "$(Targ
     <Exec Command="npm install" />
     -->
     <Message Condition="!EXISTS('node_modules\.bin\bower')" Text="bower does not exist" Importance="high" />
-    <Exec Command="node_modules\.bin\bower cache clean" />
-    <Exec Command="node_modules\.bin\bower install" />
+    <Exec Command="bower cache clean" />
+    <Exec Command="bower install" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
