@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Routing;
 using System.Threading;
+using Crossover.DependencyResolver.Migrations;
 
 namespace Crossover.DependencyResolver
 {
@@ -17,7 +18,7 @@ namespace Crossover.DependencyResolver
         public CrossoverContext()
             : base("CrossoverContext")
         {
-            Database.SetInitializer<CrossoverContext>(new CreateDatabaseIfNotExists<CrossoverContext>());
+           // Database.SetInitializer<CrossoverContext>(new CreateDatabaseIfNotExists<CrossoverContext>());
         }
 
         public static RequestContext GetRequestContext()
@@ -33,8 +34,10 @@ namespace Crossover.DependencyResolver
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<CrossoverContext, Configuration>());
+
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+           // modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
             modelBuilder.Properties()

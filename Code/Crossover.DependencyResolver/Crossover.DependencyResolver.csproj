@@ -58,6 +58,11 @@
   <ItemGroup>
     <Compile Include="CommandModule.cs" />
     <Compile Include="CrossoverContext.cs" />
+    <Compile Include="Migrations\201511191959506_InitialMigrations.cs" />
+    <Compile Include="Migrations\201511191959506_InitialMigrations.Designer.cs">
+      <DependentUpon>201511191959506_InitialMigrations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryModule.cs" />
   </ItemGroup>
@@ -77,6 +82,11 @@
       <Project>{26d226e0-8bb2-4f2f-8aa9-a2e1f7d132e0}</Project>
       <Name>Crossover.Queries</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201511191959506_InitialMigrations.resx">
+      <DependentUpon>201511191959506_InitialMigrations.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

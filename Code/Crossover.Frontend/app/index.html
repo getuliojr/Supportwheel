@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <!-- General META -->
@@ -10,7 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
+    
+    <!-- FallBack for appHarbor until another option is available -->
+    <link rel="stylesheet" href="/app/libs/toastr/build/toastr.css" />
+    
     <!-- WEB FONTS -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,400,300italic' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -72,6 +75,10 @@
             <script src="/app/libs/json3/lib/json3.js"></script>
             <!-- endfileblock -->
         <!--<![endif]-->
+
+        <!-- Fallback for AppHarbor until a another option is available -->
+        <script src="/app/libs/lodash/chain/lodash.js"></script>
+    
         <!-- bower:js -->
         <script src="/app/libs/jquery/dist/jquery.js"></script>
         <script src="/app/libs/es5-shim/es5-shim.js"></script>
@@ -89,8 +96,6 @@
         <script src="/app/libs/angular-aria/angular-aria.js"></script>
         <script src="/app/libs/angular-material/angular-material.js"></script>
         <script src="/app/libs/angular-messages/angular-messages.js"></script>
-        <script src="/app/libs/signalr/jquery.signalR.js"></script>
-        <script src="/app/libs/angular-signalr-hub/signalr-hub.js"></script>
         <!-- endbower -->
         <!-- fileblock:js clientJS -->
         <script src="/app/CrossoverApp.js"></script>
