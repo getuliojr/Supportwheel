@@ -1,8 +1,8 @@
 echo
 echo Instalando pacotes através do NPM
-call npm install --prefix .temp\scripts
+call npm install 
 echo
 echo Copiando scripts para a pasta correta
-call xcopy .temp\scripts\node_modules .\app\libs
+call xcopy node_modules .\app\libs /y /i /s
 echo
 echo Instalação das bibliotecas concluídas

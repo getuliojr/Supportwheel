@@ -3,9 +3,8 @@
   "version": "0.0.1",
   "description": "Chief Architect Frontend",
   "scripts": {
-    "start": "grunt",
-    "postinstall": "bower install && node node_modules/protractor/bin/webdriver-manager update",
-    "postupdate": "bower update"
+    "start": "grunt"
+
   },
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -70,6 +69,7 @@
     "ngstorage": "~0.3.10",
     "angular-jwt": "~0.0.9",
     "angular-material": "~0.11.4",
+    "angular-aria": "~1.4.7",
     "angular-messages": "~1.4.7",
     "angular-signalr-hub": "~1.5.0"
   }
