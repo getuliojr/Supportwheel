@@ -207,6 +207,7 @@
       <DependentUpon>Crossover.mdf</DependentUpon>
     </Content>
     <Content Include="packages.config" />
+    <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

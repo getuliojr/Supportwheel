@@ -971,6 +971,15 @@ xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\content" "$(TargetDir)_
 xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\app\index.html" "$(TargetDir)_PublishedWebsites\Crossover.Api" /Y /I
 )</PostBuildEvent>
   </PropertyGroup>
+  <Target Name="BeforeBuild">
+    <!--
+    <Exec Command="npm cache clean" />
+    <Exec Command="npm install" />
+    -->
+    <Message Condition="!EXISTS('node_modules\.bin\bower')" Text="bower does not exist" Importance="high" />
+    <Exec Command="node_modules\.bin\bower cache clean" />
+    <Exec Command="node_modules\.bin\bower install" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
