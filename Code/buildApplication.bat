@@ -1,0 +1,1 @@
+msbuild Crossover-CA_FE.sln /p:Configuration=Release /property:OutDir=C:\temp\Crossover

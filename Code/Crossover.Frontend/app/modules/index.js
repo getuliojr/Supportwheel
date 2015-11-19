@@ -5,10 +5,9 @@
     //Define o módulo
     angular
         .module('modules', [
+            'modules.comment',
             'modules.common',
-            'modules.topic',
-            'modules.sample'
-            
+            'modules.topic'
         ]);
  
 })();

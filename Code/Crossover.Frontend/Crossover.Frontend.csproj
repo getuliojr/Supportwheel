@@ -813,7 +813,6 @@
     <Content Include="app\libs\jquery\src\wrap.js" />
     <Content Include="app\libs\json3\lib\json3.js" />
     <Content Include="app\libs\json3\lib\json3.min.js" />
-    <Content Include="app\libs\lodash\LICENSE.txt" />
     <Content Include="app\libs\lodash\lodash.js" />
     <Content Include="app\libs\lodash\lodash.min.js" />
     <Content Include="app\libs\toastr\toastr.css" />
@@ -971,6 +970,13 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release (
+xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\app" "$(TargetDir)_PublishedWebsites\Crossover.Api\app" /Y /I /S
+xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\content" "$(TargetDir)_PublishedWebsites\Crossover.Api\content" /Y /I /S
+xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\app\index.html" "$(TargetDir)_PublishedWebsites\Crossover.Api" /Y /I
+)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
