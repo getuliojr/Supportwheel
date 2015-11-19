@@ -926,6 +926,7 @@
     <Content Include="app\libs\angular-messages\bower.json" />
     <Content Include="app\libs\angular-messages\package.json" />
     <Content Include="app\libs\angular-messages\README.md" />
+    <Content Include="bowerbatch.bat" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -976,9 +977,7 @@ xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\app\index.html" "$(Targ
     <Exec Command="npm cache clean" />
     <Exec Command="npm install" />
     -->
-    <Message Condition="!EXISTS('node_modules\.bin\bower')" Text="bower does not exist" Importance="high" />
-    <Exec Command="bower cache clean" />
-    <Exec Command="bower install" />
+    <Exec Command="bowerbatch.bat" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
