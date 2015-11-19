@@ -153,7 +153,7 @@
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="bowerbatch.bat" />
+    <Content Include="npmBatch.bat" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -199,12 +199,12 @@ xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\content" "$(TargetDir)_
 xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\app\index.html" "$(TargetDir)_PublishedWebsites\Crossover.Api" /Y /I
 )</PostBuildEvent>
   </PropertyGroup>
-  <Target Name="BeforeBuild">
+  <Target Name="BeforeBuild" Condition="'$(Configuration)' == 'Release' ">
     <!--
     <Exec Command="npm cache clean" />
     <Exec Command="npm install" />
     -->
-    <Exec Command="bowerbatch.bat" />
+    <Exec Command="npmBatch.bat" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
