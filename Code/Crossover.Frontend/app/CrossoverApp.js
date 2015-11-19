@@ -1,10 +1,10 @@
 ﻿'use strict';
 
 angular.module('CrossoverApp', ['ngAnimate', 'ngResource', 'angular-loading-bar', 'directives', 'filters', 'modules',
-    'ui.router', 'ngStorage', 'angular-jwt', 'ngMaterial', 'ngMessages', 'SignalR'])
+    'ui.router', 'ngStorage', 'angular-jwt', 'ngMaterial', 'ngMessages'])
 
-.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
-    function ($stateProvider, $urlRouterProvider, $locationProvider) {
+.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
+function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
 
         //url padrão para todos os casos que nao encontrar nada

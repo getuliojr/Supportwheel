@@ -672,6 +672,8 @@
     <Content Include="app\modules\topic\services\index.js" />
     <Content Include="app\modules\topic\services\service\index.js" />
     <Content Include="app\modules\topic\services\service\topicService.js" />
+    <Content Include="app\modules\topic\tests\NewTopicController.spec.js" />
+    <Content Include="app\modules\topic\tests\ListTopicController.spec.js" />
     <Content Include="app\modules\topic\views\viewTopic.html" />
     <Content Include="app\modules\topic\views\formTopic.html" />
     <Content Include="app\modules\topic\views\listTopics.html" />
@@ -832,7 +834,7 @@
     <Content Include="app\modules\sample\routes.js" />
     <Content Include="app\modules\sample\services\index.js" />
     <Content Include="app\modules\sample\services\newSampleService.js" />
-    <Content Include="app\modules\sample\tests\sampleController.spec.js" />
+    <None Include="app\modules\sample\tests\sampleController.spect.jst" />
     <Content Include="app\modules\sample\views\default.html" />
     <Content Include="app\CrossoverApp.js" />
     <Content Include="content\fonts\app-icons.svg" />
@@ -852,7 +854,6 @@
   <ItemGroup>
     <Folder Include="app\modules\comment\tests\" />
     <Folder Include="app\modules\common\tests\" />
-    <Folder Include="app\modules\topic\tests\" />
     <Folder Include="content\images\" />
   </ItemGroup>
   <ItemGroup>

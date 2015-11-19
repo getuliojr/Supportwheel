@@ -30,32 +30,13 @@
         vm.deleteTopic = deleteTopic;
 
 
-        
-        //init();
-
-
-        //******************************
-        //Abaixo métodos do controle
-        //******************************
-
-        function init() {
-            var subscribeCommentService = commentService.listenService(reloadTopic);
-
-            function reloadTopic(broadcastedMessage) {
-                topicService.carregar({ intIdTopic: broadcastedMessage.data.intIdTopic })
-                    .then(function (data) {
-                        angular.extend(vm.data.comments, data.comments);
-                    });
-            }
-        }
-
         //Check if the current user created the topic, if so, allow to edit
         function userCreatedTopic(intIdUserCreated) {
             var currentUser = securityService.currentUser();
             return currentUser.intIdUser === intIdUserCreated;
         }
         
-        //Save topic
+        //Update a topic
         function save(topic) {
             topicService.salvar(topic).then(success, handleExceptionFactory);
 
@@ -64,7 +45,7 @@
                 $state.go('topic.view.index', { intIdTopic: topic.intIdTopic }, { reload: true });
             }
         }
-
+        //Delete a topic
         function deleteTopic(intIdTopic) {
             topicService.remover({ intIdTopic: intIdTopic }).then(success, handleExceptionFactory);
 

@@ -17,25 +17,22 @@ module.exports = function (config) {
       'app/libs/lodash/lodash.js',
       'app/libs/angular-ui-router/release/angular-ui-router.js',
       'app/libs/toastr/toastr.js',
+      'app/libs/ngstorage/ngStorage.js',
+      'app/libs/angular-material/angular-material.js',
+      'app/libs/angular-aria/angular-aria.js',
 
 
-      // nossa aplicação
-      'app/CrossoverApp.js',
+      // nossa aplicação e testes
+      'app/*.js',
       'app/directives/{,*/}*.js',
       'app/filters/{,*/}*.js',
-      'app/modules/{,*/}*.js',
-      'app/modules/{,*/}controllers/*.js',
-      'app/modules/{,*/}services/*.js',
+      'app/modules/**/*.js',
 
       // templates
       //'app/directives/**/*.{htm, html}',
       //'app/filters/**/*.{htm, html}',
       'app/modules/**/views/*.{html, htm}',
 
-      //Testes
-      //'app/directives/**/*.spec.js',
-      //'app/filters/**/*.spec.js',
-      'app/modules/**/*.spec.js'
 
     ],
     // lista de arquivos para excluir
