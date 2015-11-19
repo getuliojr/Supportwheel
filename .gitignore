@@ -65,4 +65,3 @@ Ankh.NoLoad
 .bower-*/
 logs/*
 !.gitkeep
-!/node_modules/*
