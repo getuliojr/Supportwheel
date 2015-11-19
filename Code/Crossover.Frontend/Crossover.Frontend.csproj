@@ -199,7 +199,8 @@ xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\content" "$(TargetDir)_
 xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\app\index.html" "$(TargetDir)_PublishedWebsites\Crossover.Api" /Y /I
 xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\package.json" "$(TargetDir)_PublishedWebsites\Crossover.Api" /Y /I
 xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\npmBatch.bat" "$(TargetDir)_PublishedWebsites\Crossover.Api" /Y /I
-call "$(TargetDir)_PublishedWebsites\Crossover.Api\npmBatch.bat"
+CD /D $(TargetDir)_PublishedWebsites\Crossover.Api
+call npmBatch.bat
 )</PostBuildEvent>
   </PropertyGroup>
   <Target Name="BeforeBuild" Condition="'$(Configuration)' == 'Release' ">
