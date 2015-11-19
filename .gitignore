@@ -37,7 +37,7 @@ ipch/
 *.vssscc
 *.bak.*
 *.bak
-!/Code/.vs/*
+/Code/.vs/*
 
 #Tools
 _ReSharper.*
@@ -59,7 +59,6 @@ Ankh.NoLoad
 .tmp
 .idea
 .nodemon
-!/app/libs/*
 .DS_Store
 .nodemonignore
 .sass-cache/
