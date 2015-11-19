@@ -58,6 +58,12 @@
     <Content Include="app\directives\addCommentDirective.js" />
     <Content Include="app\directives\animateOnLoadDirective.js" />
     <Content Include="app\directives\listCommentsDirective.js" />
+    <Content Include="app\libs\lodash\lodash.js" />
+    <Content Include="app\libs\lodash\lodash.min.js" />
+    <Content Include="app\libs\toastr\toastr.css" />
+    <Content Include="app\libs\toastr\toastr.js" />
+    <Content Include="app\libs\toastr\toastr.min.css" />
+    <Content Include="app\libs\toastr\toastr.min.js" />
     <Content Include="app\modules\comment\controllers\NewCommentController.js" />
     <Content Include="app\modules\comment\index.js" />
     <Content Include="app\modules\comment\services\index.js" />
@@ -154,6 +160,15 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="npmBatch.bat" />
+    <Content Include="app\libs\lodash\.bower.json" />
+    <Content Include="app\libs\lodash\bower.json" />
+    <Content Include="app\libs\lodash\LICENSE" />
+    <Content Include="app\libs\toastr\.bower.json" />
+    <Content Include="app\libs\toastr\bower.json" />
+    <Content Include="app\libs\toastr\README.md" />
+    <Content Include="app\libs\toastr\toastr.js.map" />
+    <Content Include="app\libs\toastr\toastr.less" />
+    <Content Include="app\libs\toastr\toastr.scss" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

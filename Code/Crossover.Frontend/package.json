@@ -54,7 +54,6 @@
     "underscore": "^1.8.3"
   },
   "dependencies": {
-    "lodash-compat": "^3.10.1",
     "angular": "~1.4.7",
     "angular-animate": "~1.4.7",
     "angular-loading-bar": "~0.8.0",
@@ -65,7 +64,6 @@
     "font-awesome": "~4.4.0",
     "jquery": "~2.1.4",
     "json3": "~3.3.2",
-    "toastr": "~2.1.2",
     "ngstorage": "~0.3.10",
     "angular-jwt": "~0.0.9",
     "angular-material": "~0.11.4",
