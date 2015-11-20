@@ -1,4 +1,5 @@
 ﻿angular.module('modules.comment', [
-     'modules.topic.services'
+    'modules.comment.controllers',
+    'modules.comment.services'
 
 ])
