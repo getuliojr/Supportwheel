@@ -13,7 +13,7 @@
 
     //Cria o serviço
     function topicService(appResourceFactory) {
-
+       
         var service = appResourceFactory("topic", "intIdTopic");
 
         //Responsável pela validação dos dados no cliente

@@ -16,34 +16,57 @@
 
             //Parâmetros obrigatórios
             if (resourceName == undefined) {
-                throw "É obrigatório informar o nome do recurso no servidor.";
+                throw "It is required to inform the name of the resource in the server.";
             }
-
+            
             //Private: Mantem os dados
             var _serviceData = {};
+            var _lastAnswer = undefined;
+            var _lastServerStatus = undefined
 
             //API Pública
             var service = {};
             service.getData = getData;
+            service.lastServerAnswer = lastServerAnswer;
+            service.lastServerStatus = lastServerStatus;
 
             //Inicializa o serviço
             init();
 
             //Funções
-            function getData() {
-                return _serviceData;
+            function getData(filter) {
+                if (filter == undefined) {
+                    return _serviceData;
+                } else {
+                    return _.find(_serviceData, filter);
+                }
             };
 
+            function lastServerAnswer() {
+                return _lastAnswer;
+            };
+
+            function lastServerStatus() {
+                return _lastServerStatus;
+            }
             function init() {
-                var mockUrl = new RegExp('^http\:\/\/.+?\/' + resourceName + '$');
-                var mockUrlWithId = new RegExp('^http\:\/\/.+?\/' + resourceName + '\/(.+)$');
+                //var mockUrl = new RegExp('^http\:\/\/.+?\/' + resourceName + '$');
+                //var mockUrlWithId = new RegExp('^http\:\/\/.+?\/' + resourceName + '\/(.+)$');
+                var mockUrl = "/api/" + resourceName; 
+                var mockUrlWithId = RegExp('/api/' + resourceName + '\/(.+)$'); 
 
                 if (seedData) {
                     _serviceData = seedData;
                 }
 
                 //Get ALL
-                $httpBackend.whenGET(mockUrl).respond(200, _serviceData);
+                $httpBackend.whenGET(mockUrl).respond(function () {
+                    _lastAnswer = _serviceData;
+                    _lastServerStatus = 200;
+                    return [200, _serviceData, {}];
+                });
+                    
+                
 
                 //Get ONE
                 $httpBackend.whenGET(mockUrlWithId).respond(function(method, url, data, headers) {
@@ -53,8 +76,12 @@
                     params[surrogateKey] = +mockId;
                     var item = _.find(_serviceData, params);
                     if (item) {
+                        _lastAnswer = item;
+                        _lastServerStatus = 200;
                         return [200, item, {}];
                     } else {
+                        _lastAnswer = "";
+                        _lastServerStatus = 404;
                         return [404, {}, {}];
                     }
                 });
@@ -64,10 +91,12 @@
                     //converte de string para json
                     data = angular.fromJson(data);
                     //gera um Id de 1000 a 99999
-                    data.id = Math.floor(Math.random() * 99999 + 1000);
+                    data[surrogateKey] = Math.floor(Math.random() * 99999 + 1000);
                     //adiciona na lista atual
                     _serviceData.push(data);
                     //retorna o registro inserido com um fakeID
+                    _lastAnswer = data;
+                    _lastServerStatus = 201;
                     return [201, data, {}];
                 });
 
@@ -82,8 +111,12 @@
                     var item = _.find(_serviceData, params);
                     if (item) {
                         angular.extend(_serviceData[_serviceData.indexOf(item)], data);
+                        _lastAnswer = data;
+                        _lastServerStatus = 200;
                         return [200, data, {}];
                     } else {
+                        _lastAnswer = "";
+                        _lastServerStatus = 404;
                         return [404, {}, {}];
                     }
                 });
@@ -98,8 +131,12 @@
                     var item = _.find(_serviceData, params);
                     if (item) {
                         var deletedItem = _serviceData.splice(_serviceData.indexOf(item), 1);
+                        _lastAnswer = deletedItem[0];
+                        _lastServerStatus = 200;
                         return [200, deletedItem[0], {}];
                     } else {
+                        _lastAnswer = "";
+                        _lastServerStatus = 404;
                         return [404, {}, {}];
                     }
                 });

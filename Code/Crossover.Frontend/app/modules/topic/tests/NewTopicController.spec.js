@@ -1,21 +1,26 @@
-﻿describe('ListTopic Controller', function () {
+﻿describe('NewTopicController', function () {
 
     //Variáveis globais de teste
     var $controller, 
-        topicService,
-        notificationService,
+        mockHandleExceptionFactory,
         handleExceptionFactory,
-        MockHttpBackendService,
-        mockTopicService;
+        MockHttpFactory,
+        mockTopicDB,
+        $httpBackend;
 
     //Carrega módulos padrões
     beforeEach(module('modules.common.services', 'ngResource', 'ui.router'));
 
-    //Carrega módulos a serem testados
-    beforeEach(module('modules.topic'));
+    //Permite verificar se o modulo handleExceptionFactory foi chamado
+    beforeEach(module('modules.topic', function ($provide) {
+        $provide.decorator('handleExceptionFactory', function ($delegate) {
+            mockHandleExceptionFactory = jasmine.createSpy('handleExceptionFactory', $delegate).and.callThrough();
+            return mockHandleExceptionFactory;
+        });
+    }));
 
     //Injeta dependencias
-    beforeEach(inject(function (_$controller_,  _notificationService_, _handleExceptionFactory_, _$state_, _topicService_,) {
+    beforeEach(inject(function (_$rootScope_, _$controller_, _$state_, _$httpBackend_, _MockHttpFactory_, _handleExceptionFactory_) {
 
         mockTopicData = [
             { intIdTopic: 1, strTitle: 'Topic1', txtDescription: 'Description1', intQtdComments: 0, intIdUserCreated: 2, strFullNameCreated: "Richard", "dteCreated":"2015-11-13T17:31:19.37" },
@@ -25,18 +30,19 @@
 
         //Mock do backend
         $httpBackend = _$httpBackend_;
-        MockHttpBackendService = _MockHttpBackendService_;
-        mockTopicService = MockHttpBackendService('topic', 'intIdTopic', mockTopicData);
-
+        MockHttpFactory = _MockHttpFactory_;
+        mockTopicDB = MockHttpFactory('topic', 'intIdTopic', mockTopicData);
+        handleExceptionFactory = _handleExceptionFactory_;
         //Cria um novo escopo
         scope = _$rootScope_.$new();
         $controller = _$controller_;
-        notificationService = _notificationService_;
-        handleExceptionFactory = _handleExceptionFactory_;
         $state = _$state_;
-        topicService = _topicService_;
-
     }));
+
+    afterEach(function () {
+        $httpBackend.verifyNoOutstandingExpectation();
+        $httpBackend.verifyNoOutstandingRequest();
+    });
 
     it('expect NewTopicController to be initialized', function () {
 
@@ -50,27 +56,24 @@
         
     });
 
-    it("should validade the required field 'strTitle' on saving", function () {
-
-        spyOn(handleExceptionFactory);
+    it("should validate the required field 'strTitle' on saving", function () {
 
         //Instancia o controller e insere no scope
         var NewTopicController = $controller('NewTopicController', { $scope: scope });
         scope.vm = NewTopicController;
 
         var myTopic = { txtDescription: 'myDescription' };
-
+        
 
         //The mock database should already have 3 records
-        expect(mockTopicService.getData().length).toBe(3);
+        expect(mockTopicDB.getData().length).toBe(3);
 
         //Try to save a record with incomplete information, no strTitle
-        scope.vm.save(myTopic);
-        $httpBackend.flush();
+        scope.vm.save(myTopic); //Since will be an validation error, so the backend is never called
         scope.$digest();
 
         //Expect to still have only 3 records on Database
-        expect(mockTopicService.getData().length).toBe(3);
+        expect(mockTopicDB.getData().length).toBe(3);
 
         //Espera ter caido em exceção
         expect(handleExceptionFactory).toHaveBeenCalled();
@@ -78,22 +81,22 @@
 
     it("should validade the required field 'txtDescription' on saving", function () {
 
-        spyOn(handleExceptionFactory);
-
-        var myTopic = { strTitle: 'myTitle' };
+        //Instancia o controller e insere no scope
         var NewTopicController = $controller('NewTopicController', { $scope: scope });
         scope.vm = NewTopicController;
 
+        var myTopic = { strTitle: 'myTitle' };
+
+
         //The mock database should already have 3 records
-        expect(mockTopicService.getData().length).toBe(3);
+        expect(mockTopicDB.getData().length).toBe(3);
 
         //Try to save a record with incomplete information, no strTitle
-        scope.vm.save(myTopic);
-        $httpBackend.flush();
+        scope.vm.save(myTopic); //Since will be an validation error, so the backend is never called
         scope.$digest();
 
-        //Espera ainda ter 3 registro na base
-        expect(mockTopicService.getData().length).toBe(3);
+        //Expect to still have only 3 records on Database
+        expect(mockTopicDB.getData().length).toBe(3);
 
         //Espera ter caido em exceção
         expect(handleExceptionFactory).toHaveBeenCalled();
@@ -102,7 +105,6 @@
     it("should create a new topic and redirect", function () {
 
         spyOn($state, 'go');
-        spyOn(handleExceptionFactory);
 
         //All required fields (only)
         var myTopic = { strTitle: 'myTitle', txtDescription: 'MyDescription' };
@@ -112,19 +114,18 @@
         scope.vm = NewTopicController;
 
         //Espera 3 tres registros no banco
-        expect(mockTopicService.getData().length).toBe(3);
+        expect(mockTopicDB.getData().length).toBe(3);
 
         //Salva o registro
-        scope.vm.salvarSample(myTopic);
+        scope.vm.save(myTopic);
         $httpBackend.flush();
         scope.$digest();
 
         //Espera ter 4 registros
-        expect(mockTopicService.getData().length).toBe(4);
-        //Espera não ter tido exceção
-        expect(handleExceptionFactory).not.toHaveBeenCalled();
+        expect(mockTopicDB.getData().length).toBe(4);
+
         //Espera ter sido redirecionado para o id criado
-        expect($state.go).toHaveBeenCalledWith('topic.view.index');
+        expect($state.go).toHaveBeenCalledWith('topic.view.index', { intIdTopic: mockTopicDB.lastServerAnswer().intIdTopic });
         
     });
    

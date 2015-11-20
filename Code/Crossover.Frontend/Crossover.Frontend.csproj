@@ -99,6 +99,7 @@
     <Content Include="app\modules\topic\services\index.js" />
     <Content Include="app\modules\topic\services\service\index.js" />
     <Content Include="app\modules\topic\services\service\topicService.js" />
+    <Content Include="app\modules\topic\tests\ManterTopicController.spec.js" />
     <Content Include="app\modules\topic\tests\NewTopicController.spec.js" />
     <Content Include="app\modules\topic\tests\ListTopicController.spec.js" />
     <Content Include="app\modules\topic\views\viewTopic.html" />

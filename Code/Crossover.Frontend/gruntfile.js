@@ -69,85 +69,85 @@ module.exports = function (grunt) {
         yeoman: appConfig,
 
         //Responsável em fazer o build da solução em .NET
-        msbuild: {
-            dev: {
-                src: ['Crossover.csproj'],
-                options: {
-                    projectConfiguration: 'Debug',
-                    targets: ['Clean', 'Rebuild'],
-                    stdout: true,
-                    version: 4.0,
-                    maxCpuCount: 4,
-                    buildParameters: {
-                        WarningLevel: 2
-                    },
-                    verbosity: 'quiet'
-                }
-            }
-        },
+        //msbuild: {
+        //    dev: {
+        //        src: ['Crossover.csproj'],
+        //        options: {
+        //            projectConfiguration: 'Debug',
+        //            targets: ['Clean', 'Rebuild'],
+        //            stdout: true,
+        //            version: 4.0,
+        //            maxCpuCount: 4,
+        //            buildParameters: {
+        //                WarningLevel: 2
+        //            },
+        //            verbosity: 'quiet'
+        //        }
+        //    }
+        //},
 
         //Configura e abre o IIS Express 8 para rodar a aplicação
-        iisexpress: {
-            server: {
-                options: {
-                    port: 44500,
-                    open: true,
-                    killOn: 'iis.done'
-                }
-            }
-        },
+        //iisexpress: {
+        //    server: {
+        //        options: {
+        //            port: 44500,
+        //            open: true,
+        //            killOn: 'iis.done'
+        //        }
+        //    }
+        //},
 
 
 
         // Watches files for changes and runs tasks based on the changed files
-        watch: {
-            serverCSFiles: {
-                files: ['./**/*.cs'],
-                tasks: ['msbuild']
-            },
-            serverASPFiles: {
-                files: ['./**/*.aspx', './**/*.master'],
-                options: {
-                    livereload: true
-                }
-            },
-            clientViews: {
-                files: ['/app/modules/{,*/}/views/*.{htm,html}'],
-                options: {
-                    livereload: true
-                }
-            },
-            clientJS: {
-                files: ['/app/*.js', '/app/directives/{,*/}*.js',
-                        '/app/filters/{,*/}*.js',
-                        '/app/modules/**/*.js',
-                        '!app/modules/**/*.spec.js'],
-                tasks: ['newer:jshint:client'],
-                options: {
-                    livereload: true
-                }
-            },
-            clientCSS: {
-                files: ['/content/styles/{,*/}*.css'],
-                tasks: ['csslint'],
-                options: {
-                    livereload: true
-                }
-            },
-            clientTest: {
-                files: ['/app/modules/{,*/}/tests/{,*/}*.spec.js'],
-                tasks: ['newer:jshint:test', 'karma:unit']
+        //watch: {
+        //    serverCSFiles: {
+        //        files: ['./**/*.cs'],
+        //        tasks: ['msbuild']
+        //    },
+        //    serverASPFiles: {
+        //        files: ['./**/*.aspx', './**/*.master'],
+        //        options: {
+        //            livereload: true
+        //        }
+        //    },
+        //    clientViews: {
+        //        files: ['/app/modules/{,*/}/views/*.{htm,html}'],
+        //        options: {
+        //            livereload: true
+        //        }
+        //    },
+        //    clientJS: {
+        //        files: ['/app/*.js', '/app/directives/{,*/}*.js',
+        //                '/app/filters/{,*/}*.js',
+        //                '/app/modules/**/*.js',
+        //                '!app/modules/**/*.spec.js'],
+        //        tasks: ['newer:jshint:client'],
+        //        options: {
+        //            livereload: true
+        //        }
+        //    },
+        //    clientCSS: {
+        //        files: ['/content/styles/{,*/}*.css'],
+        //        tasks: ['csslint'],
+        //        options: {
+        //            livereload: true
+        //        }
+        //    },
+        //    clientTest: {
+        //        files: ['/app/modules/{,*/}/tests/{,*/}*.spec.js'],
+        //        tasks: ['newer:jshint:test', 'karma:unit']
 
-            },
-            e2eTests: {
-                files: ['/app/modules/{,*/}/tests/{,*/}*.e2e.js'],
-                tasks: ['protractor:singlerun']
-            },
-            bower: {
-                files: ['../bower.json'],
-                tasks: ['wiredep']
-            }
-        },
+        //    },
+        //    e2eTests: {
+        //        files: ['/app/modules/{,*/}/tests/{,*/}*.e2e.js'],
+        //        tasks: ['protractor:singlerun']
+        //    },
+        //    bower: {
+        //        files: ['../bower.json'],
+        //        tasks: ['wiredep']
+        //    }
+        //},
 
         // The actual grunt server settings
         connect: {
@@ -294,9 +294,7 @@ module.exports = function (grunt) {
                 files: [{
                     dot: true,
                     src: [
-                        '.tmp',
-                        '/app/{,*/}*',
-                        '!app/.git*'
+                        '.tmp'
                     ]
                 }]
             },
@@ -329,7 +327,6 @@ module.exports = function (grunt) {
             app: {
                 directory: './app/libs',
                 src: 'app/index.html',
-                //ignorePath: /\.\.\//,
                 fileTypes: {
                     html: {
                         block: /(([ \t]*)<!--\s*bower:*(\S*)\s*-->)(\n|\r|.)*?(<!--\s*endbower\s*-->)/gi,
@@ -496,24 +493,24 @@ module.exports = function (grunt) {
         },
 
         // Run some tasks in parallel to speed up the build process
-        concurrent: {
-            server: {
-                tasks: ['iisexpress', 'watch'],
-                options: {
-                    logConcurrentOutput: true
-                }
-            },
-            e2e: {
-                tasks: ['connect:frontend', 'watch'],
-                options: {
-                    logConcurrentOutput: true,
-                    limit: 5
-                }
-            },
-            options: {
-                logConcurrentOutput: true
-            }
-        },
+        //concurrent: {
+        //    server: {
+        //        tasks: ['iisexpress', 'watch'],
+        //        options: {
+        //            logConcurrentOutput: true
+        //        }
+        //    },
+        //    e2e: {
+        //        tasks: ['connect:frontend', 'watch'],
+        //        options: {
+        //            logConcurrentOutput: true,
+        //            limit: 5
+        //        }
+        //    },
+        //    options: {
+        //        logConcurrentOutput: true
+        //    }
+        //},
 
 
         //Configurações para rodar o Karma (tests do angular)
@@ -537,7 +534,7 @@ module.exports = function (grunt) {
                     'app/filters/{,*/}*.js': ['coverage'],
                     'app/modules/{,*/}*.js': ['coverage'],
                     'app/modules/{,*/}controllers/*.js': ['coverage'],
-                    'app/modules/{,*/}services/*.js': ['coverage']
+                    'app/modules/{,*/}services/**/*.js': ['coverage']
 
 
                 },
@@ -551,77 +548,77 @@ module.exports = function (grunt) {
         },
 
         //Responsavel por iniciar o servidor
-        protractor_webdriver: {
-            keepAlive: {
-                options: {
-                    keepAlive: true
-                }
-            },
-            singleRun: {
-                options: {
-                    keepAlive: false
-                }
-            }
+        //protractor_webdriver: {
+        //    keepAlive: {
+        //        options: {
+        //            keepAlive: true
+        //        }
+        //    },
+        //    singleRun: {
+        //        options: {
+        //            keepAlive: false
+        //        }
+        //    }
 
-        },
+        //},
 
         //Configurações para rodar o protractor
-        protractor: {
-            options: {
-                configFile: '/app/protractor.conf.js'
-            },
-            singlerun: {
-                keepAlive: false //Para em caso de erro
-            },
-            auto: {
-                keepAlive: true //Continua rodando em caso de erro
-            },
-            debug: {
-                keepAlive: true,
-                debug: true
-            }
-        },
-        'protractor_coverage': {
-            local: {
-                options: {
-                    configFile: '/app/protractor.conf.js',
-                    keepAlive: true,
-                    noColor: false,
-                    coverageDir: appConfig.test.e2e.instrumented.path + 'app',
-                    baseUrl: 'http://localhost:7776'
-                }
-            }
-        },
-        'instrument': {
-            options: {
-                lazy: true,
-                basePath: appConfig.test.e2e.instrumented.path
-            },
-            files: [
+        //protractor: {
+        //    options: {
+        //        configFile: '/app/protractor.conf.js'
+        //    },
+        //    singlerun: {
+        //        keepAlive: false //Para em caso de erro
+        //    },
+        //    auto: {
+        //        keepAlive: true //Continua rodando em caso de erro
+        //    },
+        //    debug: {
+        //        keepAlive: true,
+        //        debug: true
+        //    }
+        //},
+        //'protractor_coverage': {
+        //    local: {
+        //        options: {
+        //            configFile: '/app/protractor.conf.js',
+        //            keepAlive: true,
+        //            noColor: false,
+        //            coverageDir: appConfig.test.e2e.instrumented.path + 'app',
+        //            baseUrl: 'http://localhost:7776'
+        //        }
+        //    }
+        //},
+        //'instrument': {
+        //    options: {
+        //        lazy: true,
+        //        basePath: appConfig.test.e2e.instrumented.path
+        //    },
+        //    files: [
 
-                '/app/CrossoverApp.js',
-                '/app/directives/{,*/}*.js',
-                '/app/filters/{,*/}*.js',
-                '/app/modules/{,*/}*.js',
-                '/app/modules/{,*/}/controllers/*.js',
-                '/app/modules/{,*/}/services/*.js'
-            ]
-        },
-        'makeReport': {
-            src: appConfig.test.e2e.instrumented.path + '/app/*.json',
-            options: {
-                type: 'html',
-                dir: appConfig.test.e2e.coverage.path + 'reports',
-                print: 'detail'
-            }
-        },
-        notify: {
-            msbuild: {
-                options: {
-                    message: 'Build concluído com sucesso.'
-                }
-            }
-        }
+        //        '/app/CrossoverApp.js',
+        //        '/app/directives/{,*/}*.js',
+        //        '/app/filters/{,*/}*.js',
+        //        '/app/modules/{,*/}*.js',
+        //        '/app/modules/{,*/}/controllers/*.js',
+        //        '/app/modules/{,*/}/services/*.js'
+        //    ]
+        //},
+        //'makeReport': {
+        //    src: appConfig.test.e2e.instrumented.path + '/app/*.json',
+        //    options: {
+        //        type: 'html',
+        //        dir: appConfig.test.e2e.coverage.path + 'reports',
+        //        print: 'detail'
+        //    }
+        //},
+        //notify: {
+        //    msbuild: {
+        //        options: {
+        //            message: 'Build concluído com sucesso.'
+        //        }
+        //    }
+        //}
     });
 
     //    grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
@@ -670,9 +667,6 @@ module.exports = function (grunt) {
     /* -- TAREFAS DE TESTE ------------------------------------------------ */
 
     grunt.registerTask('test', [
-        'clean:server',
-        'autoprefixer',
-        'connect:test',
         'karma'
     ]);
 
