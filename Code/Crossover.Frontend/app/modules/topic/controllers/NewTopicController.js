@@ -6,19 +6,20 @@
     angular
         .module('modules.topic.controllers.newTopic', [
             'modules.common.services.service.notification',
-            'modules.common.services.factory.handleException'
+            'modules.common.services.factory.handleException',
+            'modules.common.services.service.viewstate'
         ])
         .controller('NewTopicController', NewTopicController);
 
     //Injeta dependencias
-    NewTopicController.$inject = ['topicService', 'notificationService', '$state', 'handleExceptionFactory'];
+    NewTopicController.$inject = ['topicService', 'notificationService', '$state', 'handleExceptionFactory', 'viewstateService'];
     
     //Cria o módulo
-    function NewTopicController(topicService, notificationService, $state, handleExceptionFactory) {
-        var vm = this;
-
+    function NewTopicController(topicService, notificationService, $state, handleExceptionFactory, viewstateService) {
+        var vm = angular.extend(this, viewstateService.getView('topic'));
+       
         //Instancia variáveis que irão receber os dados
-        vm.dados = {};
+        //vm.dados = viewstateService.getView('topic');
 
         //Referencia os metodos disponíveis
         vm.save = save;
