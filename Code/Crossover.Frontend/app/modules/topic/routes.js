@@ -70,7 +70,7 @@
 
     //Resolve Dependencies
     loadTopicList.$inject = ['topicService', 'handleExceptionFactory'];
-    loadCurrentTopic.$inject = ['$stateParams', 'topicService', 'handleExceptionFactory']
+    loadCurrentTopic.$inject = ['$stateParams', 'topicService', 'handleExceptionFactory','$q', '$state']
 
     //Functions in route resolves
     function loadTopicList (topicService, handleExceptionFactory) {
@@ -78,9 +78,17 @@
             .catch(handleExceptionFactory);
     }
 
-    function loadCurrentTopic($stateParams, topicService, handleExceptionFactory) {
-        var intIdTopic = $stateParams.intIdTopic;
-        return topicService.carregar({ intIdTopic: intIdTopic })
+    function loadCurrentTopic($stateParams, topicService, handleExceptionFactory, $q, $state) {
+         var intIdTopic = $stateParams.intIdTopic;
+         return topicService.carregar({ intIdTopic: intIdTopic })
+            .then(function (data) {
+                if (data.intIdTopic != undefined) {
+                   return $q.resolve(data);
+                } else {
+                    $state.go('topic.list');
+                   return $q.reject({type: 'error', message: 'This topic does not exist !'});
+                }
+            })
             .catch(handleExceptionFactory);
     }
     
