@@ -25,6 +25,10 @@ namespace Crossover.Api.Controllers
         {
             var response = _mediator.Send(command);
 
+            // Notify the connected clients
+            //Hub.Clients.addItem(item);
+
+            //Notify the groups
             var subscribed = Hub.Clients.Group("comment");
             subscribed.inserted(response);
             return Ok(response);

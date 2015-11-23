@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular.module('CrossoverApp', ['ngAnimate', 'ngResource', 'angular-loading-bar', 'directives', 'filters', 'modules',
-    'ui.router', 'ngStorage', 'angular-jwt', 'ngMaterial', 'ngMessages'])
+    'ui.router', 'ngStorage', 'angular-jwt', 'ngMaterial', 'ngMessages', 'SignalR'])
 
 .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
 function ($stateProvider, $urlRouterProvider, $locationProvider) {

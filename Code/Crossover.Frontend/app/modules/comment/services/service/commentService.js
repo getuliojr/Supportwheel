@@ -5,6 +5,7 @@
     //Define o módulo
     angular.module('modules.comment.services.service.comment', [
         'modules.common.services.factory.appResource',
+        
         ])
         .service('commentService', commentService);
 
@@ -15,6 +16,7 @@
     function commentService(appResourceFactory) {
 
         var service = appResourceFactory("comment", "intIdComment");
+        service.createHub();
 
         //Responsável pela validação dos dados no cliente
         service.validar = function (dados) {

@@ -10,9 +10,9 @@
     .factory('appResourceFactory', appResourceFactory);
 
     //Injeta dependencias
-    appResourceFactory.$inject = ['$resource','$q','$rootScope', '$httpBackend', 'constEventosDb', 'baseUrlService'];
+    appResourceFactory.$inject = ['$resource', '$q', '$rootScope', '$httpBackend', 'constEventosDb', 'baseUrlService', 'Hub'];
 
-    function appResourceFactory($resource, $q, $rootScope, $httpBackend, constEventosDb, baseUrlService) {
+    function appResourceFactory($resource, $q, $rootScope, $httpBackend, constEventosDb, baseUrlService, Hub) {
 
         //Variáveis Privadas
         var _cache = {};
@@ -21,8 +21,10 @@
 
         return function (recurso, surrogateKey) {
 
-            //Devinição das variaveis
+            //Definição das variaveis
             var service = {};
+            _initHub();                             //Init Hub
+
             var webService = createResource(recurso);
 
             //Api Pública
@@ -32,6 +34,7 @@
             service.validar = validar;              //Responsável por validar o modelo, tem que ser incluida a parte o código
             service.limparCache = limparCache;      //Remove qualquer registro do cache
             service.listenService = listenService;  //When an item is added, updated or deleted this callback will be called
+            service.createHub = createHub           //Create hub for real-time update
             return service;
 
 
@@ -63,6 +66,15 @@
 
                 return deferred.promise;
             };
+            function createHub() {
+                hub.subscribe(recurso);     //Subscribe in the server
+
+                //Create server methods for user to call
+                //service.hub = {
+                //    subscribe: subscribe,
+                //    unsubscribe: unsubscribe
+                //}
+            }
             function salvar(params, successCB, failedCB) {
                 var deferred = $q.defer();
                 var queryParams = _parseParams(params);
@@ -162,6 +174,58 @@
             //***************************
             // Funções auxiliares
             //***************************
+
+            //***************
+            // HUB
+            //****************
+            function _initHub() {
+                var hub = new Hub("ApiHub", {
+
+                    //client side methods
+                    listeners: {
+                        'inserted': function (data) {
+                            _disparaEvento(constEventosDb.INSERIDO, data);
+                            console.log("hub-inserted" + data);
+                        },
+                        'updated': function (data) {
+                            _disparaEvento(constEventosDb.ATUALIZADO, data);
+                            console.log("hub-updated" + data);
+                        },
+                        'deleted': function (data) {
+                            _disparaEvento(constEventosDb.REMOVIDO, data);
+                            console.log("hub-deleted" + data)
+
+                        }
+                    },
+
+                    //server side methods
+                    methods: ['subscribe', 'unsubscribe'],
+
+                    //handle connection error
+                    errorHandler: function (error) {
+                        console.log(error);
+                    },
+
+                    hubDisconnected: function () {
+                        if (hub.connection.lastError) {
+                            hub.connection.start();
+                        }
+                    },
+
+                    logging: true,
+
+                    //specify a non default root
+                    rootPath: baseUrlService.getBaseUrl() + "signalr",
+
+                });
+            }
+            function _subscribe(recurso) {
+                hub.subscribe(recurso); //Calling a server method
+            };
+            function _unsubscribe(recurso) {
+                hub.unsubscribe(recurso); //Calling a server method
+            }
+
             function createResource(recurso) {
 
                 //$resource(url[, paramDefaults][, actions]);
