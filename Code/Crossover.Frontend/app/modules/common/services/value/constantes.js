@@ -13,7 +13,7 @@
 
     .value("constEventosDb",
         {
-            "INSERIDO_BANCO": 1, "ATUALIZADO": 2, "REMOVIDO": 3, "CARREGADO": 4
+            "INSERIDO": 1, "ATUALIZADO": 2, "REMOVIDO": 3, "CARREGADO": 4
         });
 })();
 

@@ -25,12 +25,9 @@ namespace Crossover.Api.Controllers
         {
             var response = _mediator.Send(command);
 
-            // Notify the connected clients
-            //Hub.Clients.addItem(item);
-
             //Notify the groups
             var subscribed = Hub.Clients.Group("comment");
-            subscribed.inserted(response);
+            subscribed.inserted("comment", response);
             return Ok(response);
         }
 
@@ -55,7 +52,9 @@ namespace Crossover.Api.Controllers
             command.intIdComment = id;
             var resposta = _mediator.Send(command);
 
-            return Ok("Updated Successfully!");
+            var subscribed = Hub.Clients.Group("comment");
+            subscribed.updated("comment", resposta);
+            return Ok(resposta);
         }
         
         //Delete a Comment 
@@ -65,6 +64,8 @@ namespace Crossover.Api.Controllers
 
             _mediator.Send(new DeleteCommentCommand { intIdComment = id });
 
+            var subscribed = Hub.Clients.Group("comment");
+            subscribed.removed("comment", "Deleted Successfuly");
             return Ok("Deleted Successfuly");
         }
     }

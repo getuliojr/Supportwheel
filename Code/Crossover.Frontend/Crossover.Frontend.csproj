@@ -75,6 +75,7 @@
     <Content Include="app\modules\comment\views\formComment.html" />
     <Content Include="app\modules\common\controllers\index.js" />
     <Content Include="app\modules\common\controllers\AuthController.js" />
+    <Content Include="app\modules\common\services\service\hubService.js" />
     <Content Include="app\modules\common\services\factory\index.js" />
     <Content Include="app\modules\common\services\factory\interceptorFactory.js" />
     <Content Include="app\modules\common\services\provider\authorizationProvider.js" />
@@ -85,6 +86,7 @@
     <Content Include="app\modules\common\services\service\retryQueueService.js" />
     <Content Include="app\modules\common\services\service\securityService.js" />
     <Content Include="app\modules\common\services\service\userService.js" />
+    <Content Include="app\modules\common\services\service\mediatorService.js" />
     <Content Include="app\modules\common\services\value\index.js" />
     <Content Include="app\modules\common\views\auth.html" />
     <Content Include="app\modules\common\views\authenticatedMenu.html" />

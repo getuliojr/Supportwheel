@@ -15,6 +15,7 @@
     function topicService(appResourceFactory) {
        
         var service = appResourceFactory("topic", "intIdTopic");
+        service.createHub();
 
         //Responsável pela validação dos dados no cliente
         service.validar = function (dados) {

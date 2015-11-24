@@ -41,8 +41,6 @@
             function success(inserted) {
                 vm.data.txtComment = undefined;
                 notificationService.show('success', "The comment has been successfully added.");
-                //Reload state, so it show new comments
-                $state.go('topic.view.index', { intIdTopic: inserted.intIdTopic }, { reload: true });
             }
         }
 

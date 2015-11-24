@@ -16,7 +16,7 @@
                     </span>
                     <small layout="column">
                         <span>{{item.txtDescription | limitTo: 150}}{{item.txtDescription.length > 150 ? '...' : ''}}</span><br />
-                        <span><b>{{item.intQtyComments}}</b> answers</b></span>
+                        <span><b>{{item.intQtyComments}}</b> answers </b><md-icon ng-if="!!item.showNew">fiber_new</md-icon></span>
                         <span style="color:gray;">{{ item.dteCreated | date:"MM/dd/yyyy 'at' h:mma"}} - {{item.strFullNameCreated}}</span>
                     </small><br />
                 </div>
