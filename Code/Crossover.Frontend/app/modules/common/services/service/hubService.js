@@ -44,7 +44,7 @@
                 }
             },
 
-            logging: true,
+            logging: false,  //Log to the Console
 
             //specify a non default root
             rootPath: baseUrlService.getBaseUrl() + "signalr"
@@ -60,11 +60,9 @@
         //Helper Function
         //*********************
         function subscribe(recurso) {
-            //Garante que o serviço estara criado já
             hub.promise.then(function () {
                 hub.subscribe(recurso);     //Subscribe in the server
             })
-
         };
 
         function unsubscribe(recurso) {

@@ -19,26 +19,18 @@
     //************************************
 
     //Injeta dependencias da diretiva
-    listCommentsController.$inject = ['topicService','commentService', '$rootScope'];
+    listCommentsController.$inject = ['$state','topicService','commentService', '$rootScope'];
     listComments.$inject = [];
 
-    function listCommentsController(topicService, commentService, $rootScope) {
+    function listCommentsController($state, topicService, commentService, $rootScope) {
         var vm = this;
-        vm.data = {};
-        vm.data.commentsList = this.commentsList;
 
         commentService.listenEvent.inserted(reloadTopic);
 
         function reloadTopic(broadcastedMessage) {
             topicService.carregar({ intIdTopic: broadcastedMessage.data.intIdTopic })
                 .then(function (data) {
-                    angular.extend(vm.data.commentsList, data.comments);
-                    //Required when the data comes from the Hub
-                    if (broadcastedMessage.needScopeApply) {
-                        setTimeout(function () {
-                            $rootScope.$apply();
-                        }, 4);
-                    }
+                    angular.extend(vm.commentsList, data.comments);
                 });
         }
     }
@@ -47,7 +39,7 @@
         return {
             restrict: 'E',
             templateUrl: 'app/modules/comment/views/listComments.html',
-            controllerAs: 'comment',
+            controllerAs: 'listComments',
             controller: listCommentsController,
             bindToController: true,
             scope: {

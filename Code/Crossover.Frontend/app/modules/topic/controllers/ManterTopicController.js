@@ -51,7 +51,7 @@
 
             function success() {
                 notificationService.show('success', "The topic has been deleted.");
-                $state.go('topic.list');
+                $state.go('topic.list', null, { reload: true });
             }
         }
     }

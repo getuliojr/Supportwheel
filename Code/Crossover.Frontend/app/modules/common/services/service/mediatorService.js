@@ -43,10 +43,13 @@
         function _listenEventAdd(resource, type, callbackFunction) {
             var hashValue = hashFunction(callbackFunction);
 
-            //Add new Subscriber if it is not already in the list
-            if (_.findIndex(_eventListenQueue, { hash: hashValue }) == -1) {
-                var listenItem = { resource: resource, type: type, callback: callbackFunction, hash: hashValue };
+            //Add new Subscriber or update existing one with new scope
+            var foundEventIndex = _.findIndex(_eventListenQueue, { hash: hashValue });
+            var listenItem = { resource: resource, type: type, callback: callbackFunction, hash: hashValue };
+            if (foundEventIndex == -1) {
                 _eventListenQueue.push(listenItem);
+            } else {
+                _eventListenQueue[foundEventIndex] = listenItem;
             }
             //Return an Unsubscribe Event
             return function () {

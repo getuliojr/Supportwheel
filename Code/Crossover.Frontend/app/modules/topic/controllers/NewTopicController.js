@@ -34,7 +34,7 @@
 
             function success(insertedTopic) {
                 notificationService.show('success', "The topic has been successfully created.");               
-                $state.go('topic.view.index', { intIdTopic: insertedTopic.intIdTopic });
+                $state.go('topic.view.index', { intIdTopic: insertedTopic.intIdTopic }, { reload: true });
             }
         }
 

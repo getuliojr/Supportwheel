@@ -2,7 +2,6 @@
 using MediatR;
 using Crossover.Commands.CommentCommands.Command;
 using Crossover.Queries.CommentQueries.Query;
-using Crossover.Api.Controllers;
 using Crossover.Api.Hubs;
 
 namespace Crossover.Api.Controllers
@@ -26,6 +25,7 @@ namespace Crossover.Api.Controllers
             var response = _mediator.Send(command);
 
             //Notify the groups
+            
             var subscribed = Hub.Clients.Group("comment");
             subscribed.inserted("comment", response);
             return Ok(response);

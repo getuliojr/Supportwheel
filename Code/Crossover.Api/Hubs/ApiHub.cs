@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.SignalR;
+using System.Threading.Tasks;
 
 namespace Crossover.Api.Hubs
 {
@@ -14,4 +15,5 @@ namespace Crossover.Api.Hubs
             await Groups.Remove(Context.ConnectionId, resource);
         }
     }
+
 }

@@ -24,6 +24,7 @@
 
             //Definição das variaveis
             var service = {};
+            var _hasHub = false;
 
             var webService = createResource(recurso);
 
@@ -65,6 +66,7 @@
                 return deferred.promise;
             };
             function createHub() {
+                _hasHub = true;
                 hubService.subscribe(recurso);
             }
             function salvar(params, successCB, failedCB) {
@@ -91,7 +93,9 @@
                     //se tem ID, atualiza.
                     webService.update({ id: queryParams[surrogateKey] }, queryParams)
                         .$promise.then(function (data) {
-                            mediatorService.sendEvent(recurso, tipoEvento, data, false);
+                            if (!_hasHub) {
+                                mediatorService.sendEvent(recurso, tipoEvento, data, false);
+                            }
                             deferred.resolve(data);
                         }, function (err) {
                             deferred.reject(err);
@@ -100,7 +104,9 @@
                     //novo registro, insere
                     webService.save(null, queryParams)
                         .$promise.then(function (data) {
-                            mediatorService.sendEvent(recurso, tipoEvento, data, false);
+                            if (!_hasHub) {
+                                mediatorService.sendEvent(recurso, tipoEvento, data, false);
+                            }
                             deferred.resolve(data);
                         }, function (err) {
                             deferred.reject(err);
@@ -118,7 +124,9 @@
                 } else {
                     webService.remove({ id: queryParams[surrogateKey] })
                     .$promise.then(function (data) {
-                        mediatorService.sendEvent(recurso, constEventosDb.REMOVIDO, data, false);
+                        if (_hasHub) {
+                            mediatorService.sendEvent(recurso, constEventosDb.REMOVIDO, data, false);
+                        }
                         deferred.resolve(data);
                     }, function (err) {
                         deferred.reject(err);
