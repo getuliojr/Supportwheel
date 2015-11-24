@@ -19,13 +19,13 @@
     //************************************
 
     //Injeta dependencias da diretiva
-    listCommentsController.$inject = ['$state','topicService','commentService', '$rootScope'];
+    listCommentsController.$inject = ['$state','topicService','commentService', '$scope'];
     listComments.$inject = [];
 
-    function listCommentsController($state, topicService, commentService, $rootScope) {
+    function listCommentsController($state, topicService, commentService, $scope) {
         var vm = this;
 
-        commentService.listenEvent.inserted(reloadTopic);
+        var event = commentService.listenEvent.inserted(reloadTopic);
 
         function reloadTopic(broadcastedMessage) {
             topicService.carregar({ intIdTopic: broadcastedMessage.data.intIdTopic })
@@ -33,6 +33,8 @@
                     angular.extend(vm.commentsList, data.comments);
                 });
         }
+
+        $scope.$on("$destroy",  event);
     }
 
     function listComments() {

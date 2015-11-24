@@ -27,18 +27,23 @@
 
         //Funções
         function listenEventAll(resource, callbackFunction){
-            _listenEventAdd(resource, constEventosDb.INSERIDO, callbackFunction);
-            _listenEventAdd(resource, constEventosDb.REMOVIDO, callbackFunction);
-            _listenEventAdd(resource, constEventosDb.ATUALIZADO, callbackFunction);
+            var eventoinserido = _listenEventAdd(resource, constEventosDb.INSERIDO, callbackFunction);
+            var eventoremovido = _listenEventAdd(resource, constEventosDb.REMOVIDO, callbackFunction);
+            var eventoatualizado = _listenEventAdd(resource, constEventosDb.ATUALIZADO, callbackFunction);
+            return function () {
+                eventoinserido();
+                eventoremovido();
+                eventoatualizado();
+            }
         }
         function listenEventInserted(resource, callbackFunction){
-            _listenEventAdd(resource, constEventosDb.INSERIDO, callbackFunction);
+            return _listenEventAdd(resource, constEventosDb.INSERIDO, callbackFunction);
         }
         function listenEventRemoved(resource, callbackFunction){
-            _listenEventAdd(resource, constEventosDb.REMOVIDO, callbackFunction);
+            return _listenEventAdd(resource, constEventosDb.REMOVIDO, callbackFunction);
         }
         function listenEventUpdated(resource, callbackFunction){
-            _listenEventAdd(resource, constEventosDb.ATUALIZADO, callbackFunction);
+            return _listenEventAdd(resource, constEventosDb.ATUALIZADO, callbackFunction);
         }
         function _listenEventAdd(resource, type, callbackFunction) {
             var hashValue = hashFunction(callbackFunction);

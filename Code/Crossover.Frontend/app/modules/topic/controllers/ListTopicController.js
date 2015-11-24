@@ -29,6 +29,9 @@
         function reloadTopic(broadcastedMessage) {            
             topicService.carregar().then(function (data) {
                 angular.extend(vm.topicList, data);
+                setTimeout(function () {
+                    $rootScope.$apply();
+                }, 4);
             })
         }
 

@@ -144,9 +144,9 @@
             function listenEvent(recurso) {
                 return {
                     all: function (callback) { mediatorService.listenEvent.all(recurso, callback); },
-                    inserted: function (callback) { mediatorService.listenEvent.inserted(recurso, callback); },
-                    removed: function (callback) { mediatorService.listenEvent.removed(recurso, callback); },
-                    updated: function (callback) { mediatorService.listenEvent.updated(recurso, callback); },
+                    inserted: function (callback) { return mediatorService.listenEvent.inserted(recurso, callback); },
+                    removed: function (callback) { return mediatorService.listenEvent.removed(recurso, callback); },
+                    updated: function (callback) { return mediatorService.listenEvent.updated(recurso, callback); },
                 };
 
             }
