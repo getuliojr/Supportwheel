@@ -60,8 +60,12 @@
     <Content Include="app\directives\listCommentsDirective.js" />
     <Content Include="app\libs\lodash\lodash.js" />
     <Content Include="app\libs\lodash\lodash.min.js" />
+    <Content Include="app\libs\signalr\.bower.json" />
+    <Content Include="app\libs\signalr\bower.json" />
     <Content Include="app\libs\signalr\jquery.signalR.js" />
     <Content Include="app\libs\signalr\jquery.signalR.min.js" />
+    <Content Include="app\libs\signalr\LICENSE.md" />
+    <Content Include="app\libs\signalr\README.md" />
     <Content Include="app\libs\toastr\toastr.css" />
     <Content Include="app\libs\toastr\toastr.js" />
     <Content Include="app\libs\toastr\toastr.min.css" />
@@ -174,10 +178,6 @@
     <Content Include="app\libs\toastr\toastr.js.map" />
     <Content Include="app\libs\toastr\toastr.less" />
     <Content Include="app\libs\toastr\toastr.scss" />
-    <Content Include="app\libs\signalr\.bower.json" />
-    <Content Include="app\libs\signalr\bower.json" />
-    <Content Include="app\libs\signalr\LICENSE.md" />
-    <Content Include="app\libs\signalr\README.md" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

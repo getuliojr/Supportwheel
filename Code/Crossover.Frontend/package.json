@@ -44,6 +44,7 @@
     "angular-jwt": "~0.0.9",
     "angular-material": "~0.11.4",
     "angular-aria": "~1.4.7",
-    "angular-messages": "~1.4.7"
+    "angular-messages": "~1.4.7",
+    "angular-signalr-hub": "~1.5.0"
   }
 }

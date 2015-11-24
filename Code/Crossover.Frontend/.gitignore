@@ -47,7 +47,6 @@ app/libs/font-awesome
 app/libs/jquery
 app/libs/json3
 app/libs/ngstorage
-app/libs/signalr
 
 # IntelliJ IDEA
 
