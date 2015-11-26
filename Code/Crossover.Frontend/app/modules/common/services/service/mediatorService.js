@@ -21,25 +21,25 @@
         this.listenEvent =  {
             all: listenEventAll,
             inserted: listenEventInserted,
-            removed: listenEventRemoved,
+            deleted: listenEventDeleted,
             updated: listenEventUpdated
         };
 
         //Funções
         function listenEventAll(resource, callbackFunction){
             var eventInserted = listenEventInserted(resource, callbackFunction);
-            var eventRemoved = listenEventRemoved(resource, callbackFunction);
+            var eventDeleted = listenEventDeleted(resource, callbackFunction);
             var eventUpdated = listenEventUpdated(resource, callbackFunction);
             return function () {
                 eventInserted();
-                eventRemoved();
+                eventDeleted();
                 eventUpdated();
             }
         }
         function listenEventInserted(resource, callbackFunction){
             return _listenEventAdd(resource, constEventosDb.INSERIDO, callbackFunction);
         }
-        function listenEventRemoved(resource, callbackFunction){
+        function listenEventDeleted(resource, callbackFunction){
             return _listenEventAdd(resource, constEventosDb.REMOVIDO, callbackFunction);
         }
         function listenEventUpdated(resource, callbackFunction){
@@ -86,11 +86,12 @@
         
         function sendEvent(resource, type, data, applyScope) {
             //Message to be broadcasted
-            var broadcastMessage = { type: type, data: data };
-
+            var broadcastMessage = { type: type, data: data, from: "app" };
             if (applyScope) {
-                broadcastMessage.needScopeApply = true
+                broadcastMessage.needScopeApply = true;
+                broadcastMessage.from = "hub";
             }
+
 
             //Call users who subscribed to event
             var lengthEvent = _eventListenQueue.length;

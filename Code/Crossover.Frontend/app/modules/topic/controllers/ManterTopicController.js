@@ -29,6 +29,26 @@
         vm.save = save;
         vm.deleteTopic = deleteTopic;
 
+        var topicDeletedEvent = topicService.listenEvent.deleted(topicDeleted);
+        var topicUpdatedEvent = topicService.listenEvent.updated(topicUpdated);
+
+        function topicUpdated(broadcastedMessage) {
+            if (broadcastedMessage.data.intIdTopic == topic.intIdTopic) {
+                //Own topic updated, refresh
+                topicService.carregar({ intIdTopic: broadcastedMessage.data.intIdTopic, applyScope: true })
+                    .then(function (data) {
+                        angular.extend(vm.data, data);
+                    })
+            }
+        };
+
+        function topicDeleted(broadcastedMessage) {
+            if (broadcastedMessage.data.intIdTopic == topic.intIdTopic && broadcastedMessage.from == "hub") {
+                //Own topic deleted, move to topics list:
+                notificationService.show('warning', "This topic has been deleted by its owner.");
+                $state.go('topic.list', null, { reload: true });
+            }
+        };
 
         //Check if the current user created the topic, if so, allow to edit
         function userCreatedTopic(intIdUserCreated) {
