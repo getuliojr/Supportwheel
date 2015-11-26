@@ -4,7 +4,6 @@ using Crossover.Commands.TopicCommands.Command;
 using Crossover.Queries.TopicQueries.Query;
 using Crossover.Api.Hubs;
 
-
 namespace Crossover.Api.Controllers
 {
 
@@ -24,10 +23,6 @@ namespace Crossover.Api.Controllers
         public IHttpActionResult PostTopic([FromBody]CreateTopicCommand command)
         {
             var resposta = _mediator.Send(command);
-
-            var subscribed = Hub.Clients.Group("comment");
-            subscribed.inserted("topic", resposta);
-
             return Ok(resposta);
         }
 
@@ -66,10 +61,7 @@ namespace Crossover.Api.Controllers
         {
             command.intIdTopic = id;
             var resposta = _mediator.Send(command);
-
-            var subscribed = Hub.Clients.Group("comment");
-            subscribed.updated("topic", resposta);
-            return Ok("Updated Successfully!");
+            return Ok(resposta);
         }
         
         //Delete a Topic 
@@ -77,12 +69,9 @@ namespace Crossover.Api.Controllers
         [Authorize]
         public IHttpActionResult DeleteTopic(int id)
         {
-
-            _mediator.Send(new DeleteTopicCommand { intIdTopic = id });
-
-            var subscribed = Hub.Clients.Group("comment");
-            subscribed.removed("topic", "Deleted Successfuly");
-            return Ok("Deleted Successfuly");
+            var command = new DeleteTopicCommand { intIdTopic = id };
+            _mediator.Send(command);
+            return Ok(command);
         }
     }
 }

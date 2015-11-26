@@ -12,26 +12,27 @@
         .controller('ListTopicController', ListTopicController);
 
     //Injeta dependencias
-    ListTopicController.$inject = ['topicList', 'securityService', 'topicService', 'commentService', '$rootScope'];
+    ListTopicController.$inject = ['topicList', 'securityService', 'topicService', 'commentService', '$scope'];
     
     //Cria o módulo
-    function ListTopicController(topicList, securityService, topicService, commentService, $rootScope) {
+    function ListTopicController(topicList, securityService, topicService, commentService, $scope) {
         var vm = this;
 
         //Instancia variáveis que irão receber os dados
         vm.topicList = topicList;
         vm.isAuthenticated = securityService.isAuthenticated;
 
-        topicService.listenEvent.all(reloadTopic);
-        commentService.listenEvent.inserted(addComment);
+        var topicEvent = topicService.listenEvent.all(reloadTopic);
+        var commentEvent = commentService.listenEvent.inserted(addComment);
+
+        //Cleanup events when controller is destroyed
+        $scope.$on("$destroy", topicEvent);
+        $scope.$on("$destroy", commentEvent);
 
         //If updated, deleted or inserted a new topic, update view
         function reloadTopic(broadcastedMessage) {            
-            topicService.carregar().then(function (data) {
-                angular.extend(vm.topicList, data);
-                setTimeout(function () {
-                    $rootScope.$apply();
-                }, 4);
+            topicService.carregar({applyScope: true}).then(function (data) {
+                vm.topicList = data;
             })
         }
 

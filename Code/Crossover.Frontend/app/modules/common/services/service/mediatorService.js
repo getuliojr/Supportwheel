@@ -27,13 +27,13 @@
 
         //Funções
         function listenEventAll(resource, callbackFunction){
-            var eventoinserido = _listenEventAdd(resource, constEventosDb.INSERIDO, callbackFunction);
-            var eventoremovido = _listenEventAdd(resource, constEventosDb.REMOVIDO, callbackFunction);
-            var eventoatualizado = _listenEventAdd(resource, constEventosDb.ATUALIZADO, callbackFunction);
+            var eventInserted = listenEventInserted(resource, callbackFunction);
+            var eventRemoved = listenEventRemoved(resource, callbackFunction);
+            var eventUpdated = listenEventUpdated(resource, callbackFunction);
             return function () {
-                eventoinserido();
-                eventoremovido();
-                eventoatualizado();
+                eventInserted();
+                eventRemoved();
+                eventUpdated();
             }
         }
         function listenEventInserted(resource, callbackFunction){
@@ -47,22 +47,29 @@
         }
         function _listenEventAdd(resource, type, callbackFunction) {
             var hashValue = hashFunction(callbackFunction);
-
-            //Add new Subscriber or update existing one with new scope
-            var foundEventIndex = _.findIndex(_eventListenQueue, { hash: hashValue });
             var listenItem = { resource: resource, type: type, callback: callbackFunction, hash: hashValue };
-            if (foundEventIndex == -1) {
+
+            //Check if callback was not added before on the listen event type
+            var foundEventIndex = _.findIndex(_eventListenQueue, { resource: resource, type: type, hash: hashValue });
+
+            if (foundEventIndex == -1) {    //Add new Subscriber
                 _eventListenQueue.push(listenItem);
-            } else {
+            } else {   //Update a existing one, sometimes because it was not removed on $destroy, it needs to be overwritten
                 _eventListenQueue[foundEventIndex] = listenItem;
             }
+
+            //So it can be used with $destroy for example
+            return unsubscribeEvent;
+
             //Return an Unsubscribe Event
-            return function () {
+            function unsubscribeEvent () {
                 var indexItem = _eventListenQueue.indexOf(listenItem);
                 if (indexItem > -1) {
                     _eventListenQueue.splice(indexItem, 1);
                 }
-            }
+             }
+
+
             //Helper Function
             function hashFunction(data) {
                 var value = data.toString();
@@ -78,16 +85,12 @@
         };
         
         function sendEvent(resource, type, data, applyScope) {
-
-            var serviceName = resource + "Service";
+            //Message to be broadcasted
             var broadcastMessage = { type: type, data: data };
 
             if (applyScope) {
                 broadcastMessage.needScopeApply = true
             }
-
-            //Send event through rootscope
-            $rootScope.$broadcast(serviceName, broadcastMessage);
 
             //Call users who subscribed to event
             var lengthEvent = _eventListenQueue.length;
@@ -97,7 +100,7 @@
                 }
             }
 
-            //Apply scope when it comes from hub
+            //Apply scope when it comes from hub, helpfull sometimes
             if (!!applyScope) {
                 setTimeout(function () {
                     $rootScope.$apply();

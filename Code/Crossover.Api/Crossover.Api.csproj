@@ -226,6 +226,7 @@
     <Compile Include="Controllers\HubApiController.cs" />
     <Compile Include="Controllers\TopicController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Filters\SignalRHandler.cs" />
     <Compile Include="Filters\ValidateModelAttribute.cs" />
     <Compile Include="Hubs\ApiHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

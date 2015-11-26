@@ -17,7 +17,8 @@ namespace Crossover.Api
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
             config.Filters.Add(new ValidateModelAttribute()); //Validate that models are valid and not null
-            
+            config.MessageHandlers.Add(new SignalRHandler()); //Register Webapi Handler for SignalR
+
             //Global Exception Handler
             config.Services.Replace(typeof(IExceptionHandler), new GeneralExceptionHandler());
 

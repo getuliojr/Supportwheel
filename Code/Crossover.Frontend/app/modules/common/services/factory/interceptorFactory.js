@@ -9,10 +9,10 @@
     .factory('interceptorFactory', interceptorFactory)   
 
     //Injeta dependencias
-    interceptorFactory.$inject = ['$q', '$localStorage', 'retryQueueService', '$injector'];
+    interceptorFactory.$inject = ['$q', '$localStorage', 'retryQueueService', '$injector', 'hubService'];
 
     //Funções
-    function interceptorFactory($q, $localStorage, retryQueueService, $injector) {
+    function interceptorFactory($q, $localStorage, retryQueueService, $injector, hubService) {
  
         return {
             request: _request,
@@ -26,6 +26,12 @@
         //Injeta o token
         function _request(config) {
             config.headers = config.headers || {};
+
+            //Add Hub Connection ID if it exists
+            var connectionId = hubService.getConnectionId();
+            if (connectionId != undefined) {
+                config.headers.ConnectionId = connectionId;
+            }
 
             //Se tiver um token, injeta
             if (!!$localStorage.token) {

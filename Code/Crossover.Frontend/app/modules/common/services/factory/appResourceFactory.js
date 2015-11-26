@@ -44,7 +44,12 @@
             function carregar(params) {
                 var deferred = $q.defer();
                 var queryParams = _parseParams(params);
+                var applyScope;
 
+                if (!!queryParams.applyScope) {
+                    applyScope = true;
+                    delete queryParams.applyScope;
+                }
                 if ((surrogateKey == null) || (queryParams.hasOwnProperty(surrogateKey))) {
                     //Passou a chave primária, então carrega apenas um registro
                     queryParams.id = queryParams[surrogateKey];
@@ -60,6 +65,13 @@
                         deferred.resolve(data);
                     }, function (err) {
                         deferred.reject(err);
+                    });
+                }
+                if (!!applyScope) {
+                    deferred.promise.finally(function () {
+                        setTimeout(function () {
+                            $rootScope.$apply();
+                        }, 4);
                     });
                 }
 
@@ -93,9 +105,7 @@
                     //se tem ID, atualiza.
                     webService.update({ id: queryParams[surrogateKey] }, queryParams)
                         .$promise.then(function (data) {
-                            if (!_hasHub) {
-                                mediatorService.sendEvent(recurso, tipoEvento, data, false);
-                            }
+                            mediatorService.sendEvent(recurso, tipoEvento, data, false);
                             deferred.resolve(data);
                         }, function (err) {
                             deferred.reject(err);
@@ -104,9 +114,7 @@
                     //novo registro, insere
                     webService.save(null, queryParams)
                         .$promise.then(function (data) {
-                            if (!_hasHub) {
-                                mediatorService.sendEvent(recurso, tipoEvento, data, false);
-                            }
+                            mediatorService.sendEvent(recurso, tipoEvento, data, false);
                             deferred.resolve(data);
                         }, function (err) {
                             deferred.reject(err);
@@ -124,9 +132,7 @@
                 } else {
                     webService.remove({ id: queryParams[surrogateKey] })
                     .$promise.then(function (data) {
-                        if (_hasHub) {
-                            mediatorService.sendEvent(recurso, constEventosDb.REMOVIDO, data, false);
-                        }
+                        mediatorService.sendEvent(recurso, constEventosDb.REMOVIDO, data, false);
                         deferred.resolve(data);
                     }, function (err) {
                         deferred.reject(err);
@@ -143,9 +149,9 @@
             };
             function listenEvent(recurso) {
                 return {
-                    all: function (callback) { mediatorService.listenEvent.all(recurso, callback); },
+                    all: function (callback) { return mediatorService.listenEvent.all(recurso, callback); },
                     inserted: function (callback) { return mediatorService.listenEvent.inserted(recurso, callback); },
-                    removed: function (callback) { return mediatorService.listenEvent.removed(recurso, callback); },
+                    deleted: function (callback) { return mediatorService.listenEvent.deleted(recurso, callback); },
                     updated: function (callback) { return mediatorService.listenEvent.updated(recurso, callback); },
                 };
 

@@ -1,7 +1,7 @@
 ﻿<md-card ng-if="listComments.commentsList.length > 0">
     <md-card-content>
         <md-list>
-            <md-list-item class="md-2-line animate-item" ng-repeat="item in listComments.commentsList track by item.intIdComment | orderBy:'dteCreated'" >
+            <md-list-item class="md-2-line animate-item" ng-repeat="item in listComments.commentsList | orderBy:'dteCreated' track by item.intIdComment" >
                 <md-divider ng-if="$index > -1 && listComments.commentsList.length > 1"></md-divider>
                 <div class="md-list-item-text" layout="column" layout-align="start" style="padding-top:10px;padding-bottom:10px;">
                     <small layout="column" style="display:block;">

@@ -23,11 +23,6 @@ namespace Crossover.Api.Controllers
         public IHttpActionResult PostComment([FromBody]CreateCommentCommand command)
         {
             var response = _mediator.Send(command);
-
-            //Notify the groups
-            
-            var subscribed = Hub.Clients.Group("comment");
-            subscribed.inserted("comment", response);
             return Ok(response);
         }
 
@@ -51,9 +46,6 @@ namespace Crossover.Api.Controllers
         {
             command.intIdComment = id;
             var resposta = _mediator.Send(command);
-
-            var subscribed = Hub.Clients.Group("comment");
-            subscribed.updated("comment", resposta);
             return Ok(resposta);
         }
         
@@ -61,12 +53,9 @@ namespace Crossover.Api.Controllers
         [Route("{id:int}")]
         public IHttpActionResult DeleteComment(int id)
         {
-
-            _mediator.Send(new DeleteCommentCommand { intIdComment = id });
-
-            var subscribed = Hub.Clients.Group("comment");
-            subscribed.removed("comment", "Deleted Successfuly");
-            return Ok("Deleted Successfuly");
+            var command = new DeleteCommentCommand { intIdComment = id };
+            _mediator.Send(command);
+            return Ok(command);
         }
     }
 }
