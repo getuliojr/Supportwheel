@@ -19,12 +19,6 @@ namespace Crossover.DependencyResolver
 
         }
 
-        public static RequestContext GetRequestContext()
-        {
-            HttpContextBase context = new HttpContextWrapper(HttpContext.Current);
-            return new RequestContext(context, RouteTable.Routes.GetRouteData(context));
-        }
-
         //Mapeamento das tabelas
         public DbSet<User> User { get; set; }
         public DbSet<Topic> Topic { get; set; }
