@@ -1,1 +1,1 @@
-msbuild Crossover-CA_FE.sln /p:Configuration=Release /property:OutDir=C:\temp\Crossover
+msbuild SupportWheel.sln /p:Configuration=Release /property:OutDir=C:\temp\SupportWheel

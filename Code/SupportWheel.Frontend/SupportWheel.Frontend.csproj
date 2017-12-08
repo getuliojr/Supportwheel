@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{92762E4D-4AAD-41D3-BFA1-5931C7D58D52}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SupportWheel.Frontend</RootNamespace>
+    <AssemblyName>SupportWheel.Frontend</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>12.0</OldToolsVersion>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="content\fonts\app-icons.eot" />
+    <Content Include="content\fonts\app-icons.ttf" />
+    <Content Include="content\fonts\app-icons.woff" />
+    <Content Include="content\fonts\ElegantIcons.eot" />
+    <Content Include="content\fonts\ElegantIcons.ttf" />
+    <Content Include="content\fonts\ElegantIcons.woff" />
+    <Content Include="content\styles\animation.css" />
+    <Content Include="content\styles\appCustom.css" />
+    <Content Include="index.html" />
+    <Content Include="package.json" />
+    <Content Include="postcss.config.js" />
+    <Content Include="webpack.config.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\fonts\app-icons.svg" />
+    <Content Include="content\fonts\ElegantIcons.svg" />
+    <Content Include="content\styles\appIcons.css" />
+    <Content Include="content\styles\elegantIcons.css" />
+    <Content Include="karma.conf.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="content\images\" />
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\app\app.component.js" />
+    <Content Include="src\app\app.config.js" />
+    <Content Include="src\app\app.constants.js" />
+    <Content Include="src\app\app.html" />
+    <Content Include="src\app\app.js" />
+    <Content Include="src\app\app.run.js" />
+    <Content Include="src\app\app.spec.js" />
+    <Content Include="src\app\components\index.js" />
+    <Content Include="src\app\shared\index.js" />
+    <Content Include="src\app\shared\services\authorization.provider.js" />
+    <Content Include="src\app\shared\services\baseUrl.service.js" />
+    <Content Include="src\app\shared\services\exception.service.js" />
+    <Content Include="src\app\shared\services\hub.service.js" />
+    <Content Include="src\app\shared\services\index.js" />
+    <Content Include="src\app\shared\services\interceptor.service.js" />
+    <Content Include="src\app\shared\services\mediator.service.js" />
+    <Content Include="src\app\shared\services\notification.service.js" />
+    <Content Include="src\app\shared\services\retryQueue.service.js" />
+    <Content Include="src\app\shared\services\security.service.js" />
+    <Content Include="src\app\shared\services\usuario.service.js" />
+    <Content Include="src\app\shared\services\viewstate.service.js" />
+    <Content Include="src\app\shared\services\webApi.service.js" />
+    <Content Include="src\public\img\favicon.ico" />
+    <Content Include="src\public\img\logo.png" />
+    <Content Include="src\public\index.html" />
+    <Content Include="src\style\app.css" />
+    <Content Include="src\tests.webpack.js" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="npmBatch.bat" />
+    <Content Include=".babelrc" />
+    <Content Include="package-lock.json" />
+    <Content Include="npm-debug.log" />
+    <None Include="packages.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MSBuild.Microsoft.VisualStudio.Web.targets.14.0.0\tools\VSToolsPath\WebApplications\Microsoft.WebApplication.targets" Condition="true" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>14656</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:12000</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release (
+xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\app" "$(TargetDir)_PublishedWebsites\Crossover.Api\app" /Y /I /S
+xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\content" "$(TargetDir)_PublishedWebsites\Crossover.Api\content" /Y /I /S
+xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\app\index.html" "$(TargetDir)_PublishedWebsites\Crossover.Api" /Y /I
+xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\package.json" "$(TargetDir)_PublishedWebsites\Crossover.Api" /Y /I
+xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\npmBatch.bat" "$(TargetDir)_PublishedWebsites\Crossover.Api" /Y /I
+CD /D $(TargetDir)_PublishedWebsites\Crossover.Api
+call npmBatch.bat
+)</PostBuildEvent>
+  </PropertyGroup>
+  <Target Name="BeforeBuild" Condition="'$(Configuration)' == 'Release' ">
+    <!--
+    <Exec Command="npm cache clean" />
+    <Exec Command="npm install" />
+    
+    <Exec Command="npmBatch.bat" />-->
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
