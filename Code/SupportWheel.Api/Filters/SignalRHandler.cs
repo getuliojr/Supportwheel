@@ -25,30 +25,33 @@ namespace SupportWheel.Api.Filters
                     string[] path = request.RequestUri.AbsolutePath.Split('/');
                     var resourceName = path[2]; //The name after the '/api/'
 
-                    //Check if the ConnectionId is available at the headers
-                    List<string> excludeOwnConnectionId = new List<string>(request.Headers.GetValues("ConnectionId"));                  
-
-                    var hub = GlobalHost.ConnectionManager.GetHubContext<ApiHub>();
-                    var subscribed = hub.Clients.Group(resourceName, excludeOwnConnectionId.ToArray());
-                    
-                    //Get Response as an object (json)
-                    object responseMessage;
-                    response.TryGetContentValue(out responseMessage);
-
-                    
-
-                    //Notify subscribers of the hub about an insert, update or delete with success
-                    if (request.Method == HttpMethod.Post)
+                    //Check if the ConnectionId is available at the headers]
+                    if (request.Headers.Contains("ConnectionId"))
                     {
-                        subscribed.inserted(resourceName, responseMessage);
-                    }
-                    else if (request.Method == HttpMethod.Put)
-                    {
-                        subscribed.updated(resourceName, responseMessage);
-                    }
-                    else if (request.Method == HttpMethod.Delete)
-                    {
-                        subscribed.deleted(resourceName, responseMessage);
+                        List<string> excludeOwnConnectionId = new List<string>(request.Headers.GetValues("ConnectionId"));
+
+                        var hub = GlobalHost.ConnectionManager.GetHubContext<ApiHub>();
+                        var subscribed = hub.Clients.Group(resourceName, excludeOwnConnectionId.ToArray());
+
+                        //Get Response as an object (json)
+                        object responseMessage;
+                        response.TryGetContentValue(out responseMessage);
+
+
+
+                        //Notify subscribers of the hub about an insert, update or delete with success
+                        if (request.Method == HttpMethod.Post)
+                        {
+                            subscribed.inserted(resourceName, responseMessage);
+                        }
+                        else if (request.Method == HttpMethod.Put)
+                        {
+                            subscribed.updated(resourceName, responseMessage);
+                        }
+                        else if (request.Method == HttpMethod.Delete)
+                        {
+                            subscribed.deleted(resourceName, responseMessage);
+                        }
                     }
 
                 }

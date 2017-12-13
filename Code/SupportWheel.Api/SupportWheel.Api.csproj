@@ -223,9 +223,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="AutoMapper\CommandToDomainMappingProfile.cs" />
     <Compile Include="AutoMapper\DomainToQueryResultMappingProfile.cs" />
-    <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\HubApiController.cs" />
-    <Compile Include="Controllers\TopicController.cs" />
+    <Compile Include="Controllers\EngineerController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\SignalRHandler.cs" />
     <Compile Include="Filters\ValidateModelAttribute.cs" />

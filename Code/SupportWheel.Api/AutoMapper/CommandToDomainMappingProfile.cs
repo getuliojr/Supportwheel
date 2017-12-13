@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using SupportWheel.Commands.CommentCommands.Command;
-using SupportWheel.Commands.TopicCommands.Command;
 using SupportWheel.Commands.UserCommands.Command;
+using SupportWheel.Commands.ScheduleCommands.Command;
+using SupportWheel.Commands.EngineerCommands.Command;
 using SupportWheel.Domain.Entities;
 
 namespace SupportWheel.Api.AutoMapper
@@ -16,15 +16,13 @@ namespace SupportWheel.Api.AutoMapper
         protected override void Configure()
         {
 
-            //Comment
-            Mapper.CreateMap<CreateCommentCommand, Comment>();
-            Mapper.CreateMap<UpdateCommentCommand, Comment>();
-            Mapper.CreateMap<DeleteCommentCommand, Comment>();
+            //Engineer
+            Mapper.CreateMap<CreateEngineerCommand, Engineer>();
+            Mapper.CreateMap<DeleteEngineerCommand, Engineer>();
 
-            //Topic
-            Mapper.CreateMap<CreateTopicCommand, Topic>();
-            Mapper.CreateMap<UpdateTopicCommand, Topic>();
-            Mapper.CreateMap<DeleteTopicCommand, Topic>();
+            //Schedule
+            Mapper.CreateMap<CreateScheduleCommand, Schedule>();
+            Mapper.CreateMap<DeleteScheduleCommand, Schedule>();
 
             //User
             Mapper.CreateMap<CreateUserCommand, User>();

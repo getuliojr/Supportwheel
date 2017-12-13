@@ -21,8 +21,8 @@ namespace SupportWheel.DependencyResolver
 
         //Mapeamento das tabelas
         public DbSet<User> User { get; set; }
-        public DbSet<Topic> Topic { get; set; }
-        public DbSet<Comment> Comment { get; set; }
+        public DbSet<Engineer> Engineer { get; set; }
+        public DbSet<Schedule> Schedule { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

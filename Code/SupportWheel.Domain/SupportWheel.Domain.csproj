@@ -40,8 +40,8 @@
     <Compile Include="AuditableEntityAllowNull.cs" />
     <Compile Include="AuditableEntity.cs" />
     <Compile Include="Entities\Audience.cs" />
-    <Compile Include="Entities\Comment.cs" />
-    <Compile Include="Entities\Topic.cs" />
+    <Compile Include="Entities\Schedule.cs" />
+    <Compile Include="Entities\Engineer.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

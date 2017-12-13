@@ -17,6 +17,7 @@ namespace SupportWheel.Domain.Entities
 
         [Required]
         [StringLength(128)]
+        [DataType(DataType.Password)]
         public string strPassword { get; set; }
 
     }

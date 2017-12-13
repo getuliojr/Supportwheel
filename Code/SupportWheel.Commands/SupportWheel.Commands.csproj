@@ -55,22 +55,19 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommentCommands\CommandHandler\CreateCommentCommandHandler.cs" />
-    <Compile Include="CommentCommands\CommandHandler\DeleteCommentCommandHandler.cs" />
-    <Compile Include="CommentCommands\CommandHandler\UpdateCommentCommandHandler.cs" />
-    <Compile Include="CommentCommands\Command\DeleteCommentCommand.cs" />
-    <Compile Include="CommentCommands\Command\UpdateCommentCommand.cs" />
-    <Compile Include="CommentCommands\Command\CreateCommentCommand.cs" />
+    <Compile Include="EngineerCommands\CommandHandler\CreateEngineerCommandHandler.cs" />
+    <Compile Include="EngineerCommands\CommandHandler\DeleteEngineerCommandHandler.cs" />
+    <Compile Include="EngineerCommands\Command\CreateEngineerCommand.cs" />
+    <Compile Include="EngineerCommands\Command\DeleteEngineerCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TopicCommands\CommandHandler\DeleteTopicCommandHandler.cs" />
-    <Compile Include="TopicCommands\CommandHandler\UpdateTopicCommandHandler.cs" />
-    <Compile Include="TopicCommands\CommandHandler\CreateTopicCommandHandler.cs" />
-    <Compile Include="TopicCommands\Command\DeleteTopicCommand.cs" />
-    <Compile Include="TopicCommands\Command\UpdateTopicCommand.cs" />
-    <Compile Include="TopicCommands\Command\CreateTopicCommand.cs" />
+    <Compile Include="ScheduleCommands\CommandHandler\CreateScheduleCommandHandler.cs" />
+    <Compile Include="ScheduleCommands\CommandHandler\DeleteScheduleCommandHandler.cs" />
+    <Compile Include="ScheduleCommands\Command\CreateScheduleCommand.cs" />
+    <Compile Include="ScheduleCommands\Command\DeleteScheduleCommand.cs" />
     <Compile Include="UserCommands\CommandHandler\CreateUserCommandHandler.cs" />
     <Compile Include="UserCommands\Command\CreateUserCommand.cs" />
   </ItemGroup>

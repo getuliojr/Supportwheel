@@ -25,7 +25,6 @@ namespace SupportWheel.Api.Controllers
         }
 
         //Create New User
-        [Route("")]
         public IHttpActionResult PostUser([FromBody]CreateUserCommand command)
         {
             var resposta = _mediator.Send(command);
@@ -34,7 +33,6 @@ namespace SupportWheel.Api.Controllers
         }
 
         //Get user by ID
-        [Route("{id:int}")]
         [Authorize]
         public IHttpActionResult GetUser(int id)
         {

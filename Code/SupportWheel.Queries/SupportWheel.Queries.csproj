@@ -68,16 +68,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommentQueries\QueryHandler\CommentByIdQueryHandler.cs" />
-    <Compile Include="CommentQueries\QueryResult\CommentResult.cs" />
-    <Compile Include="CommentQueries\Query\CommentByIdQuery.cs" />
+    <Compile Include="EngineerQueries\QueryHandler\AllEngineersQueryHandler.cs" />
+    <Compile Include="EngineerQueries\QueryHandler\EngineerByIdQueryHandler.cs" />
+    <Compile Include="EngineerQueries\QueryResult\EngineerResult.cs" />
+    <Compile Include="EngineerQueries\Query\AllEngineersQuery.cs" />
+    <Compile Include="EngineerQueries\Query\EngineerByIdQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TopicQueries\QueryHandler\TopicByIdQueryHandler.cs" />
-    <Compile Include="TopicQueries\QueryHandler\AllTopicsQueryHandler.cs" />
-    <Compile Include="TopicQueries\QueryResult\TopicResult.cs" />
-    <Compile Include="TopicQueries\QueryResult\AllTopicsResult.cs" />
-    <Compile Include="TopicQueries\Query\TopicByIdQuery.cs" />
-    <Compile Include="TopicQueries\Query\AllTopicsQuery.cs" />
+    <Compile Include="ScheduleQueries\QueryHandler\SchedulesQueryHandler.cs" />
+    <Compile Include="ScheduleQueries\QueryResult\ScheduleResult.cs" />
+    <Compile Include="ScheduleQueries\Query\SchedulesQuery.cs" />
     <Compile Include="UserQueries\QueryHandler\CurrentUserQueryHandler.cs" />
     <Compile Include="UserQueries\QueryHandler\LoginUserQueryHandler.cs" />
     <Compile Include="UserQueries\QueryResult\CurrentUserResult.cs" />

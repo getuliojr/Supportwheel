@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using SupportWheel.Domain.Entities;
-using SupportWheel.Queries.CommentQueries.QueryResult;
-using SupportWheel.Queries.TopicQueries.QueryResult;
+using SupportWheel.Queries.EngineerQueries.QueryResult;
+using SupportWheel.Queries.ScheduleQueries.QueryResult;
 using SupportWheel.Queries.UserQueries.QueryResult;
 
 namespace SupportWheel.Api.AutoMapper
@@ -15,17 +15,12 @@ namespace SupportWheel.Api.AutoMapper
 
         protected override void Configure()
         {
-
-            //Comment
-            Mapper.CreateMap<Comment, CommentResult>()
+            //Engineer
+            Mapper.CreateMap<Engineer, EngineerResult>()
                .ForMember(dest => dest.strFullNameCreated, opt => opt.MapFrom(src => src.UserCreated.strFullName));
 
-            //Topic
-            Mapper.CreateMap<Topic, AllTopicsResult>()
-                .ForMember(dest => dest.strFullNameCreated, opt => opt.MapFrom(src => src.UserCreated.strFullName))
-                .ForMember(dest => dest.intQtyComments, opt => opt.MapFrom(src => src.Comments.Count));
-
-            Mapper.CreateMap<Topic, TopicResult>()
+            //Schedule
+            Mapper.CreateMap<Schedule, ScheduleResult>()
                .ForMember(dest => dest.strFullNameCreated, opt => opt.MapFrom(src => src.UserCreated.strFullName));
 
             //User
