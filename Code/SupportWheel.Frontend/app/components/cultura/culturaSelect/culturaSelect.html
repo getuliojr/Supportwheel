@@ -1,0 +1,23 @@
+﻿<ng-form name="$ctrl.form" novalidate="novalidate">
+    <md-autocomplete flex ng-attr-required="{{vm.required || undefined}}" 
+                     md-input-name="ddlCultura"
+                     md-selected-item="$ctrl.selectedItem"
+                     md-search-text="$ctrl.searchText"
+                     md-items="item in $ctrl.culturas | filter : $ctrl.searchText"
+                     md-item-text="item.strNomeCultura"
+                     md-floating-label="{{'CULTURA-SELECT.TITLE' | translate}}"
+                     md-selected-item-change="$ctrl.selectedItemChange(item, $ctrl.form.ddlCultura)"
+                     md-min-length="0"
+                     md-delay="100"
+                     md-autoselect="true"
+                     md-no-cache="true"
+                     >
+        <md-item-template>
+            <span md-highlight-text="$ctrl.searchText">{{item.strNomeCultura}}</span>
+        </md-item-template>
+        <div ng-messages="$ctrl.form.ddlCultura.$error" ng-if="$ctrl.form.ddlCultura.$dirty || $ctrl.form.ddlCultura.$submitted" role="alert">
+            <div ng-messages-include="form-messages"></div>
+        </div>
+    </md-autocomplete>
+</ng-form>
+

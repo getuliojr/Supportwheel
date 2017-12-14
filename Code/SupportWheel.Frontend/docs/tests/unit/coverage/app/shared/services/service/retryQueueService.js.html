@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app\shared\services\service\retryQueueService.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">all files</a> / <a href="index.html">app/shared/services/service/</a> retryQueueService.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">23.26% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>10/43</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">7.69% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">23.26% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>10/43</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function () {
+&nbsp;
+    'use strict';
+&nbsp;
+    angular.module('shared.services.service.retryQueue', [
+        
+    ])
+&nbsp;
+    .service('retryQueueService', retryQueueService);
+&nbsp;
+    //Injeta dependencias
+    retryQueueService.$inject = ['$q', '$log'];
+&nbsp;
+&nbsp;
+    // This is a generic retry queue for security failures.  Each item is expected to expose two functions: retry and 
+<span class="fstat-no" title="function not covered" >    function retryQueueService($q, $log) {</span>
+<span class="cstat-no" title="statement not covered" >        var that = this;</span>
+<span class="cstat-no" title="statement not covered" >        var retryQueue = [];</span>
+&nbsp;
+        // The public API of the service
+<span class="cstat-no" title="statement not covered" >        this.onItemAddedCallbacks = []; </span>                  // The security service puts its own handler in here!
+<span class="cstat-no" title="statement not covered" >        this.cancelAll = cancelAll;</span>
+<span class="cstat-no" title="statement not covered" >        this.hasMore = hasMore;</span>
+<span class="cstat-no" title="statement not covered" >        this.push = push;</span>
+<span class="cstat-no" title="statement not covered" >        this.pushRetryFn = pushRetryFn;</span>
+<span class="cstat-no" title="statement not covered" >        this.retryAll = retryAll;</span>
+<span class="cstat-no" title="statement not covered" >        this.retryReason = retryReason;</span>
+        
+        //Fun��es
+<span class="fstat-no" title="function not covered" >        function cancelAll() {</span>
+<span class="cstat-no" title="statement not covered" >            while (this.hasMore()) {</span>
+<span class="cstat-no" title="statement not covered" >                retryQueue.shift().cancel();</span>
+            }
+        }
+<span class="fstat-no" title="function not covered" >        function hasMore() {</span>
+<span class="cstat-no" title="statement not covered" >            return retryQueue.length &gt; 0;</span>
+        }
+<span class="fstat-no" title="function not covered" >        function push(retryItem) {</span>
+<span class="cstat-no" title="statement not covered" >            retryQueue.push(retryItem);</span>
+            // Call all the onItemAdded callbacks
+<span class="cstat-no" title="statement not covered" >            angular.forEach(that.onItemAddedCallbacks, <span class="fstat-no" title="function not covered" >function(cb) {</span></span>
+<span class="cstat-no" title="statement not covered" >                try {</span>
+<span class="cstat-no" title="statement not covered" >                    cb(retryItem);</span>
+                } catch(e) {
+<span class="cstat-no" title="statement not covered" >                    $log.error('retryQueueService.push(retryItem): callback threw an error' + e);</span>
+                }
+            });
+        }
+<span class="fstat-no" title="function not covered" >        function pushRetryFn(reason, retryFn, args) {</span>
+            // The reason parameter is optional
+<span class="cstat-no" title="statement not covered" >            if ( arguments.length === 1) {</span>
+<span class="cstat-no" title="statement not covered" >                retryFn = reason;</span>
+<span class="cstat-no" title="statement not covered" >                reason = undefined;</span>
+            }
+&nbsp;
+            // The deferred object that will be resolved or rejected by calling retry or cancel
+<span class="cstat-no" title="statement not covered" >            var deferred = $q.defer();</span>
+<span class="cstat-no" title="statement not covered" >            var retryItem = {</span>
+                reason: reason,
+                retry: <span class="fstat-no" title="function not covered" >function() {</span>
+                    // Wrap the result of the retryFn into a promise if it is not already
+<span class="cstat-no" title="statement not covered" >                    $q.when(retryFn.apply(this, args)).then(<span class="fstat-no" title="function not covered" >function(value) {</span></span>
+                        // If it was successful then resolve our deferred
+<span class="cstat-no" title="statement not covered" >                        deferred.resolve(value);</span>
+                    }, <span class="fstat-no" title="function not covered" >function(value) {</span>
+                        // Othewise reject it
+<span class="cstat-no" title="statement not covered" >                        deferred.reject(value);</span>
+                    });
+                },
+                cancel: <span class="fstat-no" title="function not covered" >function() {</span>
+                    // Give up on retrying and reject our deferred
+<span class="cstat-no" title="statement not covered" >                    deferred.reject();</span>
+                }
+            };
+<span class="cstat-no" title="statement not covered" >            that.push(retryItem);</span>
+<span class="cstat-no" title="statement not covered" >            return deferred.promise;</span>
+        }
+<span class="fstat-no" title="function not covered" >        function retryAll() {</span>
+<span class="cstat-no" title="statement not covered" >            var length = retryQueue.length;</span>
+<span class="cstat-no" title="statement not covered" >            for (var r = 0; r &lt; length; r++) {</span>
+<span class="cstat-no" title="statement not covered" >                if (r &lt;= retryQueue.length - 1) {</span>
+<span class="cstat-no" title="statement not covered" >                    retryQueue.shift().retry();</span>
+                }
+            }
+        }
+<span class="fstat-no" title="function not covered" >        function retryReason() {</span>
+<span class="cstat-no" title="statement not covered" >            return that.hasMore() &amp;&amp; retryQueue[0].reason;</span>
+        }
+    }
+})();
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 03 2015 16:44:33 GMT-0200 (Horário brasileiro de verão)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

@@ -21,7 +21,8 @@ namespace SupportWheel.Api.AutoMapper
 
             //Schedule
             Mapper.CreateMap<Schedule, ScheduleResult>()
-               .ForMember(dest => dest.strFullNameCreated, opt => opt.MapFrom(src => src.UserCreated.strFullName));
+               .ForMember(dest => dest.strFullNameCreated, opt => opt.MapFrom(src => src.UserCreated.strFullName))
+               .ForMember(dest => dest.strNameEngineer, opt => opt.MapFrom(src => src.Engineer.strNameEngineer));
 
             //User
             Mapper.CreateMap<User, LoginUserResult>();

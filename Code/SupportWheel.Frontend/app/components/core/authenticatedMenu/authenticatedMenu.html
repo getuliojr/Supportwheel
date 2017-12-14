@@ -1,0 +1,14 @@
+﻿
+<md-toolbar ng-if="authMenu.isAuthenticated()" class="lightBlueToolBar" md-scroll-shrink>
+    <div class="md-toolbar-tools" style="height:44px" layout-align="start center">
+        <md-button aria-label="New Institution" href="restrita/instituicao">
+            <md-icon>add_box</md-icon>
+            {{'AUTHENTICATED-MENU.INSTITUTIONS' | translate }}
+        </md-button>
+        <md-button aria-label="New Project" href="restrita/project">
+            <md-icon>add_box</md-icon>
+            {{'AUTHENTICATED-MENU.PROJECTS' | translate }}
+        </md-button>
+    </div>
+</md-toolbar>
+

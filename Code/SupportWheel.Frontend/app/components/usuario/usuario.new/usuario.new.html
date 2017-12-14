@@ -1,0 +1,30 @@
+﻿<form name="$ctrl.form" novalidate="novalidate">
+    <md-content layout-padding>
+        <div layout-gt-xs="row">
+            <div flex>
+                <abc-instituicao-select id="$ctrl.data.intIdInstituicao" cache="true" required="true"></abc-instituicao-select>
+            </div>
+            <div flex>
+                <md-input-container flex-gt-xs class="md-block">
+                    <label>{{'INSTITUICAO-FORM.NAME' | translate }}</label>
+                    <input name="strNomeInstituicao" type="text" data-ng-model="$ctrl.data.strNomeInstituicao" required />
+                    <div data-ng-messages="$ctrl.form.strNomeInstituicao.$error" data-ng-if="$ctrl.form.strNomeInstituicao.$touched || $ctrl.form.strNomeInstituicao.$submitted" role="alert">
+                        <div data-ng-messages-include="form-messages">
+                        </div>
+                    </div>
+                </md-input-container>
+            </div>
+        </div>
+        <br />
+        <md-button class="md-raised md-primary flex" ng-click="$ctrl.saveInstituicao($ctrl.data)">
+            {{'GENERAL.SAVE' | translate }}
+        </md-button>
+        <md-button data-ng-if="!!$ctrl.data.intIdInstituicao" class="md-raised md-warn flex" ng-click="$ctrl.removeInstituicao($ctrl.data.intIdInstituicao)" ng-attr-data-msg-confirm="{}">
+            {{'GENERAL.DELETE' | translate }}
+        </md-button>
+        <md-button data-ng-if="!!$ctrl.data.intIdInstituicao" class="md-raised md-default flex" ng-click="$ctrl.newInstituicao()">
+            {{'GENERAL.NEW-RECORD' | translate }}
+        </md-button>
+    </md-content>
+</form>
+

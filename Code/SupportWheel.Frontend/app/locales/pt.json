@@ -1,0 +1,93 @@
+{
+	"CULTURA-SELECT": {
+		"TITLE": "Idioma"
+	},
+	"AUTH": {
+		"LOGIN": "Login",
+		"LOGOUT": "Logout"
+	},
+	"AUTHENTICATED-MENU": {
+		"INSTITUTIONS": "Instituições",
+		"PROJECTS": "Projetos"
+	},
+	"DATALIST": {
+		"SELECTONE": "item selecionado.",
+		"SELECTMANY": "itens selecionados."
+	},
+	"LOGIN": {
+		"EMAIL": "E-mail",
+		"PASSWORD": "Senha",
+		"SIGNIN": "Entrar",
+		"LOGIN": "Login"
+	},
+	"USUARIO-NEW": {},
+	"CULTURA": {
+		"PORTUGUES": "Português",
+		"INGLES": "Inglês",
+		"FRANCES": "Francês",
+		"ESPANHOL": "Espanhol"
+	},
+	"FORM-MESSAGES": {
+		"REQUIRED": "Este campo é requerido.",
+		"EMAIL": "Este e-mail não é válido.",
+		"MAX-LENGTH": "Você informou mais caracteres do que este campo permite.",
+		"MIN-LENGTH": "Você informou menos caracteres do que este campo requer.",
+		"COMPARE-TO": "Deve ser igual ao campo anterior."
+	},
+	"GENERAL": {
+		"SAVED-SUCCESSFULLY": "Salvo com sucesso !",
+		"REMOVED-SUCCESSFULLY": "Apagado com sucesso !",
+		"ERROR-NOTFOUND": "O registro não foi encontrado ou foi apagado !",
+		"NEW-RECORD": "Novo registro",
+		"NO-RECORDS": "Nenhum registro foi encontrado com os filtros selecionados.",
+		"CANCEL": "Cancelar",
+		"SEARCH": "Pesquisar",
+		"SELECT": "Selecione",
+		"SAVE": "Salvar",
+		"DELETE": "Apagar"
+	},
+	"HOME": {
+		"ABOUT": "Sobre este projeto"
+	},
+	"TABS": {
+		"PROJECT": {
+			"TITLE": "Projeto",
+			"SEARCH": "Pesquisar",
+			"PROJECT": "Projeto",
+			"SELECT-PROJECT": "Selecione um projeto primeiro para visualizar as informações através da guia 'pesquisar'."
+		},
+		"INSTITUICAO": {
+			"TITLE": "Instituição",
+			"SEARCH": "Pesquisar",
+			"INSTITUICAO": "Instituição"
+		},
+		"USUARIO": {
+			"TITLE": "Usuário",
+			"SEARCH": "Pesquisar",
+			"USUARIO": "Usuário"
+		}
+	},
+	"SECURITY": {
+		"UNAUTHENTICATED-CLIENT": "Este recurso requer um usuário authenticado. Por favor entre com suas informações abaixo.",
+		"UNAUTHORIZED-CLIENT": "Você não tem permissão para ver este recurso. Por favor informe uma conta com as permissões requeridas.",
+		"UNAUTHORIZED-SERVER": "Você não tem permissão para ver este recurso. Por favor informe uma conta com as permissões requeridas.",
+		"INVALID-GRANT": "O usuário ou a senha estão incorretos."
+	},
+	"MSGCONFIRM": {
+		"TITLE": "Confirma ?",
+		"CONTENT": "Você tem certeza que quer prosseguir com esta ação ?",
+		"ARIALABEL": "Você confirma esta ação ?",
+		"OK": "Sim",
+		"CANCEL": "Não"
+	},
+	"TIPOCOOPERACAO": {
+		"REGIONAL": "Regional",
+		"BILATERAL": "Bilateral",
+		"TRILATERAL": "Trilateral"
+	},
+	"TIPOPROJETO": {
+		"PROGRAMA": "Programa",
+		"PROJETO": "Projeto",
+		"ATIVIDADE": "Atividade"
+	}
+}

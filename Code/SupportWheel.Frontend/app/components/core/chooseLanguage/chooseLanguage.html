@@ -1,0 +1,19 @@
+﻿<md-menu>
+    <md-button aria-label="Choose Language" ng-click="$mdOpenMenu($event)" md-menu-origin md-menu-align-target>
+        <md-icon>language</md-icon> {{language.getName()}}
+    </md-button>
+    <md-menu-content>
+        <md-button aria-label="Português" ng-click="language.changeLanguage('pt-BR')">
+            Português
+        </md-button>
+        <md-button aria-label="English" ng-click="language.changeLanguage('en-US')">
+            English
+        </md-button>
+        <md-button aria-label="Français" ng-click="language.changeLanguage('fr-FR')">
+            Français
+        </md-button>
+        <md-button aria-label="Español" ng-click="language.changeLanguage('es-ES')">
+            Español
+        </md-button>
+    </md-menu-content>
+</md-menu>
