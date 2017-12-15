@@ -31,8 +31,8 @@
         baseUrlService, $mdDialog, usuarioService) {
         var that = this;
 
-        var _lastAuthError = undefined;                 //Mantem o ˙ltimo erro de authenticaÁ„o
-        var loginModalOpened = false;                   //Informa se o login j· foi aberto ou n„o
+        var _lastAuthError = undefined;                 //Mantem o √∫ltimo erro de authentica√ß√£o
+        var loginModalOpened = false;                   //Informa se o login j√° foi aberto ou n√£o
 
         // Register a handler for when an item is added to the retry queue
         retryQueueService.onItemAddedCallbacks.push(function (retryItem) {
@@ -49,7 +49,7 @@
         this.isAuthenticated = isAuthenticated;           // Is the current user authenticated?
         this.login = login;                               // user: {email, password}
         this.logout = logout;                             // Logout the current user and redirect
-        this.requestCurrentUser = requestCurrentUser;     // Busca informaÁıes do usu·rio atual
+        this.requestCurrentUser = requestCurrentUser;     // Busca informa√ß√µes do usu√°rio atual
         this.showLogin = showLogin;                       // Show the modal login dialog
         this.closeLogin = closeLogin;                     // Close the modal login dialog
         this.token = token;                               // token
@@ -97,7 +97,7 @@
         */
         function login(user) {
             //Mapeia dados
-            _lastAuthError = undefined; //Limpa ˙ltimo erro a cada tentativa de login
+            _lastAuthError = undefined; //Limpa √∫ltimo erro a cada tentativa de login
 
             var data = "grant_type=password&username=" + user.username + "&password=" + user.password;
             var deferred = $q.defer();
@@ -108,15 +108,15 @@
 
             return deferred.promise;
 
-            //FunÁıes Internas do login
+            //Fun√ß√µes Internas do login
             function loginResponse(response) {
                 //Se conseguiu autenticar com sucesso, se tem o token
                 if (response.data.hasOwnProperty("access_token")) {
                     $localStorage.token = response.data;
-                    //Busca os dados do usu·rio atual com base no token recebido
+                    //Busca os dados do usu√°rio atual com base no token recebido
                     that.requestCurrentUser()
                         .then(function (user) {
-                            //Se teve sucesso e autenticou, fecha a caixa de di·logo e faz novas tentativas das chamadas pendentes
+                            //Se teve sucesso e autenticou, fecha a caixa de di√°logo e faz novas tentativas das chamadas pendentes
                             if (that.isAuthenticated()) {
                                 $mdDialog.hide();
                             }
@@ -143,11 +143,11 @@
                 return $q.when(that.currentUser());
             } else {
                 if (!that.token()) {
-                    //Se ainda n„o tem token deve abrir um modal para o usu·rio se logar
+                    //Se ainda n√£o tem token deve abrir um modal para o usu√°rio se logar
                     return retryQueueService.pushRetryFn('unauthenticated-client', that.requestCurrentUser);
                 }
                 //TODO busca usuario atual e salva em currentUser
-                return usuarioService.load({ action: 'atual', loadOne: true })
+                return usuarioService.load({ action: 'current', loadOne: true })
                     .then(function (dados) {
                         $localStorage.user = dados;
                         return $q.when(that.currentUser());
@@ -156,7 +156,7 @@
 
         };
         function showLogin() {
-            //Se ainda n„o est· aberto, abre, caso contr·rio ignora para evitar multiplus pop-ups.
+            //Se ainda n√£o est√° aberto, abre, caso contr√°rio ignora para evitar multiplus pop-ups.
             if (!loginModalOpened) {
                 loginModalOpened = true;
                 $mdDialog.show({
@@ -168,7 +168,7 @@
                     retryQueueService.retryAll(); //Refaz ultimas chamadas na fila
 
                 }, function (canceled) {
-                    //Se o usu·rio cancelou, cancela chamadas pendentes e redireciona para a tela de login.
+                    //Se o usu√°rio cancelou, cancela chamadas pendentes e redireciona para a tela de login.
                     loginModalOpened = false;
                     $q.reject("Not Authorized"); //Cancel login and stateChange
                     retryQueueService.cancelAll();
@@ -191,7 +191,7 @@
 
 
         //*************************
-        //FunÁıes Auxiliares
+        //Fun√ß√µes Auxiliares
         //*************************
         // Redirect to the given url (defaults to '/')
         function redirect(url) {

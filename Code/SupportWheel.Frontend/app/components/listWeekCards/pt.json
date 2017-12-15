@@ -1,5 +1,12 @@
-﻿{
-  "CULTURA-SELECT": {
-    "TITLE": "Idioma"
+{
+  "LISTWEEKCARDS": {
+    "WEEK": "Semana",
+    "WEEKDAYS": {
+      "1": "Segunda",
+      "2": "Terça",
+      "3": "Quarta",
+      "4": "Quinta",
+      "5": "Sexta"
+    }
   }
 }

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <!-- General META -->
@@ -38,10 +38,12 @@
         <md-toolbar layout="row" class="md-whiteframe-z1">
           <div class="md-toolbar-tools">
             <h2>
-              <span>Support Wheel of Fate</span>
+              <a href="#" aria-label="Name" ui-sref="home">
+                  {{'HOME.NAME' | translate }}
+              </a>
             </h2>
             <span flex></span>
-            <md-button aria-label="About" ui-sref="public.about">
+            <md-button aria-label="About" ui-sref="about">
               <md-icon>info</md-icon>
               {{'HOME.ABOUT' | translate }}
             </md-button>
@@ -55,7 +57,7 @@
         
         <md-content class="bgGrey" layout="row" layout-align="center center" >
             <div flex-initial style="width:1100px;" ui-view>
-              <sw-list-week-cards></sw-list-week-cards>
+              
             </div>
         </md-content>
     </div>
@@ -140,6 +142,7 @@
     <script src="/app/components/home/home.js"></script>
     <script src="/app/components/listWeekCards/listWeekCards.js"></script>
     <script src="/app/shared/services/service/scheduleService.js"></script>
+    <script src="/app/components/spinButton/spinButton.js"></script>
     <!-- endfileblock -->
 
 </body>

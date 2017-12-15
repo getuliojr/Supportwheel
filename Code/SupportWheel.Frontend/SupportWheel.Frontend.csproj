@@ -83,6 +83,8 @@
     <Content Include="app\components\index.js" />
     <Content Include="app\components\listWeekCards\listWeekCards.html" />
     <Content Include="app\components\listWeekCards\listWeekCards.js" />
+    <Content Include="app\components\spinButton\spinButton.html" />
+    <Content Include="app\components\spinButton\spinButton.js" />
     <Content Include="app\index.html" />
     <Content Include="app\libs\angular-animate\angular-animate.js" />
     <Content Include="app\libs\angular-animate\angular-animate.min.js" />
@@ -1146,6 +1148,8 @@
     <Content Include="app\components\home\pt.json" />
     <Content Include="app\components\listWeekCards\en.json" />
     <Content Include="app\components\listWeekCards\pt.json" />
+    <Content Include="app\components\spinButton\en.json" />
+    <Content Include="app\components\spinButton\pt.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

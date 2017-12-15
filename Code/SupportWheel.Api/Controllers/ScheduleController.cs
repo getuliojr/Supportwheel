@@ -25,7 +25,8 @@ namespace SupportWheel.Api.Controllers
             _mediator = mediator;
         }
 
-        //Create New 
+        //Create New
+        [Authorize]
         public IHttpActionResult PostSchedule([FromBody]CreateScheduleCommand command)
         {
             var response = _mediator.Send(command);

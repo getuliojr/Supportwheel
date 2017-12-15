@@ -30,7 +30,7 @@ namespace SupportWheel.Queries.ScheduleQueries.QueryHandler
             var totalRecords = searchQuery.Count();
 
             searchQuery = searchQuery.OrderByDescending(s => s.dteSchedule)
-                                     .ThenBy(s => s.intPeriod);
+                                     .ThenByDescending(s => s.intPeriod);
             
 
             //Paginate data if required

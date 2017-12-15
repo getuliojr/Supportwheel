@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
 
     'use strict';
 
@@ -14,7 +14,7 @@
     //Cria o serviço
     function usuarioService(appResourceFactory) {
 
-        var service = appResourceFactory("usuario", "intIdUser");
+        var service = appResourceFactory("user", "intIdUser");
 
         //Responsável pela validação dos dados no cliente
         service.validar = function (dados) {

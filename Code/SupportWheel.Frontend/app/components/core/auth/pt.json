@@ -1,6 +1,6 @@
-﻿{
+{
   "AUTH": {
     "LOGIN": "Login",
-    "LOGOUT": "Logout"
+    "LOGOUT": "Sair"
   }
 }

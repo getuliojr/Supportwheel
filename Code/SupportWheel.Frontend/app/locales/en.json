@@ -7,8 +7,7 @@
 		"LOGOUT": "Logout"
 	},
 	"AUTHENTICATED-MENU": {
-		"INSTITUTIONS": "Institutions",
-		"PROJECTS": "Projects"
+		"ENGINEERS": "Engineers"
 	},
 	"DATALIST": {
 		"SELECTONE": "item selected.",
@@ -19,6 +18,25 @@
 		"PASSWORD": "Password",
 		"SIGNIN": "Sign-in",
 		"LOGIN": "Login"
+	},
+	"LISTWEEKCARDS": {
+		"WEEK": "Week",
+		"WEEKDAYS": {
+			"1": "Monday",
+			"2": "Tueday",
+			"3": "Wednesday",
+			"4": "Thursday",
+			"5": "Friday"
+		}
+	},
+	"SPINBUTTON": {
+		"LASTDRAFTS": "Last Draft Information",
+		"DATE": "Date",
+		"PERIOD": "Period",
+		"ENGINEER": "Engineer",
+		"DRAFTBY": "Draft by:",
+		"SPIN": "Click here to spin for a new draft",
+		"SUCCESS-SAVED": "A new enginer has been succefully draft for a period."
 	},
 	"USUARIO-NEW": {},
 	"CULTURA": {
@@ -47,7 +65,8 @@
 		"DELETE": "Delete"
 	},
 	"HOME": {
-		"ABOUT": "About this Project"
+		"ABOUT": "About this Project",
+		"NAME": "Support Wheel of Fate"
 	},
 	"TABS": {
 		"PROJECT": {

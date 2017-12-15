@@ -24,8 +24,9 @@
     "SAVE": "Salvar",
     "DELETE":  "Apagar"
   },
-    "HOME": {
-    "ABOUT": "Sobre este projeto"
+  "HOME": {
+    "ABOUT": "Sobre este projeto",
+    "NAME": "Roda do Destino de Suporte"
   },
   "TABS": {
     "PROJECT": {

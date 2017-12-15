@@ -9,22 +9,17 @@
     function rotas($stateProvider) {
 
       $stateProvider
-        .state('public',
+        .state('home',
         {
           url: '/',
-          abstract: true,
           requireAuthenticatedUser: false,
-          template: '<div ui-view></div>',
+          template: '<sw-home></sw-home>',
 
         })
 
-        .state('public.about', {
-          url: 'about',
+        .state('about', {
+          url: '/about',
           template: '<sw-about></sw-about>',
-          resolve: {
-           
-            title: function () { return "TABS.PROJECT.TITLE"; }
-          },
         })
 
     }

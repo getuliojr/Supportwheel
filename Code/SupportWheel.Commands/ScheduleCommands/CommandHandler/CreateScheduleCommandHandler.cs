@@ -57,6 +57,7 @@ namespace SupportWheel.Commands.ScheduleCommands.CommandHandler
                     else
                     {
                         blnTrytoSave = false;
+                        throw ex;
                     }
                 }
             }

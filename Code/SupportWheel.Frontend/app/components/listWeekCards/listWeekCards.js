@@ -19,7 +19,8 @@
      */
     angular
       .module('components.listWeekCards', [
-        'shared.services.service.schedule'
+        'shared.services.service.schedule',
+        'shared.services.value.constantes'
       ])
 
         
@@ -42,7 +43,7 @@
         }
     });
 
-    ListWeekCardsController.$inject = ['scheduleService']
+    ListWeekCardsController.$inject = ['scheduleService', 'constEventosDb', '$scope']
 
     /**
      * @ngdoc controller
@@ -52,7 +53,7 @@
      * It has the logic behind the component
      *
      */
-    function ListWeekCardsController(scheduleService) {
+    function ListWeekCardsController(scheduleService, constEventosDb, $scope) {
 
       var vm = this;
       vm.scheduleShifts = [];
@@ -80,6 +81,8 @@
           'Friday',
           'Saturday'
         ];
+
+        //Load last drafts
         scheduleService.load().then(function (data) {
           vm.scheduleShifts = data;
 
@@ -89,6 +92,22 @@
             value.weekDay = new Date(value.dteSchedule).getDay();
           });
         });
+
+        //Listen for changes on schedule
+        var scheduleEvent = scheduleService.listenEvent.both.all(updateResult);
+
+        //Cleanup events when controller is destroyed
+        $scope.$on("$destroy", scheduleEvent);
+
+        //Responsable to change the data entered and selected by the user already to a new culture set.
+        function updateResult(result) {
+          //Se já fez uma pesquisa
+          if (result.type = constEventosDb.INSERTED) {
+            result.data.weekNumber = getWeekNumber(new Date(result.data.dteSchedule));
+            result.data.weekDay = new Date(result.data.dteSchedule).getDay();
+            vm.scheduleShifts.push(result.data);
+          }
+        }
       }
 
       /**

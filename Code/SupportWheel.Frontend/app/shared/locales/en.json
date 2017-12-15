@@ -25,7 +25,9 @@
     "DELETE": "Delete"
   },
    "HOME": {
-    "ABOUT": "About this Project"
+    "ABOUT": "About this Project",
+    "NAME": "Support Wheel of Fate"
+
   },
   "TABS": {
     "PROJECT": {

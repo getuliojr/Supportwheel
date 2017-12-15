@@ -4,11 +4,10 @@
 	},
 	"AUTH": {
 		"LOGIN": "Login",
-		"LOGOUT": "Logout"
+		"LOGOUT": "Sair"
 	},
 	"AUTHENTICATED-MENU": {
-		"INSTITUTIONS": "Instituições",
-		"PROJECTS": "Projetos"
+		"ENGINEERS": "Engenheiros"
 	},
 	"DATALIST": {
 		"SELECTONE": "item selecionado.",
@@ -19,6 +18,25 @@
 		"PASSWORD": "Senha",
 		"SIGNIN": "Entrar",
 		"LOGIN": "Login"
+	},
+	"LISTWEEKCARDS": {
+		"WEEK": "Semana",
+		"WEEKDAYS": {
+			"1": "Segunda",
+			"2": "Terça",
+			"3": "Quarta",
+			"4": "Quinta",
+			"5": "Sexta"
+		}
+	},
+	"SPINBUTTON": {
+		"LASTDRAFTS": "Informações do Último Sorteio",
+		"DATE": "Data",
+		"PERIOD": "Período",
+		"ENGINEER": "Engenheiro",
+		"DRAFTBY": "Sorteado por",
+		"SPIN": "Clique aqui para um novo sorteio",
+		"SUCCESS-SAVED": "Um novo engenheiro foi sorteado com sucesso para um novo período."
 	},
 	"USUARIO-NEW": {},
 	"CULTURA": {
@@ -47,7 +65,8 @@
 		"DELETE": "Apagar"
 	},
 	"HOME": {
-		"ABOUT": "Sobre este projeto"
+		"ABOUT": "Sobre este projeto",
+		"NAME": "Roda do Destino de Suporte"
 	},
 	"TABS": {
 		"PROJECT": {
