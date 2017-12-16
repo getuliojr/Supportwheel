@@ -1,0 +1,10 @@
+
+<md-toolbar ng-if="authMenu.isAuthenticated()" class="lightBlueToolBar" md-scroll-shrink>
+    <div class="md-toolbar-tools" style="height:44px" layout-align="start center">
+        <md-button aria-label="Engineers" href="restrict/engineer">
+            <md-icon>add_box</md-icon>
+            {{'AUTHENTICATED-MENU.ENGINEERS' | translate }}
+        </md-button>
+    </div>
+</md-toolbar>
+

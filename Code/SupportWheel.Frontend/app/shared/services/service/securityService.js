@@ -8,7 +8,7 @@
         'shared.services.service.baseUrl',
         'shared.services.service.retryQueue',
         'shared.services.factory.appResource',
-        'shared.services.service.usuario'
+        'shared.services.service.user'
     ])
 
 
@@ -25,10 +25,10 @@
 
     //Injeta dependencias
     securityService.$inject = ['$http', '$state', '$localStorage', '$q', '$location', 'retryQueueService', 'appResourceFactory',
-        'baseUrlService', '$mdDialog', 'usuarioService'];
+        'baseUrlService', '$mdDialog', 'userService'];
 
     function securityService($http, $state, $localStorage, $q, $location, retryQueueService, appResourceFactory,
-        baseUrlService, $mdDialog, usuarioService) {
+        baseUrlService, $mdDialog, userService) {
         var that = this;
 
         var _lastAuthError = undefined;                 //Mantem o último erro de authenticação
@@ -147,7 +147,7 @@
                     return retryQueueService.pushRetryFn('unauthenticated-client', that.requestCurrentUser);
                 }
                 //TODO busca usuario atual e salva em currentUser
-                return usuarioService.load({ action: 'current', loadOne: true })
+                return userService.load({ action: 'current', loadOne: true })
                     .then(function (dados) {
                         $localStorage.user = dados;
                         return $q.when(that.currentUser());

@@ -22,6 +22,10 @@
           template: '<sw-about></sw-about>',
         })
 
+        .state('signup', {
+          url: '/signup',
+          template: '<sw-signup></sw-signup>',
+        })
     }
 
 })();

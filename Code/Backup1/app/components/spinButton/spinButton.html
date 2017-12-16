@@ -1,0 +1,25 @@
+<md-card>
+  <md-card-header>
+    <md-toolbar layout="row">
+      <div class="md-toolbar-tools">
+        <md-card-header-text>
+          <span class="md-title">{{'SPINBUTTON.LASTDRAFTS' | translate }}</span>
+        </md-card-header-text>
+      </div>
+    </md-toolbar>
+  </md-card-header>
+  <md-card-content>
+    <p><span class="md-title">{{'SPINBUTTON.DATE' | translate }}</span>: <b> {{$ctrl.lastDate  | date:'dd/MMM/yyyy'}}</b></p>
+    <p><span class="md-title">{{'SPINBUTTON.PERIOD' | translate }}</span>: <b>{{$ctrl.lastPeriod}}</b></p>
+    <p><span class="md-title">{{'SPINBUTTON.ENGINEER' | translate }}</span>: <b>{{$ctrl.lastEngineer}}</b></p>
+    <!-- <p><span class="md-subhead">{{'SPINBUTTON.DRAFTBY' | translate }}</span>: {{$ctrl.lastDraftBy}}</p> -->
+    <div flex layout="row" layout-align="center center">
+      <md-button class="md-raised md-success md-primary flex" ng-click="$ctrl.spin($ctrl.lastDate, $ctrl.lastPeriod)" ng-disabled="$ctrl.lastDate == undefined">
+        {{'SPINBUTTON.SPIN' | translate }}
+      </md-button>
+    </div>
+    <md-card-content>
+</md-card>
+<br />
+
+

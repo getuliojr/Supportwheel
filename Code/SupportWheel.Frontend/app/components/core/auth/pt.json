@@ -1,6 +1,7 @@
 {
   "AUTH": {
     "LOGIN": "Login",
-    "LOGOUT": "Sair"
+    "LOGOUT": "Sair",
+    "SIGNUP": "Inscrever-se"
   }
 }

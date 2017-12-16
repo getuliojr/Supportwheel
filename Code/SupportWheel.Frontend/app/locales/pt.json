@@ -4,7 +4,8 @@
 	},
 	"AUTH": {
 		"LOGIN": "Login",
-		"LOGOUT": "Sair"
+		"LOGOUT": "Sair",
+		"SIGNUP": "Inscrever-se"
 	},
 	"AUTHENTICATED-MENU": {
 		"ENGINEERS": "Engenheiros"
@@ -18,6 +19,15 @@
 		"PASSWORD": "Senha",
 		"SIGNIN": "Entrar",
 		"LOGIN": "Login"
+	},
+	"SIGNUP": {
+		"SIGNUP": "Inscrever-se",
+		"FULLNAME": "Nome completo",
+		"EMAIL": "E-mail",
+		"PASSWORD": "Senha",
+		"CONFIRM-PASSWORD": "Confirme a senha",
+		"REGISTER": "Inscrever",
+		"REGISTERED": "A conta foi criada com sucesso. Por favor efetue o login agora."
 	},
 	"LISTWEEKCARDS": {
 		"WEEK": "Semana",

@@ -1,0 +1,11 @@
+{
+  "SIGNUP": {
+    "SIGNUP": "Sign up",
+    "FULLNAME": "Full name",
+    "EMAIL": "E-mail",
+    "PASSWORD": "Password",
+    "CONFIRM-PASSWORD": "Confirm password",
+    "REGISTER": "Register",
+    "REGISTERED": "The account has been successfully created. Please login now."
+  }
+}

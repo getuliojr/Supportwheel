@@ -1,10 +1,14 @@
 <span>
-    <span ng-if="!auth.isAuthenticated()">
-        <md-button aria-label="Login" ng-click="auth.showLogin()">
-            <md-icon>account_circle</md-icon>
-            {{'AUTH.LOGIN' | translate }}
-        </md-button>
-    </span>
+  <span ng-if="!auth.isAuthenticated()">
+    <md-button aria-label="Login" ng-click="auth.showLogin()">
+      <md-icon>account_circle</md-icon>
+      {{'AUTH.LOGIN' | translate }}
+    </md-button>
+    <md-button aria-label="Login" ui-sref="signup">
+      <md-icon>lock</md-icon>
+      {{'AUTH.SIGNUP' | translate }}
+    </md-button>
+  </span>
     <span ng-if="auth.isAuthenticated()">
         <md-menu>
             <md-button aria-label="User Information / Log-out" ng-click="$mdOpenMenu($event)" md-menu-origin md-menu-align-target>

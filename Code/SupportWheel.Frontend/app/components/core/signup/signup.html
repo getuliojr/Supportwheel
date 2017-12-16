@@ -1,0 +1,57 @@
+<!-- Validação do form apenas pelo angular e não pelo navegador e atualiza o ng-model a cada 300 milisegundos ou no submit -->
+<form name="signupForm" novalidate="novalidate">
+    <md-toolbar layout="row" class="md-whiteframe-z1">
+        <div class="md-toolbar-tools">
+            <span>
+                <md-icon>account_circle</md-icon> {{'SIGNUP.SIGNUP' | translate }}
+            </span>
+        </div>
+    </md-toolbar>
+    <md-content layout-padding>
+      <md-input-container class="md-icon-float md-block">
+        <!-- Use floating label instead of placeholder -->
+        <label>{{'SIGNUP.FULLNAME' | translate }}</label>
+        <md-icon>account_circle</md-icon>
+        <!-- WebApi Oauth expects username -->
+        <input name="txtFullName" type="text" ng-model="$ctrl.form.strFullName" required>
+        <div ng-messages="signupForm.txtFullName.$error" ng-if="signupForm.txtFullName.$touched || signupForm.$submitted" role="alert">
+          <div ng-messages-include="form-messages"></div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-icon-float md-block">
+        <!-- Use floating label instead of placeholder -->
+        <label>{{'SIGNUP.EMAIL' | translate }}</label>
+        <md-icon>email</md-icon>
+        <input name="email" type="email" ng-model="$ctrl.form.strEmail" required>
+        <div ng-messages="signupForm.email.$error" ng-if="signupForm.email.$touched || signupForm.$submitted" role="alert">
+          <div ng-messages-include="form-messages"></div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-icon-float md-block">
+        <!-- Use floating label instead of placeholder -->
+        <label>{{'SIGNUP.PASSWORD' | translate }}</label>
+        <md-icon>lock</md-icon>
+        <input name="password" type="password" ng-model="$ctrl.form.strPassword" required>
+        <div ng-messages="signupForm.password.$error" ng-if="signupForm.password.$touched || signupForm.$submitted" role="alert">
+          <div ng-messages-include="form-messages"></div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-icon-float md-block" flex-ft-sm>
+        <!-- Use floating label instead of placeholder -->
+        <label>{{'SIGNUP.CONFIRM-PASSWORD' | translate }}</label>
+        <md-icon>lock</md-icon>
+        <input name="confirmPassword" type="password" required ng-model="$ctrl.form.confirmPassword"
+               compare-to="$ctrl.form.strPassword">
+        <div ng-messages="signupForm.confirmPassword.$error" ng-if="signupForm.confirmPassword.$touched || signupForm.$submitted" role="alert">
+          <div ng-messages-include="form-messages"></div>
+        </div>
+      </md-input-container>
+      <md-button type="submit" class="md-raised md-primary" ng-click="$ctrl.signup($ctrl.form)" ng-disabled='signupForm.$invalid'>
+        {{'SIGNUP.REGISTER' | translate }}
+      </md-button>
+    </md-content>
+</form>
+
+
+
+

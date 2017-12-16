@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app\shared\services\provider\authorizationProvider.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">all files</a> / <a href="index.html">app/shared/services/provider/</a> authorizationProvider.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">23.91% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>11/46</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">10% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">23.91% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>11/46</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function () {
+&nbsp;
+    'use strict';
+&nbsp;
+    angular.module('shared.services.provider.authorization', [
+        'shared.services.service.security',
+        'shared.services.service.retryQueue',
+        'ui.router'
+    ])
+&nbsp;
+    .provider('authorization', authorizationProvider)
+    .config(addResolveToState)
+&nbsp;
+    //Injeta dependencias
+    addResolveToState.$inject = ["$stateProvider", "authorizationProvider"];
+  
+    //Verifica o tipo de permissão requerida, autenticado ou perfil e adiciona os métodos resolve necessários.
+<span class="fstat-no" title="function not covered" >    function addResolveToState($stateProvider, authorizationProvider) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        $stateProvider.decorator('path', stateProvideDecorator);</span>
+    
+<span class="fstat-no" title="function not covered" >        function stateProvideDecorator(state, parentFn) {</span>
+&nbsp;
+            //Se requer um usuário autenticado ou roles na rota, adiciona o método dinamicamente a ser utilizado
+<span class="cstat-no" title="statement not covered" >            if (!!state.self.requireAuthenticatedUser || !!state.self.allowedRoles) {</span>
+<span class="cstat-no" title="statement not covered" >                if (state.self.resolve === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >                    state.self.resolve = {};</span>
+                }
+&nbsp;
+                //Metodo para validar usuario autenticado
+<span class="cstat-no" title="statement not covered" >                if (!!state.self.requireAuthenticatedUser) {</span>
+<span class="cstat-no" title="statement not covered" >                    state.self.resolve.requireAuthenticatedUser = authorizationProvider.isUserAuthenticated;</span>
+                }
+&nbsp;
+                //Método para validar roles
+<span class="cstat-no" title="statement not covered" >                if (!!state.self.allowedRoles) {</span>
+<span class="cstat-no" title="statement not covered" >                    state.self.resolve.requireRoles = authorizationProvider.isUserinRoles</span>
+                }
+<span class="cstat-no" title="statement not covered" >                state.resolve = state.self.resolve;</span>
+            }
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return parentFn(state);</span>
+        };
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function authorizationProvider() {</span>
+&nbsp;
+        //API
+<span class="cstat-no" title="statement not covered" >        this.isUserAuthenticated = isUserAuthenticatedHelper;</span>
+<span class="cstat-no" title="statement not covered" >        this.isUserinRoles = isUserinRolesHelper;</span>
+<span class="cstat-no" title="statement not covered" >        this.$get = AuthorizationHelper;</span>
+&nbsp;
+        //Injeta dependencias
+<span class="cstat-no" title="statement not covered" >        AuthorizationHelper.$inject = ['securityService', 'retryQueueService', '$rootScope'];</span>
+<span class="cstat-no" title="statement not covered" >        isUserAuthenticatedHelper.$inject = ['authorization'];</span>
+<span class="cstat-no" title="statement not covered" >        isUserinRolesHelper.$inject = ['authorization'];</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function isUserAuthenticatedHelper(authorization) {</span>
+<span class="cstat-no" title="statement not covered" >            return authorization.isUserAuthenticated();</span>
+        }
+<span class="fstat-no" title="function not covered" >        function isUserinRolesHelper(authorization) {</span>
+<span class="cstat-no" title="statement not covered" >            var allowedRoles = this.self.allowedRoles;</span>
+<span class="cstat-no" title="statement not covered" >            return authorization.isUserinRoles(allowedRoles, "teste");</span>
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function AuthorizationHelper(securityService, retryQueueService, $rootScope) {</span>
+&nbsp;
+            //Api Pública
+<span class="cstat-no" title="statement not covered" >            var service = {</span>
+                //Métodos devem ser usados dentro do RESOLVE das rotas
+                isUserAuthenticated: isUserAuthenticated,
+                isUserinRoles: isUserinRoles
+            };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return service;</span>
+&nbsp;
+&nbsp;
+            //**********************
+            //Funções
+            //**********************
+            //Verifica se o usuário está autenticado, e caso contrário solicita login
+<span class="fstat-no" title="function not covered" >            function isUserAuthenticated() {</span>
+<span class="cstat-no" title="statement not covered" >                if (!securityService.isAuthenticated()) {</span>
+<span class="cstat-no" title="statement not covered" >                    return retryQueueService.pushRetryFn('unauthenticated-client', service.isUserAuthenticated);</span>
+                }
+            }
+            //Verifica se o usuário tem o Perfil necessário e caso contrário solicita login
+<span class="fstat-no" title="function not covered" >            function isUserinRoles(allowedRoles) {</span>
+<span class="cstat-no" title="statement not covered" >                if (!securityService.isAuthenticated()) {</span>
+<span class="cstat-no" title="statement not covered" >                    return retryQueueService.pushRetryFn('unauthenticated-client', service.isUserinRoles, arguments);</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var currentUser = securityService.currentUser();</span>
+                //Se não tiver um usuário, solicita autenticação
+<span class="cstat-no" title="statement not covered" >                if (!currentUser) {</span>
+<span class="cstat-no" title="statement not covered" >                    return retryQueueService.pushRetryFn('unauthenticated-client', service.isUserinRoles, arguments);</span>
+                }
+&nbsp;
+                //Lógica de acesso por Role
+<span class="cstat-no" title="statement not covered" >                if (allowedRoles != undefined) {</span>
+<span class="cstat-no" title="statement not covered" >                    var allowAccess = false;</span>
+<span class="cstat-no" title="statement not covered" >                    _.forEach(allowedRoles, <span class="fstat-no" title="function not covered" >function (n, key) {</span></span>
+<span class="cstat-no" title="statement not covered" >                        if (_.findIndex(currentUser.perfisUsuario, 'strNomePerfil', n) &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered" >                            allowAccess = true;</span>
+                        }
+                    });
+&nbsp;
+                    //Se não tiver acesso, bloqueia acesso através de pop-up de login
+<span class="cstat-no" title="statement not covered" >                    if (!allowAccess) {</span>
+<span class="cstat-no" title="statement not covered" >                        return retryQueueService.pushRetryFn('unauthorized-client', service.isUserinRoles, arguments);</span>
+                    }
+                }
+            }
+        }; 
+    }
+&nbsp;
+&nbsp;
+})();</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 03 2015 16:44:33 GMT-0200 (Horário brasileiro de verão)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

@@ -8,7 +8,8 @@ using System.Security.Claims;
 using System.Linq;
 using System.Net.Http;
 using SupportWheel.Commands.UserCommands.Command;
-
+using AutoMapper;
+using SupportWheel.Queries.UserQueries.QueryResult;
 
 namespace SupportWheel.Api.Controllers
 {
@@ -28,7 +29,7 @@ namespace SupportWheel.Api.Controllers
         public IHttpActionResult PostUser([FromBody]CreateUserCommand command)
         {
             var resposta = _mediator.Send(command);
-
+            var filteredResponse = Mapper.Map<CurrentUserResult>(resposta);
             return Ok(resposta);
         }
 

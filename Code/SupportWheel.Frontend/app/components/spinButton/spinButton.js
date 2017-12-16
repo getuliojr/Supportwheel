@@ -77,7 +77,7 @@
         scheduleService.load({ intPageSize: 1, intPageNumber: 1 }).then(function (data) {
           var i = 0;
           //Try to get the last date and period from the database
-          if (data.length != undefined) {
+          if (data.length > 0) {
             vm.lastDate = data[0].dteSchedule;
             vm.lastPeriod = data[0].intPeriod;
             vm.lastEngineer = data[0].strNameEngineer;
@@ -85,6 +85,7 @@
           } else {
             vm.lastDate = new Date();
             vm.lastPeriod = 1;
+            
           }
         });
       }

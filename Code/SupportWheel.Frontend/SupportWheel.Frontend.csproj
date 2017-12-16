@@ -29,7 +29,7 @@
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <OldToolsVersion>12.0</OldToolsVersion>
+    <OldToolsVersion>14.0</OldToolsVersion>
     <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -72,6 +72,8 @@
     <Content Include="app\components\core\dataList\dataList.js" />
     <Content Include="app\components\core\dataList\dataList.spec.js" />
     <Content Include="app\components\core\index.js" />
+    <Content Include="app\components\core\signup\signup.html" />
+    <Content Include="app\components\core\signup\signup.js" />
     <Content Include="app\components\core\login\login.html" />
     <Content Include="app\components\core\login\login.js" />
     <Content Include="app\components\cultura\culturaSelect\culturaSelect.html" />
@@ -806,7 +808,7 @@
     <Content Include="app\shared\services\service\retryQueueService.js" />
     <Content Include="app\shared\services\service\securityService.js" />
     <Content Include="app\shared\services\service\scheduleService.js" />
-    <Content Include="app\shared\services\service\usuarioService.js" />
+    <Content Include="app\shared\services\service\userService.js" />
     <Content Include="app\shared\services\service\viewstateService.js" />
     <Content Include="app\shared\services\value\constantes.js" />
     <Content Include="app\shared\services\value\index.js" />
@@ -1150,6 +1152,8 @@
     <Content Include="app\components\listWeekCards\pt.json" />
     <Content Include="app\components\spinButton\en.json" />
     <Content Include="app\components\spinButton\pt.json" />
+    <Content Include="app\components\core\signup\en.json" />
+    <Content Include="app\components\core\signup\pt.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -1169,7 +1173,6 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\MSBuild.Microsoft.VisualStudio.Web.targets.14.0.0\tools\VSToolsPath\WebApplications\Microsoft.WebApplication.targets" Condition="true" />
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
@@ -1206,6 +1209,7 @@ call npmBatch.bat
     
     <Exec Command="npmBatch.bat" />-->
   </Target>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v15.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

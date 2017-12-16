@@ -8,7 +8,7 @@
         'shared.services.service.notification',
         'shared.services.service.retryQueue',
         'shared.services.service.security',
-        'shared.services.service.usuario',
+        'shared.services.service.user',
       'shared.services.service.viewstate',
         'shared.services.service.schedule'
     ]);

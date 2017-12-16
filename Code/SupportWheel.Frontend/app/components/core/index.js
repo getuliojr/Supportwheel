@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     'use strict';
 
     /**
@@ -29,7 +29,8 @@
             'components.core.chooseLanguage',
             'components.core.createTabs',
             'components.core.dataList',
-            'components.core.login'
+          'components.core.login',
+          'components.core.signup'
     ]);
 
 })();

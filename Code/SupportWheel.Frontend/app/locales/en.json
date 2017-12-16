@@ -4,7 +4,8 @@
 	},
 	"AUTH": {
 		"LOGIN": "Login",
-		"LOGOUT": "Logout"
+		"LOGOUT": "Logout",
+		"SIGNUP": "Sign up"
 	},
 	"AUTHENTICATED-MENU": {
 		"ENGINEERS": "Engineers"
@@ -18,6 +19,15 @@
 		"PASSWORD": "Password",
 		"SIGNIN": "Sign-in",
 		"LOGIN": "Login"
+	},
+	"SIGNUP": {
+		"SIGNUP": "Sign up",
+		"FULLNAME": "Full name",
+		"EMAIL": "E-mail",
+		"PASSWORD": "Password",
+		"CONFIRM-PASSWORD": "Confirm password",
+		"REGISTER": "Register",
+		"REGISTERED": "The account has been successfully created. Please login now."
 	},
 	"LISTWEEKCARDS": {
 		"WEEK": "Week",
