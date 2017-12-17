@@ -38,6 +38,7 @@ ipch/
 *.bak.*
 *.bak
 /Code/.vs/*
+aplicationhost.config
 
 #Tools
 _ReSharper.*
