@@ -30,21 +30,10 @@
 
   },
   "TABS": {
-    "PROJECT": {
-      "TITLE": "Project",
+    "ENGINEER": {
+      "TITLE": "Engineers",
       "SEARCH": "Search",
-      "PROJECT": "Project",
-      "SELECT-PROJECT": "Select a project first to view its data on the search tab."
-    },
-    "INSTITUICAO": {
-      "TITLE": "Institution",
-      "SEARCH": "Search",
-      "INSTITUICAO": "Institution"
-    },
-    "USUARIO": {
-      "TITLE": "User",
-      "SEARCH": "Search",
-      "USUARIO": "User"
+      "ENGINEER": "Engineer"
     }
   },
   "SECURITY": {

@@ -1,0 +1,27 @@
+<form name="engineerForm" novalidate="novalidate">
+    <md-content layout-padding>
+        <div layout-gt-xs="row">
+            <div flex>
+                <md-input-container flex-gt-xs class="md-block">
+                    <label>{{'ENGINEER-FORM.NAME' | translate }}</label>
+                    <input name="strNameEngineer" type="text" data-ng-model="$ctrl.form.strNameEngineer" required />
+                    <div data-ng-messages="engineerForm.strNameEngineer.$error" data-ng-if="engineerForm.strNameEngineer.$touched || engineerForm.strNameEngineer.$submitted" role="alert">
+                        <div data-ng-messages-include="form-messages">
+                        </div>
+                    </div>
+                </md-input-container>
+            </div>
+        </div>
+        <br />
+        <md-button class="md-raised md-primary flex" ng-click="$ctrl.save($ctrl.form)">
+            {{'GENERAL.SAVE' | translate }}
+        </md-button>
+        <md-button data-ng-if="!!$ctrl.form.intIdEngineer" class="md-raised md-warn flex" ng-click="$ctrl.remove($ctrl.form.intIdEngineer)" ng-attr-data-msg-confirm="{}">
+            {{'GENERAL.DELETE' | translate }}
+        </md-button>
+        <md-button data-ng-if="!!$ctrl.form.intIdEngineer" class="md-raised md-default flex" ng-click="$ctrl.newEngineer()">
+            {{'GENERAL.NEW-RECORD' | translate }}
+        </md-button>
+    </md-content>
+</form>
+

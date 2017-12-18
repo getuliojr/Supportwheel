@@ -9,7 +9,8 @@
         'components.about',
         'components.home',
         'components.spinButton',
-        'components.listWeekCards'
+        'components.listWeekCards',
+        'components.engineer'
     ]);
 
 })();

@@ -1,0 +1,8 @@
+<div layout="column">
+  <abc-data-list 
+                 config="$ctrl.config" data="$ctrl.data.engineers"
+                 data-ng-if="$ctrl.data.engineers.length > 0" enable-pagination="false" total-records="$ctrl.data.intTotalRecords"></abc-data-list>
+  <div flex ng-if="$ctrl.data.engineers.length == 0">
+    {{'GENERAL.NO-RECORDS' | translate }}
+  </div>
+</div>

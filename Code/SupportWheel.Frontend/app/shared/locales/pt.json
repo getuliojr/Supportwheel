@@ -28,22 +28,11 @@
     "ABOUT": "Sobre este projeto",
     "NAME": "Roda do Destino de Suporte"
   },
-  "TABS": {
-    "PROJECT": {
-      "TITLE": "Projeto",
+   "TABS": {
+    "ENGINEER": {
+      "TITLE": "Engenheiros",
       "SEARCH": "Pesquisar",
-      "PROJECT": "Projeto",
-      "SELECT-PROJECT": "Selecione um projeto primeiro para visualizar as informações através da guia 'pesquisar'."
-    },
-    "INSTITUICAO": {
-      "TITLE": "Instituição",
-      "SEARCH": "Pesquisar",
-      "INSTITUICAO": "Instituição"
-    },
-    "USUARIO": {
-      "TITLE": "Usuário",
-      "SEARCH": "Pesquisar",
-      "USUARIO": "Usuário"
+      "ENGINEER": "Engenheiro"
     }
   },
   "SECURITY": {

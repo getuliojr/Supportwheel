@@ -29,6 +29,13 @@
 		"REGISTER": "Inscrever",
 		"REGISTERED": "A conta foi criada com sucesso. Por favor efetue o login agora."
 	},
+	"ENGINEER-FORM": {
+		"NAME": "Nome completo do engenheiro"
+	},
+	"ENGINEER-LIST": {
+		"SELECT": "Selecionar",
+		"NAME": "NOME DO ENGENHEIRO"
+	},
 	"LISTWEEKCARDS": {
 		"WEEK": "Semana",
 		"WEEKDAYS": {
@@ -79,21 +86,10 @@
 		"NAME": "Roda do Destino de Suporte"
 	},
 	"TABS": {
-		"PROJECT": {
-			"TITLE": "Projeto",
+		"ENGINEER": {
+			"TITLE": "Engenheiros",
 			"SEARCH": "Pesquisar",
-			"PROJECT": "Projeto",
-			"SELECT-PROJECT": "Selecione um projeto primeiro para visualizar as informações através da guia 'pesquisar'."
-		},
-		"INSTITUICAO": {
-			"TITLE": "Instituição",
-			"SEARCH": "Pesquisar",
-			"INSTITUICAO": "Instituição"
-		},
-		"USUARIO": {
-			"TITLE": "Usuário",
-			"SEARCH": "Pesquisar",
-			"USUARIO": "Usuário"
+			"ENGINEER": "Engenheiro"
 		}
 	},
 	"SECURITY": {

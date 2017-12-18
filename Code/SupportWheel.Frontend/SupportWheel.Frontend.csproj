@@ -80,6 +80,12 @@
     <Content Include="app\components\cultura\culturaSelect\culturaSelect.js" />
     <Content Include="app\components\cultura\culturaSelect\culturaSelect.spec.js" />
     <Content Include="app\components\cultura\index.js" />
+    <Content Include="app\components\engineer\engineer.form\engineer.form.html" />
+    <Content Include="app\components\engineer\engineer.form\engineer.form.js" />
+    <Content Include="app\components\engineer\engineer.list\engineer.list.html" />
+    <Content Include="app\components\engineer\engineer.list\engineer.list.js" />
+    <Content Include="app\components\engineer\engineer.list\engineer.list.spec.js" />
+    <Content Include="app\components\engineer\index.js" />
     <Content Include="app\components\home\home.html" />
     <Content Include="app\components\home\home.js" />
     <Content Include="app\components\index.js" />
@@ -808,14 +814,13 @@
     <Content Include="app\shared\services\service\retryQueueService.js" />
     <Content Include="app\shared\services\service\securityService.js" />
     <Content Include="app\shared\services\service\scheduleService.js" />
+    <Content Include="app\shared\services\service\engineerService.js" />
     <Content Include="app\shared\services\service\userService.js" />
     <Content Include="app\shared\services\service\viewstateService.js" />
     <Content Include="app\shared\services\value\constantes.js" />
     <Content Include="app\shared\services\value\index.js" />
     <Content Include="app\shared\states\publicStates.js" />
-    <Content Include="app\shared\states\restrict\instituicaoStates.js" />
-    <Content Include="app\shared\states\restrict\projectStates.js" />
-    <Content Include="app\shared\states\restrict\usuarioStates.js" />
+    <Content Include="app\shared\states\restrict\engineerStates.js" />
     <Content Include="app\shared\views\formMessages.html" />
     <Content Include="content\fonts\app-icons.eot" />
     <Content Include="content\fonts\app-icons.ttf" />
@@ -1154,6 +1159,10 @@
     <Content Include="app\components\spinButton\pt.json" />
     <Content Include="app\components\core\signup\en.json" />
     <Content Include="app\components\core\signup\pt.json" />
+    <Content Include="app\components\engineer\engineer.form\en.json" />
+    <Content Include="app\components\engineer\engineer.form\pt.json" />
+    <Content Include="app\components\engineer\engineer.list\en.json" />
+    <Content Include="app\components\engineer\engineer.list\pt.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

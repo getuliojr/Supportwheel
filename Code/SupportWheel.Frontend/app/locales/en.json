@@ -29,6 +29,13 @@
 		"REGISTER": "Register",
 		"REGISTERED": "The account has been successfully created. Please login now."
 	},
+	"ENGINEER-FORM": {
+		"NAME": "Engineer´s full name"
+	},
+	"ENGINEER-LIST": {
+		"SELECT": "Select",
+		"NAME": "ENGINEER´s NAME"
+	},
 	"LISTWEEKCARDS": {
 		"WEEK": "Week",
 		"WEEKDAYS": {
@@ -79,21 +86,10 @@
 		"NAME": "Support Wheel of Fate"
 	},
 	"TABS": {
-		"PROJECT": {
-			"TITLE": "Project",
+		"ENGINEER": {
+			"TITLE": "Engineers",
 			"SEARCH": "Search",
-			"PROJECT": "Project",
-			"SELECT-PROJECT": "Select a project first to view its data on the search tab."
-		},
-		"INSTITUICAO": {
-			"TITLE": "Institution",
-			"SEARCH": "Search",
-			"INSTITUICAO": "Institution"
-		},
-		"USUARIO": {
-			"TITLE": "User",
-			"SEARCH": "Search",
-			"USUARIO": "User"
+			"ENGINEER": "Engineer"
 		}
 	},
 	"SECURITY": {
