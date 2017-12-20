@@ -49,9 +49,7 @@
   WheelController.$inject = ['handleExceptionFactory', 'engineerService', '$scope'];
 
 
-
-
-  /**
+   /**
    * @ngdoc controller
    * @name components.wheel.controller:WheelController
    * @description
@@ -91,7 +89,7 @@
           .then(function (data) {
             vm.engineers = data;
             vm.engineerNames = [];
-            for (var d = 0; d < data.length-3; d++) {
+            for (var d = 0; d < data.length; d++) {
               vm.engineersNames.push(data[d].strNameEngineer);
             }
             handleChange();
@@ -109,7 +107,7 @@
       loadEngineers();
     }
 
-   //Wheel Font Base:  https://codepen.io/larrybotha/pen/yMmQyG
+   //Colors to be used to fill the wheel
     const COLORS = [
       '#f7d046',
       '#ff4c5a',
@@ -120,8 +118,17 @@
       '#245a65',
       '#ff6a76',
       '#633d89',
+      '#3cb878',
+      '#ee1c24',
+      '#f6989d',
+      '#00aef0',
+      '#f26522',
+      '#fff200',
+      '#e70697',
       '#000000'
     ];
+
+    //Wheel Font Base:  https://codepen.io/larrybotha/pen/yMmQyG
     const PI = Math.PI;
     const TAU = PI * 2;
 
@@ -159,7 +166,7 @@
         type: 'svg',
       };
       const friction = .99;
-      const maxSpeed = .7;
+      const maxSpeed = .5;
       let isGroupActive = false;
       let textDistFromEdge = 30;
       let curPosArr = [];

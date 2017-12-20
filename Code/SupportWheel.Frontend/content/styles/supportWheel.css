@@ -1,3 +1,7 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .translate-cloak {
+  display: none !important;
+}
+
 .mount svg {
   display: block;
   max-width: 100%;
@@ -10,9 +14,7 @@
 .bgGrey{
     background-color:#e5e5e5;
 }
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .translate-cloak {
-  display: none !important;
-}
+
 
 .allowMouseOver:hover{
     background-color: #8C9EFF;
