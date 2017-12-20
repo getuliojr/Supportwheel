@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
 
     'use strict';
 
@@ -34,9 +34,9 @@
             methods: ['subscribe', 'unsubscribe'],
 
             //handle connection error
-            //errorHandler: function (error) {
-            //    console.log(error);
-            //},
+            errorHandler: function (error) {
+                console.log(error);
+            },
 
             hubDisconnected: function () {
                 if (hub.connection.lastError) {
@@ -44,11 +44,32 @@
                 }
             },
 
-            logging: false,  //Log to the Console
+            logging: true,  //Log to the Console
 
             //specify a non default root
-            rootPath: baseUrlService.getBaseUrl() + "signalr"
+            rootPath: baseUrlService.getBaseUrl() + "signalr",
 
+            //stateChanged: function (state) {
+            //  switch (state.newState) {
+            //    case $.signalR.connectionState.connecting:
+                  
+            //      //your code here
+            //      console.log(state.newState);
+            //      break;
+            //    case $.signalR.connectionState.connected:
+            //      //your code here
+            //      console.log(state.newState);
+            //      break;
+            //    case $.signalR.connectionState.reconnecting:
+            //      //your code here
+            //      console.log(state.newState);
+            //      break;
+            //    case $.signalR.connectionState.disconnected:
+            //      //your code here
+            //      console.log(state.newState);
+            //      break;
+            //  }
+            //}
         });
 
         return {

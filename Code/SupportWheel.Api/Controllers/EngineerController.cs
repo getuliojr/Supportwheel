@@ -8,13 +8,13 @@ using System.Security.Claims;
 using System.Linq;
 using System.Net.Http;
 using SupportWheel.Commands.EngineerCommands.Command;
-
+using SupportWheel.Api.Hubs;
 
 namespace SupportWheel.Api.Controllers
 {
     
     [RoutePrefix("api/engineer")]
-    public class EngineerController : ApiController
+    public class EngineerController : HubApiController<ApiHub>
     {
 
         private readonly IMediator _mediator;

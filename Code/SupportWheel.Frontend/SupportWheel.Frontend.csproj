@@ -1177,11 +1177,6 @@
     <Content Include="app\libs\angular-sanitize\bower.json" />
     <Content Include="app\libs\angular-sanitize\package.json" />
     <Content Include="app\libs\angular-sanitize\README.md" />
-    <Content Include="app\libs\angular-signalr-hub\.bower.json" />
-    <Content Include="app\libs\angular-signalr-hub\bower.json" />
-    <Content Include="app\libs\angular-signalr-hub\CHANGELOG.md" />
-    <Content Include="app\libs\angular-signalr-hub\LICENSE" />
-    <Content Include="app\libs\angular-signalr-hub\README.md" />
     <Content Include="app\libs\angular-translate-loader-static-files\.bower.json" />
     <Content Include="app\libs\angular-translate-loader-static-files\bower.json" />
     <Content Include="app\libs\angular-translate-loader-static-files\package.json" />
@@ -1324,6 +1319,12 @@
     <Content Include="app\libs\signalr\README.md" />
     <Content Include="app\components\wheel\en.json" />
     <Content Include="app\components\wheel\pt.json" />
+    <Content Include="app\libs\angular-signalr-hub\.bower.json" />
+    <Content Include="app\libs\angular-signalr-hub\bower.json" />
+    <Content Include="app\libs\angular-signalr-hub\CHANGELOG.md" />
+    <Content Include="app\libs\angular-signalr-hub\LICENSE" />
+    <Content Include="app\libs\angular-signalr-hub\package.json" />
+    <Content Include="app\libs\angular-signalr-hub\README.md" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

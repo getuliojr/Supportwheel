@@ -37,7 +37,7 @@ angular.module('App', ['ngAnimate', 'ngResource', 'ngSanitize', 'angular-loading
 //Configura o Prefixo para o Localstorage
 .config(['$localStorageProvider',
     function ($localStorageProvider) {
-        $localStorageProvider.setKeyPrefix('AsaMap');
+        $localStorageProvider.setKeyPrefix('SupportWheel');
     }])
 
 

@@ -14,7 +14,10 @@
     //Cria o serviço
     function scheduleService(appResourceFactory) {
 
-        var service = appResourceFactory("schedule", "intIdSchedule");
+      var service = appResourceFactory("schedule", "intIdSchedule");
+
+      //Tell the service to listen for websocket connection
+      service.createHub();
 
         //Responsável pela validação dos dados no cliente
         service.validar = function (dados) {

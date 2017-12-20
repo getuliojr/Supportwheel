@@ -10,12 +10,13 @@ using System.Net.Http;
 using SupportWheel.Commands.ScheduleCommands.Command;
 using AutoMapper;
 using SupportWheel.Queries.ScheduleQueries.QueryResult;
+using SupportWheel.Api.Hubs;
 
 namespace SupportWheel.Api.Controllers
 {
     
     [RoutePrefix("api/schedule")]
-    public class ScheduleController : ApiController
+    public class ScheduleController : HubApiController<ApiHub>
     {
 
         private readonly IMediator _mediator;

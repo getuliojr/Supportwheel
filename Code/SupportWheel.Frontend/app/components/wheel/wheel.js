@@ -124,6 +124,25 @@
       $scope.$on("$destroy", engineerEvent);
 
       loadEngineers();
+
+      //Listen for changes on schedule
+      var scheduleEvent = scheduleService.listenEvent.hub.inserted(updateResult);
+
+      //Cleanup events when controller is destroyed
+      $scope.$on("$destroy", scheduleEvent);
+
+      //Responsable to change the data entered and selected by the user already to a new culture set.
+      function updateResult(result) {
+        //Update content if outdated
+        if (result.type = constEventosDb.INSERTED) {
+          if (result.data.dteSchedule >= vm.lastDate && result.data.intPeriod > vm.lastPeriod) {
+            vm.lastDate = result.data.dteSchedule;
+            vm.lastPeriod = result.data.intPeriod;
+            vm.lastEngineer = result.data.strNameEngineer;
+            vm.lastDraftBy = result.data.strFullNameCreated;
+          } 
+        }
+      }
     }
 
     function addExtraSpin() {
@@ -141,7 +160,6 @@
 
       //Compare result of the wheel with the desired solution
       while (getCurrentWord() != vm.draftEngineer.strNameEngineer) {
-        console.log(getCurrentWord());
         speed = speed * (speed / (speed * friction));
         group.rotation = (group.rotation + speed * dirScalar) % TAU;
       }
@@ -576,8 +594,7 @@
     const wheel = wheelFactory(mount);
     wheel.init({
       width: Math.min(window.innerWidth, window.innerHeight),
-      height: Math.min(window.innerWidth, window.innerHeight),
-      onWheelTick: () => console.log('tick'),
+      height: Math.min(window.innerWidth, window.innerHeight)
     });
     wheel.setWords(getWords());
     wheel.drawWheel();

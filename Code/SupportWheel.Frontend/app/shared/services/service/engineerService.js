@@ -14,7 +14,10 @@
     //Cria o serviço
     function engineerService(appResourceFactory) {
 
-        var service = appResourceFactory("engineer", "intIdEngineer");
+      var service = appResourceFactory("engineer", "intIdEngineer");
+
+        //Tell the service to listen for websocket connection
+        service.createHub();
 
         //Responsável pela validação dos dados no cliente
         service.validar = function (dados) {
