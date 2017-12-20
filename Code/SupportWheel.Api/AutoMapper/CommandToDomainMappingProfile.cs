@@ -18,6 +18,7 @@ namespace SupportWheel.Api.AutoMapper
 
             //Engineer
             Mapper.CreateMap<CreateEngineerCommand, Engineer>();
+            Mapper.CreateMap<UpdateEngineerCommand, Engineer>();
             Mapper.CreateMap<DeleteEngineerCommand, Engineer>();
 
             //Schedule

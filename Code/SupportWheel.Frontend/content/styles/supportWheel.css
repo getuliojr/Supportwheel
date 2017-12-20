@@ -1,0 +1,80 @@
+.mount svg {
+  display: block;
+  max-width: 100%;
+  max-height:400px;
+  margin: 0 auto;
+}
+
+
+
+.bgGrey{
+    background-color:#e5e5e5;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .translate-cloak {
+  display: none !important;
+}
+
+.allowMouseOver:hover{
+    background-color: #8C9EFF;
+    cursor:pointer;
+}
+
+.breakLines {
+    white-space: pre-wrap;
+}
+
+.lightBlueToolBar{
+    background-color:#8C9EFF !important;
+    min-height:44px;
+}
+
+.darkBlueToolBar{
+    background-color:#1C5792 !important;
+}
+
+md-data-table-toolbar{
+    height:80px;
+}
+
+md-data-table-toolbar.alternate {
+    color: #1e88e5;
+    background-color: #e3f2fd;
+}
+
+.content-toolbar{
+    background: #f6f6f6 !important;
+    color: #666 !important;
+    z-index: 3;
+}
+
+.data-table-hide-checkbox td:nth-child(1), .data-table-hide-checkbox th:nth-child(1){ 
+    display:none;
+
+} 
+th.menuOptions{
+    width:50px;
+}
+/* angular material gera um height:auto que hoje deixa o layout estranho, deixando esse height mais fixo*/
+md-autocomplete[md-floating-label] md-autocomplete-wrap{
+    height:60px;
+}
+
+md-input-container{
+    margin-top:8px;
+}
+
+md-input-container label:not(.md-container-ignore){
+    left:initial;
+}
+/* Outro erro que está acontecendo que pode sumir no futuro */
+md-datepicker {
+    margin-right: -16px;
+    margin-top: 10px;
+}
+
+.validation-messages {
+    font-size: 11px;
+    color: rgb(221,44,0);
+    margin: 0px 0 0 20px 
+}
+

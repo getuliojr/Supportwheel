@@ -58,7 +58,7 @@ namespace SupportWheel.Api.Controllers
             return Ok(response);
         }
 
-        //Delete Project
+        //Delete 
         [Authorize]
         public IHttpActionResult DeleteEngineer(int id)
         {
@@ -68,6 +68,15 @@ namespace SupportWheel.Api.Controllers
             return Ok(response);
         }
 
-        
+        //Update 
+        [Authorize]
+        public IHttpActionResult PutEngineer(int id, [FromBody]UpdateEngineerCommand command)
+        {
+            command.intIdEngineer = id;
+            var response = _mediator.Send(command);
+            return Ok(response);
+        }
+
+
     }
 }

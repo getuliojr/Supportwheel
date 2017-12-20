@@ -61,8 +61,10 @@
   <ItemGroup>
     <Compile Include="EngineerCommands\CommandHandler\CreateEngineerCommandHandler.cs" />
     <Compile Include="EngineerCommands\CommandHandler\DeleteEngineerCommandHandler.cs" />
+    <Compile Include="EngineerCommands\CommandHandler\UpdateEngineerCommandHandler.cs" />
     <Compile Include="EngineerCommands\Command\CreateEngineerCommand.cs" />
     <Compile Include="EngineerCommands\Command\DeleteEngineerCommand.cs" />
+    <Compile Include="EngineerCommands\Command\UpdateEngineerCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScheduleCommands\CommandHandler\CreateScheduleCommandHandler.cs" />
     <Compile Include="ScheduleCommands\CommandHandler\DeleteScheduleCommandHandler.cs" />
