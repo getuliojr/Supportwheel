@@ -46,16 +46,16 @@
 			"5": "Friday"
 		}
 	},
-	"SPINBUTTON": {
+	"USUARIO-NEW": {},
+	"WHEEL": {
+		"SPIN-BUTTON": "Spin the wheel or push this button for a new draft",
+		"SUCCESS-SAVED": "A new enginer has been succefully draft for a period.",
 		"LASTDRAFTS": "Last Draft Information",
 		"DATE": "Date",
 		"PERIOD": "Period",
 		"ENGINEER": "Engineer",
-		"DRAFTBY": "Draft by:",
-		"SPIN": "Click here to spin for a new draft",
-		"SUCCESS-SAVED": "A new enginer has been succefully draft for a period."
+		"DRAFTBY": "Draft by:"
 	},
-	"USUARIO-NEW": {},
 	"CULTURA": {
 		"PORTUGUES": "Portuguese",
 		"INGLES": "English",

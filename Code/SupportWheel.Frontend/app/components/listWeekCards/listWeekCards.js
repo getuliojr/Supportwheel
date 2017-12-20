@@ -43,7 +43,7 @@
         }
     });
 
-    ListWeekCardsController.$inject = ['scheduleService', 'constEventosDb', '$scope']
+    ListWeekCardsController.$inject = ['scheduleService', 'constEventosDb', '$scope', '$timeout']
 
     /**
      * @ngdoc controller
@@ -53,7 +53,7 @@
      * It has the logic behind the component
      *
      */
-    function ListWeekCardsController(scheduleService, constEventosDb, $scope) {
+    function ListWeekCardsController(scheduleService, constEventosDb, $scope, $timeout) {
 
       var vm = this;
       vm.scheduleShifts = [];
@@ -103,9 +103,13 @@
         function updateResult(result) {
           //Se já fez uma pesquisa
           if (result.type = constEventosDb.INSERTED) {
-            result.data.weekNumber = getWeekNumber(new Date(result.data.dteSchedule));
-            result.data.weekDay = new Date(result.data.dteSchedule).getDay();
-            vm.scheduleShifts.push(result.data);
+            //Wait 3 seconds to show result in the grid to keep suspense of the wheel
+            $timeout(function () {
+              result.data.weekNumber = getWeekNumber(new Date(result.data.dteSchedule));
+              result.data.weekDay = new Date(result.data.dteSchedule).getDay();
+              vm.scheduleShifts.push(result.data);
+            },10500)
+            
           }
         }
       }

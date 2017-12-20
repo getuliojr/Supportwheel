@@ -1,0 +1,11 @@
+{
+  "WHEEL": {
+    "SPIN-BUTTON": "Spin the wheel or push this button for a new draft",
+    "SUCCESS-SAVED": "A new enginer has been succefully draft for the period.",
+    "LASTDRAFTS": "Last Draft Information",
+    "DATE": "Date",
+    "PERIOD": "Period",
+    "ENGINEER": "Engineer",
+    "DRAFTBY": "Draft by:"
+  }
+}

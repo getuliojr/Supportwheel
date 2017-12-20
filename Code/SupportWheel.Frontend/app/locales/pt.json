@@ -46,16 +46,16 @@
 			"5": "Sexta"
 		}
 	},
-	"SPINBUTTON": {
+	"USUARIO-NEW": {},
+	"WHEEL": {
+		"SPIN-BUTTON": "Rode a roleta ou aperte este botão para um novo sorteio",
+		"SUCCESS-SAVED": "Um novo engenheiro foi sorteado com sucesso para um novo período.",
 		"LASTDRAFTS": "Informações do Último Sorteio",
 		"DATE": "Data",
 		"PERIOD": "Período",
 		"ENGINEER": "Engenheiro",
-		"DRAFTBY": "Sorteado por",
-		"SPIN": "Clique aqui para um novo sorteio",
-		"SUCCESS-SAVED": "Um novo engenheiro foi sorteado com sucesso para um novo período."
+		"DRAFTBY": "Sorteado por"
 	},
-	"USUARIO-NEW": {},
 	"CULTURA": {
 		"PORTUGUES": "Português",
 		"INGLES": "Inglês",

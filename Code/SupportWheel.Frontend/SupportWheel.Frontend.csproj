@@ -91,8 +91,6 @@
     <Content Include="app\components\index.js" />
     <Content Include="app\components\listWeekCards\listWeekCards.html" />
     <Content Include="app\components\listWeekCards\listWeekCards.js" />
-    <Content Include="app\components\spinButton\spinButton.html" />
-    <Content Include="app\components\spinButton\spinButton.js" />
     <Content Include="app\components\wheel\wheel.css" />
     <Content Include="app\components\wheel\wheel.html" />
     <Content Include="app\components\wheel\wheel.js" />
@@ -1295,8 +1293,6 @@
     <Content Include="app\components\home\pt.json" />
     <Content Include="app\components\listWeekCards\en.json" />
     <Content Include="app\components\listWeekCards\pt.json" />
-    <Content Include="app\components\spinButton\en.json" />
-    <Content Include="app\components\spinButton\pt.json" />
     <Content Include="app\components\core\signup\en.json" />
     <Content Include="app\components\core\signup\pt.json" />
     <Content Include="app\components\engineer\engineer.form\en.json" />
@@ -1326,6 +1322,8 @@
     <Content Include="app\libs\signalr\LICENSE.md" />
     <Content Include="app\libs\signalr\package.json" />
     <Content Include="app\libs\signalr\README.md" />
+    <Content Include="app\components\wheel\en.json" />
+    <Content Include="app\components\wheel\pt.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
