@@ -1,5 +1,9 @@
 # Backend
 Code/packages/*
+Code/.vs/*
+Code/Backup/*
+Code/Backup1/*
+Code/UpgradeLog*
 
 #Junk Files
 *.DS_Store
