@@ -87,7 +87,7 @@
         }
 
         function subscribe(recurso) {
-            hub.promise.then(function () {
+          hub.promise.then(function () {
                 hub.subscribe(recurso);     //Subscribe in the server
             })
         };
