@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Web.Http;
-using System.Web.Http.Description;
 using MediatR;
 using SupportWheel.Queries.UserQueries.Query;
 using System.Security.Claims;

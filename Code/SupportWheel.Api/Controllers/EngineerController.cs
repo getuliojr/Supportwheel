@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Http;
-using System.Web.Http.Description;
+﻿using System.Web.Http;
 using MediatR;
 using SupportWheel.Queries.EngineerQueries.Query;
-using System.Security.Claims;
-using System.Linq;
-using System.Net.Http;
 using SupportWheel.Commands.EngineerCommands.Command;
 using SupportWheel.Api.Hubs;
 

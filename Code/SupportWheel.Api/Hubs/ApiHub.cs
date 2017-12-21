@@ -13,7 +13,5 @@ namespace SupportWheel.Api.Hubs
         {
             await Groups.Remove(Context.ConnectionId, resource);
         }
-
     }
-
 }
