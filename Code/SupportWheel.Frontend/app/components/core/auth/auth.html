@@ -11,7 +11,7 @@
   </span>
     <span ng-if="auth.isAuthenticated()">
         <md-menu>
-            <md-button aria-label="User Information / Log-out" ng-click="$mdOpenMenu($event)" md-menu-origin md-menu-align-target>
+            <md-button aria-label="User Information / Log-out" ng-click="$mdMenu.open($event)" md-menu-origin md-menu-align-target>
                 <md-icon><i class="material-icons">face</i></md-icon>
                 {{auth.currentUser().strFullName}}
             </md-button>

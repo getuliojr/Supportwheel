@@ -1,4 +1,4 @@
-﻿<!-- This component uses the following lib: https://github.com/daniel-nagy/md-data-table -->
+<!-- This component uses the following lib: https://github.com/daniel-nagy/md-data-table -->
 
     <!-- Title and Menu Options-->
     <md-toolbar class="md-table-toolbar md-default" ng-if="!dataList.filter.show && (!dataList.selected || dataList.selected.length == 0) && (!!dataList.config.title || !!dataList.config.enableFilter)">
@@ -60,7 +60,7 @@
                     <td md-cell ng-repeat="column in dataList.config.columns" >{{item[column.field]}}</td>
                     <td md-cell ng-if="!!dataList.config.itemMenu" class="menuOptions">
                         <md-menu>
-                            <md-button aria-label="Item Options" ng-click="$mdOpenMenu($event)" md-menu-origin md-menu-align-target>
+                            <md-button aria-label="Item Options" ng-click="$mdMenu.open($event)" md-menu-origin md-menu-align-target>
                                 <md-icon>more_vert</md-icon>
                             </md-button>
                             <md-menu-content>
