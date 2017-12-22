@@ -99,8 +99,8 @@
         var updateResult = function (result) {
           //Se já fez uma pesquisa
           if (result.type = constEventosDb.INSERTED) {
-            
-            var update = function (result) {
+
+            function update(result) {
               result.data.weekNumber = getWeekNumber(new Date(result.data.dteSchedule));
               result.data.weekDay = new Date(result.data.dteSchedule).getDay();
               vm.scheduleShifts.push(result.data);
@@ -111,15 +111,15 @@
             $timeout(function () {
               update(result)
             }.bind(this), 14000);
-    
-          }
 
+          }
+        }
           //Listen for changes on schedule
-          var scheduleEvent = scheduleService.listenEvent.both.inserted(update);
+          var scheduleEvent = scheduleService.listenEvent.both.inserted(updateResult);
 
           //Cleanup events when controller is destroyed
           $scope.$on("$destroy", scheduleEvent);
-        }
+        
       }
 
       /**
