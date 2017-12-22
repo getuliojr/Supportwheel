@@ -1669,45 +1669,6 @@
     <Content Include="docs\partials\sourceCode\files.html" />
     <Content Include="docs\partials\tests\Coverage Tests.html" />
     <Content Include="docs\partials\tests\Unit Tests.html" />
-    <Content Include="docs\tests\unit\coverage\app\ASAMapApp.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\components\index.html" />
-    <Content Include="docs\tests\unit\coverage\app\components\index.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\index.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\directives\animateOnLoadDirective.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\directives\compareToDirective.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\directives\index.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\directives\index.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\directives\msgConfirmDirective.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\directives\restrictDirectiva.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\filters\index.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\filters\index.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\index.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\index.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\factory\appResourceFactory.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\factory\handleExceptionFactory.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\factory\index.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\factory\index.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\factory\interceptorFactory.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\factory\mockHttpFactory.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\index.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\index.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\provider\authorizationProvider.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\provider\index.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\provider\index.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\service\baseUrlService.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\service\cultureService.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\service\hubService.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\service\index.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\service\index.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\service\mediatorService.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\service\notificationService.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\service\retryQueueService.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\service\securityService.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\service\usuarioService.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\service\viewstateService.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\value\constantes.js.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\value\index.html" />
-    <Content Include="docs\tests\unit\coverage\app\shared\services\value\index.js.html" />
     <Content Include="docs\tests\unit\coverage\base.css" />
     <Content Include="docs\tests\unit\coverage\index.html" />
     <Content Include="docs\tests\unit\coverage\prettify.css" />
@@ -1726,6 +1687,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="content\images\" />
+    <Folder Include="docs\tests\unit\coverage\app\components\" />
+    <Folder Include="docs\tests\unit\coverage\app\shared\directives\" />
+    <Folder Include="docs\tests\unit\coverage\app\shared\filters\" />
+    <Folder Include="docs\tests\unit\coverage\app\shared\services\factory\" />
+    <Folder Include="docs\tests\unit\coverage\app\shared\services\provider\" />
+    <Folder Include="docs\tests\unit\coverage\app\shared\services\service\" />
+    <Folder Include="docs\tests\unit\coverage\app\shared\services\value\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
