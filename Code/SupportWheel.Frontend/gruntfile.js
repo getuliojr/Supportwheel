@@ -175,17 +175,7 @@ module.exports = function (grunt) {
         //    }
         //},
 
-        //Configura e abre o IIS Express 8 para rodar a aplicação
-        //iisexpress: {
-        //    server: {
-        //        options: {
-        //            port: 44500,
-        //            open: true,
-        //            killOn: 'iis.done'
-        //        }
-        //    }
-        //},
-
+       
 
 
         // Watches files for changes and runs tasks based on the changed files

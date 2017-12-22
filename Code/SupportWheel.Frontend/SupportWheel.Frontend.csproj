@@ -1534,6 +1534,15 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release (
+xcopy "$(TargetDir)_PublishedWebsites\SupportWheel.Frontend\app" "$(TargetDir)_PublishedWebsites\SupportWheel.Api\app" /Y /I /S
+xcopy "$(TargetDir)_PublishedWebsites\SupportWheel.Frontend\content" "$(TargetDir)_PublishedWebsites\SupportWheel.Api\content" /Y /I /S
+xcopy "$(TargetDir)_PublishedWebsites\SupportWheel.Frontend\app\index.html" "$(TargetDir)_PublishedWebsites\SupportWheel.Api" /Y /I
+xcopy "$(TargetDir)_PublishedWebsites\SupportWheel.Frontend\docs" "$(TargetDir)_PublishedWebsites\SupportWheel.Api" /Y /I /S
+CD /D $(TargetDir)_PublishedWebsites\SupportWheel.Api
+)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
