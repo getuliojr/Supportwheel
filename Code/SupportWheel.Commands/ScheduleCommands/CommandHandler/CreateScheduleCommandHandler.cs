@@ -62,7 +62,7 @@ namespace SupportWheel.Commands.ScheduleCommands.CommandHandler
                 }
             }
 
-            //Return final result of the draft
+            //Return final result of the draftbowe
             return entity;
         }
 

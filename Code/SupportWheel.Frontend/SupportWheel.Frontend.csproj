@@ -106,12 +106,21 @@
     <Content Include="app\libs\angular-jwt\LICENSE.txt" />
     <Content Include="app\libs\angular-jwt\package.json" />
     <Content Include="app\libs\angular-jwt\README.md" />
+    <Content Include="app\libs\angular-loading-bar\.bower.json" />
+    <Content Include="app\libs\angular-loading-bar\bower.json" />
     <Content Include="app\libs\angular-loading-bar\build\loading-bar.css" />
     <Content Include="app\libs\angular-loading-bar\build\loading-bar.js" />
     <Content Include="app\libs\angular-loading-bar\build\loading-bar.min.css" />
     <Content Include="app\libs\angular-loading-bar\build\loading-bar.min.js" />
+    <Content Include="app\libs\angular-loading-bar\CHANGELOG.md" />
+    <Content Include="app\libs\angular-loading-bar\CONTRIBUTING.md" />
     <Content Include="app\libs\angular-loading-bar\Gruntfile.js" />
     <Content Include="app\libs\angular-loading-bar\index.js" />
+    <Content Include="app\libs\angular-loading-bar\ISSUE_TEMPLATE.md" />
+    <Content Include="app\libs\angular-loading-bar\LICENSE" />
+    <Content Include="app\libs\angular-loading-bar\package.json" />
+    <Content Include="app\libs\angular-loading-bar\PULL_REQUEST_TEMPLATE.md" />
+    <Content Include="app\libs\angular-loading-bar\README.md" />
     <Content Include="app\libs\angular-loading-bar\src\loading-bar.css" />
     <Content Include="app\libs\angular-loading-bar\src\loading-bar.js" />
     <Content Include="app\libs\angular-material-data-table\.bower.json" />
@@ -1333,15 +1342,6 @@
     <Content Include="bower.json" />
     <Content Include="jsdoc.conf.json" />
     <Content Include="package.json" />
-    <Content Include="app\libs\angular-loading-bar\.bower.json" />
-    <Content Include="app\libs\angular-loading-bar\bower.json" />
-    <Content Include="app\libs\angular-loading-bar\CHANGELOG.md" />
-    <Content Include="app\libs\angular-loading-bar\CONTRIBUTING.md" />
-    <Content Include="app\libs\angular-loading-bar\ISSUE_TEMPLATE.md" />
-    <Content Include="app\libs\angular-loading-bar\LICENSE" />
-    <Content Include="app\libs\angular-loading-bar\package.json" />
-    <Content Include="app\libs\angular-loading-bar\PULL_REQUEST_TEMPLATE.md" />
-    <Content Include="app\libs\angular-loading-bar\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1506,24 +1506,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\libs\angular-material\demos\bottomSheet\demoBasicUsage\img\icons\" />
-    <Folder Include="app\libs\angular-material\demos\chips\demoBasicUsage\" />
-    <Folder Include="app\libs\angular-material\demos\chips\demoContactChips\" />
-    <Folder Include="app\libs\angular-material\demos\gridList\demoBasicUsage\" />
-    <Folder Include="app\libs\angular-material\demos\gridList\demoDynamicTiles\" />
-    <Folder Include="app\libs\angular-material\demos\gridList\demoResponsiveUsage\" />
-    <Folder Include="app\libs\angular-material\demos\icon\demoLoadSvgIconsFromUrl\img\icons\" />
-    <Folder Include="app\libs\angular-material\demos\icon\demoSvgIconSets\assets\" />
-    <Folder Include="app\libs\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\" />
-    <Folder Include="app\libs\angular-material\demos\icon\demoUsingTemplateCache\assets\" />
-    <Folder Include="app\libs\angular-material\demos\input\demoIcons\icons\" />
-    <Folder Include="app\libs\angular-material\demos\list\demoListControls\img\" />
-    <Folder Include="app\libs\angular-material\demos\tabs\demoDynamicHeight\" />
-    <Folder Include="app\libs\angular-material\demos\tabs\demoDynamicTabs\" />
-    <Folder Include="app\libs\angular-material\demos\tabs\demoStaticTabs\" />
-    <Folder Include="app\libs\angular-material\demos\toolbar\demoBasicUsage\img\icons\" />
-    <Folder Include="app\libs\angular-material\modules\css\" />
-    <Folder Include="app\libs\two.js\third-party\qunit\" />
     <Folder Include="content\images\" />
     <Folder Include="docs\code\" />
   </ItemGroup>
