@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>hubService.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="../docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>hubService.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<span class="hljs-meta">
+
+    'use strict'</span>;
+
+    angular.module(<span class="hljs-string">'shared.services.service.hub'</span>, [
+        <span class="hljs-string">'shared.services.value.constantes'</span>,
+        <span class="hljs-string">'shared.services.service.baseUrl'</span>,
+        <span class="hljs-string">'shared.services.service.mediator'</span>
+    ])
+
+    .factory(<span class="hljs-string">'hubService'</span>, hubService);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Injeta dependencias</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    hubService.$inject = [<span class="hljs-string">'$rootScope'</span>, <span class="hljs-string">'constEventosDb'</span>, <span class="hljs-string">'Hub'</span>, <span class="hljs-string">'baseUrlService'</span>, <span class="hljs-string">'mediatorService'</span>];
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hubService</span>(<span class="hljs-params">$rootScope, constEventosDb, Hub, baseUrlService, mediatorService</span>) </span>{
+
+        <span class="hljs-keyword">var</span> hub = <span class="hljs-keyword">new</span> Hub(<span class="hljs-string">"ApiHub"</span>, {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>client side methods</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            listeners: {
+                <span class="hljs-string">'inserted'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resource, data</span>) </span>{
+                    mediatorService.sendEvent(resource, constEventosDb.INSERTED, data, <span class="hljs-literal">true</span>);
+                },
+                <span class="hljs-string">'updated'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resource, data</span>) </span>{
+                    mediatorService.sendEvent(resource, constEventosDb.UPDATED, data, <span class="hljs-literal">true</span>);
+                },
+                <span class="hljs-string">'deleted'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resource, data</span>) </span>{
+                    mediatorService.sendEvent(resource, constEventosDb.DELETED, data, <span class="hljs-literal">true</span>);
+                }
+            },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>server side methods</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            methods: [<span class="hljs-string">'subscribe'</span>, <span class="hljs-string">'unsubscribe'</span>],</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>handle connection error</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            errorHandler: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
+                <span class="hljs-built_in">console</span>.log(error);
+            },
+
+            <span class="hljs-attr">hubDisconnected</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                <span class="hljs-keyword">if</span> (hub.connection.lastError) {
+                    hub.connection.start();
+                }
+            },
+
+            <span class="hljs-attr">logging</span>: <span class="hljs-literal">true</span>,  <span class="hljs-comment">//Log to the Console</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>specify a non default root</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            rootPath: baseUrlService.getBaseUrl() + <span class="hljs-string">"signalr"</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>stateChanged: function (state) {
+ switch (state.newState) {
+   case $.signalR.connectionState.connecting:</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <pre><code> <span class="hljs-comment">//your code here</span>
+ <span class="hljs-built_in">console</span>.log(state.newState);
+ <span class="hljs-keyword">break</span>;
+</code></pre><p>   case $.signalR.connectionState.connected:
+     //your code here
+     console.log(state.newState);
+     break;
+   case $.signalR.connectionState.reconnecting:
+     //your code here
+     console.log(state.newState);
+     break;
+   case $.signalR.connectionState.disconnected:
+     //your code here
+     console.log(state.newState);
+     break;
+ }
+}</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        });
+
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">subscribe</span>: subscribe,
+            <span class="hljs-attr">unsubscribe</span>: unsubscribe,
+            <span class="hljs-attr">getConnectionId</span>: getConnectionId
+        };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <hr>
+<p>Helper Function</p>
+<hr>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getConnectionId</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> hub.connection.id;
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">subscribe</span>(<span class="hljs-params">recurso</span>) </span>{
+          hub.promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                hub.subscribe(recurso);     <span class="hljs-comment">//Subscribe in the server</span>
+            })
+        };
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">unsubscribe</span>(<span class="hljs-params">recurso</span>) </span>{
+            hub.unsubscribe(recurso); <span class="hljs-comment">//Calling a server method</span>
+        };
+
+    }
+
+})();</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

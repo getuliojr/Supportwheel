@@ -26,7 +26,9 @@
   },
    "HOME": {
     "ABOUT": "About this Project",
-    "NAME": "Support Wheel of Fate"
+    "NAME": "Support Wheel of Fate",
+    "HOME": "Home",
+    "DOCUMENTATION":  "Documentation"
 
   },
   "TABS": {
@@ -48,16 +50,5 @@
     "ARIALABEL": "Do you confirm this action ?",
     "OK": "Yes",
     "CANCEL": "No"
-  },
-  "TIPOCOOPERACAO": {
-    "REGIONAL": "Regional",
-    "BILATERAL": "Bilateral",
-    "TRILATERAL": "Trilateral"
-  },
-  "TIPOPROJETO": {
-    "PROGRAMA": "Program",
-    "PROJETO": "Project",
-    "ATIVIDADE": "Activity"
   }
-  
 }

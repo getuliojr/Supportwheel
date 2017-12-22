@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>notificationService.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="../docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>notificationService.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<span class="hljs-meta">
+
+    'use strict'</span>;
+
+    angular.module(<span class="hljs-string">'shared.services.service.notification'</span>, [
+
+    ])
+    .service(<span class="hljs-string">'notificationService'</span>, notificationService);
+
+    notificationService.$inject = [<span class="hljs-string">'$translate'</span>];
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">notificationService</span>(<span class="hljs-params">$translate</span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Api Pública</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">this</span>.show = show;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Funções</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">show</span>(<span class="hljs-params">tipo, mensagens</span>) </span>{
+            <span class="hljs-keyword">var</span> bufferMsg = <span class="hljs-string">''</span>;
+
+            <span class="hljs-keyword">if</span> (angular.isObject(mensagens)) {
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> mensagem <span class="hljs-keyword">in</span> mensagens) {
+                    <span class="hljs-keyword">if</span> (angular.isArray(mensagens[mensagem])) {
+                        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; mensagens[mensagem].length; i++) {
+                            <span class="hljs-keyword">if</span> (mensagens[mensagem][i] != <span class="hljs-string">''</span>) {
+                                bufferMsg += <span class="hljs-string">'&lt;span&gt;'</span> + tranlateMessage(mensagens[mensagem][i]) + <span class="hljs-string">'&lt;/span&gt;&lt;br/&gt;'</span>;
+                            }
+                        }
+                    } <span class="hljs-keyword">else</span> {
+                        <span class="hljs-keyword">if</span> (mensagens[mensagem] != <span class="hljs-string">''</span>) {
+                            bufferMsg += <span class="hljs-string">'&lt;span&gt;'</span> + tranlateMessage(mensagens[mensagem]) + <span class="hljs-string">'&lt;/span&gt;&lt;br/&gt;'</span>;
+                        }
+                    }
+                }
+            } <span class="hljs-keyword">else</span> {
+                bufferMsg = tranlateMessage(mensagens);
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Configura o Toaster para exibir as mensagens</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            toastr[tipo](bufferMsg);
+            toastr.options = {
+                <span class="hljs-string">"closeButton"</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">"debug"</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">"newestOnTop"</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">"progressBar"</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">"positionClass"</span>: <span class="hljs-string">"toast-bottom-right"</span>,
+                <span class="hljs-string">"preventDuplicates"</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">"onclick"</span>: <span class="hljs-literal">null</span>,
+                <span class="hljs-string">"showDuration"</span>: <span class="hljs-string">"300"</span>,
+                <span class="hljs-string">"hideDuration"</span>: <span class="hljs-string">"1000"</span>,
+                <span class="hljs-string">"timeOut"</span>: <span class="hljs-string">"15000"</span>,
+                <span class="hljs-string">"extendedTimeOut"</span>: <span class="hljs-string">"2000"</span>,
+                <span class="hljs-string">"showEasing"</span>: <span class="hljs-string">"swing"</span>,
+                <span class="hljs-string">"hideEasing"</span>: <span class="hljs-string">"linear"</span>,
+                <span class="hljs-string">"showMethod"</span>: <span class="hljs-string">"fadeIn"</span>,
+                <span class="hljs-string">"hideMethod"</span>: <span class="hljs-string">"fadeOut"</span>
+            }
+        }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Responsible to translate message if needed</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">tranlateMessage</span>(<span class="hljs-params">message</span>)</span>{
+            <span class="hljs-keyword">return</span> $translate.instant(message);
+        }
+    }
+
+})();</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

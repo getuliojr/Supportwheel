@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>scheduleService.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="../docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>scheduleService.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<span class="hljs-meta">
+
+    'use strict'</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Define o módulo</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    angular.module(<span class="hljs-string">'shared.services.service.schedule'</span>, [
+        <span class="hljs-string">'shared.services.factory.appResource'</span>
+    ])
+
+          <span class="hljs-comment">/**
+     * @ngdoc service
+     * @name shared.services.service.service:schedule
+     * @description
+     *
+     * This service is responsible to get information about the schedule in the system
+     *
+     */</span>
+        .service(<span class="hljs-string">'scheduleService'</span>, scheduleService);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Injeta dependencias</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    scheduleService.$inject = [<span class="hljs-string">'appResourceFactory'</span>];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Cria o serviço</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">scheduleService</span>(<span class="hljs-params">appResourceFactory</span>) </span>{
+
+      <span class="hljs-keyword">var</span> service = appResourceFactory(<span class="hljs-string">"schedule"</span>, <span class="hljs-string">"intIdSchedule"</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Tell the service to listen for websocket connection</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      service.createHub();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Responsável pela validação dos dados no cliente</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        service.validar = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">dados</span>) </span>{
+            <span class="hljs-keyword">var</span> erros = [];
+
+            <span class="hljs-keyword">if</span> (!dados.dteSchedule)
+                erros.push(<span class="hljs-string">"The date of the draft is required!"</span>);
+
+            <span class="hljs-keyword">if</span> (!dados.intPeriod)
+                erros.push(<span class="hljs-string">"The period of the shift to draft is required!"</span>);
+
+            <span class="hljs-keyword">return</span> erros;
+        };
+
+        <span class="hljs-keyword">return</span> service;
+    }
+})()</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

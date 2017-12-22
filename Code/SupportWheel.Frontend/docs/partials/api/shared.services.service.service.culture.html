@@ -1,0 +1,57 @@
+<h1><code ng:non-bindable="">culture</code>
+<div><span class="hint">service in module <code ng:non-bindable="">shared.services.service</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="shared-services-service-service-page shared-services-service-service-culture-page"><p>This service is responsable to get and set current culture for the application</p>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/api/ng.$localStorage">$localStorage</a></code>
+<div class="shared-services-service-service-page shared-services-service-service-culture-page"><ul>
+<li>Source: <a href="https://github.com/gsklee/ngStorage">ngStorage</a></li>
+</ul>
+</div></li>
+<li><code ng:non-bindable=""><a href="#/api/ng.$mdDialog">$mdDialog</a></code>
+<div class="shared-services-service-service-page shared-services-service-service-culture-page"><ul>
+<li>Source: <a href="https://github.com/angular/material">angular-material</a></li>
+</ul>
+</div></li>
+<li><code ng:non-bindable=""><a href="#/api/ng.$translate">$translate</a></code>
+<div class="shared-services-service-service-page shared-services-service-service-culture-page"><ul>
+<li>Source: <a href="https://github.com/angular-translate/angular-translate">angular-translate</a></li>
+</ul>
+</div></li>
+</ul>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_getculture">getCulture()</h3>
+<div class="getculture"><div class="getculture-page"><p>Responsable to get the current culture selected in the application
+It reads from localstorage in the browser.</p>
+</div><h5 id="methods_getculture_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="getculture-page"><p>It returns an object with the properties { culture (string) , name (string) }</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_init">init()</h3>
+<div class="init"><div class="init-page"><p>It inits the service by loading the current set language from the localstorage.
+If no language is available it show a modal for the user to choose one. This modal cannot be closed or canceled.</p>
+</div></div>
+</li>
+<li><h3 id="methods_load">load()</h3>
+<div class="load"><div class="load-page"><p>It returns the collection &#39;culture&#39; with its value set with the current culture.</p>
+</div></div>
+</li>
+<li><h3 id="methods_onculturechange">onCultureChange(callback)</h3>
+<div class="onculturechange"><div class="onculturechange-page"><p>Responsable to get the current culture selected in the application
+It reads from localstorage in the browser.</p>
+</div><h5 id="methods_onculturechange_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>callback</td><td><a href="" class="label type-hint type-hint-function">function</a></td><td><div class="onculturechange-page"><p>expect a callback function that will be called with the new culture set</p>
+</div></td></tr></tbody></table><h5 id="methods_onculturechange_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-function">function</a></td><td><div class="onculturechange-page"><p>It returns an unsubscribe function that should be used on $destroy event in the controller</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_setculture">setCulture(culture)</h3>
+<div class="setculture"><div class="setculture-page"><p>Responsable to set a new culture for the application. It saves the result
+in the localstorage of the browser</p>
+</div><h5 id="methods_setculture_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>culture</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="setculture-page"><p>expect a culture in the format &#39;pt-BR&#39;</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+</div>

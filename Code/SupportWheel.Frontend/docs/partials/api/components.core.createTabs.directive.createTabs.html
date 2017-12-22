@@ -1,0 +1,24 @@
+<h1><code ng:non-bindable="">createTabs</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">components.core.createTabs</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="components-core-createtabs-directive-page components-core-createtabs-directive-createtabs-page"><p>This directive render the layout required to show the tabs for the user to interact.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as element:<pre class="prettyprint linenums">&lt;create-tabs
+       [title="{string}"]
+       tabs="{array}"&gt;
+&lt;/create-tabs&gt;</pre>
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>title <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="components-core-createtabs-directive-page components-core-createtabs-directive-createtabs-page"><p>The name of the group of tabs.</p>
+</div></td></tr><tr><td>tabs</td><td><a href="" class="label type-hint type-hint-array">array</a></td><td><div class="components-core-createtabs-directive-page components-core-createtabs-directive-createtabs-page"><p>It should be an array of objects. The following properties are available:</p>
+<ul>
+    <li>tabName - {string} - The name of the tab. (Required)</li>
+    <li>tabViewName - {string} - The name of the view to be set inside the tab, so it can be referred by ui-router. (Required)</li>
+    <li>tabStates - {array} - The name of the states that initiate the tab. Everytime the controller is iniated it checks if any of this view is current, 
+if it is the correspondent tab is selected
+    <li>tabIcon - {string} - name of the icon from material design icons. (Optional)</li>
+</ul>
+</div></td></tr></tbody></table></div>
+</div>

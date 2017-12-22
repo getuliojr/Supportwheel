@@ -93,18 +93,14 @@
           });
         });
 
-        //Listen for changes on schedule
-        var scheduleEvent = scheduleService.listenEvent.both.inserted(updateResult);
-
-        //Cleanup events when controller is destroyed
-        $scope.$on("$destroy", scheduleEvent);
+        
 
         //Responsable to change the data entered and selected by the user already to a new culture set.
-        function updateResult(result) {
+        var updateResult = function (result) {
           //Se já fez uma pesquisa
           if (result.type = constEventosDb.INSERTED) {
             
-            function update(result) {
+            var update = function (result) {
               result.data.weekNumber = getWeekNumber(new Date(result.data.dteSchedule));
               result.data.weekDay = new Date(result.data.dteSchedule).getDay();
               vm.scheduleShifts.push(result.data);
@@ -117,6 +113,12 @@
             }.bind(this), 14000);
     
           }
+
+          //Listen for changes on schedule
+          var scheduleEvent = scheduleService.listenEvent.both.inserted(updateResult);
+
+          //Cleanup events when controller is destroyed
+          $scope.$on("$destroy", scheduleEvent);
         }
       }
 
@@ -143,16 +145,5 @@
         return d.getUTCFullYear() + "/" + weekNo;
       }
       
-      ////Watch for changes in the id or required parameters that has been passed
-      //$scope.$watch(function () {
-      //  return { id: vm.id, required: vm.required };
-      //}, function (newValue, oldValue) {
-      //  // Check if value has changes
-      //  if (newValue === oldValue) {
-      //    return;
-      //  }
-      //  //When values changes, init the controller again
-      //  init();
-      //}, true);
     }
 })();

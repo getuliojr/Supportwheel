@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>signup.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="../docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>signup.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<span class="hljs-meta">
+
+    'use strict'</span>;
+
+    <span class="hljs-comment">/**
+     * @ngdoc overview
+     * @name components.core.signup
+     * @description
+     *
+     * # Signup - Component #
+     *
+     * This module is responsible to show a signup form 
+     * description for more details
+     *
+     * @example
+       &lt;pre&gt;
+        &lt;sw-signup&gt;&lt;sw-signup /&gt;
+       &lt;/pre&gt;
+     */</span>
+    angular
+        .module(<span class="hljs-string">'components.core.signup'</span>, [
+          <span class="hljs-string">'shared.services.service.user'</span>,
+          <span class="hljs-string">'shared.services.service.notification'</span>,
+          <span class="hljs-string">'shared.services.factory.handleException'</span>
+        ])
+
+
+     <span class="hljs-comment">/**
+     * @ngdoc directive
+     * @name components.core.signup.directive:swSignup
+     * @restrict 'E'
+     * @description
+     *
+     * This directive render a signup form for the user to register with e-mail and password.
+     * It validades if the e-mail is valid
+     *
+     */</span>
+      .component(<span class="hljs-string">'swSignup'</span>, {
+        <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">'app/components/core/signup/signup.html'</span>,
+        <span class="hljs-attr">controller</span>: SignupController
+      });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Injeta dependencias</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    SignupController.$inject = [<span class="hljs-string">'userService'</span>, <span class="hljs-string">'notificationService'</span>, <span class="hljs-string">'handleExceptionFactory'</span>];
+
+    <span class="hljs-comment">/**
+     * @ngdoc controller
+     * @name components.core.signup.controller:SignupController
+     * @requires shared.services.service.service:user
+     * @description
+     *
+     * Responsable to make the login, getLoginReason and getLastAuthError available from the securityService
+     *
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SignupController</span>(<span class="hljs-params">userService, notificationService, handleExceptionFactory</span>) </span>{
+        <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">this</span>;
+
+        vm.form = {};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>PUBLIC API</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        vm.signup = signup;
+
+        vm.teste = teste;
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">teste</span>(<span class="hljs-params">g</span>) </span>{
+          <span class="hljs-built_in">console</span>.log(g);
+        }
+
+        <span class="hljs-comment">/**
+        * @ngdoc function
+        * @name signup
+        * @methodOf components.core.signup.controller:SignupController
+        * @description
+        * Sends user information to the server to register user
+        *
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">signup</span>(<span class="hljs-params">formData</span>) </span>{
+         
+          userService.save(formData).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">result</span>) </span>{
+
+              notificationService.show(<span class="hljs-string">'success'</span>, <span class="hljs-string">"SIGNUP.REGISTERED"</span>);
+            }, handleExceptionFactory)
+          
+        }
+     
+    }
+})();</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

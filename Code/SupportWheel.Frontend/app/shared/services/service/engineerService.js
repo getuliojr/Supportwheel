@@ -5,8 +5,17 @@
     //Define o módulo
     angular.module('shared.services.service.engineer', [
         'shared.services.factory.appResource'
-        ])
-        .service('engineerService', engineerService);
+    ])
+
+    /**
+     * @ngdoc service
+     * @name shared.services.service.service:engineer
+     * @description
+     *
+     * This service is responsible to get information about the engineers in the system
+     *
+     */
+    .service('engineerService', engineerService);
 
     //Injeta dependencias
     engineerService.$inject = ['appResourceFactory'];

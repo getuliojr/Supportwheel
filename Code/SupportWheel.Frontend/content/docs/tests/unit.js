@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @ngdoc overview
  * @name Unit Tests
  * @description
@@ -31,6 +31,6 @@
  *
  * <pre>grunt karma:unitHtml</pre>
  *
- * {@link /asamap/docs/tests/unit/index.html See Unit Tests}
+ * {@link /docs/tests/unit/index.html See Unit Tests}
  *
  */

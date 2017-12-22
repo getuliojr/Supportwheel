@@ -1,4 +1,4 @@
-﻿describe('Component.cultura: culturaSelect', function () {
+describe('Component.cultura: culturaSelect', function () {
 
     //Variable for itens that are going to be used in the tests
     var $compile, directive, controllerAs, componentName, componentElement, isolateScope;

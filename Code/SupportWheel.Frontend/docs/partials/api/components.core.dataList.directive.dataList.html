@@ -1,0 +1,55 @@
+<h1><code ng:non-bindable="">dataList</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">components.core.dataList</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="components-core-datalist-directive-page components-core-datalist-directive-datalist-page"><p>This directive will render a dataList so the user can interact with it.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as element:<pre class="prettyprint linenums">&lt;data-list
+       config="{object}"
+       data="{array}"
+       [selected]
+       [order-field="{string}"]&gt;
+&lt;/data-list&gt;</pre>
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>config</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="components-core-datalist-directive-page components-core-datalist-directive-datalist-page"><p>It is responsible for the configuration of the dataList. The following properties are available:</p>
+<ul>
+    <li>title - {string=} - A name for the dataList. (Optional)</li>
+    <li>enableRowSelection - {boolean=} When true it will enable multiple selection in the dataList.
+    <li>enableFilter - {boolean=} - When true it enables a filter button on the dataList that will filter itens local and also pass the search predicate to the function onQuery. (Optional)</li>
+    <li>onQuery - {function=} - When set everytime the filter or the orderBy value changes it calls this function with new values so a new query can be run on the server. 
+The function should have two parameters. The first one is the filter that has changed and the second is the orderBy that has changed. (Optional)</li>
+    <li>columns - {object} - This is where your should configure all the columns the dataList will have. It expect the following properties:  (Required)
+        <ul>
+            <li>field - {string} - The name of the field that will be present in the data. (Required)</li>
+            <li>displayName - {string} - How the name of the field should be in the column header. (Required)</li>
+            <li>isNumeric - {boolean=} - When true the column will align the values at the right on the column. (Optional)</li>
+        </ul>
+    </li>
+    <li>itemMenu - {object} - This is where you can configure buttons and callbacks for each item in the list, so the user can interact with it. It expect the folowing properties: (Optional)
+        <ul>
+            <li>name - {string=} You can set a name in the controller that accepts translation, if found. The name or a icon should be set or both. (Optional when the icon is set)</li>
+            <li>icon - {string=} You can set the name of the icon from the material design collection and it will render it. (Optional when the name is set)</li>
+            <li>ariaLabel - {string=} When set it will configure the aria property.</li>
+            <li>onClick - {function} Here you have to pass a function that will receive the item that the user selected. (Required)</li>
+            <li>msgConfirm - {object=} Here you can configure a pop-up message for the user to confirm before the onClick runs. 
+You can set it with only defauls using an empty object or configure every parameter of the msgConfirm Component. (Optional)</li>
+        </ul>
+    </li>
+    <li>multipleItemMenu - {object} - This is where you can configure buttons and callbacks for when the user select one or more itens using checkbox. It expect the folowing properties: (Optional)
+        <ul>
+            <li>name - {string=} You can set a name in the controller that accepts translation, if found. The name or a icon should be set or both. (Optional when the icon is set)</li>
+            <li>icon - {string=} You can set the name of the icon from the material design collection and it will render it. (Optional when the name is set)</li>
+            <li>ariaLabel - {string=} When set it will configure the aria property.</li>
+            <li>onClick - {function} Here you have to pass a function that will receive the item that the user selected. (Required)</li>
+            <li>msgConfirm - {object=} Here you can configure a pop-up message for the user to confirm before the onClick runs. 
+You can set it with only defauls using an empty object or configure every parameter of the msgConfirm Component. (Optional)</li>
+        </ul>
+    </li>
+</ul>
+</div></td></tr><tr><td>data</td><td><a href="" class="label type-hint type-hint-array">array</a></td><td><div class="components-core-datalist-directive-page components-core-datalist-directive-datalist-page"><p>It expect an array with all the data that will be available in the list. All data that is in the headers are required.</p>
+</div></td></tr><tr><td>selected <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-selected">selected</a></td><td><div class="components-core-datalist-directive-page components-core-datalist-directive-datalist-page"><p>It holds all the itens that are selected in the list or should be selected.</p>
+</div></td></tr><tr><td>orderField <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="components-core-datalist-directive-page components-core-datalist-directive-datalist-page"><p>The name of the field to orderBy in the list. If descending it should start with - example: &quot;-name&quot;. If the user click on other column it will be here too.</p>
+</div></td></tr></tbody></table></div>
+</div>

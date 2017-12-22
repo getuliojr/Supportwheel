@@ -26,7 +26,9 @@
   },
   "HOME": {
     "ABOUT": "Sobre este projeto",
-    "NAME": "Roda do Destino de Suporte"
+    "NAME": "Roda do Destino de Suporte",
+    "HOME": "Início",
+    "DOCUMENTATION": "Documentação"
   },
    "TABS": {
     "ENGINEER": {
@@ -47,16 +49,6 @@
     "ARIALABEL": "Você confirma esta ação ?",
     "OK": "Sim",
     "CANCEL": "Não"
-  },
-  "TIPOCOOPERACAO": {
-    "REGIONAL": "Regional",
-    "BILATERAL": "Bilateral",
-    "TRILATERAL": "Trilateral"
-  },
-  "TIPOPROJETO": {
-    "PROGRAMA": "Programa",
-    "PROJETO": "Projeto",
-    "ATIVIDADE": "Atividade"
   }
 }
 

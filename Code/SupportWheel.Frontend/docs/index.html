@@ -11,7 +11,7 @@
                  Declarative templates with data-binding, MVC, dependency injection and great
                  testability story all implemented with pure client-side JavaScript!">
   <meta name="fragment" content="!">
-  <title ng-bind-template="ASAMap Documentation: {{partialTitle}}">Docs</title>
+  <title ng-bind-template="Documentation: {{partialTitle}}">Docs</title>
   <script type="text/javascript">
     // dynamically add base tag as well as css and javascript files.
     // we can't add css/js the usual way, because some browsers (FF) eagerly prefetch resources
@@ -89,7 +89,7 @@
         <div class="container">
           
           
-            <a  href="/asamap/docs/index.html"  class="brand">ASAMap Documentation</a>
+            <a  href="/docs/index.html"  class="brand">Documentation</a>
           
           <ul class="nav">
             <li ng-repeat="(url, name) in sections" ng-class="{active: isActivePath(url)}">
@@ -127,7 +127,7 @@
     </div>
 
     <div class="row">
-      <div class="span3">
+      <div class="span4">
         <form class="form-search" ng-submit="submitForm()">
           
           <div class="dropdown search"
@@ -207,7 +207,7 @@
 
         </form>
       </div>
-      <div class="span9">
+      <div class="span8">
 
         <ul class="breadcrumb">
           <li ng-repeat="crumb in breadcrumb">

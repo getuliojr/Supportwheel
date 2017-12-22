@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for shared\services\factory\appResourceFactory.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">shared/services/factory/</a> appResourceFactory.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">38.64% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>51/132</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">22.22% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>10/45</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/40</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">38.64% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>51/132</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿(function () {
+&nbsp;
+    'use strict';
+&nbsp;
+    /**
+     * @ngdoc service
+     *
+     * @name shared.services.factory.service:appResource
+     *
+     *
+     * @description
+     *
+     * 
+     *
+     */
+    angular.module('shared.services.factory.appResource', [
+        'shared.services.service.baseUrl',
+        'shared.services.value.constantes',
+        'shared.services.service.mediator',
+        'shared.services.service.hub'
+    ])
+&nbsp;
+    .factory('appResourceFactory', appResourceFactory);
+&nbsp;
+    //Injeta dependencias
+    appResourceFactory.$inject = ['$resource', '$q', '$rootScope', '$httpBackend', 'constEventosDb', 'baseUrlService', 'mediatorService', 'hubService'];
+&nbsp;
+    function appResourceFactory($resource, $q, $rootScope, $httpBackend, constEventosDb, baseUrlService, mediatorService, hubService) {
+&nbsp;
+        //Variáveis Privadas
+        var _cache = {};
+        var baseUrl = baseUrlService.getBaseUrl() + "api/";
+&nbsp;
+        return function (recurso, surrogateKey) {
+&nbsp;
+            //Definição das variaveis
+            var service = {};
+            var _hasHub = false;
+&nbsp;
+            var webService = createResource(recurso);
+&nbsp;
+            //Api Pública
+            service.load = load;            //Carregar dados de um ou mais registros
+            service.save = save;                //Insere ou Atualiza um registro com base na chave substituta (surrogateKey)
+            service.remove = remove;              //Apaga um registro no recurso com base na chave substituta
+            service.validate = validate;              //Responsável por validar o modelo, tem que ser incluida a parte o código
+            service.clearCache = clearCache;      //Remove qualquer registro do cache
+            service.listenEvent = listenEvent(recurso);  //When an item is added, updated or deleted this callback will be called
+            service.createHub = createHub           //Create hub for real-time update
+            return service;
+&nbsp;
+&nbsp;
+&nbsp;
+            //Funções
+&nbsp;
+            //Load New Data
+            //Optional Accepted Params:
+            //applyScope : true             //It will force an applyScope after the item has been loaded and processed
+            //loadOne    : true             //It will force a request to return a single record, even if it has no surrogateKey
+            //action     : value            //To instantiate a specific action in a resource
+            function load(params) {
+                var deferred = $q.defer();
+                var queryParams = _parseParams(params);
+                var applyScope;
+&nbsp;
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!!queryParams.applyScope) {
+<span class="cstat-no" title="statement not covered" >                    applyScope = true;</span>
+<span class="cstat-no" title="statement not covered" >                    delete queryParams.applyScope;</span>
+                }
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (surrogateKey == null || queryParams.hasOwnProperty(surrogateKey) || queryParams.hasOwnProperty("loadOne")) {
+                    //Passou a chave primária, então carrega apenas um registro
+<span class="cstat-no" title="statement not covered" >                    queryParams.id = queryParams[surrogateKey];</span>
+<span class="cstat-no" title="statement not covered" >                    delete queryParams[surrogateKey]; </span>//apaga a chave, a mesma é passada por id
+<span class="cstat-no" title="statement not covered" >                    webService.get(queryParams).$promise.then(<span class="fstat-no" title="function not covered" >function (data) {</span></span>
+<span class="cstat-no" title="statement not covered" >                        deferred.resolve(data);</span>
+                    }, <span class="fstat-no" title="function not covered" >function (err) {</span>
+<span class="cstat-no" title="statement not covered" >                        deferred.reject(err);</span>
+                    });
+                } else {
+                    //Não foi passado a chave primária, então efetua uma busca por todos os parâmetros (Pesquisar)
+                    webService.getAll(queryParams).then(function (data) {
+                        deferred.resolve(data);
+                    }, <span class="fstat-no" title="function not covered" >function (err) {</span>
+<span class="cstat-no" title="statement not covered" >                        deferred.reject(err);</span>
+                    });
+                }
+&nbsp;
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!!applyScope) {
+<span class="cstat-no" title="statement not covered" >                    deferred.promise.finally(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                        setTimeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                            $rootScope.$apply();</span>
+                        }, 4);
+                    });
+                }
+&nbsp;
+                return deferred.promise;
+            };
+&nbsp;
+            //When you create a hub, the resource will get real-time notifications on every update, insert and delete
+<span class="fstat-no" title="function not covered" >            function createHub() {</span>
+<span class="cstat-no" title="statement not covered" >                _hasHub = true;</span>
+<span class="cstat-no" title="statement not covered" >                hubService.subscribe(recurso);</span>
+            }
+&nbsp;
+            //Save a record, if it has a surrogateKey it will send a PUT otherwise a POST
+<span class="fstat-no" title="function not covered" >            function save(params, successCB, failedCB) {</span>
+<span class="cstat-no" title="statement not covered" >                var deferred = $q.defer();</span>
+<span class="cstat-no" title="statement not covered" >                var queryParams = _parseParams(params);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if ((surrogateKey != null) &amp;&amp; (queryParams.hasOwnProperty(surrogateKey))) {</span>
+<span class="cstat-no" title="statement not covered" >                    var tipoEvento = constEventosDb.UPDATED; </span>//Passou a chave primária, então está atualizando um registro
+                } else {
+<span class="cstat-no" title="statement not covered" >                    var tipoEvento = constEventosDb.INSERTED; </span>//Sem chave primária, novo registro
+                }
+&nbsp;
+                //Se possui código de validação
+<span class="cstat-no" title="statement not covered" >                if (this.validate != null) {</span>
+<span class="cstat-no" title="statement not covered" >                    var erros = this.validate(queryParams); </span>//Valida dados
+<span class="cstat-no" title="statement not covered" >                    if (erros.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >                        deferred.reject({ type: 'warning', message: erros });</span>
+<span class="cstat-no" title="statement not covered" >                        return deferred.promise;</span>
+                    }
+                }
+&nbsp;
+                //Se possui uma surrogateKey
+<span class="cstat-no" title="statement not covered" >                if (queryParams[surrogateKey]) {</span>
+                    //se tem ID, atualiza.
+<span class="cstat-no" title="statement not covered" >                    webService.update({ id: queryParams[surrogateKey] }, queryParams)</span>
+                        .$promise.then(<span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >                            mediatorService.sendEvent(recurso, tipoEvento, data, false);</span>
+<span class="cstat-no" title="statement not covered" >                            deferred.resolve(data);</span>
+                        }, <span class="fstat-no" title="function not covered" >function (err) {</span>
+<span class="cstat-no" title="statement not covered" >                            deferred.reject(err);</span>
+                        });
+                } else {
+                    //novo registro, insere
+<span class="cstat-no" title="statement not covered" >                    webService.save(null, queryParams)</span>
+                        .$promise.then(<span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >                            mediatorService.sendEvent(recurso, tipoEvento, data, false);</span>
+<span class="cstat-no" title="statement not covered" >                            deferred.resolve(data);</span>
+                        }, <span class="fstat-no" title="function not covered" >function (err) {</span>
+<span class="cstat-no" title="statement not covered" >                            deferred.reject(err);</span>
+                        });
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                return deferred.promise;</span>
+            };
+&nbsp;
+            //Delete a record, it will send a DELETE
+<span class="fstat-no" title="function not covered" >            function remove(params, successCB, failedCB) {</span>
+<span class="cstat-no" title="statement not covered" >                var deferred = $q.defer();</span>
+<span class="cstat-no" title="statement not covered" >                var queryParams = _parseParams(params);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (!queryParams.hasOwnProperty(surrogateKey)) {</span>
+<span class="cstat-no" title="statement not covered" >                    deferred.reject({ type: 'warning', message: ["Não foi informado o ID do registro que se deseja excluir."] });</span>
+                } else {
+<span class="cstat-no" title="statement not covered" >                    webService.remove({ id: queryParams[surrogateKey] })</span>
+                    .$promise.then(<span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >                        mediatorService.sendEvent(recurso, constEventosDb.DELETED, data, false);</span>
+<span class="cstat-no" title="statement not covered" >                        deferred.resolve(data);</span>
+                    }, <span class="fstat-no" title="function not covered" >function (err) {</span>
+<span class="cstat-no" title="statement not covered" >                        deferred.reject(err);</span>
+                    });
+                }
+<span class="cstat-no" title="statement not covered" >                return deferred.promise;</span>
+            };
+&nbsp;
+            //Validate service on required fields
+<span class="fstat-no" title="function not covered" >            function validate(dados) {</span>
+<span class="cstat-no" title="statement not covered" >                var erros = [];</span>
+<span class="cstat-no" title="statement not covered" >                return erros;</span>
+            };
+            //Clear any cache an resource might have
+<span class="fstat-no" title="function not covered" >            function clearCache() {</span>
+<span class="cstat-no" title="statement not covered" >                return webService.clearCache();</span>
+            };
+&nbsp;
+            //Listen for events comming from the own app or from the hubs
+            function listenEvent(recurso) {
+                return {
+                    app : {
+                        all: <span class="fstat-no" title="function not covered" >function (callback) {</span> <span class="cstat-no" title="statement not covered" >return mediatorService.listenEvent.all(recurso, callback, true, false); </span>},
+                        inserted: <span class="fstat-no" title="function not covered" >function (callback) {</span> <span class="cstat-no" title="statement not covered" >return mediatorService.listenEvent.inserted(recurso, callback, true, false); </span>},
+                        deleted: <span class="fstat-no" title="function not covered" >function (callback) {</span> <span class="cstat-no" title="statement not covered" >return mediatorService.listenEvent.deleted(recurso, callback, true, false); </span>},
+                        updated: <span class="fstat-no" title="function not covered" >function (callback) {</span> <span class="cstat-no" title="statement not covered" >return mediatorService.listenEvent.updated(recurso, callback, true, false); </span>},
+                    },
+                    hub:  {
+                        all: <span class="fstat-no" title="function not covered" >function (callback) {</span> <span class="cstat-no" title="statement not covered" >return mediatorService.listenEvent.all(recurso, callback, false, true); </span>},
+                        inserted: <span class="fstat-no" title="function not covered" >function (callback) {</span> <span class="cstat-no" title="statement not covered" >return mediatorService.listenEvent.inserted(recurso, callback, false, true); </span>},
+                        deleted: <span class="fstat-no" title="function not covered" >function (callback) {</span> <span class="cstat-no" title="statement not covered" >return mediatorService.listenEvent.deleted(recurso, callback, false, true); </span>},
+                        updated: <span class="fstat-no" title="function not covered" >function (callback) {</span> <span class="cstat-no" title="statement not covered" >return mediatorService.listenEvent.updated(recurso, callback, false, true); </span>},
+                    },
+                    both: {
+                        all: <span class="fstat-no" title="function not covered" >function (callback) {</span> <span class="cstat-no" title="statement not covered" >return mediatorService.listenEvent.all(recurso, callback, true, true); </span>},
+                        inserted: <span class="fstat-no" title="function not covered" >function (callback) {</span> <span class="cstat-no" title="statement not covered" >return mediatorService.listenEvent.inserted(recurso, callback, true, true); </span>},
+                        deleted: <span class="fstat-no" title="function not covered" >function (callback) {</span> <span class="cstat-no" title="statement not covered" >return mediatorService.listenEvent.deleted(recurso, callback, true, true); </span>},
+                        updated: <span class="fstat-no" title="function not covered" >function (callback) {</span> <span class="cstat-no" title="statement not covered" >return mediatorService.listenEvent.updated(recurso, callback, true, true); </span>},
+                    }
+                    
+                };
+&nbsp;
+            }
+&nbsp;
+            //***************************
+            // Funções auxiliares
+            //***************************
+&nbsp;
+            function createResource(recurso) {
+&nbsp;
+                //$resource(url[, paramDefaults][, actions]);
+                //{action1: {method:?, params:?, isArray:?},
+                //- `action` – {string} – The name of action. This name becomes the name of the method on your resource object.
+                //- `method` – {string} – HTTP request method. Valid methods are: `GET`, `POST`, `PUT`, `DELETE`, and `JSONP`
+                //- `params` – {object=} – Optional set of pre-bound parameters for this action.
+                //- isArray – {boolean=} – If true then the returned object for this action is an array
+                var resource = $resource(baseUrl + recurso + '/:action/:id',
+                        {}, {
+                            update: { method: 'PUT', params: { id: '@id' } }
+                              , save: { method: 'POST' }
+                              , remove: { method: 'DELETE', params: { id: '@id' } }
+                              , get: { method: 'GET', params: { id: '@id' } }
+                              , query: { method: 'GET', isArray: true }
+                        });
+&nbsp;
+                //Responsavel por limpar o cache do recurso em questao
+                resource.clearCache = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                    var key = 'api/' + recurso;</span>
+<span class="cstat-no" title="statement not covered" >                    for (var c in _cache) {</span>
+<span class="cstat-no" title="statement not covered" >                        if (c.indexOf(key) &gt; -1)</span>
+<span class="cstat-no" title="statement not covered" >                            delete _cache[c];</span>
+                    }
+                }
+&nbsp;
+                //Retorna um Array com DADOS, opção para manter em cache
+                resource.getAll = function (params) {
+&nbsp;
+                    var deferred = $q.defer(); //Cria uma promessa
+&nbsp;
+                    //Se solicitou que seja feito um cache, chama o método para resolver o mesmo
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (params &amp;&amp; params["cache"] !== undefined &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >params["cache"] === true)</span> {
+<span class="cstat-no" title="statement not covered" >                        var key = 'api/' + recurso;</span>
+&nbsp;
+                        //Se algum outro parâmetro fora o cache foi passado, reconstroi a chamada
+<span class="cstat-no" title="statement not covered" >                        for (var p in params) {</span>
+<span class="cstat-no" title="statement not covered" >                            if (Object.prototype.toString.call(params[p]) === '[object Array]') {</span>
+                                //Transforma arrays em strings com virgula
+<span class="cstat-no" title="statement not covered" >                                var fixedCollection = "";</span>
+<span class="cstat-no" title="statement not covered" >                                for (var arvalue = 0; arvalue &lt; params[p].length; arvalue++) {</span>
+<span class="cstat-no" title="statement not covered" >                                    if (arvalue &gt; 0)</span>
+<span class="cstat-no" title="statement not covered" >                                        fixedCollection += ",";</span>
+<span class="cstat-no" title="statement not covered" >                                    fixedCollection += params[p][arvalue];</span>
+                                }
+<span class="cstat-no" title="statement not covered" >                                params[p] = fixedCollection;</span>
+                            }
+<span class="cstat-no" title="statement not covered" >                            if (p !== "cache") {</span>
+<span class="cstat-no" title="statement not covered" >                                key += "&amp;" + p + "=" + params[p];</span>
+                            }
+                        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                        if (_cache[key]) { //Se existe em cache, retorna o resultado</span>
+<span class="cstat-no" title="statement not covered" >                            deferred.resolve(_cache[key]);</span>
+<span class="cstat-no" title="statement not covered" >                            return deferred.promise;</span>
+                        }
+                    }
+&nbsp;
+                    //Se chegou aqui não está em cache, busca os dados
+                    resource.query(params).$promise.then(function (result) {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (key) {
+<span class="cstat-no" title="statement not covered" >                            _cache[key] = result; </span>//Salva em cache
+                        }
+                        deferred.resolve(result); //Envia para o usuario
+                    }, <span class="fstat-no" title="function not covered" >function (err) {</span>
+<span class="cstat-no" title="statement not covered" >                        deferred.reject(err);</span>
+                    });
+&nbsp;
+                    
+                    //Retorna promessa
+                    return deferred.promise;
+                }
+&nbsp;
+                return resource;
+            }
+&nbsp;
+            //Remove all undefined, null, empty values and functions
+            //parse data do be in ISO format
+            function _parseParams(params) {
+                var parsedParams = {}
+                for (var i in params) {
+<span class="cstat-no" title="statement not covered" >                    if ((params[i] !== undefined) &amp;&amp; (params[i] !== "") &amp;&amp; (typeof (params[i]) != 'function')) {</span>
+<span class="cstat-no" title="statement not covered" >                        if (angular.isDate(params[i])) {</span>
+<span class="cstat-no" title="statement not covered" >                            parsedParams[i] = new Date(params[i] - (params[i].getTimezoneOffset() * 60 * 1000)).toISOString();</span>
+                        } else {
+<span class="cstat-no" title="statement not covered" >                            parsedParams[i] = params[i];</span>
+                        }
+                    }
+                }
+&nbsp;
+                delete parsedParams.viewInfo; //Informações de ViewState
+                return parsedParams;
+&nbsp;
+            }
+&nbsp;
+        }
+&nbsp;
+    }
+&nbsp;
+})();
+    
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Dec 22 2017 14:15:00 GMT-0200 (Horário brasileiro de verão)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

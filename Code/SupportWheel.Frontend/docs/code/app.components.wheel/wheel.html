@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>wheel.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="../docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>wheel.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<span class="hljs-meta">
+
+  'use strict'</span>;
+
+  <span class="hljs-comment">/**
+  * @ngdoc overview
+  * @name components.wheel
+  *
+  * @description
+  *
+  * # wheel - Component #
+  *
+  * This component is responsible to render a fortune wheel to present the data
+  *
+  * @example
+    &lt;pre&gt;
+     &lt;sw-wheel&gt;&lt;/sw-wheel&gt;
+    &lt;/pre&gt;
+  */</span>
+  angular
+    .module(<span class="hljs-string">'components.wheel'</span>, [
+      <span class="hljs-string">'shared.services.service.engineer'</span>,
+      <span class="hljs-string">'shared.services.factory.handleException'</span>,
+       <span class="hljs-string">'shared.services.service.schedule'</span>,
+      <span class="hljs-string">'shared.services.service.notification'</span>,
+     <span class="hljs-string">'shared.services.value.varantes'</span>
+
+    ])
+
+
+    <span class="hljs-comment">/**
+    * @ngdoc directive
+    * @name components.wheel.directive:swWheel
+    *
+    * @restrict 'E'
+    * 
+    * @description
+    *
+    * This component will render a wheel
+    *
+    */</span>
+    .component(<span class="hljs-string">'swWheel'</span>, {
+      <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">'app/components/wheel/wheel.html'</span>,
+      <span class="hljs-attr">controller</span>: WheelController,
+      <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">'app/components/wheel/wheel.css'</span>],
+      <span class="hljs-attr">bindings</span>: {
+
+      }
+    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Inject Dependencies</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  WheelController.$inject = [<span class="hljs-string">'handleExceptionFactory'</span>, <span class="hljs-string">'engineerService'</span>, <span class="hljs-string">'scheduleService'</span>, <span class="hljs-string">'notificationService'</span>, <span class="hljs-string">'$scope'</span>, <span class="hljs-string">'varEventosDb'</span>,<span class="hljs-string">'$timeout'</span>];
+
+
+   <span class="hljs-comment">/**
+   * @ngdoc controller
+   * @name components.wheel.controller:WheelController
+   * @description
+   *
+   * It has the logic behind the component
+   *
+   */</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">WheelController</span>(<span class="hljs-params">handleExceptionFactory, engineerService, scheduleService, notificationService, $scope, varEventosDb, $timeout</span>) </span>{
+    <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">this</span>;
+    vm.engineersNames = [];
+    vm.engineers = [];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Engineer that have been drafted, so the wheel knows when and where to stop</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    vm.draftEngineer = {};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Init component</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    vm.$onInit = init;
+    vm.startSpinning = handleSpin;
+
+    <span class="hljs-comment">/**
+        * @ngdoc function
+        * @name init
+        * @methodOf  components.wheel.controller:WheelController
+        * @private
+        *
+        * @description
+        *
+        * This is a private function that is called when the controller is initialized
+        */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params"></span>) </span>{
+
+      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadEngineers</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Get projects based on the criteria selected</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        engineerService
+          .load({ <span class="hljs-attr">cache</span>: <span class="hljs-literal">false</span> })
+          .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+            vm.engineers = data;
+            vm.engineerNames = [];
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> d = <span class="hljs-number">0</span>; d &lt; data.length; d++) {
+              vm.engineersNames.push(data[d].strNameEngineer);
+            }
+            handleChange();
+
+            
+          })
+          .catch(handleExceptionFactory);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Get information about last draft</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        scheduleService.load({ <span class="hljs-attr">intPageSize</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">intPageNumber</span>: <span class="hljs-number">1</span> }).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+          <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Try to get the last date and period from the database</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          <span class="hljs-keyword">if</span> (data.length &gt; <span class="hljs-number">0</span>) {
+            vm.lastDate = data[<span class="hljs-number">0</span>].dteSchedule;
+            vm.lastPeriod = data[<span class="hljs-number">0</span>].intPeriod;
+            vm.lastEngineer = data[<span class="hljs-number">0</span>].strNameEngineer;
+            vm.lastDraftBy = data[<span class="hljs-number">0</span>].strFullNameCreated;
+          } <span class="hljs-keyword">else</span> {
+            vm.lastDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+            vm.lastPeriod = <span class="hljs-number">1</span>;
+
+          }
+        });
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Listen for changes on instituição</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">var</span> engineerEvent = engineerService.listenEvent.both.all(loadEngineers);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Cleanup events when controller is destroyed</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      $scope.$on(<span class="hljs-string">"$destroy"</span>, engineerEvent);
+
+      loadEngineers();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Listen for changes on schedule</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">var</span> scheduleEvent = scheduleService.listenEvent.hub.inserted(updateResult);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Cleanup events when controller is destroyed</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      $scope.$on(<span class="hljs-string">"$destroy"</span>, scheduleEvent);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Responsable to change the data entered and selected by the user already to a new culture set.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateResult</span>(<span class="hljs-params">result</span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Update content if outdated</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> (result.type = varEventosDb.INSERTED) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Update Data</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          <span class="hljs-keyword">var</span> update = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">result</span>) </span>{
+            <span class="hljs-keyword">if</span> (result.data.dteSchedule &gt;= vm.lastDate) {
+              vm.lastDate = result.data.dteSchedule;
+              vm.lastPeriod = result.data.intPeriod;
+              vm.lastEngineer = result.data.strNameEngineer;
+              vm.lastDraftBy = result.data.strFullNameCreated;
+              $scope.$apply();
+            }
+          }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Wait 10 seconds to show result in the grid to keep suspense of the wheel</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          $timeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            update(result)
+          }.bind(<span class="hljs-keyword">this</span>), <span class="hljs-number">14000</span>);
+
+
+          
+        }
+      }
+    }
+
+    <span class="hljs-comment">/**
+        * @ngdoc function
+        * @name addExtraSpin
+        * @methodOf  components.wheel.controller:WheelController
+        * @private
+        *
+        * @description
+        *
+        * This is responsable to calculate how many more speed is required to make the wheel stop in the desired position
+        * Since the result is calculated in the server, we just sync the frontend vision to make it appears everything happens here.
+        */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addExtraSpin</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Getting here means there is a new engineer drafted, so calculate how many more spins is required do stop in this name</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">var</span> originalRotation = angular.copy(group.rotation);
+      <span class="hljs-keyword">var</span> originalSpeed = angular.copy(speed);
+
+      <span class="hljs-keyword">while</span> (speed &gt; <span class="hljs-number">0.005</span>) {
+        group.rotation = (group.rotation + speed * dirScalar) % TAU;
+        speed = speed * friction;
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>reset speed to the original one to add an extra punch to stop in the right place</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      speed = angular.copy(originalSpeed);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>Compare result of the wheel with the desired solution</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">while</span> (getCurrentWord() != vm.draftEngineer.strNameEngineer) {
+        speed = speed * (speed / (speed * friction));
+        group.rotation = (group.rotation + speed * dirScalar) % TAU;
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>reset rotation of the wheel to the original position, so it goes smooth</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      group.rotation = originalRotation;
+    }
+
+     <span class="hljs-comment">/**
+        * @ngdoc function
+        * @name startSpinning
+        * @methodOf  components.wheel.controller:WheelController
+        * @private
+        *
+        * @description
+        *
+        * This has all the logic to start the wheel spinning
+        */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">startSpinning</span>(<span class="hljs-params"></span>) </span>{
+      vm.spinning = <span class="hljs-literal">true</span>;
+      vm.draftEngineer = {};
+      two.bind(<span class="hljs-string">'update'</span>, animateWheel);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>Get a result from the server</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      scheduleService.save({ <span class="hljs-attr">dteSchedule</span>: vm.lastDate, <span class="hljs-attr">intPeriod</span>: vm.lastPeriod }).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">result</span>) </span>{
+        vm.draftEngineer = result;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>add right speed to the wheel for this result</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        addExtraSpin();
+      }, handleExceptionFactory);
+    }
+
+     <span class="hljs-comment">/**
+        * @ngdoc function
+        * @name animateWheel
+        * @methodOf  components.wheel.controller:WheelController
+        * @private
+        *
+        * @description
+        *
+        * Responsable to canculate speed and rotation of the draw
+        */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">animateWheel</span>(<span class="hljs-params"></span>) </span>{
+
+      group.rotation = (group.rotation + speed * dirScalar) % TAU;
+      <span class="hljs-keyword">if</span> (speed &lt;= <span class="hljs-number">0.4</span>) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>have to add speed to stop in the right one</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> (vm.draftEngineer.strNameEngineer !== <span class="hljs-literal">undefined</span>) {
+          speed = speed * friction;
+        }
+      } <span class="hljs-keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>keep slowing down</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        speed = speed * friction;
+      }
+      handleRotationChange(group.rotation);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>Unbind events so the wheel stops</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">if</span> (speed &lt; <span class="hljs-number">0.005</span>) {
+        vm.spinning = <span class="hljs-literal">false</span>;
+        two.unbind(<span class="hljs-string">'update'</span>, animateWheel);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>Show values in the screen</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        vm.lastDate = vm.draftEngineer.dteSchedule;
+        vm.lastPeriod = vm.draftEngineer.intPeriod;
+        vm.lastEngineer = vm.draftEngineer.strNameEngineer;
+        vm.lastDraftBy = vm.draftEngineer.strFullNameCreated;
+        $scope.$apply();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>Send a success message</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        notificationService.show(<span class="hljs-string">'success'</span>, <span class="hljs-string">"WHEEL.SUCCESS-SAVED"</span>);
+      }
+    }
+
+ <span class="hljs-comment">/**
+        * @ngdoc function
+        * @name handleRotationChange
+        * @methodOf  components.wheel.controller:WheelController
+        * @private
+        *
+        * @description
+        *
+        * Responsable to rotate the wheel
+        */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleRotationChange</span>(<span class="hljs-params">angle</span>) </span>{
+      <span class="hljs-keyword">if</span> (options.onWheelTick &amp;&amp; <span class="hljs-keyword">typeof</span> options.onWheelTick === <span class="hljs-string">'function'</span>) {
+        options.onWheelTick(angle);
+      }
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>Colors to be used to fill the wheel</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> COLORS = [
+      <span class="hljs-string">'#f7d046'</span>,
+      <span class="hljs-string">'#ff4c5a'</span>,
+      <span class="hljs-string">'#f08cba'</span>,
+      <span class="hljs-string">'#49c4d2'</span>,
+      <span class="hljs-string">'#924e84'</span>,
+      <span class="hljs-string">'#fd926f'</span>,
+      <span class="hljs-string">'#245a65'</span>,
+      <span class="hljs-string">'#ff6a76'</span>,
+      <span class="hljs-string">'#633d89'</span>,
+      <span class="hljs-string">'#3cb878'</span>,
+      <span class="hljs-string">'#ee1c24'</span>,
+      <span class="hljs-string">'#f6989d'</span>,
+      <span class="hljs-string">'#00aef0'</span>,
+      <span class="hljs-string">'#f26522'</span>,
+      <span class="hljs-string">'#fff200'</span>,
+      <span class="hljs-string">'#e70697'</span>,
+      <span class="hljs-string">'#000000'</span>
+    ];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>Wheel Font Base:  <a href="https://codepen.io/larrybotha/pen/yMmQyG">https://codepen.io/larrybotha/pen/yMmQyG</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> PI = <span class="hljs-built_in">Math</span>.PI;
+    <span class="hljs-keyword">var</span> TAU = PI * <span class="hljs-number">2</span>;
+
+    <span class="hljs-keyword">var</span> degToRad = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">deg</span>) </span>{
+      <span class="hljs-keyword">return</span> deg / <span class="hljs-number">180</span> * PI;
+    }
+
+    <span class="hljs-keyword">var</span> eventMap = {
+      <span class="hljs-attr">mousedown</span>: handleCursorDown,
+      <span class="hljs-attr">touchstart</span>: handleCursorDown,
+      <span class="hljs-attr">mousemove</span>: handleCursorMove,
+      <span class="hljs-attr">touchmove</span>: handleCursorMove,
+      <span class="hljs-attr">mouseup</span>: handleCursorUp,
+      <span class="hljs-attr">touchend</span>: handleCursorUp,
+    };
+
+    <span class="hljs-keyword">var</span> ratios = {
+      <span class="hljs-attr">tickerRadius</span>: <span class="hljs-number">.06</span>, <span class="hljs-comment">// of width</span>
+      textSize: <span class="hljs-number">.12</span>, <span class="hljs-comment">// of radius</span>
+      edgeDist: <span class="hljs-number">.14</span>, <span class="hljs-comment">// of radius</span>
+    };
+
+    <span class="hljs-keyword">var</span> getCoordOnCircle = <span class="hljs-function">(<span class="hljs-params">r, angleInRad, { cx, cy }</span>) =&gt;</span> {
+      <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">x</span>: cx + r * <span class="hljs-built_in">Math</span>.cos(angleInRad),
+        <span class="hljs-attr">y</span>: cy + r * <span class="hljs-built_in">Math</span>.sin(angleInRad),
+      };
+    };
+
+    <span class="hljs-keyword">var</span> friction = <span class="hljs-number">.99</span>;
+    <span class="hljs-keyword">var</span> maxSpeed = <span class="hljs-number">.5</span>;
+
+    <span class="hljs-keyword">var</span> group;
+    <span class="hljs-keyword">var</span> speed;
+    <span class="hljs-keyword">var</span> dirScalar = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">var</span> words;
+    <span class="hljs-keyword">var</span> two;
+    <span class="hljs-keyword">var</span> isGroupActive = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">var</span> textDistFromEdge = <span class="hljs-number">30</span>;
+    <span class="hljs-keyword">var</span> curPosArr = [];
+    <span class="hljs-keyword">var</span> lastCurTime;
+
+    
+    <span class="hljs-keyword">var</span> options = {
+      <span class="hljs-attr">width</span>: <span class="hljs-number">240</span>,
+      <span class="hljs-attr">height</span>: <span class="hljs-number">240</span>,
+      <span class="hljs-attr">type</span>: <span class="hljs-string">'svg'</span>,
+    };
+
+    
+    
+
+    
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCurrentWord</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> numWords = words.length;
+      <span class="hljs-keyword">var</span> segmentAngle = TAU / numWords;
+      <span class="hljs-keyword">var</span> currAngle = (TAU - group.rotation + segmentAngle / <span class="hljs-number">2</span>) % TAU;
+
+      <span class="hljs-keyword">return</span> words.find(<span class="hljs-function">(<span class="hljs-params">_, i</span>) =&gt;</span> segmentAngle * (i + <span class="hljs-number">1</span>) &gt; currAngle);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleCursorDown</span>(<span class="hljs-params">e</span>) </span>{
+      <span class="hljs-keyword">var</span> event = getEvent(e);
+      <span class="hljs-keyword">var</span> groupElem = group._renderer.elem;
+      isGroupActive = groupElem === e.target || groupElem.contains(e.target);
+      curPosArr = isGroupActive ? curPosArr.concat(getEventPos(e)) : curPosArr;
+      lastCurTime = performance.now();
+    }
+
+    
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setWords</span>(<span class="hljs-params">wordsArr</span>) </span>{
+      words = wordsArr;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setViewBox</span>(<span class="hljs-params">width, height</span>) </span>{
+      two.renderer.domElement.setAttribute(
+        <span class="hljs-string">'viewBox'</span>,
+        <span class="hljs-string">`0 0 <span class="hljs-subst">${width}</span> <span class="hljs-subst">${height}</span>`</span>
+      );
+    }
+
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">drawTicker</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> { width } = two;
+      <span class="hljs-keyword">var</span> outerRadius = ratios.tickerRadius * width;
+
+      <span class="hljs-keyword">var</span> tickerCircle = drawTickerCircle(outerRadius);
+      <span class="hljs-keyword">var</span> circleCenter = tickerCircle.translation;
+
+      drawTickerArrow(outerRadius, degToRad(<span class="hljs-number">30</span>), circleCenter);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">drawTickerCircle</span>(<span class="hljs-params">outerRadius</span>) </span>{
+      <span class="hljs-keyword">var</span> { width } = two;
+      <span class="hljs-keyword">var</span> arc = two.makeArcSegment(
+        width / <span class="hljs-number">2</span>, outerRadius,
+        outerRadius, outerRadius * <span class="hljs-number">.5</span>,
+        <span class="hljs-number">0</span>, <span class="hljs-number">2</span> * PI
+      );
+      arc.noStroke();
+
+      <span class="hljs-keyword">return</span> arc;
+    }
+
+
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">drawTickerArrow</span>(<span class="hljs-params">radius, tangentAngle, tickerCenter</span>) </span>{
+      <span class="hljs-keyword">var</span> { x, y } = tickerCenter;
+
+      <span class="hljs-keyword">var</span> pointA = getCoordOnCircle(
+        radius, PI / <span class="hljs-number">2</span>, { <span class="hljs-attr">cx</span>: x, <span class="hljs-attr">cy</span>: y }
+      );
+      <span class="hljs-keyword">var</span> pointB = getCoordOnCircle(
+        radius, tangentAngle, { <span class="hljs-attr">cx</span>: x, <span class="hljs-attr">cy</span>: y }
+      );
+      <span class="hljs-keyword">var</span> pointC = {
+        <span class="hljs-attr">x</span>: x,
+        <span class="hljs-attr">y</span>: y + radius / <span class="hljs-built_in">Math</span>.cos(PI / <span class="hljs-number">2</span> - tangentAngle),
+      };
+      <span class="hljs-keyword">var</span> pointD = getCoordOnCircle(
+        radius, PI - tangentAngle, { <span class="hljs-attr">cx</span>: x, <span class="hljs-attr">cy</span>: y }
+      );
+      <span class="hljs-keyword">var</span> path = two.makePath(
+        pointA.x, pointA.y,
+        pointB.x, pointB.y,
+        pointC.x, pointC.y,
+        pointD.x, pointD.y
+      );
+      path.noStroke();
+
+      path.fill = <span class="hljs-string">"#3f51b5"</span>
+
+      <span class="hljs-keyword">return</span> path;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">drawWheel</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">if</span> (group) { destroyPaths(); }
+
+      <span class="hljs-keyword">var</span> { width, height } = two;
+      <span class="hljs-keyword">var</span> numColors = COLORS.length;
+      <span class="hljs-keyword">var</span> rotationUnit = <span class="hljs-number">2</span> * PI / words.length;
+      <span class="hljs-keyword">var</span> yOffset = width * ratios.tickerRadius * <span class="hljs-number">2</span>;
+      <span class="hljs-keyword">var</span> radius = (width - yOffset) / <span class="hljs-number">2</span>;
+      <span class="hljs-keyword">var</span> center = {
+        <span class="hljs-attr">x</span>: width / <span class="hljs-number">2</span>,
+        <span class="hljs-attr">y</span>: radius + yOffset,
+      };
+      group = two.makeGroup();
+
+      words.map(<span class="hljs-function">(<span class="hljs-params">word, i, arr</span>) =&gt;</span> {
+        <span class="hljs-keyword">var</span> angle = rotationUnit * i - (PI + rotationUnit) / <span class="hljs-number">2</span>;
+        <span class="hljs-keyword">var</span> arc = two.makeArcSegment(
+          center.x, center.y,
+          <span class="hljs-number">0</span>, radius,
+          <span class="hljs-number">0</span>, <span class="hljs-number">2</span> * PI / arr.length
+        );
+        arc.rotation = angle;
+        arc.noStroke();
+        arc.fill = COLORS[i % numColors];
+
+        <span class="hljs-keyword">var</span> textVertex = {
+          <span class="hljs-attr">x</span>: center.x + (radius - radius * ratios.edgeDist) * <span class="hljs-built_in">Math</span>.cos(angle + rotationUnit / <span class="hljs-number">2</span>),
+          <span class="hljs-attr">y</span>: center.y + (radius - radius * ratios.edgeDist) * <span class="hljs-built_in">Math</span>.sin(angle + rotationUnit / <span class="hljs-number">2</span>),
+        };
+
+        <span class="hljs-keyword">var</span> text = two.makeText(word, textVertex.x, textVertex.y);
+        text.rotation = rotationUnit * i - PI / <span class="hljs-number">2</span>;
+        text.alignment = <span class="hljs-string">'right'</span>;
+        text.fill = <span class="hljs-string">'#fff'</span>;
+        text.size = radius * ratios.textSize;
+
+        group.add(arc, text);
+      });
+
+      group.translation.set(center.x, center.y);
+      group.center();
+      drawTicker();
+
+      two.update();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleResize</span>(<span class="hljs-params"></span>) </span>{
+      setViewBox(two.width, two.height);
+      drawWheel();
+      drawTicker();
+      two.update();
+    }
+
+
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleCursorUp</span>(<span class="hljs-params">e</span>) </span>{
+      <span class="hljs-keyword">if</span> (isGroupActive &amp;&amp; curPosArr.length &gt; <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">var</span> currPos = getEventPos(e);
+        <span class="hljs-keyword">var</span> lastPos = curPosArr[curPosArr.length - <span class="hljs-number">2</span>];
+        <span class="hljs-keyword">var</span> timeNow = performance.now();
+        <span class="hljs-keyword">var</span> time = timeNow - lastCurTime;
+        <span class="hljs-keyword">var</span> distance = <span class="hljs-built_in">Math</span>.sqrt(
+          <span class="hljs-built_in">Math</span>.pow(currPos.x - lastPos.x, <span class="hljs-number">2</span>) +
+          <span class="hljs-built_in">Math</span>.pow(currPos.y - lastPos.y, <span class="hljs-number">2</span>)
+        );
+        speed = <span class="hljs-built_in">Math</span>.min(distance / time, maxSpeed);
+
+        <span class="hljs-keyword">if</span> (speed &lt; <span class="hljs-number">0.4</span>) {
+
+          <span class="hljs-keyword">return</span>;
+        }
+        startSpinning();
+
+      }
+
+      curPosArr = [];
+      isGroupActive = <span class="hljs-literal">false</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getEventPos</span>(<span class="hljs-params">e</span>) </span>{
+      <span class="hljs-keyword">var</span> event = getEvent(e);
+
+      <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">x</span>: event.clientX,
+        <span class="hljs-attr">y</span>: event.clientY,
+      };
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getEvent</span>(<span class="hljs-params">e</span>) </span>{
+      <span class="hljs-keyword">return</span> e.changedTouches ? e.changedTouches[<span class="hljs-number">0</span>] : e;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleCursorMove</span>(<span class="hljs-params">e</span>) </span>{
+      <span class="hljs-keyword">if</span> (isGroupActive &amp;&amp; curPosArr.length) {
+        e.preventDefault();
+        lastCurTime = performance.now();
+        curPosArr = curPosArr.concat(getEventPos(e));
+        <span class="hljs-keyword">var</span> currPos = curPosArr[curPosArr.length - <span class="hljs-number">1</span>];
+        <span class="hljs-keyword">var</span> prevPos = curPosArr[curPosArr.length - <span class="hljs-number">2</span>];
+        <span class="hljs-keyword">var</span> groupBounds = group._renderer.elem.getBoundingClientRect();
+        <span class="hljs-keyword">var</span> groupCenter = {
+          <span class="hljs-attr">x</span>: groupBounds.left + groupBounds.width / <span class="hljs-number">2</span>,
+          <span class="hljs-attr">y</span>: groupBounds.top + groupBounds.height / <span class="hljs-number">2</span>,
+        };
+        <span class="hljs-keyword">var</span> angleAtCursorDown = <span class="hljs-built_in">Math</span>.atan2(
+          prevPos.y - groupCenter.y,
+          prevPos.x - groupCenter.x
+        );
+        <span class="hljs-keyword">var</span> angleAtCursorNow = <span class="hljs-built_in">Math</span>.atan2(
+          currPos.y - groupCenter.y,
+          currPos.x - groupCenter.x
+        );
+        <span class="hljs-keyword">var</span> deltaRotation = angleAtCursorNow - angleAtCursorDown;
+        dirScalar = deltaRotation &gt; <span class="hljs-number">0</span> ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>;
+
+        group.rotation = (group.rotation + deltaRotation) % TAU;
+
+        handleRotationChange(group.rotation);
+
+        two.update();
+      }
+    }
+
+
+
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">spin</span>(<span class="hljs-params">newSpeed</span>) </span>{
+      speed = newSpeed;
+      startSpinning();
+
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateDims</span>(<span class="hljs-params">{ height, width }</span>) </span>{
+      two.width = <span class="hljs-built_in">parseInt</span>(width, <span class="hljs-number">10</span>);
+      two.height = <span class="hljs-built_in">parseInt</span>(height, <span class="hljs-number">10</span>);
+      two.trigger(<span class="hljs-string">'resize'</span>);
+    }
+
+
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initEvents</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> domElement = two.renderer.domElement;
+
+      <span class="hljs-built_in">Object</span>.keys(eventMap).map(<span class="hljs-function"><span class="hljs-params">type</span> =&gt;</span>
+        domElement.addEventListener(type, eventMap[type])
+      );
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">removeEvents</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> domElement = two.renderer.domElement;
+
+      two.unbind(<span class="hljs-string">'update'</span>);
+
+      <span class="hljs-built_in">Object</span>.keys(eventMap).map(<span class="hljs-function"><span class="hljs-params">type</span> =&gt;</span>
+        domElement.removeEventListener(type, eventMap[type])
+      );
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">destroyPaths</span>(<span class="hljs-params"></span>) </span>{
+      group.remove.apply(group, group.children);
+      two.clear();
+    }
+
+
+
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">destroy</span>(<span class="hljs-params"></span>) </span>{
+      destroyPaths();
+      removeEvents();
+
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+
+    <span class="hljs-keyword">var</span> wheelFactory = <span class="hljs-function">(<span class="hljs-params">mountElem</span>) =&gt;</span> {
+      <span class="hljs-keyword">if</span> (!mountElem || !(<span class="hljs-string">'nodeType'</span> <span class="hljs-keyword">in</span> mountElem)) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'no mount element provided'</span>);
+      }
+
+      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params">opts</span>) </span>{
+        options = <span class="hljs-built_in">Object</span>.assign({}, options, opts);
+        two = <span class="hljs-keyword">new</span> Two({
+          <span class="hljs-attr">type</span>: Two.Types[options.type],
+          <span class="hljs-attr">width</span>: options.width,
+          <span class="hljs-attr">height</span>: options.height,
+        }).bind(<span class="hljs-string">'resize'</span>, handleResize).play();
+
+        initEvents();
+        two.appendTo(mountElem);
+        setViewBox(options.width, options.height);
+
+        two.renderer.domElement.setAttribute(
+          <span class="hljs-string">'style'</span>,
+          <span class="hljs-string">`
+        -moz-user-select:none;
+        -ms-user-select:none;
+        -webkit-user-select:none;
+        user-select:none;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+      `</span>
+        );
+      }
+
+      <span class="hljs-keyword">return</span> {
+        destroy,
+        drawWheel,
+        getCurrentWord,
+        init,
+        setWords,
+        spin,
+        updateDims,
+      };
+    };
+
+    <span class="hljs-keyword">var</span> mount = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.js-mount'</span>);
+    <span class="hljs-keyword">var</span> wordButton = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.js-get-word'</span>);
+    <span class="hljs-keyword">var</span> spinButton = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.js-spin'</span>);
+    <span class="hljs-keyword">var</span> wordsInput = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.js-words'</span>);
+    <span class="hljs-keyword">var</span> getWords = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> vm.engineersNames;
+
+
+    <span class="hljs-keyword">var</span> wheel = wheelFactory(mount);
+    wheel.init({
+      <span class="hljs-attr">width</span>: <span class="hljs-built_in">Math</span>.min(<span class="hljs-built_in">window</span>.innerWidth, <span class="hljs-built_in">window</span>.innerHeight),
+      <span class="hljs-attr">height</span>: <span class="hljs-built_in">Math</span>.min(<span class="hljs-built_in">window</span>.innerWidth, <span class="hljs-built_in">window</span>.innerHeight)
+    });
+    wheel.setWords(getWords());
+    wheel.drawWheel();
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleChange</span>(<span class="hljs-params"></span>) </span>{
+
+
+      wheel.setWords(vm.engineersNames);
+      wheel.drawWheel();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleGetWord</span>(<span class="hljs-params">e</span>) </span>{
+      <span class="hljs-keyword">var</span> word = wheel.getCurrentWord();
+
+      e.target.textContent = <span class="hljs-string">`Get current word: <span class="hljs-subst">${word}</span>`</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleSpin</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> randomSpeed = <span class="hljs-number">0</span>;
+      <span class="hljs-keyword">while</span> (randomSpeed &lt; <span class="hljs-number">0.4</span>) {
+        randomSpeed = <span class="hljs-built_in">Math</span>.random();
+      }
+      wheel.spin(randomSpeed);
+    }
+
+    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'resize'</span>, () =&gt; {
+      wheel.updateDims({
+        <span class="hljs-attr">width</span>: <span class="hljs-built_in">Math</span>.min(<span class="hljs-built_in">window</span>.innerWidth, <span class="hljs-built_in">window</span>.innerHeight),
+        <span class="hljs-attr">height</span>: <span class="hljs-built_in">Math</span>.min(<span class="hljs-built_in">window</span>.innerWidth, <span class="hljs-built_in">window</span>.innerHeight),
+      });
+    });
+
+  }
+})();</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

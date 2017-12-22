@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>dataList.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="../docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>dataList.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<span class="hljs-meta">
+
+    'use strict'</span>;
+
+     <span class="hljs-comment">/**
+     * @ngdoc overview
+     * @name components.core.dataList
+     * @description
+     *
+     * # dataList - Component #
+     *
+     * This module is responsible to genereate a grid view of the data that has been passed. It makes it easier to add buttons for edit, delete. 
+     * It has options to select many itens in the list or even filter data local or remote.
+     *
+     * @example
+       &lt;pre&gt;
+        &lt;data-list config="config" data="data", selected="selected" order-field="orderField"&gt;&lt;data-list /&gt;
+       &lt;/pre&gt;
+     */</span>
+    angular
+        .module(<span class="hljs-string">'components.core.dataList'</span>, [
+            
+        ])
+
+        .directive(<span class="hljs-string">'abcDataList'</span>, dataListDirective)
+        .controller(<span class="hljs-string">'DataListController'</span>, DataListController);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Inject Dependencies</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    dataListDirective.$inject = [];
+
+    <span class="hljs-comment">/**
+     * @ngdoc directive
+     * @name components.core.dataList.directive:dataList
+     * @restrict 'E'
+     * @param {object} config It is responsible for the configuration of the dataList. The following properties are available:
+     *      &lt;ul&gt;
+     *          &lt;li&gt;title - {string=} - A name for the dataList. (Optional)&lt;/li&gt;
+     *          &lt;li&gt;enableRowSelection - {boolean=} When true it will enable multiple selection in the dataList.
+     *          &lt;li&gt;enableFilter - {boolean=} - When true it enables a filter button on the dataList that will filter itens local and also pass the search predicate to the function onQuery. (Optional)&lt;/li&gt;
+     *          &lt;li&gt;onQuery - {function=} - When set everytime the filter or the orderBy value changes it calls this function with new values so a new query can be run on the server. 
+     * The function should have two parameters. The first one is the filter that has changed and the second is the orderBy that has changed. (Optional)&lt;/li&gt;
+     *          &lt;li&gt;columns - {object} - This is where your should configure all the columns the dataList will have. It expect the following properties:  (Required)
+     *              &lt;ul&gt;
+     *                  &lt;li&gt;field - {string} - The name of the field that will be present in the data. (Required)&lt;/li&gt;
+     *                  &lt;li&gt;displayName - {string} - How the name of the field should be in the column header. (Required)&lt;/li&gt;
+     *                  &lt;li&gt;isNumeric - {boolean=} - When true the column will align the values at the right on the column. (Optional)&lt;/li&gt;
+     *              &lt;/ul&gt;
+     *          &lt;/li&gt;
+     *          &lt;li&gt;itemMenu - {object} - This is where you can configure buttons and callbacks for each item in the list, so the user can interact with it. It expect the folowing properties: (Optional)
+     *              &lt;ul&gt;
+     *                  &lt;li&gt;name - {string=} You can set a name in the controller that accepts translation, if found. The name or a icon should be set or both. (Optional when the icon is set)&lt;/li&gt;
+     *                  &lt;li&gt;icon - {string=} You can set the name of the icon from the material design collection and it will render it. (Optional when the name is set)&lt;/li&gt;
+     *                  &lt;li&gt;ariaLabel - {string=} When set it will configure the aria property.&lt;/li&gt;
+     *                  &lt;li&gt;onClick - {function} Here you have to pass a function that will receive the item that the user selected. (Required)&lt;/li&gt;
+     *                  &lt;li&gt;msgConfirm - {object=} Here you can configure a pop-up message for the user to confirm before the onClick runs. 
+     * You can set it with only defauls using an empty object or configure every parameter of the msgConfirm Component. (Optional)&lt;/li&gt;
+     *              &lt;/ul&gt;
+     *          &lt;/li&gt;
+     *          &lt;li&gt;multipleItemMenu - {object} - This is where you can configure buttons and callbacks for when the user select one or more itens using checkbox. It expect the folowing properties: (Optional)
+     *              &lt;ul&gt;
+     *                  &lt;li&gt;name - {string=} You can set a name in the controller that accepts translation, if found. The name or a icon should be set or both. (Optional when the icon is set)&lt;/li&gt;
+     *                  &lt;li&gt;icon - {string=} You can set the name of the icon from the material design collection and it will render it. (Optional when the name is set)&lt;/li&gt;
+     *                  &lt;li&gt;ariaLabel - {string=} When set it will configure the aria property.&lt;/li&gt;
+     *                  &lt;li&gt;onClick - {function} Here you have to pass a function that will receive the item that the user selected. (Required)&lt;/li&gt;
+     *                  &lt;li&gt;msgConfirm - {object=} Here you can configure a pop-up message for the user to confirm before the onClick runs. 
+     * You can set it with only defauls using an empty object or configure every parameter of the msgConfirm Component. (Optional)&lt;/li&gt;
+     *              &lt;/ul&gt;
+     *          &lt;/li&gt;
+     *      &lt;/ul&gt;
+     *
+     * @param {array} data It expect an array with all the data that will be available in the list. All data that is in the headers are required.
+     *
+     * @param {selected=} selected It holds all the itens that are selected in the list or should be selected.
+     *
+     * @param {string=} orderField The name of the field to orderBy in the list. If descending it should start with - example: "-name". If the user click on other column it will be here too.
+     *
+     * @description
+     *
+     * This directive will render a dataList so the user can interact with it.
+     *
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dataListDirective</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">restrict</span>: <span class="hljs-string">'E'</span>,
+            <span class="hljs-attr">controller</span>: <span class="hljs-string">'DataListController'</span>,
+            <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">'app/components/core/dataList/dataList.html'</span>,
+            <span class="hljs-attr">controllerAs</span>: <span class="hljs-string">'dataList'</span>,
+            <span class="hljs-attr">scope</span>: {},
+            <span class="hljs-attr">bindToController</span>: {
+                <span class="hljs-attr">config</span>: <span class="hljs-string">'='</span>,
+                <span class="hljs-attr">data</span>: <span class="hljs-string">'='</span>,
+                <span class="hljs-attr">selected</span>: <span class="hljs-string">'=?'</span>,
+                <span class="hljs-attr">enablePagination</span>: <span class="hljs-string">"&lt;?"</span>,
+                <span class="hljs-attr">orderByField</span>: <span class="hljs-string">'='</span>,
+                <span class="hljs-attr">pageSize</span>: <span class="hljs-string">'=?'</span>,
+                <span class="hljs-attr">pageNumber</span>: <span class="hljs-string">'=?'</span>,
+                <span class="hljs-attr">totalRecords</span>: <span class="hljs-string">'&lt;?'</span>,
+                <span class="hljs-attr">onPaginate</span>: <span class="hljs-string">'&amp;'</span>
+            }
+        }
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Inject Dependencies</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    DataListController.$inject = [<span class="hljs-string">'$filter'</span>, <span class="hljs-string">'$scope'</span>];
+
+    <span class="hljs-comment">/**
+     * @ngdoc controller
+     * @name components.core.dataList.controller:DataListController
+     * @description
+     *
+     * It has all the logic for the component dataList
+     *
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">DataListController</span>(<span class="hljs-params">$filter, $scope</span>) </span>{
+
+        <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">this</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Init component</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        vm.$onInit = init;
+
+        vm.paginate = paginate;
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">paginate</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>call paginate function</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> (vm.onPaginate != <span class="hljs-literal">undefined</span>) {
+                vm.onPaginate();
+            }
+        }
+
+
+        <span class="hljs-comment">/**
+        * @ngdoc function
+        * @name init
+        * @methodOf  components.core.dataList.controller:DataListController
+        * @private
+        *
+        * @description
+        *
+        * This is a private function that is called when the controller is initialized
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>create empty selected list if not set</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> (vm.selected == <span class="hljs-literal">undefined</span>) {
+                vm.selected = [];
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>At start filtered data is equal data, since it has not changed yet</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            vm.filteredData = vm.data;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Filter options, initial configuration</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            vm.filter = {
+                <span class="hljs-attr">value</span>: <span class="hljs-string">''</span>,
+                <span class="hljs-attr">options</span>: {
+                    <span class="hljs-attr">updateOn</span>: <span class="hljs-string">'default blur'</span>,
+                    <span class="hljs-attr">debounce</span>: { <span class="hljs-attr">default</span>: <span class="hljs-number">200</span>, <span class="hljs-attr">blur</span>: <span class="hljs-number">0</span> }
+                }
+            };
+
+            <span class="hljs-keyword">if</span> (vm.pageNumber == <span class="hljs-literal">undefined</span>) {
+                vm.pageNumber = <span class="hljs-number">1</span>;
+            }
+
+            <span class="hljs-keyword">if</span> (vm.pageSize == <span class="hljs-literal">undefined</span>) {
+                vm.pageSize = <span class="hljs-number">5</span>;
+
+            }
+
+        };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>API available</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        vm.removeFilter = removeFilter;
+        vm.filterChanged = filterChanged;
+        vm.orderByChanged = orderByChanged;
+
+        
+
+
+        <span class="hljs-comment">/**
+        * @ngdoc function
+        * @name filterChanged
+        * @methodOf components.core.createTabs.controller:CreateTabsController
+        *
+        * @description
+        *
+        * Eveytime the user changes the filter of the list this function is called
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filterChanged</span>(<span class="hljs-params">newFilter</span>) </span>{
+            <span class="hljs-keyword">if</span> (!!vm.config.onQuery) {
+                vm.config.onQuery(newFilter, vm.orderByField);
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Apply local filter</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            filterList(newFilter, vm.orderByField);
+        }
+
+        <span class="hljs-comment">/**
+        * @ngdoc function
+        * @name orderByChanged
+        * @methodOf components.core.createTabs.controller:CreateTabsController
+        *
+        * @description
+        *
+        * Everytime the user changes de orderBy field of the list this function is called
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">orderByChanged</span>(<span class="hljs-params">newOrderBy</span>) </span>{
+            <span class="hljs-keyword">if</span> (!!vm.config.onQuery) {
+                vm.config.onQuery(vm.filter.value, newOrderBy);
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Apply local filter</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            filterList(vm.filter.value, newOrderBy);
+        }
+
+        <span class="hljs-comment">/**
+        * @ngdoc function
+        * @name removeFilter
+        * @methodOf components.core.createTabs.controller:CreateTabsController
+        *
+        * @description
+        *
+        * When the user clicks the button to remove the filter in the screen this function is called so it can clear its value and reset the filtered list.
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">removeFilter</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Hide search filter</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            vm.filter.show = <span class="hljs-literal">false</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Remove local filter value</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            vm.filter.value = <span class="hljs-string">''</span>;
+            filterList(vm.filter.value, vm.orderByField);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Reset form</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> (vm.filter.form.$dirty) {
+                vm.filter.form.$setPristine();
+            }
+        };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <hr>
+<p>Helper Functions</p>
+<hr>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Watch for changes in the data or orderField that has been passed</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        $scope.$watch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> { <span class="hljs-attr">data</span>: vm.data, <span class="hljs-attr">orderField</span>: vm.orderByField };
+        }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newValue, oldValue</span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>Check if value has changes</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> (newValue === oldValue) {
+                <span class="hljs-keyword">return</span>;
+            }
+
+            filterList(vm.filter.value, vm.orderByField);
+        }, <span class="hljs-literal">true</span>);
+
+
+        <span class="hljs-comment">/**
+        * @ngdoc function
+        * @name filterList
+        * @methodOf components.core.createTabs.controller:CreateTabsController
+        *
+        * @description
+        *
+        * This is a private function responsible to filter the data with the value the user has typed or the orderBy field
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filterList</span>(<span class="hljs-params">filter, orderBy</span>) </span>{
+            <span class="hljs-keyword">var</span> filtered = $filter(<span class="hljs-string">'filter'</span>)(vm.data, filter);
+            filtered = $filter(<span class="hljs-string">'orderBy'</span>)(filtered, orderBy);
+            vm.filteredData = filtered;
+        };
+    }
+})();</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

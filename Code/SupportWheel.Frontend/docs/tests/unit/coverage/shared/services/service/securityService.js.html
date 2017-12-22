@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for shared\services\service\securityService.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">shared/services/service/</a> securityService.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">19.77% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>17/86</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">19.77% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>17/86</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Based loosely around work by Witold Szczerba - https://github.com/witoldsz/angular-http-auth
+// Source inspired by the book: https://github.com/angular-app
+(function () {
+&nbsp;
+    'use strict';
+&nbsp;
+    angular.module('shared.services.service.security', [
+        'shared.services.service.baseUrl',
+        'shared.services.service.retryQueue',
+        'shared.services.factory.appResource',
+        'shared.services.service.user'
+    ])
+&nbsp;
+&nbsp;
+    /**
+     * @ngdoc service
+     * @name shared.services.service.service:security
+     * @description
+     *
+     * This service is responsible for the authentication features in the site.
+     * It is the interface between the client and the server
+     *
+     */
+    .service('securityService', securityService);
+&nbsp;
+    //Injeta dependencias
+    securityService.$inject = ['$http', '$state', '$localStorage', '$q', '$location', 'retryQueueService', 'appResourceFactory',
+        'baseUrlService', '$mdDialog', 'userService'];
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function securityService($http, $state, $localStorage, $q, $location, retryQueueService, appResourceFactory,</span>
+        baseUrlService, $mdDialog, userService) {
+<span class="cstat-no" title="statement not covered" >        var that = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var _lastAuthError = undefined; </span>                //Mantem o último erro de authenticação
+<span class="cstat-no" title="statement not covered" >        var loginModalOpened = false; </span>                  //Informa se o login já foi aberto ou não
+&nbsp;
+        // Register a handler for when an item is added to the retry queue
+<span class="cstat-no" title="statement not covered" >        retryQueueService.onItemAddedCallbacks.push(<span class="fstat-no" title="function not covered" >function (retryItem) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (retryQueueService.hasMore()) {</span>
+<span class="cstat-no" title="statement not covered" >                that.showLogin();</span>
+            }
+        });
+&nbsp;
+        // The public API of the service
+<span class="cstat-no" title="statement not covered" >        this.cancelLogin = cancelLogin; </span>                  // Give up trying to login and clear the retry queue
+<span class="cstat-no" title="statement not covered" >        this.currentUser = currentUser; </span>                  // Usuario Atual
+<span class="cstat-no" title="statement not covered" >        this.getLastAuthError = getLastAuthError; </span>        // Get  last error of the login
+<span class="cstat-no" title="statement not covered" >        this.getLoginReason = getLoginReason; </span>            // Get the first reason for needing a login
+<span class="cstat-no" title="statement not covered" >        this.isAuthenticated = isAuthenticated; </span>          // Is the current user authenticated?
+<span class="cstat-no" title="statement not covered" >        this.login = login; </span>                              // user: {email, password}
+<span class="cstat-no" title="statement not covered" >        this.logout = logout; </span>                            // Logout the current user and redirect
+<span class="cstat-no" title="statement not covered" >        this.requestCurrentUser = requestCurrentUser; </span>    // Busca informações do usuário atual
+<span class="cstat-no" title="statement not covered" >        this.showLogin = showLogin; </span>                      // Show the modal login dialog
+<span class="cstat-no" title="statement not covered" >        this.closeLogin = closeLogin; </span>                    // Close the modal login dialog
+<span class="cstat-no" title="statement not covered" >        this.token = token; </span>                              // token
+        
+&nbsp;
+&nbsp;
+        //Private Functions
+<span class="fstat-no" title="function not covered" >        function cancelLogin(rota) {</span>
+<span class="cstat-no" title="statement not covered" >            $mdDialog.hide(); </span>//Fecha o login
+<span class="cstat-no" title="statement not covered" >            retryQueueService.cancelAll(); </span>//Cancela chamadas pendentes
+<span class="cstat-no" title="statement not covered" >            redirect(rota); </span>//Redireciona para a rota informada
+        };
+<span class="fstat-no" title="function not covered" >        function currentUser() {</span>
+<span class="cstat-no" title="statement not covered" >            return $localStorage.user;</span>
+        }
+<span class="fstat-no" title="function not covered" >        function getLastAuthError() {</span>
+<span class="cstat-no" title="statement not covered" >            return _lastAuthError;</span>
+        }
+<span class="fstat-no" title="function not covered" >        function getLoginReason () {</span>
+<span class="cstat-no" title="statement not covered" >            var reason = retryQueueService.retryReason();</span>
+            
+<span class="cstat-no" title="statement not covered" >            if (reason == "unauthenticated-client") {</span>
+<span class="cstat-no" title="statement not covered" >                return "SECURITY.UNAUTHENTICATED-CLIENT";</span>
+            } else <span class="cstat-no" title="statement not covered" >if (reason == "unauthorized-client" || reason == "unauthorized-server") {</span>
+<span class="cstat-no" title="statement not covered" >                return "SECURITY.UNAUTHORIZED-CLIENT";</span>
+            }else{
+<span class="cstat-no" title="statement not covered" >                return "SECURITY.UNAUTHENTICATED-CLIENT";</span>
+            }
+        };
+<span class="fstat-no" title="function not covered" >        function isAuthenticated() {</span>
+<span class="cstat-no" title="statement not covered" >            var user = that.currentUser();</span>
+<span class="cstat-no" title="statement not covered" >            var token = that.token();</span>
+<span class="cstat-no" title="statement not covered" >            return !!user &amp;&amp; !_.isEmpty(user) &amp;&amp; !!token &amp;&amp; !!token.access_token;</span>
+        };
+&nbsp;
+        /**
+        * @ngdoc function
+        * @name login
+        * @methodOf shared.services.service.service:security
+        * @param {object} user Expect an object with two properties: 'username' and 'password'. Both are required.
+        * @returns {object} It returns a promise that will be filled with the api response when it is resolved
+        * @description
+        * This is responsible to send user credentials to the server
+        *
+        */
+<span class="fstat-no" title="function not covered" >        function login(user) {</span>
+            //Mapeia dados
+<span class="cstat-no" title="statement not covered" >            _lastAuthError = undefined; </span>//Limpa último erro a cada tentativa de login
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var data = "grant_type=password&amp;username=" + user.username + "&amp;password=" + user.password;</span>
+<span class="cstat-no" title="statement not covered" >            var deferred = $q.defer();</span>
+            //Busca o token
+<span class="cstat-no" title="statement not covered" >            $http.post(baseUrlService.getBaseUrl() + "api/token", data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })</span>
+                .then(loginResponse)
+                .catch(loginResponse);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return deferred.promise;</span>
+&nbsp;
+            //Funções Internas do login
+<span class="fstat-no" title="function not covered" >            function loginResponse(response) {</span>
+                //Se conseguiu autenticar com sucesso, se tem o token
+<span class="cstat-no" title="statement not covered" >                if (response.data.hasOwnProperty("access_token")) {</span>
+<span class="cstat-no" title="statement not covered" >                    $localStorage.token = response.data;</span>
+                    //Busca os dados do usuário atual com base no token recebido
+<span class="cstat-no" title="statement not covered" >                    that.requestCurrentUser()</span>
+                        .then(<span class="fstat-no" title="function not covered" >function (user) {</span>
+                            //Se teve sucesso e autenticou, fecha a caixa de diálogo e faz novas tentativas das chamadas pendentes
+<span class="cstat-no" title="statement not covered" >                            if (that.isAuthenticated()) {</span>
+<span class="cstat-no" title="statement not covered" >                                $mdDialog.hide();</span>
+                            }
+                            //Avisa que o login foi com sucesso
+<span class="cstat-no" title="statement not covered" >                            _lastAuthError = undefined;</span>
+<span class="cstat-no" title="statement not covered" >                            deferred.resolve(response.data);</span>
+                        });
+                } else {
+                    //Avisa que o login foi com erro e sobe erro
+<span class="cstat-no" title="statement not covered" >                    _lastAuthError = response.data;</span>
+<span class="cstat-no" title="statement not covered" >                    deferred.reject(response.data);</span>
+                }
+            }
+        };
+<span class="fstat-no" title="function not covered" >        function logout(redirectTo) {</span>
+            //Apaga token e dados do usuario
+<span class="cstat-no" title="statement not covered" >            delete $localStorage.token;</span>
+<span class="cstat-no" title="statement not covered" >            delete $localStorage.user;</span>
+            //redireciona para a raiz ou rota passada
+<span class="cstat-no" title="statement not covered" >            redirect(redirectTo);</span>
+        };
+<span class="fstat-no" title="function not covered" >        function requestCurrentUser() {</span>
+<span class="cstat-no" title="statement not covered" >            if (that.isAuthenticated()) {</span>
+<span class="cstat-no" title="statement not covered" >                return $q.when(that.currentUser());</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                if (!that.token()) {</span>
+                    //Se ainda não tem token deve abrir um modal para o usuário se logar
+<span class="cstat-no" title="statement not covered" >                    return retryQueueService.pushRetryFn('unauthenticated-client', that.requestCurrentUser);</span>
+                }
+                //TODO busca usuario atual e salva em currentUser
+<span class="cstat-no" title="statement not covered" >                return userService.load({ action: 'current', loadOne: true })</span>
+                    .then(<span class="fstat-no" title="function not covered" >function (dados) {</span>
+<span class="cstat-no" title="statement not covered" >                        $localStorage.user = dados;</span>
+<span class="cstat-no" title="statement not covered" >                        return $q.when(that.currentUser());</span>
+                    });
+            }
+&nbsp;
+        };
+<span class="fstat-no" title="function not covered" >        function showLogin() {</span>
+            //Se ainda não está aberto, abre, caso contrário ignora para evitar multiplus pop-ups.
+<span class="cstat-no" title="statement not covered" >            if (!loginModalOpened) {</span>
+<span class="cstat-no" title="statement not covered" >                loginModalOpened = true;</span>
+<span class="cstat-no" title="statement not covered" >                $mdDialog.show({</span>
+                    template: "&lt;md-dialog flex-gt-lg='50' flex-lg='65' flex-md='70' flex-sm='100' style='max-width:500px;' aria-label='Login dialog'&gt;&lt;md-dialog-content&gt;&lt;login&gt;&lt;/login&gt;&lt;/md-dialog-content&gt;&lt;/md-dialog&gt;",
+                    parent: angular.element(document.body),
+                    clickOutsideToClose: false
+                }).then(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                    loginModalOpened = false; </span>//avisa que fechou o pop-up
+<span class="cstat-no" title="statement not covered" >                    retryQueueService.retryAll(); </span>//Refaz ultimas chamadas na fila
+&nbsp;
+                }, <span class="fstat-no" title="function not covered" >function (canceled) {</span>
+                    //Se o usuário cancelou, cancela chamadas pendentes e redireciona para a tela de login.
+<span class="cstat-no" title="statement not covered" >                    loginModalOpened = false;</span>
+<span class="cstat-no" title="statement not covered" >                    $q.reject("Not Authorized"); </span>//Cancel login and stateChange
+<span class="cstat-no" title="statement not covered" >                    retryQueueService.cancelAll();</span>
+                });
+            }
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function closeLogin() {</span>
+<span class="cstat-no" title="statement not covered" >            if (loginModalOpened == true) {</span>
+<span class="cstat-no" title="statement not covered" >                loginModalOpened = false;</span>
+<span class="cstat-no" title="statement not covered" >                $mdDialog.hide();</span>
+            }
+        }
+&nbsp;
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function token() {</span>
+<span class="cstat-no" title="statement not covered" >            return $localStorage.token;</span>
+        }
+        
+&nbsp;
+&nbsp;
+        //*************************
+        //Funções Auxiliares
+        //*************************
+        // Redirect to the given url (defaults to '/')
+<span class="fstat-no" title="function not covered" >        function redirect(url) {</span>
+<span class="cstat-no" title="statement not covered" >            url = url || '/login';</span>
+<span class="cstat-no" title="statement not covered" >            $location.path(url);</span>
+        }
+        
+    }
+})();
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Dec 22 2017 14:15:00 GMT-0200 (Horário brasileiro de verão)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<h1><code ng:non-bindable="">AuthController</code>
+<div><span class="hint">controller in module <code ng:non-bindable="">components.core.auth</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="components-core-auth-controller-page components-core-auth-controller-authcontroller-page"><p>Responsable to show the interface for the user to login or logout</p>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/api/shared.services.service.service:security">security</a></code>
+</li>
+</ul>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_currentuser">currentUser()</h3>
+<div class="currentuser"><div class="currentuser-page"><p>Check in the securityService if the user is logged and returns the current user information.</p>
+<p><a href="#/api/shared.services.service.service:security#currentuser">securityService.currentUser</a></p>
+</div><h5 id="methods_currentuser_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="currentuser-page"><p>It returns the information about the current authenticated user.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_isauthenticated">isAuthenticated()</h3>
+<div class="isauthenticated"><div class="isauthenticated-page"><p>Check in the securityService if the user is authenticated.</p>
+<p><a href="#/api/shared.services.service.service:security#isauthenticated">securityService.isAuthenticated</a></p>
+</div><h5 id="methods_isauthenticated_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="isauthenticated-page"><p>It returns TRUE if user is authenticated or FALSE if it is not.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_logout">logout()</h3>
+<div class="logout"><div class="logout-page"><p>It clear all information about the user in the app. It uses the method logout in the securityService.</p>
+<p><a href="#/api/shared.services.service.service:security#logout">securityService.logout</a></p>
+</div></div>
+</li>
+<li><h3 id="methods_showlogin">showLogin()</h3>
+<div class="showlogin"><div class="showlogin-page"><p>It open a modal with a form for the user to insert its credentials</p>
+<p><a href="#/api/shared.services.service.service:security">securityService.showLogin</a></p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

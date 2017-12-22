@@ -23,14 +23,14 @@
       'shared.services.factory.handleException',
        'shared.services.service.schedule',
       'shared.services.service.notification',
-     'shared.services.value.constantes'
+     'shared.services.value.varantes'
 
     ])
 
 
     /**
     * @ngdoc directive
-    * @name components.wheel.directive:wheel
+    * @name components.wheel.directive:swWheel
     *
     * @restrict 'E'
     * 
@@ -50,7 +50,7 @@
 
 
   //Inject Dependencies
-  WheelController.$inject = ['handleExceptionFactory', 'engineerService', 'scheduleService', 'notificationService', '$scope', 'constEventosDb','$timeout'];
+  WheelController.$inject = ['handleExceptionFactory', 'engineerService', 'scheduleService', 'notificationService', '$scope', 'varEventosDb','$timeout'];
 
 
    /**
@@ -61,7 +61,7 @@
    * It has the logic behind the component
    *
    */
-  function WheelController(handleExceptionFactory, engineerService, scheduleService, notificationService, $scope, constEventosDb, $timeout) {
+  function WheelController(handleExceptionFactory, engineerService, scheduleService, notificationService, $scope, varEventosDb, $timeout) {
     var vm = this;
     vm.engineersNames = [];
     vm.engineers = [];
@@ -76,7 +76,7 @@
     /**
         * @ngdoc function
         * @name init
-        * @methodOf  components.engineer.engineer.list.controller:EngineerListController
+        * @methodOf  components.wheel.controller:WheelController
         * @private
         *
         * @description
@@ -136,9 +136,9 @@
       //Responsable to change the data entered and selected by the user already to a new culture set.
       function updateResult(result) {
         //Update content if outdated
-        if (result.type = constEventosDb.INSERTED) {
+        if (result.type = varEventosDb.INSERTED) {
           //Update Data
-          function update(result) {
+          var update = function (result) {
             if (result.data.dteSchedule >= vm.lastDate) {
               vm.lastDate = result.data.dteSchedule;
               vm.lastPeriod = result.data.intPeriod;
@@ -159,6 +159,17 @@
       }
     }
 
+    /**
+        * @ngdoc function
+        * @name addExtraSpin
+        * @methodOf  components.wheel.controller:WheelController
+        * @private
+        *
+        * @description
+        *
+        * This is responsable to calculate how many more speed is required to make the wheel stop in the desired position
+        * Since the result is calculated in the server, we just sync the frontend vision to make it appears everything happens here.
+        */
     function addExtraSpin() {
       //Getting here means there is a new engineer drafted, so calculate how many more spins is required do stop in this name
       var originalRotation = angular.copy(group.rotation);
@@ -182,6 +193,16 @@
       group.rotation = originalRotation;
     }
 
+     /**
+        * @ngdoc function
+        * @name startSpinning
+        * @methodOf  components.wheel.controller:WheelController
+        * @private
+        *
+        * @description
+        *
+        * This has all the logic to start the wheel spinning
+        */
     function startSpinning() {
       vm.spinning = true;
       vm.draftEngineer = {};
@@ -195,6 +216,16 @@
       }, handleExceptionFactory);
     }
 
+     /**
+        * @ngdoc function
+        * @name animateWheel
+        * @methodOf  components.wheel.controller:WheelController
+        * @private
+        *
+        * @description
+        *
+        * Responsable to canculate speed and rotation of the draw
+        */
     function animateWheel() {
 
       group.rotation = (group.rotation + speed * dirScalar) % TAU;
@@ -224,7 +255,16 @@
       }
     }
 
-
+ /**
+        * @ngdoc function
+        * @name handleRotationChange
+        * @methodOf  components.wheel.controller:WheelController
+        * @private
+        *
+        * @description
+        *
+        * Responsable to rotate the wheel
+        */
     function handleRotationChange(angle) {
       if (options.onWheelTick && typeof options.onWheelTick === 'function') {
         options.onWheelTick(angle);
@@ -232,7 +272,7 @@
     }
     
    //Colors to be used to fill the wheel
-    const COLORS = [
+    var COLORS = [
       '#f7d046',
       '#ff4c5a',
       '#f08cba',
@@ -253,13 +293,14 @@
     ];
 
     //Wheel Font Base:  https://codepen.io/larrybotha/pen/yMmQyG
-    const PI = Math.PI;
-    const TAU = PI * 2;
+    var PI = Math.PI;
+    var TAU = PI * 2;
 
-    const degToRad = (deg) =>
-      deg / 180 * PI;
+    var degToRad = function (deg) {
+      return deg / 180 * PI;
+    }
 
-    const eventMap = {
+    var eventMap = {
       mousedown: handleCursorDown,
       touchstart: handleCursorDown,
       mousemove: handleCursorMove,
@@ -268,34 +309,34 @@
       touchend: handleCursorUp,
     };
 
-    const ratios = {
+    var ratios = {
       tickerRadius: .06, // of width
       textSize: .12, // of radius
       edgeDist: .14, // of radius
     };
 
-    const getCoordOnCircle = (r, angleInRad, { cx, cy }) => {
+    var getCoordOnCircle = (r, angleInRad, { cx, cy }) => {
       return {
         x: cx + r * Math.cos(angleInRad),
         y: cy + r * Math.sin(angleInRad),
       };
     };
 
-    const friction = .99;
-    const maxSpeed = .5;
+    var friction = .99;
+    var maxSpeed = .5;
 
-    let group;
-    let speed;
-    let dirScalar = 1;
-    let words;
-    let two;
-    let isGroupActive = false;
-    let textDistFromEdge = 30;
-    let curPosArr = [];
-    let lastCurTime;
+    var group;
+    var speed;
+    var dirScalar = 1;
+    var words;
+    var two;
+    var isGroupActive = false;
+    var textDistFromEdge = 30;
+    var curPosArr = [];
+    var lastCurTime;
 
     
-    let options = {
+    var options = {
       width: 240,
       height: 240,
       type: 'svg',
@@ -307,16 +348,16 @@
     
 
     function getCurrentWord() {
-      const numWords = words.length;
-      const segmentAngle = TAU / numWords;
-      const currAngle = (TAU - group.rotation + segmentAngle / 2) % TAU;
+      var numWords = words.length;
+      var segmentAngle = TAU / numWords;
+      var currAngle = (TAU - group.rotation + segmentAngle / 2) % TAU;
 
       return words.find((_, i) => segmentAngle * (i + 1) > currAngle);
     }
 
     function handleCursorDown(e) {
-      const event = getEvent(e);
-      const groupElem = group._renderer.elem;
+      var event = getEvent(e);
+      var groupElem = group._renderer.elem;
       isGroupActive = groupElem === e.target || groupElem.contains(e.target);
       curPosArr = isGroupActive ? curPosArr.concat(getEventPos(e)) : curPosArr;
       lastCurTime = performance.now();
@@ -337,18 +378,18 @@
 
 
     function drawTicker() {
-      const { width } = two;
-      const outerRadius = ratios.tickerRadius * width;
+      var { width } = two;
+      var outerRadius = ratios.tickerRadius * width;
 
-      const tickerCircle = drawTickerCircle(outerRadius);
-      const circleCenter = tickerCircle.translation;
+      var tickerCircle = drawTickerCircle(outerRadius);
+      var circleCenter = tickerCircle.translation;
 
       drawTickerArrow(outerRadius, degToRad(30), circleCenter);
     }
 
     function drawTickerCircle(outerRadius) {
-      const { width } = two;
-      const arc = two.makeArcSegment(
+      var { width } = two;
+      var arc = two.makeArcSegment(
         width / 2, outerRadius,
         outerRadius, outerRadius * .5,
         0, 2 * PI
@@ -361,22 +402,22 @@
 
 
     function drawTickerArrow(radius, tangentAngle, tickerCenter) {
-      const { x, y } = tickerCenter;
+      var { x, y } = tickerCenter;
 
-      const pointA = getCoordOnCircle(
+      var pointA = getCoordOnCircle(
         radius, PI / 2, { cx: x, cy: y }
       );
-      const pointB = getCoordOnCircle(
+      var pointB = getCoordOnCircle(
         radius, tangentAngle, { cx: x, cy: y }
       );
-      const pointC = {
+      var pointC = {
         x: x,
         y: y + radius / Math.cos(PI / 2 - tangentAngle),
       };
-      const pointD = getCoordOnCircle(
+      var pointD = getCoordOnCircle(
         radius, PI - tangentAngle, { cx: x, cy: y }
       );
-      const path = two.makePath(
+      var path = two.makePath(
         pointA.x, pointA.y,
         pointB.x, pointB.y,
         pointC.x, pointC.y,
@@ -392,20 +433,20 @@
     function drawWheel() {
       if (group) { destroyPaths(); }
 
-      const { width, height } = two;
-      const numColors = COLORS.length;
-      const rotationUnit = 2 * PI / words.length;
-      const yOffset = width * ratios.tickerRadius * 2;
-      const radius = (width - yOffset) / 2;
-      const center = {
+      var { width, height } = two;
+      var numColors = COLORS.length;
+      var rotationUnit = 2 * PI / words.length;
+      var yOffset = width * ratios.tickerRadius * 2;
+      var radius = (width - yOffset) / 2;
+      var center = {
         x: width / 2,
         y: radius + yOffset,
       };
       group = two.makeGroup();
 
       words.map((word, i, arr) => {
-        const angle = rotationUnit * i - (PI + rotationUnit) / 2;
-        const arc = two.makeArcSegment(
+        var angle = rotationUnit * i - (PI + rotationUnit) / 2;
+        var arc = two.makeArcSegment(
           center.x, center.y,
           0, radius,
           0, 2 * PI / arr.length
@@ -414,12 +455,12 @@
         arc.noStroke();
         arc.fill = COLORS[i % numColors];
 
-        const textVertex = {
+        var textVertex = {
           x: center.x + (radius - radius * ratios.edgeDist) * Math.cos(angle + rotationUnit / 2),
           y: center.y + (radius - radius * ratios.edgeDist) * Math.sin(angle + rotationUnit / 2),
         };
 
-        const text = two.makeText(word, textVertex.x, textVertex.y);
+        var text = two.makeText(word, textVertex.x, textVertex.y);
         text.rotation = rotationUnit * i - PI / 2;
         text.alignment = 'right';
         text.fill = '#fff';
@@ -446,11 +487,11 @@
 
     function handleCursorUp(e) {
       if (isGroupActive && curPosArr.length > 1) {
-        const currPos = getEventPos(e);
-        const lastPos = curPosArr[curPosArr.length - 2];
-        const timeNow = performance.now();
-        const time = timeNow - lastCurTime;
-        const distance = Math.sqrt(
+        var currPos = getEventPos(e);
+        var lastPos = curPosArr[curPosArr.length - 2];
+        var timeNow = performance.now();
+        var time = timeNow - lastCurTime;
+        var distance = Math.sqrt(
           Math.pow(currPos.x - lastPos.x, 2) +
           Math.pow(currPos.y - lastPos.y, 2)
         );
@@ -469,7 +510,7 @@
     }
 
     function getEventPos(e) {
-      const event = getEvent(e);
+      var event = getEvent(e);
 
       return {
         x: event.clientX,
@@ -486,22 +527,22 @@
         e.preventDefault();
         lastCurTime = performance.now();
         curPosArr = curPosArr.concat(getEventPos(e));
-        const currPos = curPosArr[curPosArr.length - 1];
-        const prevPos = curPosArr[curPosArr.length - 2];
-        const groupBounds = group._renderer.elem.getBoundingClientRect();
-        const groupCenter = {
+        var currPos = curPosArr[curPosArr.length - 1];
+        var prevPos = curPosArr[curPosArr.length - 2];
+        var groupBounds = group._renderer.elem.getBoundingClientRect();
+        var groupCenter = {
           x: groupBounds.left + groupBounds.width / 2,
           y: groupBounds.top + groupBounds.height / 2,
         };
-        const angleAtCursorDown = Math.atan2(
+        var angleAtCursorDown = Math.atan2(
           prevPos.y - groupCenter.y,
           prevPos.x - groupCenter.x
         );
-        const angleAtCursorNow = Math.atan2(
+        var angleAtCursorNow = Math.atan2(
           currPos.y - groupCenter.y,
           currPos.x - groupCenter.x
         );
-        const deltaRotation = angleAtCursorNow - angleAtCursorDown;
+        var deltaRotation = angleAtCursorNow - angleAtCursorDown;
         dirScalar = deltaRotation > 0 ? 1 : -1;
 
         group.rotation = (group.rotation + deltaRotation) % TAU;
@@ -530,7 +571,7 @@
 
 
     function initEvents() {
-      const domElement = two.renderer.domElement;
+      var domElement = two.renderer.domElement;
 
       Object.keys(eventMap).map(type =>
         domElement.addEventListener(type, eventMap[type])
@@ -538,7 +579,7 @@
     }
 
     function removeEvents() {
-      const domElement = two.renderer.domElement;
+      var domElement = two.renderer.domElement;
 
       two.unbind('update');
 
@@ -562,7 +603,7 @@
       return true;
     }
 
-    const wheelFactory = (mountElem) => {
+    var wheelFactory = (mountElem) => {
       if (!mountElem || !('nodeType' in mountElem)) {
         throw new Error('no mount element provided');
       }
@@ -602,14 +643,14 @@
       };
     };
 
-    const mount = document.querySelector('.js-mount');
-    const wordButton = document.querySelector('.js-get-word');
-    const spinButton = document.querySelector('.js-spin');
-    const wordsInput = document.querySelector('.js-words');
-    const getWords = () => vm.engineersNames;
+    var mount = document.querySelector('.js-mount');
+    var wordButton = document.querySelector('.js-get-word');
+    var spinButton = document.querySelector('.js-spin');
+    var wordsInput = document.querySelector('.js-words');
+    var getWords = () => vm.engineersNames;
 
 
-    const wheel = wheelFactory(mount);
+    var wheel = wheelFactory(mount);
     wheel.init({
       width: Math.min(window.innerWidth, window.innerHeight),
       height: Math.min(window.innerWidth, window.innerHeight)
@@ -625,7 +666,7 @@
     }
 
     function handleGetWord(e) {
-      const word = wheel.getCurrentWord();
+      var word = wheel.getCurrentWord();
 
       e.target.textContent = `Get current word: ${word}`;
     }

@@ -92,8 +92,8 @@ module.exports = function (grunt) {
                 dest: 'docs',
                 html5Mode: false,
                 startPage: '/api',
-                title: "ASAMap Documentation",
-                titleLink: "/asamap/docs/index.html",
+                title: "Documentation",
+                titleLink: "/docs/index.html",
                 bestMatch: true
             },
             api: {
@@ -157,25 +157,7 @@ module.exports = function (grunt) {
             }
         },
 
-        //Responsável em fazer o build da solução em .NET
-        //msbuild: {
-        //    dev: {
-        //        src: ['ASAMap.csproj'],
-        //        options: {
-        //            projectConfiguration: 'Debug',
-        //            targets: ['Clean', 'Rebuild'],
-        //            stdout: true,
-        //            version: 4.0,
-        //            maxCpuCount: 4,
-        //            buildParameters: {
-        //                WarningLevel: 2
-        //            },
-        //            verbosity: 'quiet'
-        //        }
-        //    }
-        //},
-
-       
+   
 
 
         // Watches files for changes and runs tasks based on the changed files

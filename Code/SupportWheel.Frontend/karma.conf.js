@@ -1,4 +1,3 @@
-'use strict';
 
 module.exports = function (config) {
   config.set({
@@ -46,7 +45,7 @@ module.exports = function (config) {
     ],
     // lista de arquivos para excluir
     exclude: [
-
+      'app/components/wheel/*.js',
     ],
 
     autoWatch: true,
@@ -84,7 +83,7 @@ module.exports = function (config) {
         templatePath: null, // set if you moved jasmine_template.html
         focusOnFailures: true, // reports show failures on start
         namedFiles: false, // name files instead of creating sub-directories
-        pageTitle: "ASAMap Unit Tests", // page title for reports; browser info by default
+        pageTitle: "Unit Tests", // page title for reports; browser info by default
         urlFriendlyName: true, // simply replaces spaces with _ for files/dirs
         reportName: 'unit', // report summary filename; browser info by default
 

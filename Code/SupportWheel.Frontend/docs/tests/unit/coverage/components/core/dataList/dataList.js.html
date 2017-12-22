@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for components\core\dataList\dataList.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">components/core/dataList/</a> dataList.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">72.92% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>35/48</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">31.25% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>5/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">63.64% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>7/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">72.92% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>35/48</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">56×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿(function () {
+&nbsp;
+    'use strict';
+&nbsp;
+     /**
+     * @ngdoc overview
+     * @name components.core.dataList
+     * @description
+     *
+     * # dataList - Component #
+     *
+     * This module is responsible to genereate a grid view of the data that has been passed. It makes it easier to add buttons for edit, delete. 
+     * It has options to select many itens in the list or even filter data local or remote.
+     *
+     * @example
+       &lt;pre&gt;
+        &lt;data-list config="config" data="data", selected="selected" order-field="orderField"&gt;&lt;data-list /&gt;
+       &lt;/pre&gt;
+     */
+    angular
+        .module('components.core.dataList', [
+            
+        ])
+&nbsp;
+        .directive('abcDataList', dataListDirective)
+        .controller('DataListController', DataListController);
+&nbsp;
+    //Inject Dependencies
+    dataListDirective.$inject = [];
+&nbsp;
+    /**
+     * @ngdoc directive
+     * @name components.core.dataList.directive:dataList
+     * @restrict 'E'
+     * @param {object} config It is responsible for the configuration of the dataList. The following properties are available:
+     *      &lt;ul&gt;
+     *          &lt;li&gt;title - {string=} - A name for the dataList. (Optional)&lt;/li&gt;
+     *          &lt;li&gt;enableRowSelection - {boolean=} When true it will enable multiple selection in the dataList.
+     *          &lt;li&gt;enableFilter - {boolean=} - When true it enables a filter button on the dataList that will filter itens local and also pass the search predicate to the function onQuery. (Optional)&lt;/li&gt;
+     *          &lt;li&gt;onQuery - {function=} - When set everytime the filter or the orderBy value changes it calls this function with new values so a new query can be run on the server. 
+     * The function should have two parameters. The first one is the filter that has changed and the second is the orderBy that has changed. (Optional)&lt;/li&gt;
+     *          &lt;li&gt;columns - {object} - This is where your should configure all the columns the dataList will have. It expect the following properties:  (Required)
+     *              &lt;ul&gt;
+     *                  &lt;li&gt;field - {string} - The name of the field that will be present in the data. (Required)&lt;/li&gt;
+     *                  &lt;li&gt;displayName - {string} - How the name of the field should be in the column header. (Required)&lt;/li&gt;
+     *                  &lt;li&gt;isNumeric - {boolean=} - When true the column will align the values at the right on the column. (Optional)&lt;/li&gt;
+     *              &lt;/ul&gt;
+     *          &lt;/li&gt;
+     *          &lt;li&gt;itemMenu - {object} - This is where you can configure buttons and callbacks for each item in the list, so the user can interact with it. It expect the folowing properties: (Optional)
+     *              &lt;ul&gt;
+     *                  &lt;li&gt;name - {string=} You can set a name in the controller that accepts translation, if found. The name or a icon should be set or both. (Optional when the icon is set)&lt;/li&gt;
+     *                  &lt;li&gt;icon - {string=} You can set the name of the icon from the material design collection and it will render it. (Optional when the name is set)&lt;/li&gt;
+     *                  &lt;li&gt;ariaLabel - {string=} When set it will configure the aria property.&lt;/li&gt;
+     *                  &lt;li&gt;onClick - {function} Here you have to pass a function that will receive the item that the user selected. (Required)&lt;/li&gt;
+     *                  &lt;li&gt;msgConfirm - {object=} Here you can configure a pop-up message for the user to confirm before the onClick runs. 
+     * You can set it with only defauls using an empty object or configure every parameter of the msgConfirm Component. (Optional)&lt;/li&gt;
+     *              &lt;/ul&gt;
+     *          &lt;/li&gt;
+     *          &lt;li&gt;multipleItemMenu - {object} - This is where you can configure buttons and callbacks for when the user select one or more itens using checkbox. It expect the folowing properties: (Optional)
+     *              &lt;ul&gt;
+     *                  &lt;li&gt;name - {string=} You can set a name in the controller that accepts translation, if found. The name or a icon should be set or both. (Optional when the icon is set)&lt;/li&gt;
+     *                  &lt;li&gt;icon - {string=} You can set the name of the icon from the material design collection and it will render it. (Optional when the name is set)&lt;/li&gt;
+     *                  &lt;li&gt;ariaLabel - {string=} When set it will configure the aria property.&lt;/li&gt;
+     *                  &lt;li&gt;onClick - {function} Here you have to pass a function that will receive the item that the user selected. (Required)&lt;/li&gt;
+     *                  &lt;li&gt;msgConfirm - {object=} Here you can configure a pop-up message for the user to confirm before the onClick runs. 
+     * You can set it with only defauls using an empty object or configure every parameter of the msgConfirm Component. (Optional)&lt;/li&gt;
+     *              &lt;/ul&gt;
+     *          &lt;/li&gt;
+     *      &lt;/ul&gt;
+     *
+     * @param {array} data It expect an array with all the data that will be available in the list. All data that is in the headers are required.
+     *
+     * @param {selected=} selected It holds all the itens that are selected in the list or should be selected.
+     *
+     * @param {string=} orderField The name of the field to orderBy in the list. If descending it should start with - example: "-name". If the user click on other column it will be here too.
+     *
+     * @description
+     *
+     * This directive will render a dataList so the user can interact with it.
+     *
+     */
+    function dataListDirective() {
+        return {
+            restrict: 'E',
+            controller: 'DataListController',
+            templateUrl: 'app/components/core/dataList/dataList.html',
+            controllerAs: 'dataList',
+            scope: {},
+            bindToController: {
+                config: '=',
+                data: '=',
+                selected: '=?',
+                enablePagination: "&lt;?",
+                orderByField: '=',
+                pageSize: '=?',
+                pageNumber: '=?',
+                totalRecords: '&lt;?',
+                onPaginate: '&amp;'
+            }
+        }
+    }
+&nbsp;
+    //Inject Dependencies
+    DataListController.$inject = ['$filter', '$scope'];
+&nbsp;
+    /**
+     * @ngdoc controller
+     * @name components.core.dataList.controller:DataListController
+     * @description
+     *
+     * It has all the logic for the component dataList
+     *
+     */
+    function DataListController($filter, $scope) {
+&nbsp;
+        var vm = this;
+        //Init component
+        vm.$onInit = init;
+&nbsp;
+        vm.paginate = paginate;
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function paginate() {</span>
+            //call paginate function
+<span class="cstat-no" title="statement not covered" >            if (vm.onPaginate != undefined) {</span>
+<span class="cstat-no" title="statement not covered" >                vm.onPaginate();</span>
+            }
+        }
+&nbsp;
+&nbsp;
+        /**
+        * @ngdoc function
+        * @name init
+        * @methodOf  components.core.dataList.controller:DataListController
+        * @private
+        *
+        * @description
+        *
+        * This is a private function that is called when the controller is initialized
+        */
+        function init() {
+&nbsp;
+            //create empty selected list if not set
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (vm.selected == undefined) {
+                vm.selected = [];
+            }
+&nbsp;
+            //At start filtered data is equal data, since it has not changed yet
+            vm.filteredData = vm.data;
+&nbsp;
+            //Filter options, initial configuration
+            vm.filter = {
+                value: '',
+                options: {
+                    updateOn: 'default blur',
+                    debounce: { default: 200, blur: 0 }
+                }
+            };
+&nbsp;
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (vm.pageNumber == undefined) {
+                vm.pageNumber = 1;
+            }
+&nbsp;
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (vm.pageSize == undefined) {
+                vm.pageSize = 5;
+&nbsp;
+            }
+&nbsp;
+        };
+&nbsp;
+&nbsp;
+&nbsp;
+        
+&nbsp;
+&nbsp;
+        //API available
+        vm.removeFilter = removeFilter;
+        vm.filterChanged = filterChanged;
+        vm.orderByChanged = orderByChanged;
+&nbsp;
+        
+&nbsp;
+&nbsp;
+        /**
+        * @ngdoc function
+        * @name filterChanged
+        * @methodOf components.core.createTabs.controller:CreateTabsController
+        *
+        * @description
+        *
+        * Eveytime the user changes the filter of the list this function is called
+        */
+<span class="fstat-no" title="function not covered" >        function filterChanged(newFilter) {</span>
+<span class="cstat-no" title="statement not covered" >            if (!!vm.config.onQuery) {</span>
+<span class="cstat-no" title="statement not covered" >                vm.config.onQuery(newFilter, vm.orderByField);</span>
+            }
+            //Apply local filter
+<span class="cstat-no" title="statement not covered" >            filterList(newFilter, vm.orderByField);</span>
+        }
+&nbsp;
+        /**
+        * @ngdoc function
+        * @name orderByChanged
+        * @methodOf components.core.createTabs.controller:CreateTabsController
+        *
+        * @description
+        *
+        * Everytime the user changes de orderBy field of the list this function is called
+        */
+<span class="fstat-no" title="function not covered" >        function orderByChanged(newOrderBy) {</span>
+<span class="cstat-no" title="statement not covered" >            if (!!vm.config.onQuery) {</span>
+<span class="cstat-no" title="statement not covered" >                vm.config.onQuery(vm.filter.value, newOrderBy);</span>
+            }
+            //Apply local filter
+<span class="cstat-no" title="statement not covered" >            filterList(vm.filter.value, newOrderBy);</span>
+        }
+&nbsp;
+        /**
+        * @ngdoc function
+        * @name removeFilter
+        * @methodOf components.core.createTabs.controller:CreateTabsController
+        *
+        * @description
+        *
+        * When the user clicks the button to remove the filter in the screen this function is called so it can clear its value and reset the filtered list.
+        */
+<span class="fstat-no" title="function not covered" >        function removeFilter() {</span>
+            //Hide search filter
+<span class="cstat-no" title="statement not covered" >            vm.filter.show = false;</span>
+&nbsp;
+            //Remove local filter value
+<span class="cstat-no" title="statement not covered" >            vm.filter.value = '';</span>
+<span class="cstat-no" title="statement not covered" >            filterList(vm.filter.value, vm.orderByField);</span>
+&nbsp;
+            //Reset form
+<span class="cstat-no" title="statement not covered" >            if (vm.filter.form.$dirty) {</span>
+<span class="cstat-no" title="statement not covered" >                vm.filter.form.$setPristine();</span>
+            }
+        };
+&nbsp;
+        //********************
+        // Helper Functions
+        //********************
+&nbsp;
+        //Watch for changes in the data or orderField that has been passed
+        $scope.$watch(function () {
+            return { data: vm.data, orderField: vm.orderByField };
+        }, function (newValue, oldValue) {
+            // Check if value has changes
+            if (newValue === oldValue) {
+                return;
+            }
+&nbsp;
+            filterList(vm.filter.value, vm.orderByField);
+        }, true);
+&nbsp;
+&nbsp;
+        /**
+        * @ngdoc function
+        * @name filterList
+        * @methodOf components.core.createTabs.controller:CreateTabsController
+        *
+        * @description
+        *
+        * This is a private function responsible to filter the data with the value the user has typed or the orderBy field
+        */
+        function filterList(filter, orderBy) {
+            var filtered = $filter('filter')(vm.data, filter);
+            filtered = $filter('orderBy')(filtered, orderBy);
+            vm.filteredData = filtered;
+        };
+    }
+})();</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Dec 22 2017 14:15:00 GMT-0200 (Horário brasileiro de verão)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

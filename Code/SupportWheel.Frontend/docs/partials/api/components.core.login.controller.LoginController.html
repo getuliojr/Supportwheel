@@ -1,0 +1,32 @@
+<h1><code ng:non-bindable="">LoginController</code>
+<div><span class="hint">controller in module <code ng:non-bindable="">components.core.login</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="components-core-login-controller-page components-core-login-controller-logincontroller-page"><p>Responsable to make the login, getLoginReason and getLastAuthError available from the securityService</p>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/api/shared.services.service.service:security">security</a></code>
+</li>
+</ul>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_login">login()</h3>
+<div class="login"><div class="login-page"><p>Sends user information to the server, it uses the method &#39;login&#39; in the securityService.</p>
+<p>Internal: <a href="#/api/shared.services.service.service:security#login">securityService.login</a></p>
+</div></div>
+</li>
+<li><h3 id="methods_loginerror">loginError()</h3>
+<div class="loginerror"><div class="loginerror-page"><p>Get the last error send by the application or by the server about the authentication attempt. 
+It uses the method &#39;getLastAuthError&#39; in the securityService.</p>
+<p>Internal: <a href="#/api/shared.services.service.service:security#getlastautherror">securityService.getLastAuthError</a></p>
+</div></div>
+</li>
+<li><h3 id="methods_loginreason">loginReason()</h3>
+<div class="loginreason"><div class="loginreason-page"><p>Gets the reason why a user is been required to login. It uses the method &#39;getLoginReason&#39; in the securityService.</p>
+<p>Internal: <a href="#/api/shared.services.service.service:security#getloginreason">securityService.getLoginReason</a></p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

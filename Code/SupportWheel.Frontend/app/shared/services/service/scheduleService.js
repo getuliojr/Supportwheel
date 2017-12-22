@@ -5,7 +5,16 @@
     //Define o módulo
     angular.module('shared.services.service.schedule', [
         'shared.services.factory.appResource'
-        ])
+    ])
+
+          /**
+     * @ngdoc service
+     * @name shared.services.service.service:schedule
+     * @description
+     *
+     * This service is responsible to get information about the schedule in the system
+     *
+     */
         .service('scheduleService', scheduleService);
 
     //Injeta dependencias

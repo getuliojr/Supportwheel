@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>restrictDirectiva.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="../docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>restrictDirectiva.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <p>DIRETIVA PARA RESTRINGIR UM DETERMINADO CAMPO A DETERMINADOS CARACTERES</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>angular.module(<span class="hljs-string">'shared.directives.restrict'</span>, [])
+
+.directive(<span class="hljs-string">'restrict'</span>, [
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">restrict</span>: <span class="hljs-string">'A'</span>,
+            <span class="hljs-attr">require</span>: <span class="hljs-string">'ngModel'</span>,
+            <span class="hljs-attr">link</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">scope, element, attrs, modelCtrl</span>) </span>{
+
+                modelCtrl.$parsers.push(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">inputValue</span>) </span>{
+                    <span class="hljs-keyword">var</span> transformedInput = inputValue.replace(<span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(attrs.restrict, <span class="hljs-string">'g'</span>), <span class="hljs-string">''</span>);
+                    <span class="hljs-keyword">if</span> (transformedInput != inputValue) {
+                        modelCtrl.$setViewValue(transformedInput);
+                        modelCtrl.$render();
+                    }
+
+                    <span class="hljs-keyword">return</span> transformedInput;
+                });
+            }
+        }
+    } ]);</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

@@ -27,7 +27,7 @@
 
      /**
      * @ngdoc directive
-     * @name components.core.signup.directive:signup
+     * @name components.core.signup.directive:swSignup
      * @restrict 'E'
      * @description
      *

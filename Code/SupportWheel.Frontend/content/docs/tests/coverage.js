@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @ngdoc overview
  * @name Coverage Tests
  * @description
@@ -24,6 +24,6 @@
  * The tests are part of documentation, as so when the docs are generated, the coverage report is created in HTML format.
  * To check this version, follow the link below:
  *
- * {@link /asamap/docs/tests/unit/coverage/index.html See Unit Tests Coverage Report}
+ * {@link /docs/tests/unit/coverage/index.html See Unit Tests Coverage Report}
  *
  */

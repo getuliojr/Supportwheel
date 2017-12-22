@@ -12,8 +12,8 @@
      * 
      * Below is a list of the components. Click on each one for more information:
      *    
-     * - {@link componentes.engineer.engineer.form engineerForm}
-     * - {@link componentes.engineer.engineer.list engineerList}
+     * - {@link components.engineer.engineer.form engineerForm}
+     * - {@link components.engineer.engineer.list engineerList}
      *     
      */
     angular

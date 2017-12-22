@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>home.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="../docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>home.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<span class="hljs-meta">
+
+    'use strict'</span>;
+
+     <span class="hljs-comment">/**
+     * @ngdoc overview
+     * @name components.home
+     *
+     * @description
+     *
+     * # home - Component #
+     *
+     * This component is responsible to render the home in the page
+     *
+     * @example
+       &lt;pre&gt;
+        &lt;sw-home&gt;&lt;/sw-home&gt;
+       &lt;/pre&gt;
+     */</span>
+    angular
+        .module(<span class="hljs-string">'components.home'</span>, [])
+
+        
+    <span class="hljs-comment">/**
+    * @ngdoc directive
+    * @name components.home.directive:home
+    *
+    * @restrict 'E'
+    * 
+    * @description
+    *
+    * This component will render the home page
+    *
+    */</span>
+    .component(<span class="hljs-string">'swHome'</span>, {
+        <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">'app/components/home/home.html'</span>,
+        <span class="hljs-attr">controller</span>: HomeController,
+        <span class="hljs-attr">bindings</span>: {
+
+        }
+    });
+
+    <span class="hljs-comment">/**
+     * @ngdoc controller
+     * @name components.home.controller:HomeController
+     * @description
+     *
+     * It has the logic behind the component
+     *
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">HomeController</span>(<span class="hljs-params"></span>) </span>{
+
+        
+    }
+})();</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

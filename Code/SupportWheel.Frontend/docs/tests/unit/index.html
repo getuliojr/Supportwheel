@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ASAMap Unit Tests</title>
+<title>Unit Tests</title>
 <style>
 body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 #HTMLReporter h1 { font-size: 12px; font-weight: normal; text-align: right; margin: 10px 0 10px 0 !important; }
@@ -10,7 +10,7 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 #HTMLReporter a:hover { text-decoration: underline; }
 #HTMLReporter p, #HTMLReporter h1, #HTMLReporter h2, #HTMLReporter h3, #HTMLReporter h4, #HTMLReporter h5, #HTMLReporter h6 { margin: 0; line-height: 14px; }
 #HTMLReporter .banner, #HTMLReporter .symbolSummary, #HTMLReporter .summary, #HTMLReporter .resultMessage, #HTMLReporter .specDetail .description, #HTMLReporter .alert .bar, #HTMLReporter .stackTrace { padding-left: 9px; padding-right: 9px; }
-#HTMLReporter .summary { padding: 0; }
+#HTMLReporter .summary { padding: 0; }#HTMLReporter .summary { padding: 0; }#HTMLReporter .summary { padding: 0; }#HTMLReporter .summary { padding: 0; }
 #HTMLReporter #jasmine_content { position: fixed; right: 100%; }
 #HTMLReporter .version { color: #aaaaaa; }
 #HTMLReporter .banner { margin-top: 14px; }
@@ -93,23 +93,180 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 </style>
 </head>
 
-<body id="HTMLReporter" class="html-reporter">
-<h1>Tested in PhantomJS 1.9.8 (Windows 7 0.0.0) on Mon Dec 07 2015</h1>
+<body id="HTMLReporter" class="html-reporter showDetails">
+<h1>Tested in PhantomJS 2.1.1 (Windows 8 0.0.0) on Fri Dec 22 2017</h1>
 
 <div class="alert">
 
 
+<!-- <span class="failingAlert bar">Failed 6 specs</span> -->
+<span class="failingAlert bar"><span class="fold-buttons"><a href="#" onclick="fold();">Fold</a> | 
+  <a href="#" onclick="unfold();">Unfold</a></span>37 specs, 6 failed, 0 pending</span>
+<span class="resultsMenu bar">
+<a class="summaryMenuItem" onclick="showSummary();" href="#">Spec List<a>|<a 
+   class="detailsMenuItem" onclick="showFailures();" href="#">Failures</a>
+</span>
 
-  
-  <span class="passingAlert bar"><span class="fold-buttons"><a href="#" onclick="fold();">Fold</a> | 
-  <a href="#" onclick="unfold();">Unfold</a></span>6 specs, 0 failed, 0 pending</span>
-  
 
 
 </div>
 <div class="results">
   <div class="summary">
   
+  
+    <div class="summary-section" onclick="toggleSection(this);">
+      
+        <div class="description section-starter" style="margin-left:0px">Component.Core: createTabs<span 
+            class="summary-section-totals"><span 
+            class="summary-section-total passed">7</span><span 
+            class="summary-section-total failed">1</span></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect template to be replaced<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect controller to be defined<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect controllerAs name to be right<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary failed" style="margin-left:14px">expect parameter: &quot;title&quot; to be set<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect directive to render a title<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect parameter: &quot;tabsList&quot; to be set<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect directive to render right number of tabs<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect template to have the right properties name/values<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+    </div>
+  
+    <div class="summary-section" onclick="toggleSection(this);">
+      
+        <div class="description section-starter" style="margin-left:0px">Component.Core: dataList<span 
+            class="summary-section-totals"><span 
+            class="summary-section-total passed">14</span><span 
+            class="summary-section-total failed">2</span></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect template to be replaced<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect controller to be defined<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect controllerAs name to be right<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect parameter: &quot;config.title&quot; to be set<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect component to render the title<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect parameter: &quot;config.enableFilter&quot; to be set<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect component to render the filter button based on enableFilter<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect parameter: &quot;config.onQuery&quot; to be set<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect parameter: &quot;config&quot; to be set<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect parameter: &quot;config.enableRowSelection&quot; to work<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect parameter: &quot;data&quot; to be set<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect parameter: &quot;config.columns&quot; to render the headers in template right<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect data to render right <span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary failed" style="margin-left:14px">expect parameter: &quot;orderField&quot; to be set<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary failed" style="margin-left:14px">expect &quot;orderField&quot; to order data by its value<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect parameter: &quot;config.itemMenu&quot; to render a button with menus<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+    </div>
+  
+    <div class="summary-section" onclick="toggleSection(this);">
+      
+        <div class="description section-starter" style="margin-left:0px">Component.cultura: culturaSelect<span 
+            class="summary-section-totals"><span 
+            class="summary-section-total passed">6</span><span 
+            class="summary-section-total failed">1</span></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect template to be replaced<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect controller to be defined<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary failed" style="margin-left:14px">expect controller to be initialized<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect controller to be attached to the scope as $ctrl<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect parameter: &quot;id&quot; to be set<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect parameter: &quot;required&quot; to be set<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+        <div class="specSummary passed" style="margin-left:14px">expect parameter: &quot;id&quot; to configure selected value in the list<span 
+            class="summary-section-totals"></span>
+        </div>
+      
+    </div>
   
     <div class="summary-section" onclick="toggleSection(this);">
       
@@ -138,6 +295,114 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 
 <div id="details">
   
+  
+  <div class="specDetail failed">
+    <span class="description">Component: chooseLanguage Controller expect changeLanguage to be working</span>
+    <div class="stackTrace">
+      <div class="resultMessage">Expected 'Clique para escolher um idioma' to be undefined.
+http://localhost:9876/base/app/components/core/chooseLanguage/chooseLanguage.spec.js?e83093fe3655afd430921d242d49b183f8c920a9:57:53</div>
+    </div>
+  </div>
+  
+  <div class="specDetail failed">
+    <span class="description">Component: chooseLanguage Controller expect getName to be Undefined if set with an unknown language</span>
+    <div class="stackTrace">
+      <div class="resultMessage">Expected 'Clique para escolher um idioma' to be undefined.
+http://localhost:9876/base/app/components/core/chooseLanguage/chooseLanguage.spec.js?e83093fe3655afd430921d242d49b183f8c920a9:80:53</div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="specDetail failed">
+    <span class="description">Component.Core: createTabs expect parameter: &quot;title&quot; to be set</span>
+    <div class="stackTrace">
+      <div class="resultMessage">Error: [$injector:modulerr] Failed to instantiate module App due to:
+[$injector:modulerr] Failed to instantiate module components due to:
+[$injector:modulerr] Failed to instantiate module components.wheel due to:
+[$injector:nomod] Module 'components.wheel' is not available! You either misspelled the module name or forgot to load it. If registering a module ensure that you specify the dependencies as the second argument.
+http://errors.angularjs.org/1.6.8/$injector/nomod?p0=components.wheel
+http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:2305:71
+ensure@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:2224:45
+module@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:2301:20
+http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:4990:35
+forEach@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:408:24
+loadModules@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:4974:12
+http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:4992:51
+forEach@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:408:24
+loadModules@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:4974:12
+http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:4992:51
+forEach@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:408:24
+loadModules@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:4974:12
+createInjector@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:4891:30
+doBootstrap@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:1955:34
+bootstrap@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:1976:23
+http://localhost:9876/base/app/app.js?fc9b4b0f0a0f029ae6220a474682d7e8124b842a:89:20
+mightThrow@http://localhost:9876/base/app/libs/jquery/dist/jquery.js?c92232f824a57965c959bb779fd39724b690e1af:3583:34
+http://localhost:9876/base/app/libs/jquery/dist/jquery.js?c92232f824a57965c959bb779fd39724b690e1af:3651:22
+http://errors.angularjs.org/1.6.8/$injector/modulerr?p0=components.wheel&amp;p1=%5B%24injector%3Anomod%5D%20Module%20'components.wheel'%20is%20not%20available!%20You%20either%20misspelled%20the%20module%20name%20or%20forgot%20to%20load%20it.%20If%20registering%20a%20module%20ensure%20that%20you%20specify%20the%20dependencies%20as%20the%20second%20argument.%0Ahttp%3A%2F%2Ferrors.angularjs.org%2F1.6.8%2F%24injector%2Fnomod%3Fp0%3Dcomponents.wheel%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A2305%3A71%0Aensure%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A2224%3A45%0Amodule%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A2301%3A20%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4990%3A35%0AforEach%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A408%3A24%0AloadModules%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4974%3A12%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4992%3A51%0AforEach%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A408%3A24%0AloadModules%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4974%3A12%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4992%3A51%0AforEach%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A408%3A24%0AloadModules%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4974%3A12%0AcreateInjector%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4891%3A30%0AdoBootstrap%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A1955%3A34%0Abootstrap%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A1976%3A23%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Fapp.js%3Ffc9b4b0f0a0f029ae6220a474682d7e8124b842a%3A89%3A20%0AmightThrow%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fjquery%2Fdist%2Fjquery.js%3Fc92232f824a57965c959bb779fd39724b690e1af%3A3583%3A34%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fjquery%2Fdist%2Fjquery.js%3Fc92232f824a57965c959bb779fd39724b690e1af%3A3651%3A22
+http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:5015:53
+forEach@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:408:24
+loadModules@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:4974:12
+http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:4992:51
+forEach@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:408:24
+loadModules@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:4974:12
+http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:4992:51
+forEach@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:408:24
+loadModules@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:4974:12
+createInjector@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:4891:30
+doBootstrap@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:1955:34
+bootstrap@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:1976:23
+http://localhost:9876/base/app/app.js?fc9b4b0f0a0f029ae6220a474682d7e8124b842a:89:20
+mightThrow@http://localhost:9876/base/app/libs/jquery/dist/jquery.js?c92232f824a57965c959bb779fd39724b690e1af:3583:34
+http://localhost:9876/base/app/libs/jquery/dist/jquery.js?c92232f824a57965c959bb779fd39724b690e1af:3651:22
+http://errors.angularjs.org/1.6.8/$injector/modulerr?p0=components&amp;p1=%5B%24injector%3Amodulerr%5D%20Failed%20to%20instantiate%20module%20components.wheel%20due%20to%3A%0A%5B%24injector%3Anomod%5D%20Module%20'components.wheel'%20is%20not%20available!%20You%20either%20misspelled%20the%20module%20name%20or%20forgot%20to%20load%20it.%20If%20registering%20a%20module%20ensure%20that%20you%20specify%20the%20dependencies%20as%20the%20second%20argument.%0Ahttp%3A%2F%2Ferrors.angularjs.org%2F1.6.8%2F%24injector%2Fnomod%3Fp0%3Dcomponents.wheel%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A2305%3A71%0Aensure%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A2224%3A45%0Amodule%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A2301%3A20%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4990%3A35%0AforEach%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A408%3A24%0AloadModules%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4974%3A12%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4992%3A51%0AforEach%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A408%3A24%0AloadModules%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4974%3A12%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4992%3A51%0AforEach%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A408%3A24%0AloadModules%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4974%3A12%0AcreateInjector%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4891%3A30%0AdoBootstrap%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A1955%3A34%0Abootstrap%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A1976%3A23%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Fapp.js%3Ffc9b4b0f0a0f029ae6220a474682d7e8124b842a%3A89%3A20%0AmightThrow%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fjquery%2Fdist%2Fjquery.js%3Fc92232f824a57965c959bb779fd39724b690e1af%3A3583%3A34%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fjquery%2Fdist%2Fjquery.js%3Fc92232f824a57965c959bb779fd39724b690e1af%3A3651%3A22%0Ahttp%3A%2F%2Ferrors.angularjs.org%2F1.6.8%2F%24injector%2Fmodulerr%3Fp0%3Dcomponents.wheel%26p1%3D%255B%2524injector%253Anomod%255D%2520Module%2520'components.wheel'%2520is%2520not%2520available!%2520You%2520either%2520misspelled%2520the%2520module%2520name%2520or%2520forgot%2520to%2520load%2520it.%2520If%2520registering%2520a%2520module%2520ensure%2520that%2520you%2520specify%2520the%2520dependencies%2520as%2520the%2520second%2520argument.%250Ahttp%253A%252F%252Ferrors.angularjs.org%252F1.6.8%252F%2524injector%252Fnomod%253Fp0%253Dcomponents.wheel%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A2305%253A71%250Aensure%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A2224%253A45%250Amodule%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A2301%253A20%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4990%253A35%250AforEach%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A408%253A24%250AloadModules%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4974%253A12%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4992%253A51%250AforEach%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A408%253A24%250AloadModules%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4974%253A12%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4992%253A51%250AforEach%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A408%253A24%250AloadModules%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4974%253A12%250AcreateInjector%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4891%253A30%250AdoBootstrap%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A1955%253A34%250Abootstrap%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A1976%253A23%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Fapp.js%253Ffc9b4b0f0a0f029ae6220a474682d7e8124b842a%253A89%253A20%250AmightThrow%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fjquery%252Fdist%252Fjquery.js%253Fc92232f824a57965c959bb779fd39724b690e1af%253A3583%253A34%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fjquery%252Fdist%252Fjquery.js%253Fc92232f824a57965c959bb779fd39724b690e1af%253A3651%253A22%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A5015%3A53%0AforEach%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A408%3A24%0AloadModules%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4974%3A12%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4992%3A51%0AforEach%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A408%3A24%0AloadModules%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4974%3A12%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4992%3A51%0AforEach%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A408%3A24%0AloadModules%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4974%3A12%0AcreateInjector%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4891%3A30%0AdoBootstrap%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A1955%3A34%0Abootstrap%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A1976%3A23%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Fapp.js%3Ffc9b4b0f0a0f029ae6220a474682d7e8124b842a%3A89%3A20%0AmightThrow%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fjquery%2Fdist%2Fjquery.js%3Fc92232f824a57965c959bb779fd39724b690e1af%3A3583%3A34%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fjquery%2Fdist%2Fjquery.js%3Fc92232f824a57965c959bb779fd39724b690e1af%3A3651%3A22
+http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:5015:53
+forEach@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:408:24
+loadModules@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:4974:12
+http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:4992:51
+forEach@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:408:24
+loadModules@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:4974:12
+createInjector@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:4891:30
+doBootstrap@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:1955:34
+bootstrap@http://localhost:9876/base/app/libs/angular/angular.js?33870caf84388233f992253f90908920b43aeaa4:1976:23
+http://localhost:9876/base/app/app.js?fc9b4b0f0a0f029ae6220a474682d7e8124b842a:89:20
+mightThrow@http://localhost:9876/base/app/libs/jquery/dist/jquery.js?c92232f824a57965c959bb779fd39724b690e1af:3583:34
+http://localhost:9876/base/app/libs/jquery/dist/jquery.js?c92232f824a57965c959bb779fd39724b690e1af:3651:22
+http://errors.angularjs.org/1.6.8/$injector/modulerr?p0=App&amp;p1=%5B%24injector%3Amodulerr%5D%20Failed%20to%20instantiate%20module%20components%20due%20to%3A%0A%5B%24injector%3Amodulerr%5D%20Failed%20to%20instantiate%20module%20components.wheel%20due%20to%3A%0A%5B%24injector%3Anomod%5D%20Module%20'components.wheel'%20is%20not%20available!%20You%20either%20misspelled%20the%20module%20name%20or%20forgot%20to%20load%20it.%20If%20registering%20a%20module%20ensure%20that%20you%20specify%20the%20dependencies%20as%20the%20second%20argument.%0Ahttp%3A%2F%2Ferrors.angularjs.org%2F1.6.8%2F%24injector%2Fnomod%3Fp0%3Dcomponents.wheel%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A2305%3A71%0Aensure%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A2224%3A45%0Amodule%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A2301%3A20%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4990%3A35%0AforEach%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A408%3A24%0AloadModules%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4974%3A12%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4992%3A51%0AforEach%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A408%3A24%0AloadModules%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4974%3A12%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4992%3A51%0AforEach%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A408%3A24%0AloadModules%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4974%3A12%0AcreateInjector%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4891%3A30%0AdoBootstrap%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A1955%3A34%0Abootstrap%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A1976%3A23%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Fapp.js%3Ffc9b4b0f0a0f029ae6220a474682d7e8124b842a%3A89%3A20%0AmightThrow%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fjquery%2Fdist%2Fjquery.js%3Fc92232f824a57965c959bb779fd39724b690e1af%3A3583%3A34%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fjquery%2Fdist%2Fjquery.js%3Fc92232f824a57965c959bb779fd39724b690e1af%3A3651%3A22%0Ahttp%3A%2F%2Ferrors.angularjs.org%2F1.6.8%2F%24injector%2Fmodulerr%3Fp0%3Dcomponents.wheel%26p1%3D%255B%2524injector%253Anomod%255D%2520Module%2520'components.wheel'%2520is%2520not%2520available!%2520You%2520either%2520misspelled%2520the%2520module%2520name%2520or%2520forgot%2520to%2520load%2520it.%2520If%2520registering%2520a%2520module%2520ensure%2520that%2520you%2520specify%2520the%2520dependencies%2520as%2520the%2520second%2520argument.%250Ahttp%253A%252F%252Ferrors.angularjs.org%252F1.6.8%252F%2524injector%252Fnomod%253Fp0%253Dcomponents.wheel%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A2305%253A71%250Aensure%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A2224%253A45%250Amodule%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A2301%253A20%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4990%253A35%250AforEach%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A408%253A24%250AloadModules%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4974%253A12%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4992%253A51%250AforEach%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A408%253A24%250AloadModules%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4974%253A12%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4992%253A51%250AforEach%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A408%253A24%250AloadModules%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4974%253A12%250AcreateInjector%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4891%253A30%250AdoBootstrap%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A1955%253A34%250Abootstrap%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A1976%253A23%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Fapp.js%253Ffc9b4b0f0a0f029ae6220a474682d7e8124b842a%253A89%253A20%250AmightThrow%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fjquery%252Fdist%252Fjquery.js%253Fc92232f824a57965c959bb779fd39724b690e1af%253A3583%253A34%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fjquery%252Fdist%252Fjquery.js%253Fc92232f824a57965c959bb779fd39724b690e1af%253A3651%253A22%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A5015%3A53%0AforEach%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A408%3A24%0AloadModules%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4974%3A12%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4992%3A51%0AforEach%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A408%3A24%0AloadModules%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4974%3A12%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4992%3A51%0AforEach%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A408%3A24%0AloadModules%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4974%3A12%0AcreateInjector%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4891%3A30%0AdoBootstrap%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A1955%3A34%0Abootstrap%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A1976%3A23%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Fapp.js%3Ffc9b4b0f0a0f029ae6220a474682d7e8124b842a%3A89%3A20%0AmightThrow%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fjquery%2Fdist%2Fjquery.js%3Fc92232f824a57965c959bb779fd39724b690e1af%3A3583%3A34%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fjquery%2Fdist%2Fjquery.js%3Fc92232f824a57965c959bb779fd39724b690e1af%3A3651%3A22%0Ahttp%3A%2F%2Ferrors.angularjs.org%2F1.6.8%2F%24injector%2Fmodulerr%3Fp0%3Dcomponents%26p1%3D%255B%2524injector%253Amodulerr%255D%2520Failed%2520to%2520instantiate%2520module%2520components.wheel%2520due%2520to%253A%250A%255B%2524injector%253Anomod%255D%2520Module%2520'components.wheel'%2520is%2520not%2520available!%2520You%2520either%2520misspelled%2520the%2520module%2520name%2520or%2520forgot%2520to%2520load%2520it.%2520If%2520registering%2520a%2520module%2520ensure%2520that%2520you%2520specify%2520the%2520dependencies%2520as%2520the%2520second%2520argument.%250Ahttp%253A%252F%252Ferrors.angularjs.org%252F1.6.8%252F%2524injector%252Fnomod%253Fp0%253Dcomponents.wheel%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A2305%253A71%250Aensure%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A2224%253A45%250Amodule%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A2301%253A20%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4990%253A35%250AforEach%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A408%253A24%250AloadModules%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4974%253A12%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4992%253A51%250AforEach%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A408%253A24%250AloadModules%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4974%253A12%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4992%253A51%250AforEach%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A408%253A24%250AloadModules%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4974%253A12%250AcreateInjector%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4891%253A30%250AdoBootstrap%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A1955%253A34%250Abootstrap%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A1976%253A23%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Fapp.js%253Ffc9b4b0f0a0f029ae6220a474682d7e8124b842a%253A89%253A20%250AmightThrow%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fjquery%252Fdist%252Fjquery.js%253Fc92232f824a57965c959bb779fd39724b690e1af%253A3583%253A34%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fjquery%252Fdist%252Fjquery.js%253Fc92232f824a57965c959bb779fd39724b690e1af%253A3651%253A22%250Ahttp%253A%252F%252Ferrors.angularjs.org%252F1.6.8%252F%2524injector%252Fmodulerr%253Fp0%253Dcomponents.wheel%2526p1%253D%25255B%252524injector%25253Anomod%25255D%252520Module%252520'components.wheel'%252520is%252520not%252520available!%252520You%252520either%252520misspelled%252520the%252520module%252520name%252520or%252520forgot%252520to%252520load%252520it.%252520If%252520registering%252520a%252520module%252520ensure%252520that%252520you%252520specify%252520the%252520dependencies%252520as%252520the%252520second%252520argument.%25250Ahttp%25253A%25252F%25252Ferrors.angularjs.org%25252F1.6.8%25252F%252524injector%25252Fnomod%25253Fp0%25253Dcomponents.wheel%25250Ahttp%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Flibs%25252Fangular%25252Fangular.js%25253F33870caf84388233f992253f90908920b43aeaa4%25253A2305%25253A71%25250Aensure%252540http%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Flibs%25252Fangular%25252Fangular.js%25253F33870caf84388233f992253f90908920b43aeaa4%25253A2224%25253A45%25250Amodule%252540http%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Flibs%25252Fangular%25252Fangular.js%25253F33870caf84388233f992253f90908920b43aeaa4%25253A2301%25253A20%25250Ahttp%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Flibs%25252Fangular%25252Fangular.js%25253F33870caf84388233f992253f90908920b43aeaa4%25253A4990%25253A35%25250AforEach%252540http%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Flibs%25252Fangular%25252Fangular.js%25253F33870caf84388233f992253f90908920b43aeaa4%25253A408%25253A24%25250AloadModules%252540http%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Flibs%25252Fangular%25252Fangular.js%25253F33870caf84388233f992253f90908920b43aeaa4%25253A4974%25253A12%25250Ahttp%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Flibs%25252Fangular%25252Fangular.js%25253F33870caf84388233f992253f90908920b43aeaa4%25253A4992%25253A51%25250AforEach%252540http%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Flibs%25252Fangular%25252Fangular.js%25253F33870caf84388233f992253f90908920b43aeaa4%25253A408%25253A24%25250AloadModules%252540http%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Flibs%25252Fangular%25252Fangular.js%25253F33870caf84388233f992253f90908920b43aeaa4%25253A4974%25253A12%25250Ahttp%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Flibs%25252Fangular%25252Fangular.js%25253F33870caf84388233f992253f90908920b43aeaa4%25253A4992%25253A51%25250AforEach%252540http%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Flibs%25252Fangular%25252Fangular.js%25253F33870caf84388233f992253f90908920b43aeaa4%25253A408%25253A24%25250AloadModules%252540http%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Flibs%25252Fangular%25252Fangular.js%25253F33870caf84388233f992253f90908920b43aeaa4%25253A4974%25253A12%25250AcreateInjector%252540http%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Flibs%25252Fangular%25252Fangular.js%25253F33870caf84388233f992253f90908920b43aeaa4%25253A4891%25253A30%25250AdoBootstrap%252540http%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Flibs%25252Fangular%25252Fangular.js%25253F33870caf84388233f992253f90908920b43aeaa4%25253A1955%25253A34%25250Abootstrap%252540http%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Flibs%25252Fangular%25252Fangular.js%25253F33870caf84388233f992253f90908920b43aeaa4%25253A1976%25253A23%25250Ahttp%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Fapp.js%25253Ffc9b4b0f0a0f029ae6220a474682d7e8124b842a%25253A89%25253A20%25250AmightThrow%252540http%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Flibs%25252Fjquery%25252Fdist%25252Fjquery.js%25253Fc92232f824a57965c959bb779fd39724b690e1af%25253A3583%25253A34%25250Ahttp%25253A%25252F%25252Flocalhost%25253A9876%25252Fbase%25252Fapp%25252Flibs%25252Fjquery%25252Fdist%25252Fjquery.js%25253Fc92232f824a57965c959bb779fd39724b690e1af%25253A3651%25253A22%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A5015%253A53%250AforEach%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A408%253A24%250AloadModules%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4974%253A12%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4992%253A51%250AforEach%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A408%253A24%250AloadModules%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4974%253A12%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4992%253A51%250AforEach%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A408%253A24%250AloadModules%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4974%253A12%250AcreateInjector%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A4891%253A30%250AdoBootstrap%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A1955%253A34%250Abootstrap%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fangular%252Fangular.js%253F33870caf84388233f992253f90908920b43aeaa4%253A1976%253A23%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Fapp.js%253Ffc9b4b0f0a0f029ae6220a474682d7e8124b842a%253A89%253A20%250AmightThrow%2540http%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fjquery%252Fdist%252Fjquery.js%253Fc92232f824a57965c959bb779fd39724b690e1af%253A3583%253A34%250Ahttp%253A%252F%252Flocalhost%253A9876%252Fbase%252Fapp%252Flibs%252Fjquery%252Fdist%252Fjquery.js%253Fc92232f824a57965c959bb779fd39724b690e1af%253A3651%253A22%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A5015%3A53%0AforEach%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A408%3A24%0AloadModules%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4974%3A12%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4992%3A51%0AforEach%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A408%3A24%0AloadModules%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4974%3A12%0AcreateInjector%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A4891%3A30%0AdoBootstrap%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A1955%3A34%0Abootstrap%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fangular%2Fangular.js%3F33870caf84388233f992253f90908920b43aeaa4%3A1976%3A23%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Fapp.js%3Ffc9b4b0f0a0f029ae6220a474682d7e8124b842a%3A89%3A20%0AmightThrow%40http%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fjquery%2Fdist%2Fjquery.js%3Fc92232f824a57965c959bb779fd39724b690e1af%3A3583%3A34%0Ahttp%3A%2F%2Flocalhost%3A9876%2Fbase%2Fapp%2Flibs%2Fjquery%2Fdist%2Fjquery.js%3Fc92232f824a57965c959bb779fd39724b690e1af%3A3651%3A22 thrown</div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="specDetail failed">
+    <span class="description">Component.Core: dataList expect parameter: &quot;orderField&quot; to be set</span>
+    <div class="stackTrace">
+      <div class="resultMessage">Expected undefined to be '-name'.
+http://localhost:9876/base/app/components/core/dataList/dataList.spec.js?cd99cbefc53b06adf5194dde0ea6868a0afe72b7:230:43</div>
+    </div>
+  </div>
+  
+  <div class="specDetail failed">
+    <span class="description">Component.Core: dataList expect &quot;orderField&quot; to order data by its value</span>
+    <div class="stackTrace">
+      <div class="resultMessage">Expected '1' to be '2'.
+http://localhost:9876/base/app/components/core/dataList/dataList.spec.js?cd99cbefc53b06adf5194dde0ea6868a0afe72b7:256:86,Expected '2' to be '1'.
+http://localhost:9876/base/app/components/core/dataList/dataList.spec.js?cd99cbefc53b06adf5194dde0ea6868a0afe72b7:257:86</div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="specDetail failed">
+    <span class="description">Component.cultura: culturaSelect expect controller to be initialized</span>
+    <div class="stackTrace">
+      <div class="resultMessage">Expected 2 to be 4.
+http://localhost:9876/base/app/components/cultura/culturaSelect/culturaSelect.spec.js?1ba7b397d2d0c8bda87763c40e8f8b42792777c3:47:48</div>
+    </div>
+  </div>
+  
+  
 </div>
 
 <script>
@@ -149,7 +414,7 @@ document.body.onkeypress = function (e) {
   switch (e.keyCode) {
     case 102: toggleFold(); break;
     case 49: showSummary(); break;
-    
+    case 50: showFailures(); break;case 50: showFailures(); break;case 50: showFailures(); break;case 50: showFailures(); break;
   }
 };
 

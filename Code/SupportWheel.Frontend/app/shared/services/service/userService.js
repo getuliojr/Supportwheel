@@ -5,7 +5,16 @@
     //Define o módulo
     angular.module('shared.services.service.user', [
         'shared.services.factory.appResource'
-        ])
+    ])
+
+          /**
+     * @ngdoc service
+     * @name shared.services.service.service:user
+     * @description
+     *
+     * This service is responsible to get information about the users in the system
+     *
+     */
         .service('userService', userService);
 
     //Injeta dependencias

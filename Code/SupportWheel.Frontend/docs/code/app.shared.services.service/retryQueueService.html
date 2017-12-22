@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>retryQueueService.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="../docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>retryQueueService.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<span class="hljs-meta">
+
+    'use strict'</span>;
+
+    angular.module(<span class="hljs-string">'shared.services.service.retryQueue'</span>, [
+        
+    ])
+
+    .service(<span class="hljs-string">'retryQueueService'</span>, retryQueueService);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Injeta dependencias</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    retryQueueService.$inject = [<span class="hljs-string">'$q'</span>, <span class="hljs-string">'$log'</span>];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>This is a generic retry queue for security failures.  Each item is expected to expose two functions: retry and </p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">retryQueueService</span>(<span class="hljs-params">$q, $log</span>) </span>{
+        <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>;
+        <span class="hljs-keyword">var</span> retryQueue = [];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>The public API of the service</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">this</span>.onItemAddedCallbacks = [];                   <span class="hljs-comment">// The security service puts its own handler in here!</span>
+        <span class="hljs-keyword">this</span>.cancelAll = cancelAll;
+        <span class="hljs-keyword">this</span>.hasMore = hasMore;
+        <span class="hljs-keyword">this</span>.push = push;
+        <span class="hljs-keyword">this</span>.pushRetryFn = pushRetryFn;
+        <span class="hljs-keyword">this</span>.retryAll = retryAll;
+        <span class="hljs-keyword">this</span>.retryReason = retryReason;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Fun��es</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cancelAll</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">while</span> (<span class="hljs-keyword">this</span>.hasMore()) {
+                retryQueue.shift().cancel();
+            }
+        }
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hasMore</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> retryQueue.length &gt; <span class="hljs-number">0</span>;
+        }
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">push</span>(<span class="hljs-params">retryItem</span>) </span>{
+            retryQueue.push(retryItem);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Call all the onItemAdded callbacks</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            angular.forEach(that.onItemAddedCallbacks, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">cb</span>) </span>{
+                <span class="hljs-keyword">try</span> {
+                    cb(retryItem);
+                } <span class="hljs-keyword">catch</span>(e) {
+                    $log.error(<span class="hljs-string">'retryQueueService.push(retryItem): callback threw an error'</span> + e);
+                }
+            });
+        }
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pushRetryFn</span>(<span class="hljs-params">reason, retryFn, args</span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>The reason parameter is optional</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> ( <span class="hljs-built_in">arguments</span>.length === <span class="hljs-number">1</span>) {
+                retryFn = reason;
+                reason = <span class="hljs-literal">undefined</span>;
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>The deferred object that will be resolved or rejected by calling retry or cancel</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">var</span> deferred = $q.defer();
+            <span class="hljs-keyword">var</span> retryItem = {
+                <span class="hljs-attr">reason</span>: reason,
+                <span class="hljs-attr">retry</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Wrap the result of the retryFn into a promise if it is not already</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    $q.when(retryFn.apply(<span class="hljs-keyword">this</span>, args)).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>If it was successful then resolve our deferred</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        deferred.resolve(value);
+                    }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Othewise reject it</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                        deferred.reject(value);
+                    });
+                },
+                <span class="hljs-attr">cancel</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Give up on retrying and reject our deferred</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    deferred.reject();
+                }
+            };
+            that.push(retryItem);
+            <span class="hljs-keyword">return</span> deferred.promise;
+        }
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">retryAll</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">var</span> length = retryQueue.length;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> r = <span class="hljs-number">0</span>; r &lt; length; r++) {
+                <span class="hljs-keyword">if</span> (r &lt;= retryQueue.length - <span class="hljs-number">1</span>) {
+                    retryQueue.shift().retry();
+                }
+            }
+        }
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">retryReason</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> that.hasMore() &amp;&amp; retryQueue[<span class="hljs-number">0</span>].reason;
+        }
+    }
+})();</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

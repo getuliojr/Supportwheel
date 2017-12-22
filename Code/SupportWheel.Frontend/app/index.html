@@ -38,15 +38,23 @@
     <md-toolbar layout="row" class="md-whiteframe-z1">
       <div class="md-toolbar-tools">
         <h2>
-          <a href="#" aria-label="Name" ui-sref="home">
+          <a href="#" aria-label="logo" ui-sref="home">
             {{'HOME.NAME' | translate }}
           </a>
         </h2>
         <span flex></span>
+        <md-button aria-label="Home" ui-sref="home">
+          <md-icon>home</md-icon>
+          {{'HOME.HOME' | translate }}
+        </md-button>
         <md-button aria-label="About" ui-sref="about">
           <md-icon>info</md-icon>
           {{'HOME.ABOUT' | translate }}
         </md-button>
+        <a href="/docs/index.html" aria-label="documentation" target="_parent">
+          <md-icon>book</md-icon>
+          {{'HOME.DOCUMENTATION' | translate }}
+        </a>
         <choose-language></choose-language>
 
         <auth></auth>

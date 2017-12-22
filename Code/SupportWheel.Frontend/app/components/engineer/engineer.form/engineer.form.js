@@ -81,7 +81,7 @@
         /**
         * @ngdoc function
         * @name init
-        * @methodOf  components.instituicao.instituicao.form.controller:InstituicaoFormController
+        * @methodOf  components.engineer.engineer.form.controller:EngineerFormController
         * @private
         *
         * @description

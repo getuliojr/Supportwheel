@@ -1,4 +1,4 @@
-﻿(function() {
+(function() {
 
     'use strict';
 
@@ -52,8 +52,8 @@
             function init() {
                 //var mockUrl = new RegExp('^http\:\/\/.+?\/' + resourceName + '$');
                 //var mockUrlWithId = new RegExp('^http\:\/\/.+?\/' + resourceName + '\/(.+)$');
-                var mockUrl = "/asamap/api/" + resourceName; 
-                var mockUrlWithId = RegExp('/asamap/api/' + resourceName + '\/(.+)$'); 
+                var mockUrl = "/api/" + resourceName; 
+                var mockUrlWithId = RegExp('/api/' + resourceName + '\/(.+)$'); 
 
                 if (seedData) {
                     _serviceData = seedData;

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @ngdoc overview
  * @name files
  * @description
@@ -10,6 +10,6 @@
  * It has been generated with:
  * {@link https://github.com/joseph-jja/grunt-docco-dir grunt-docco-dir}
  *
- * To access the code follow the link below to the site map: {@link /asamap/docs/code/index.html siteMap}
+ * To access the code follow the link below to the site map: {@link /docs/code/index.html siteMap}
  *
  */

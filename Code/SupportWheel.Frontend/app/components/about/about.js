@@ -23,7 +23,7 @@
         
     /**
     * @ngdoc directive
-    * @name components.about.directive:about
+    * @name components.about.directive:swAbout
     *
     * @restrict 'E'
     * 

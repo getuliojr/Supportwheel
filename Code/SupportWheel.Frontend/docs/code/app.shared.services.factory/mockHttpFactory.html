@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>mockHttpFactory.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="../docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>mockHttpFactory.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{<span class="hljs-meta">
+
+    'use strict'</span>;
+
+    angular.module(<span class="hljs-string">'shared.services.factory.mockHttp'</span>, [
+    ])
+
+    .factory(<span class="hljs-string">'MockHttpFactory'</span>, MockHttpFactory);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Injeta dependencias</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    MockHttpFactory.$inject = [<span class="hljs-string">'$httpBackend'</span>];
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">MockHttpFactory</span>(<span class="hljs-params">$httpBackend</span>) </span>{
+
+        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resourceName, surrogateKey, seedData</span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Parâmetros obrigatórios</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> (resourceName == <span class="hljs-literal">undefined</span>) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-string">"It is required to inform the name of the resource in the server."</span>;
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Private: Mantem os dados</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">var</span> _serviceData = {};
+            <span class="hljs-keyword">var</span> _lastAnswer = <span class="hljs-literal">undefined</span>;
+            <span class="hljs-keyword">var</span> _lastServerStatus = <span class="hljs-literal">undefined</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>API Pública</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">var</span> service = {};
+            service.getData = getData;
+            service.lastServerAnswer = lastServerAnswer;
+            service.lastServerStatus = lastServerStatus;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Inicializa o serviço</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            init();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Funções</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getData</span>(<span class="hljs-params">filter</span>) </span>{
+                <span class="hljs-keyword">if</span> (filter == <span class="hljs-literal">undefined</span>) {
+                    <span class="hljs-keyword">return</span> _serviceData;
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">return</span> _.find(_serviceData, filter);
+                }
+            };
+
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">lastServerAnswer</span>(<span class="hljs-params"></span>) </span>{
+                <span class="hljs-keyword">return</span> _lastAnswer;
+            };
+
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">lastServerStatus</span>(<span class="hljs-params"></span>) </span>{
+                <span class="hljs-keyword">return</span> _lastServerStatus;
+            }
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>var mockUrl = new RegExp(‘^http\:\/\/.+?\/‘ + resourceName + ‘$’);
+var mockUrlWithId = new RegExp(‘^http\:\/\/.+?\/‘ + resourceName + ‘\/(.+)$’);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">var</span> mockUrl = <span class="hljs-string">"/api/"</span> + resourceName; 
+                <span class="hljs-keyword">var</span> mockUrlWithId = <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">'/api/'</span> + resourceName + <span class="hljs-string">'\/(.+)$'</span>); 
+
+                <span class="hljs-keyword">if</span> (seedData) {
+                    _serviceData = seedData;
+                }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Get ALL</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                $httpBackend.whenGET(mockUrl).respond(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">method, url, data, headers</span>) </span>{
+                    _lastAnswer = _serviceData;
+                    _lastServerStatus = <span class="hljs-number">200</span>;
+                    <span class="hljs-keyword">return</span> [<span class="hljs-number">200</span>, _serviceData, {}];
+                });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Get ONE</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                $httpBackend.whenGET(mockUrlWithId).respond(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">method, url, data, headers</span>) </span>{
+                    <span class="hljs-keyword">var</span> regexp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">'\\/'</span> + resourceName + <span class="hljs-string">'\\/([0-9]+)'</span>);
+                    <span class="hljs-keyword">var</span> mockId = url.match(regexp)[<span class="hljs-number">1</span>];
+                    <span class="hljs-keyword">var</span> params = {};
+                    params[surrogateKey] = +mockId;
+                    <span class="hljs-keyword">var</span> item = _.find(_serviceData, params);
+                    <span class="hljs-keyword">if</span> (item) {
+                        _lastAnswer = item;
+                        _lastServerStatus = <span class="hljs-number">200</span>;
+                        <span class="hljs-keyword">return</span> [<span class="hljs-number">200</span>, item, {}];
+                    } <span class="hljs-keyword">else</span> {
+                        _lastAnswer = <span class="hljs-string">""</span>;
+                        _lastServerStatus = <span class="hljs-number">404</span>;
+                        <span class="hljs-keyword">return</span> [<span class="hljs-number">404</span>, {}, {}];
+                    }
+                });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>POST</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                $httpBackend.whenPOST(mockUrl).respond(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">method, url, data, headers</span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>converte de string para json</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    data = angular.fromJson(data);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>gera um Id de 1000 a 99999</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    data[surrogateKey] = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">99999</span> + <span class="hljs-number">1000</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>adiciona na lista atual</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    _serviceData.push(data);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>retorna o registro inserido com um fakeID</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    _lastAnswer = data;
+                    _lastServerStatus = <span class="hljs-number">201</span>;
+                    <span class="hljs-keyword">return</span> [<span class="hljs-number">201</span>, data, {}];
+                });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>PUT</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                $httpBackend.whenPUT(mockUrlWithId).respond(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">method, url, data, headers</span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>converte de string para json</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    data = angular.fromJson(data);
+                    <span class="hljs-keyword">var</span> regexp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">'\\/'</span> + resourceName + <span class="hljs-string">'\\/([0-9]+)'</span>);
+                    <span class="hljs-keyword">var</span> mockId = url.match(regexp)[<span class="hljs-number">1</span>];
+                    <span class="hljs-keyword">var</span> params = {};
+                    params[surrogateKey] = +mockId;
+                    <span class="hljs-keyword">var</span> item = _.find(_serviceData, params);
+                    <span class="hljs-keyword">if</span> (item) {
+                        angular.extend(_serviceData[_serviceData.indexOf(item)], data);
+                        _lastAnswer = data;
+                        _lastServerStatus = <span class="hljs-number">200</span>;
+                        <span class="hljs-keyword">return</span> [<span class="hljs-number">200</span>, data, {}];
+                    } <span class="hljs-keyword">else</span> {
+                        _lastAnswer = <span class="hljs-string">""</span>;
+                        _lastServerStatus = <span class="hljs-number">404</span>;
+                        <span class="hljs-keyword">return</span> [<span class="hljs-number">404</span>, {}, {}];
+                    }
+                });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>DELETE</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                $httpBackend.whenDELETE(mockUrlWithId).respond(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">method, url, data, headers</span>) </span>{
+                    <span class="hljs-keyword">var</span> regexp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">'\\/'</span> + resourceName + <span class="hljs-string">'\\/([0-9]+)'</span>);
+                    <span class="hljs-keyword">var</span> mockId = url.match(regexp)[<span class="hljs-number">1</span>];
+                    <span class="hljs-keyword">var</span> params = {};
+                    params[surrogateKey] = +mockId;
+                    <span class="hljs-keyword">var</span> item = _.find(_serviceData, params);
+                    <span class="hljs-keyword">if</span> (item) {
+                        <span class="hljs-keyword">var</span> deletedItem = _serviceData.splice(_serviceData.indexOf(item), <span class="hljs-number">1</span>);
+                        _lastAnswer = deletedItem[<span class="hljs-number">0</span>];
+                        _lastServerStatus = <span class="hljs-number">200</span>;
+                        <span class="hljs-keyword">return</span> [<span class="hljs-number">200</span>, deletedItem[<span class="hljs-number">0</span>], {}];
+                    } <span class="hljs-keyword">else</span> {
+                        _lastAnswer = <span class="hljs-string">""</span>;
+                        _lastServerStatus = <span class="hljs-number">404</span>;
+                        <span class="hljs-keyword">return</span> [<span class="hljs-number">404</span>, {}, {}];
+                    }
+                });
+            }
+
+            <span class="hljs-keyword">return</span> service;
+        }
+    }
+})();</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

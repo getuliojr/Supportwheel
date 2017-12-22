@@ -21,6 +21,8 @@
      * - {@link components.core.dataList dataList}
      *
      * - {@link components.core.login login}
+     *
+     * - {@link components.core.signup signup}
      */
     angular
         .module('components.core', [

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>engineerStates.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="../docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>engineerStates.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<span class="hljs-meta">
+
+    'use strict'</span>;
+
+    angular.module(<span class="hljs-string">'App'</span>).config(rotas);
+
+    rotas.$inject = [<span class="hljs-string">'$stateProvider'</span>];
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">rotas</span>(<span class="hljs-params">$stateProvider</span>) </span>{
+
+        $stateProvider
+            .state(<span class="hljs-string">'engineer'</span>, { <span class="hljs-comment">//Tabs - Defaults to list</span>
+                url: <span class="hljs-string">'/restrict/engineer'</span>,
+                <span class="hljs-attr">abstract</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-attr">views</span>:{
+                    <span class="hljs-string">'@'</span>: {
+                        <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;create-tabs title="create.title" tabs="create.tabs" current-tab-index="$resolve.tab.index" current-view="$resolve.current"&gt;&lt;/create-tabs /&gt;'</span>,
+                        <span class="hljs-attr">resolve</span>: {
+                            <span class="hljs-attr">tabs</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                                <span class="hljs-keyword">return</span> [{ <span class="hljs-attr">tabName</span>: <span class="hljs-string">"TABS.ENGINEER.SEARCH"</span>, <span class="hljs-attr">tabIcon</span>: <span class="hljs-string">"search"</span>, <span class="hljs-attr">tabViewName</span>: <span class="hljs-string">"search"</span>, <span class="hljs-attr">tabStates</span>:[<span class="hljs-string">"engineer.search"</span>] },
+                                  { <span class="hljs-attr">tabName</span>: <span class="hljs-string">"TABS.ENGINEER.ENGINEER"</span>, <span class="hljs-attr">tabIcon</span>: <span class="hljs-string">"note_add"</span>, <span class="hljs-attr">tabViewName</span>: <span class="hljs-string">"engineer"</span>, <span class="hljs-attr">tabStates</span>: [<span class="hljs-string">"engineer"</span>, <span class="hljs-string">"engineer.engineer"</span>, <span class="hljs-string">"engineer.form"</span>] }
+                                ];
+                            },
+                            <span class="hljs-attr">title</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-string">"TABS.ENGINEER.TITLE"</span>; }
+                        },
+                        <span class="hljs-attr">controller</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">tabs, title</span>) </span>{
+                            <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">this</span>;
+                            vm.tabs = tabs;
+                            vm.title = title;
+                        },
+                        <span class="hljs-attr">controllerAs</span>: <span class="hljs-string">'create'</span>
+                    }
+                    
+                },
+                <span class="hljs-attr">requireAuthenticatedUser</span>: <span class="hljs-literal">true</span>
+               
+            })
+
+          .state(<span class="hljs-string">'engineer.search'</span>, {
+                <span class="hljs-attr">url</span>: <span class="hljs-string">'/search'</span>,
+                <span class="hljs-attr">views</span>: {
+                    <span class="hljs-string">'search'</span>: {
+                        <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;sw-engineer-list&gt;&lt;/sw-engineer-list&gt;'</span>
+                    },
+                    <span class="hljs-string">'engineer'</span>: {
+                        <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;sw-engineer-form&gt;&lt;/sw-engineer-form&gt;'</span>
+                    }
+                }
+            })
+          .state(<span class="hljs-string">'engineer.engineer'</span>, {
+                <span class="hljs-attr">url</span>: <span class="hljs-string">''</span>,
+                <span class="hljs-attr">views</span>: {
+                    <span class="hljs-string">'search'</span>: {
+                      <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;sw-engineer-list&gt;&lt;/sw-engineer-list&gt;'</span>
+                    },
+                    <span class="hljs-string">'engineer'</span>: {
+                      <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;sw-engineer-form&gt;&lt;/sw-engineer-form&gt;'</span>
+                    }
+                }
+            })
+
+          .state(<span class="hljs-string">'engineer.form'</span>, <span class="hljs-comment">//Visualizar registro (atualizar e apagar)</span>
+            {
+                <span class="hljs-attr">url</span>: <span class="hljs-string">'/{id:[0-9]*}'</span>,
+                <span class="hljs-attr">views</span>: {
+                    <span class="hljs-string">'search'</span>: {
+                      <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;sw-engineer-list&gt;&lt;/sw-engineer-list&gt;'</span>
+                    },
+                    <span class="hljs-string">'engineer'</span>: {
+                        <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;sw-engineer-form id="$resolve.intIdEngineer"&gt;&lt;/sw-engineer-form&gt;'</span>,
+                        <span class="hljs-attr">resolve</span>: {
+                            <span class="hljs-attr">intIdEngineer</span>: [<span class="hljs-string">'$stateParams'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$stateParams</span>) </span>{
+                                <span class="hljs-keyword">return</span> $stateParams.id
+                            }]
+                        }
+                    }
+                }
+            })
+
+    }
+
+})();</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

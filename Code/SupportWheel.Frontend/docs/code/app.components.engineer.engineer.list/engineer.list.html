@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>engineer.list.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="../docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>engineer.list.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<span class="hljs-meta">
+
+    'use strict'</span>;
+
+    <span class="hljs-comment">/**
+    * @ngdoc overview
+    * @name components.engineer.engineer.list
+    * 
+    * @description
+    *
+    * # swEngineerList - Component #
+    *
+    */</span>
+    angular
+      .module(<span class="hljs-string">'components.engineer.engineer.list'</span>, [
+            <span class="hljs-string">'shared.services.factory.handleException'</span>,
+            <span class="hljs-string">'shared.services.service.engineer'</span>,
+            <span class="hljs-string">'shared.services.service.viewstate'</span>,
+            <span class="hljs-string">'shared.services.service.notification'</span>
+        ])
+
+
+     <span class="hljs-comment">/**
+     * @ngdoc directive
+     * @name components.engineer.engineer.list.directive:swEngineerList
+     * 
+     * @restrict 'E'
+     * 
+     * 
+     * @description
+     *
+     * # swEngineerList - Component #
+     *
+     * This component is responsible to render a list of engineers 
+     *
+     */</span>
+    .component(<span class="hljs-string">'swEngineerList'</span>, {
+      <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">'app/components/engineer/engineer.list/engineer.list.html'</span>,
+        <span class="hljs-attr">controller</span>: EngineerListController,
+        <span class="hljs-attr">bindings</span>: {
+
+        }
+    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Inject Dependencies</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    EngineerListController.$inject = [<span class="hljs-string">'handleExceptionFactory'</span>, <span class="hljs-string">'viewstateService'</span>, <span class="hljs-string">'notificationService'</span>, 
+        <span class="hljs-string">'engineerService'</span>, <span class="hljs-string">'$scope'</span>, <span class="hljs-string">'$location'</span>];
+
+
+    <span class="hljs-comment">/**
+     * @ngdoc controller
+     * @name components.engineer.engineer.list.controller:EngineerListController
+     *
+     * @requires shared.services.service.service:engineer
+     * @requires shared.services.factory.service:handleException
+     *
+     * @description
+     *
+     * It has the logic behind the component
+     *
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">EngineerListController</span>(<span class="hljs-params">handleExceptionFactory, viewstateService, notificationService,
+        engineerService, $scope, $location</span>) </span>{
+
+        <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">this</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>To avoid the data to be destroyed in case of a tab change</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        vm.data = viewstateService.getView(<span class="hljs-string">'engineerList'</span>);
+        vm.data.engineers = vm.data.engineers || [];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Init component</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        vm.$onInit = init;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>PUBLIC API</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        vm.selectEngineer = selectEngineer;
+
+        <span class="hljs-comment">/**
+        * @ngdoc function
+        * @name init
+        * @methodOf  components.engineer.engineer.list.controller:EngineerListController
+        * @private
+        *
+        * @description
+        *
+        * This is a private function that is called when the controller is initialized
+        */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Configure dataList Component</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            vm.config = {
+                <span class="hljs-attr">enableFilter</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-attr">enableRowSelection</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-attr">columns</span>: [{ <span class="hljs-attr">field</span>: <span class="hljs-string">'strNameEngineer'</span>, <span class="hljs-attr">isNumeric</span>: <span class="hljs-literal">false</span>, <span class="hljs-attr">displayName</span>: <span class="hljs-string">'{{"ENGINEER-LIST.NAME" | translate }}'</span> }],
+                <span class="hljs-attr">itemMenu</span>: [{
+                    <span class="hljs-attr">name</span>: <span class="hljs-string">'{{"GENERAL.SELECT" | translate }}'</span>, <span class="hljs-attr">icon</span>: <span class="hljs-string">'edit'</span>, <span class="hljs-attr">ariaLabel</span>: <span class="hljs-string">'{{"GENERAL.SELECT" | translate }}'</span>,
+                    <span class="hljs-attr">onClick</span>: vm.selectEngineer
+                }]
+            };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Listen for changes on instituição</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">var</span> engineerEvent = engineerService.listenEvent.both.all(updateResult);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Cleanup events when controller is destroyed</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            $scope.$on(<span class="hljs-string">"$destroy"</span>, engineerEvent);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Responsable to change the data entered and selected by the user already to a new culture set.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateResult</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Se já fez uma pesquisa</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">if</span> (!!vm.data.searched) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Refaz para trazer no novo idioma</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">var</span> data = angular.copy(vm.data);
+                    data.cache = <span class="hljs-literal">false</span>;
+                    data.applyScope = <span class="hljs-literal">true</span>;
+                    searchEngineer(data);
+                }  
+            }
+
+            searchEngineer(vm.data);
+        };
+
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">selectEngineer</span>(<span class="hljs-params">item</span>) </span>{
+            <span class="hljs-keyword">var</span> item = item.item;
+            $location.path(<span class="hljs-string">"/restrict/engineer/"</span> + item.intIdEngineer);
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">searchEngineer</span>(<span class="hljs-params">params</span>) </span>{
+            <span class="hljs-keyword">var</span> query = angular.copy(params);
+            <span class="hljs-keyword">delete</span> query.engineers;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>cache query if not set by the user</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> (query.cache == <span class="hljs-literal">undefined</span>) {
+                query.cache = <span class="hljs-literal">true</span>;
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Get projects based on the criteria selected</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            engineerService
+                .load(query)
+                .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+                    vm.data.engineers = data;
+                    vm.data.searched = <span class="hljs-literal">true</span>;
+                })
+                .catch(handleExceptionFactory);
+        }
+    }
+})();</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
