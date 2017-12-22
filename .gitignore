@@ -4,6 +4,7 @@ Code/.vs/*
 Code/Backup/*
 Code/Backup1/*
 Code/UpgradeLog*
+Code/SupportWheel.Frontend/node_modules/*
 
 #Junk Files
 *.DS_Store

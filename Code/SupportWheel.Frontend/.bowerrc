@@ -1,0 +1,36 @@
+# Node.js
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+node_modules/
+
+# ngBug
+
+dist
+.tmp
+.idea
+.nodemon
+app/libs/
+.DS_Store
+.nodemonignore
+.sass-cache/
+.bower-*/
+logs/*
+!.gitkeep
+
+# IntelliJ IDEA
+
+.idea/
+ngBug.iml

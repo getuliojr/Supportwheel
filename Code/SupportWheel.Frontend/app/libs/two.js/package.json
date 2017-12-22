@@ -1,0 +1,38 @@
+{
+  "name": "two.js",
+  "version": "0.7.0-alpha.1",
+  "description": "A two-dimensional drawing api meant for modern browsers.",
+  "keywords": [
+    "dom",
+    "w3c",
+    "visualization",
+    "svg",
+    "animation",
+    "canvas2d",
+    "webgl",
+    "rendering",
+    "motiongraphics"
+  ],
+  "homepage": "http://jonobr1.github.io/two.js/",
+  "author": {
+    "name": "jonobr1",
+    "url": "http://jonobr1.com/"
+  },
+  "main": "build/two.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonobr1/two.js"
+  },
+  "bugs": {
+    "url": "https://github.com/jonobr1/two.js/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "animation-frame": "^0.1.7",
+    "blueimp-canvas-to-blob": "^2.1.0",
+    "node-minify": "^2.0.3",
+    "qunitjs": "^2.4.0",
+    "resemblejs": "^1.1.1",
+    "underscore": "^1.6.0"
+  }
+}
