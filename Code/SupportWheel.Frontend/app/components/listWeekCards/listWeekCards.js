@@ -115,7 +115,7 @@
           }
 
           //Listen for changes on schedule
-          var scheduleEvent = scheduleService.listenEvent.both.inserted(updateResult);
+          var scheduleEvent = scheduleService.listenEvent.both.inserted(update);
 
           //Cleanup events when controller is destroyed
           $scope.$on("$destroy", scheduleEvent);
