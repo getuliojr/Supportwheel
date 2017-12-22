@@ -1350,8 +1350,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include=".gitattributes" />
-    <Content Include=".gitignore" />
     <Content Include="app\app.js" />
     <Content Include="app\components\about\about.html" />
     <Content Include="app\components\about\about.js" />
