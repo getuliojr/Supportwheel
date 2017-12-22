@@ -23,7 +23,7 @@
       'shared.services.factory.handleException',
        'shared.services.service.schedule',
       'shared.services.service.notification',
-     'shared.services.value.varantes'
+     'shared.services.value.constantes'
 
     ])
 
@@ -50,7 +50,7 @@
 
 
   //Inject Dependencies
-  WheelController.$inject = ['handleExceptionFactory', 'engineerService', 'scheduleService', 'notificationService', '$scope', 'varEventosDb','$timeout'];
+  WheelController.$inject = ['handleExceptionFactory', 'engineerService', 'scheduleService', 'notificationService', '$scope', 'constEventosDb','$timeout'];
 
 
    /**
@@ -61,7 +61,7 @@
    * It has the logic behind the component
    *
    */
-  function WheelController(handleExceptionFactory, engineerService, scheduleService, notificationService, $scope, varEventosDb, $timeout) {
+  function WheelController(handleExceptionFactory, engineerService, scheduleService, notificationService, $scope, constEventosDb, $timeout) {
     var vm = this;
     vm.engineersNames = [];
     vm.engineers = [];
@@ -136,7 +136,7 @@
       //Responsable to change the data entered and selected by the user already to a new culture set.
       function updateResult(result) {
         //Update content if outdated
-        if (result.type = varEventosDb.INSERTED) {
+        if (result.type = constEventosDb.INSERTED) {
           //Update Data
           var update = function (result) {
             if (result.data.dteSchedule >= vm.lastDate) {
