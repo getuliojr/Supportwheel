@@ -1,10 +1,10 @@
 {
-  "name": "ASAMap",
-  "version": "0.0.2",
-  "description": "ASAMap / ASA - Updated on 23/03/2016",
+  "name": "supportwheel",
+  "version": "0.0.1",
+  "description": "SupportWheel",
   "scripts": {
     "start": "grunt",
-    "postinstall": "bower install && node node_modules/protractor/bin/webdriver-manager update",
+    "postinstall": "bower install",
     "postupdate": "bower update"
   },
   "devDependencies": {

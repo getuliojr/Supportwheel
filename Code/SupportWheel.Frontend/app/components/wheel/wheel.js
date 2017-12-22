@@ -22,7 +22,9 @@
       'shared.services.service.engineer',
       'shared.services.factory.handleException',
        'shared.services.service.schedule',
-      'shared.services.service.notification'
+      'shared.services.service.notification',
+     'shared.services.value.constantes'
+
     ])
 
 
@@ -48,7 +50,7 @@
 
 
   //Inject Dependencies
-  WheelController.$inject = ['handleExceptionFactory', 'engineerService', 'scheduleService', 'notificationService', '$scope'];
+  WheelController.$inject = ['handleExceptionFactory', 'engineerService', 'scheduleService', 'notificationService', '$scope', 'constEventosDb','$timeout'];
 
 
    /**
@@ -59,7 +61,7 @@
    * It has the logic behind the component
    *
    */
-  function WheelController(handleExceptionFactory, engineerService, scheduleService, notificationService, $scope) {
+  function WheelController(handleExceptionFactory, engineerService, scheduleService, notificationService, $scope, constEventosDb, $timeout) {
     var vm = this;
     vm.engineersNames = [];
     vm.engineers = [];
@@ -135,12 +137,24 @@
       function updateResult(result) {
         //Update content if outdated
         if (result.type = constEventosDb.INSERTED) {
-          if (result.data.dteSchedule >= vm.lastDate && result.data.intPeriod > vm.lastPeriod) {
-            vm.lastDate = result.data.dteSchedule;
-            vm.lastPeriod = result.data.intPeriod;
-            vm.lastEngineer = result.data.strNameEngineer;
-            vm.lastDraftBy = result.data.strFullNameCreated;
-          } 
+          //Update Data
+          function update(result) {
+            if (result.data.dteSchedule >= vm.lastDate) {
+              vm.lastDate = result.data.dteSchedule;
+              vm.lastPeriod = result.data.intPeriod;
+              vm.lastEngineer = result.data.strNameEngineer;
+              vm.lastDraftBy = result.data.strFullNameCreated;
+              $scope.$apply();
+            }
+          }
+
+          //Wait 10 seconds to show result in the grid to keep suspense of the wheel
+          $timeout(function () {
+            update(result)
+          }.bind(this), 14000);
+
+
+          
         }
       }
     }
@@ -442,6 +456,10 @@
         );
         speed = Math.min(distance / time, maxSpeed);
 
+        if (speed < 0.4) {
+
+          return;
+        }
         startSpinning();
 
       }

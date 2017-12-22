@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -7,28 +8,22 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{92762E4D-4AAD-41D3-BFA1-5931C7D58D52}</ProjectGuid>
+    <ProjectGuid>{D4E66148-E867-4283-93A3-3EC8971EA714}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SupportWheel.Frontend</RootNamespace>
     <AssemblyName>SupportWheel.Frontend</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
-    <TargetFrameworkProfile />
-    <FileUpgradeFlags>40</FileUpgradeFlags>
-    <UpgradeBackupLocation>C:\Projetos\SupportWheel\Code\Backup\</UpgradeBackupLocation>
-    <OldToolsVersion>14.0</OldToolsVersion>
-    <Use64BitIISExpress />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,21 +33,417 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="app\app\libs\two.js\.bower.json" />
+    <Content Include="app\app\libs\two.js\.jshintrc" />
+    <Content Include="app\app\libs\two.js\package.json" />
+    <Content Include="app\app\libs\two.js\README.md" />
+    <Content Include="app\components.zip" />
+    <Content Include="app\components\about\en.json" />
+    <Content Include="app\components\about\pt.json" />
+    <Content Include="app\components\core\authenticatedMenu\en.json" />
+    <Content Include="app\components\core\authenticatedMenu\pt.json" />
+    <Content Include="app\components\core\auth\en.json" />
+    <Content Include="app\components\core\auth\pt.json" />
+    <Content Include="app\components\core\dataList\en.json" />
+    <Content Include="app\components\core\dataList\pt.json" />
+    <Content Include="app\components\core\login\en.json" />
+    <Content Include="app\components\core\login\pt.json" />
+    <Content Include="app\components\core\signup\en.json" />
+    <Content Include="app\components\core\signup\pt.json" />
+    <Content Include="app\components\cultura\culturaSelect\en.json" />
+    <Content Include="app\components\cultura\culturaSelect\pt.json" />
+    <Content Include="app\components\engineer\engineer.form\en.json" />
+    <Content Include="app\components\engineer\engineer.form\pt.json" />
+    <Content Include="app\components\engineer\engineer.list\en.json" />
+    <Content Include="app\components\engineer\engineer.list\pt.json" />
+    <Content Include="app\components\home\en.json" />
+    <Content Include="app\components\home\pt.json" />
+    <Content Include="app\components\listWeekCards\en.json" />
+    <Content Include="app\components\listWeekCards\pt.json" />
+    <Content Include="app\components\wheel\en.json" />
+    <Content Include="app\components\wheel\pt.json" />
+    <Content Include="app\libs\angular-animate\.bower.json" />
+    <Content Include="app\libs\angular-animate\angular-animate.min.js.map" />
+    <Content Include="app\libs\angular-animate\bower.json" />
+    <Content Include="app\libs\angular-animate\LICENSE.md" />
+    <Content Include="app\libs\angular-animate\package.json" />
+    <Content Include="app\libs\angular-animate\README.md" />
+    <Content Include="app\libs\angular-aria\.bower.json" />
+    <Content Include="app\libs\angular-aria\angular-aria.min.js.map" />
+    <Content Include="app\libs\angular-aria\bower.json" />
+    <Content Include="app\libs\angular-aria\LICENSE.md" />
+    <Content Include="app\libs\angular-aria\package.json" />
+    <Content Include="app\libs\angular-aria\README.md" />
+    <Content Include="app\libs\angular-filter\.bower.json" />
+    <Content Include="app\libs\angular-filter\.bowerrc" />
+    <Content Include="app\libs\angular-filter\.travis.yml" />
+    <Content Include="app\libs\angular-filter\bower.json" />
+    <Content Include="app\libs\angular-filter\dist\angular-filter.zip" />
+    <Content Include="app\libs\angular-filter\license.md" />
+    <Content Include="app\libs\angular-jwt\.bower.json" />
+    <Content Include="app\libs\angular-jwt\bower.json" />
+    <Content Include="app\libs\angular-jwt\History.md" />
+    <Content Include="app\libs\angular-jwt\package.json" />
+    <Content Include="app\libs\angular-jwt\README.md" />
+    <Content Include="app\libs\angular-loading-bar\.bower.json" />
+    <Content Include="app\libs\angular-loading-bar\bower.json" />
+    <Content Include="app\libs\angular-loading-bar\CHANGELOG.md" />
+    <Content Include="app\libs\angular-loading-bar\CONTRIBUTING.md" />
+    <Content Include="app\libs\angular-loading-bar\ISSUE_TEMPLATE.md" />
+    <Content Include="app\libs\angular-loading-bar\LICENSE" />
+    <Content Include="app\libs\angular-loading-bar\package.json" />
+    <Content Include="app\libs\angular-loading-bar\PULL_REQUEST_TEMPLATE.md" />
+    <Content Include="app\libs\angular-loading-bar\README.md" />
+    <Content Include="app\libs\angular-material-data-table\.bower.json" />
+    <Content Include="app\libs\angular-material-data-table\bower.json" />
+    <Content Include="app\libs\angular-material-data-table\CHANGELOG.md" />
+    <Content Include="app\libs\angular-material-data-table\LICENSE.md" />
+    <Content Include="app\libs\angular-material-data-table\package.json" />
+    <Content Include="app\libs\angular-material-data-table\README.md" />
+    <Content Include="app\libs\angular-material\.bower.json" />
+    <Content Include="app\libs\angular-material\angular-material.scss" />
+    <Content Include="app\libs\angular-material\bower.json" />
+    <Content Include="app\libs\angular-material\CHANGELOG.md" />
+    <Content Include="app\libs\angular-material\layouts\angular-material.layout-attributes.scss" />
+    <Content Include="app\libs\angular-material\layouts\angular-material.layouts.scss" />
+    <Content Include="app\libs\angular-material\LICENSE" />
+    <Content Include="app\libs\angular-material\modules\js\autocomplete\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\backdrop\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\bottomSheet\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\button\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\card\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\checkbox\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\chips\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\colors\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\content\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\core\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\datepicker\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\dialog\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\divider\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\fabActions\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\fabSpeedDial\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\fabToolbar\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\fabTrigger\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\gridList\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\icon\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\input\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\list\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\menuBar\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\menu\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\navBar\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\panel\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\progressCircular\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\progressLinear\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\radioButton\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\select\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\showHide\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\sidenav\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\slider\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\sticky\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\subheader\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\swipe\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\switch\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\tabs\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\textField\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\toast\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\toolbar\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\tooltip\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\truncate\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\virtualRepeat\bower.json" />
+    <Content Include="app\libs\angular-material\modules\js\whiteframe\bower.json" />
+    <Content Include="app\libs\angular-material\modules\scss\angular-material.layout-attributes.scss" />
+    <Content Include="app\libs\angular-material\modules\scss\angular-material.layouts.scss" />
+    <Content Include="app\libs\angular-material\modules\scss\angular-material.scss" />
+    <Content Include="app\libs\angular-material\package.json" />
+    <Content Include="app\libs\angular-material\README.md" />
+    <Content Include="app\libs\angular-messages\.bower.json" />
+    <Content Include="app\libs\angular-messages\angular-messages.min.js.map" />
+    <Content Include="app\libs\angular-messages\bower.json" />
+    <Content Include="app\libs\angular-messages\LICENSE.md" />
+    <Content Include="app\libs\angular-messages\package.json" />
+    <Content Include="app\libs\angular-messages\README.md" />
+    <Content Include="app\libs\angular-mocks\.bower.json" />
+    <Content Include="app\libs\angular-mocks\bower.json" />
+    <Content Include="app\libs\angular-mocks\LICENSE.md" />
+    <Content Include="app\libs\angular-mocks\package.json" />
+    <Content Include="app\libs\angular-mocks\README.md" />
+    <Content Include="app\libs\angular-resource\.bower.json" />
+    <Content Include="app\libs\angular-resource\angular-resource.min.js.map" />
+    <Content Include="app\libs\angular-resource\bower.json" />
+    <Content Include="app\libs\angular-resource\LICENSE.md" />
+    <Content Include="app\libs\angular-resource\package.json" />
+    <Content Include="app\libs\angular-resource\README.md" />
+    <Content Include="app\libs\angular-sanitize\.bower.json" />
+    <Content Include="app\libs\angular-sanitize\angular-sanitize.min.js.map" />
+    <Content Include="app\libs\angular-sanitize\bower.json" />
+    <Content Include="app\libs\angular-sanitize\LICENSE.md" />
+    <Content Include="app\libs\angular-sanitize\package.json" />
+    <Content Include="app\libs\angular-sanitize\README.md" />
+    <Content Include="app\libs\angular-signalr-hub\.bower.json" />
+    <Content Include="app\libs\angular-signalr-hub\bower.json" />
+    <Content Include="app\libs\angular-signalr-hub\CHANGELOG.md" />
+    <Content Include="app\libs\angular-signalr-hub\LICENSE" />
+    <Content Include="app\libs\angular-signalr-hub\package.json" />
+    <Content Include="app\libs\angular-signalr-hub\README.md" />
+    <Content Include="app\libs\angular-translate-loader-static-files\.bower.json" />
+    <Content Include="app\libs\angular-translate-loader-static-files\bower.json" />
+    <Content Include="app\libs\angular-translate-loader-static-files\package.json" />
+    <Content Include="app\libs\angular-translate-loader-static-files\README.md" />
+    <Content Include="app\libs\angular-translate\.bower.json" />
+    <Content Include="app\libs\angular-translate\bower.json" />
+    <Content Include="app\libs\angular-translate\README.md" />
+    <Content Include="app\libs\angular-ui-router\.bower.json" />
+    <Content Include="app\libs\angular-ui-router\bower.json" />
+    <Content Include="app\libs\angular-ui-router\CHANGELOG.md" />
+    <Content Include="app\libs\angular-ui-router\CONTRIBUTING.md" />
+    <Content Include="app\libs\angular-ui-router\LICENSE" />
+    <Content Include="app\libs\angular-ui-router\README.md" />
+    <Content Include="app\libs\angular\.bower.json" />
+    <Content Include="app\libs\angular\angular.min.js.gzip" />
+    <Content Include="app\libs\angular\angular.min.js.map" />
+    <Content Include="app\libs\angular\bower.json" />
+    <Content Include="app\libs\angular\LICENSE.md" />
+    <Content Include="app\libs\angular\package.json" />
+    <Content Include="app\libs\angular\README.md" />
+    <Content Include="app\libs\animate.css\.bower.json" />
+    <Content Include="app\libs\animate.css\animate-config.json" />
+    <Content Include="app\libs\animate.css\bower.json" />
+    <Content Include="app\libs\animate.css\LICENSE" />
+    <Content Include="app\libs\animate.css\package.json" />
+    <Content Include="app\libs\es5-shim\.bower.json" />
+    <Content Include="app\libs\es5-shim\bower.json" />
+    <Content Include="app\libs\es5-shim\CHANGES" />
+    <Content Include="app\libs\es5-shim\component.json" />
+    <Content Include="app\libs\es5-shim\CONTRIBUTORS.md" />
+    <Content Include="app\libs\es5-shim\es5-sham.map" />
+    <Content Include="app\libs\es5-shim\es5-shim.map" />
+    <Content Include="app\libs\es5-shim\LICENSE" />
+    <Content Include="app\libs\es5-shim\Makefile" />
+    <Content Include="app\libs\es5-shim\package.json" />
+    <Content Include="app\libs\es5-shim\README.md" />
+    <Content Include="app\libs\es5-shim\shims.json" />
+    <Content Include="app\libs\font-awesome\.bower.json" />
+    <Content Include="app\libs\font-awesome\.npmignore" />
+    <Content Include="app\libs\font-awesome\bower.json" />
+    <Content Include="app\libs\font-awesome\css\font-awesome.css.map" />
+    <Content Include="app\libs\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="app\libs\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="app\libs\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="app\libs\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="app\libs\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="app\libs\font-awesome\less\animated.less" />
+    <Content Include="app\libs\font-awesome\less\bordered-pulled.less" />
+    <Content Include="app\libs\font-awesome\less\core.less" />
+    <Content Include="app\libs\font-awesome\less\fixed-width.less" />
+    <Content Include="app\libs\font-awesome\less\font-awesome.less" />
+    <Content Include="app\libs\font-awesome\less\icons.less" />
+    <Content Include="app\libs\font-awesome\less\larger.less" />
+    <Content Include="app\libs\font-awesome\less\list.less" />
+    <Content Include="app\libs\font-awesome\less\mixins.less" />
+    <Content Include="app\libs\font-awesome\less\path.less" />
+    <Content Include="app\libs\font-awesome\less\rotated-flipped.less" />
+    <Content Include="app\libs\font-awesome\less\screen-reader.less" />
+    <Content Include="app\libs\font-awesome\less\stacked.less" />
+    <Content Include="app\libs\font-awesome\less\variables.less" />
+    <Content Include="app\libs\font-awesome\scss\font-awesome.scss" />
+    <Content Include="app\libs\font-awesome\scss\_animated.scss" />
+    <Content Include="app\libs\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="app\libs\font-awesome\scss\_core.scss" />
+    <Content Include="app\libs\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="app\libs\font-awesome\scss\_icons.scss" />
+    <Content Include="app\libs\font-awesome\scss\_larger.scss" />
+    <Content Include="app\libs\font-awesome\scss\_list.scss" />
+    <Content Include="app\libs\font-awesome\scss\_mixins.scss" />
+    <Content Include="app\libs\font-awesome\scss\_path.scss" />
+    <Content Include="app\libs\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="app\libs\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="app\libs\font-awesome\scss\_stacked.scss" />
+    <Content Include="app\libs\font-awesome\scss\_variables.scss" />
+    <Content Include="app\libs\jquery\.bower.json" />
+    <Content Include="app\libs\jquery\bower.json" />
+    <Content Include="app\libs\jquery\dist\jquery.min.map" />
+    <Content Include="app\libs\jquery\dist\jquery.slim.min.map" />
+    <Content Include="app\libs\jquery\external\sizzle\dist\sizzle.min.map" />
+    <Content Include="app\libs\jquery\README.md" />
+    <Content Include="app\libs\jquery\src\.eslintrc.json" />
+    <Content Include="app\libs\json3\.bower.json" />
+    <Content Include="app\libs\json3\bower.json" />
+    <Content Include="app\libs\json3\CHANGELOG.md" />
+    <Content Include="app\libs\json3\CONTRIBUTING.md" />
+    <Content Include="app\libs\json3\LICENSE" />
+    <Content Include="app\libs\json3\README.md" />
+    <Content Include="app\libs\lodash\.bower.json" />
+    <Content Include="app\libs\lodash\.editorconfig" />
+    <Content Include="app\libs\lodash\.github\CONTRIBUTING.md" />
+    <Content Include="app\libs\lodash\.jscsrc" />
+    <Content Include="app\libs\lodash\.travis.yml" />
+    <Content Include="app\libs\lodash\CHANGELOG" />
+    <Content Include="app\libs\lodash\doc\README.md" />
+    <Content Include="app\libs\lodash\lib\fp\template\doc\wiki.jst" />
+    <Content Include="app\libs\lodash\lib\fp\template\modules\alias.jst" />
+    <Content Include="app\libs\lodash\lib\fp\template\modules\category.jst" />
+    <Content Include="app\libs\lodash\lib\fp\template\modules\convert.jst" />
+    <Content Include="app\libs\lodash\lib\fp\template\modules\fp.jst" />
+    <Content Include="app\libs\lodash\lib\fp\template\modules\module.jst" />
+    <Content Include="app\libs\lodash\lib\fp\template\modules\thru.jst" />
+    <Content Include="app\libs\lodash\lib\fp\template\modules\_falseOptions.jst" />
+    <Content Include="app\libs\lodash\lib\fp\template\modules\_util.jst" />
+    <Content Include="app\libs\lodash\LICENSE" />
+    <Content Include="app\libs\lodash\package.json" />
+    <Content Include="app\libs\lodash\README.md" />
+    <Content Include="app\libs\lodash\vendor\backbone\LICENSE" />
+    <Content Include="app\libs\lodash\vendor\underscore\LICENSE" />
+    <Content Include="app\libs\lodash\yarn.lock" />
+    <Content Include="app\libs\ngstorage\.bower.json" />
+    <Content Include="app\libs\ngstorage\.editorconfig" />
+    <Content Include="app\libs\ngstorage\.npmignore" />
+    <Content Include="app\libs\ngstorage\bower.json" />
+    <Content Include="app\libs\ngstorage\LICENSE" />
+    <Content Include="app\libs\ngstorage\README.md" />
+    <Content Include="app\libs\signalr\.bower.json" />
+    <Content Include="app\libs\signalr\bower.json" />
+    <Content Include="app\libs\signalr\LICENSE.md" />
+    <Content Include="app\libs\signalr\package.json" />
+    <Content Include="app\libs\signalr\README.md" />
+    <Content Include="app\libs\toastr\.bower.json" />
+    <Content Include="app\libs\toastr\bower.json" />
+    <Content Include="app\libs\toastr\LICENSE" />
+    <Content Include="app\libs\toastr\README.md" />
+    <Content Include="app\libs\toastr\toastr.js.map" />
+    <Content Include="app\libs\toastr\toastr.less" />
+    <Content Include="app\libs\toastr\toastr.scss" />
+    <Content Include="app\libs\two.js\.bower.json" />
+    <Content Include="app\libs\two.js\.npmrc" />
+    <Content Include="app\libs\two.js\LICENSE" />
+    <Content Include="app\libs\two.js\package.json" />
+    <Content Include="app\libs\two.js\README.md" />
+    <Content Include="app\libs\two\.bower.json" />
+    <Content Include="app\libs\two\.jshintrc" />
+    <Content Include="app\libs\two\package.json" />
+    <Content Include="app\libs\two\README.md" />
+    <Content Include="app\locales\en.json" />
+    <Content Include="app\locales\es.json" />
+    <Content Include="app\locales\fr.json" />
+    <Content Include="app\locales\pt.json" />
+    <Content Include="app\shared.zip" />
+    <Content Include="app\shared\locales\en.json" />
+    <Content Include="app\shared\locales\pt.json" />
+    <Content Include="content\fonts\app-icons.eot" />
+    <Content Include="content\fonts\app-icons.ttf" />
+    <Content Include="content\fonts\app-icons.woff" />
+    <Content Include="content\fonts\ElegantIcons.eot" />
+    <Content Include="content\fonts\ElegantIcons.ttf" />
+    <Content Include="content\fonts\ElegantIcons.woff" />
+    <Content Include="docs\font\fontawesome-webfont.eot" />
+    <Content Include="docs\font\fontawesome-webfont.ttf" />
+    <Content Include="docs\font\fontawesome-webfont.woff" />
+    <Content Include="docs\font\FontAwesome.otf" />
+    <Content Include=".editorconfig" />
+    <Content Include=".jshintrc" />
+    <Content Include=".jshintrcForTests" />
+    <Content Include="bower.json" />
+    <Content Include="jsdoc.conf.json" />
+    <Content Include="package.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
     <Content Include="app\app.js" />
+    <Content Include="app\app\libs\two.js\.gitignore" />
+    <Content Include="app\app\libs\two.js\Gruntfile.js" />
+    <Content Include="app\app\libs\two.js\license.txt" />
+    <Content Include="app\app\libs\two.js\src\anchor.js" />
+    <Content Include="app\app\libs\two.js\src\effects\gradient.js" />
+    <Content Include="app\app\libs\two.js\src\effects\linear-gradient.js" />
+    <Content Include="app\app\libs\two.js\src\effects\radial-gradient.js" />
+    <Content Include="app\app\libs\two.js\src\effects\texture.js" />
+    <Content Include="app\app\libs\two.js\src\group.js" />
+    <Content Include="app\app\libs\two.js\src\matrix.js" />
+    <Content Include="app\app\libs\two.js\src\path.js" />
+    <Content Include="app\app\libs\two.js\src\renderer\canvas.js" />
+    <Content Include="app\app\libs\two.js\src\renderer\svg.js" />
+    <Content Include="app\app\libs\two.js\src\renderer\webgl.js" />
+    <Content Include="app\app\libs\two.js\src\shape.js" />
+    <Content Include="app\app\libs\two.js\src\shapes\arc-segment.js" />
+    <Content Include="app\app\libs\two.js\src\shapes\ellipse.js" />
+    <Content Include="app\app\libs\two.js\src\shapes\line.js" />
+    <Content Include="app\app\libs\two.js\src\shapes\polygon.js" />
+    <Content Include="app\app\libs\two.js\src\shapes\rectangle.js" />
+    <Content Include="app\app\libs\two.js\src\shapes\rounded-rectangle.js" />
+    <Content Include="app\app\libs\two.js\src\shapes\sine-ring.js" />
+    <Content Include="app\app\libs\two.js\src\shapes\star.js" />
+    <Content Include="app\app\libs\two.js\src\text.js" />
+    <Content Include="app\app\libs\two.js\src\two.js" />
+    <Content Include="app\app\libs\two.js\src\vector.js" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\circle%401x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\circle%402x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\curve%401x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\curve%402x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\ellipse%401x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\ellipse%402x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\line%401x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\line%402x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\linear-gradient%401x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\linear-gradient%402x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\polygon%401x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\polygon%402x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\radial-gradient%401x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\radial-gradient%402x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\rectangle%401x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\rectangle%402x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\styles%401x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\styles%402x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\text%401x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\canvas\text%402x.png" />
+    <Content Include="app\app\libs\two.js\tests\images\interpretation\circle.svg" />
+    <Content Include="app\app\libs\two.js\tests\images\interpretation\compound-path.svg" />
+    <Content Include="app\app\libs\two.js\tests\images\interpretation\D.svg" />
+    <Content Include="app\app\libs\two.js\tests\images\interpretation\donut.svg" />
+    <Content Include="app\app\libs\two.js\tests\images\interpretation\ellipse.svg" />
+    <Content Include="app\app\libs\two.js\tests\images\interpretation\K.svg" />
+    <Content Include="app\app\libs\two.js\tests\images\interpretation\linear-gradient.svg" />
+    <Content Include="app\app\libs\two.js\tests\images\interpretation\polygon.svg" />
+    <Content Include="app\app\libs\two.js\tests\images\interpretation\polyline.svg" />
+    <Content Include="app\app\libs\two.js\tests\images\interpretation\radial-gradient.svg" />
+    <Content Include="app\app\libs\two.js\tests\images\interpretation\rect.svg" />
+    <Content Include="app\app\libs\two.js\tests\index.html" />
+    <Content Include="app\app\libs\two.js\tests\noWebGL.html" />
+    <Content Include="app\app\libs\two.js\tests\src\utils.js" />
+    <Content Include="app\app\libs\two.js\tests\suite\bounding-box.js" />
+    <Content Include="app\app\libs\two.js\tests\suite\canvas.js" />
+    <Content Include="app\app\libs\two.js\tests\suite\core.js" />
+    <Content Include="app\app\libs\two.js\tests\suite\svg-interpreter.js" />
+    <Content Include="app\app\libs\two.js\tests\suite\svg.js" />
+    <Content Include="app\app\libs\two.js\tests\suite\webgl.js" />
+    <Content Include="app\app\libs\two.js\third-party\backbone.js" />
+    <Content Include="app\app\libs\two.js\third-party\canvas2blob.js" />
+    <Content Include="app\app\libs\two.js\third-party\events.js" />
+    <Content Include="app\app\libs\two.js\third-party\google_closure_compiler-r2388.jar" />
+    <Content Include="app\app\libs\two.js\third-party\qunit\qunit.css" />
+    <Content Include="app\app\libs\two.js\third-party\qunit\qunit.js" />
+    <Content Include="app\app\libs\two.js\third-party\requestAnimationFrame.js" />
+    <Content Include="app\app\libs\two.js\third-party\resemble.js" />
+    <Content Include="app\app\libs\two.js\third-party\stats.js" />
+    <Content Include="app\app\libs\two.js\third-party\tween.js" />
+    <Content Include="app\app\libs\two.js\third-party\underscore.js" />
+    <Content Include="app\app\libs\two.js\utils\build.js" />
     <Content Include="app\components\about\about.html" />
     <Content Include="app\components\about\about.js" />
     <Content Include="app\components\core\authenticatedMenu\authenticatedMenu.html" />
@@ -70,10 +461,10 @@
     <Content Include="app\components\core\dataList\dataList.js" />
     <Content Include="app\components\core\dataList\dataList.spec.js" />
     <Content Include="app\components\core\index.js" />
-    <Content Include="app\components\core\signup\signup.html" />
-    <Content Include="app\components\core\signup\signup.js" />
     <Content Include="app\components\core\login\login.html" />
     <Content Include="app\components\core\login\login.js" />
+    <Content Include="app\components\core\signup\signup.html" />
+    <Content Include="app\components\core\signup\signup.js" />
     <Content Include="app\components\cultura\culturaSelect\culturaSelect.html" />
     <Content Include="app\components\cultura\culturaSelect\culturaSelect.js" />
     <Content Include="app\components\cultura\culturaSelect\culturaSelect.spec.js" />
@@ -93,127 +484,48 @@
     <Content Include="app\components\wheel\wheel.html" />
     <Content Include="app\components\wheel\wheel.js" />
     <Content Include="app\index.html" />
-    <Content Include="app\libs\angular-animate\.bower.json" />
     <Content Include="app\libs\angular-animate\angular-animate.js" />
     <Content Include="app\libs\angular-animate\angular-animate.min.js" />
-    <Content Include="app\libs\angular-animate\angular-animate.min.js.map" />
-    <Content Include="app\libs\angular-animate\bower.json" />
     <Content Include="app\libs\angular-animate\index.js" />
-    <Content Include="app\libs\angular-animate\package.json" />
-    <Content Include="app\libs\angular-animate\README.md" />
-    <Content Include="app\libs\angular-aria\.bower.json" />
     <Content Include="app\libs\angular-aria\angular-aria.js" />
     <Content Include="app\libs\angular-aria\angular-aria.min.js" />
-    <Content Include="app\libs\angular-aria\angular-aria.min.js.map" />
-    <Content Include="app\libs\angular-aria\bower.json" />
     <Content Include="app\libs\angular-aria\index.js" />
-    <Content Include="app\libs\angular-aria\package.json" />
-    <Content Include="app\libs\angular-aria\README.md" />
-    <Content Include="app\libs\angular-filter\.bower.json" />
-    <Content Include="app\libs\angular-filter\.bowerrc" />
-    <Content Include="app\libs\angular-filter\.travis.yml" />
-    <Content Include="app\libs\angular-filter\bower.json" />
     <Content Include="app\libs\angular-filter\dist\angular-filter.js" />
     <Content Include="app\libs\angular-filter\dist\angular-filter.min.js" />
-    <Content Include="app\libs\angular-filter\dist\angular-filter.zip" />
     <Content Include="app\libs\angular-filter\index.js" />
-    <Content Include="app\libs\angular-filter\license.md" />
-    <Content Include="app\libs\angular-jwt\.bower.json" />
-    <Content Include="app\libs\angular-jwt\bower.json" />
     <Content Include="app\libs\angular-jwt\dist\angular-jwt.js" />
     <Content Include="app\libs\angular-jwt\dist\angular-jwt.min.js" />
     <Content Include="app\libs\angular-jwt\gulpfile.js" />
-    <Content Include="app\libs\angular-jwt\History.md" />
     <Content Include="app\libs\angular-jwt\index.js" />
     <Content Include="app\libs\angular-jwt\karma-dist-concatenated.conf.js" />
     <Content Include="app\libs\angular-jwt\karma-dist-minified.conf.js" />
     <Content Include="app\libs\angular-jwt\karma-src.conf.js" />
     <Content Include="app\libs\angular-jwt\LICENSE.txt" />
-    <Content Include="app\libs\angular-jwt\package.json" />
-    <Content Include="app\libs\angular-jwt\README.md" />
-    <Content Include="app\libs\angular-loading-bar\.bower.json" />
-    <Content Include="app\libs\angular-loading-bar\bower.json" />
     <Content Include="app\libs\angular-loading-bar\build\loading-bar.css" />
     <Content Include="app\libs\angular-loading-bar\build\loading-bar.js" />
     <Content Include="app\libs\angular-loading-bar\build\loading-bar.min.css" />
     <Content Include="app\libs\angular-loading-bar\build\loading-bar.min.js" />
-    <Content Include="app\libs\angular-loading-bar\CHANGELOG.md" />
     <Content Include="app\libs\angular-loading-bar\Gruntfile.js" />
-    <Content Include="app\libs\angular-loading-bar\LICENSE" />
-    <Content Include="app\libs\angular-loading-bar\package.json" />
-    <Content Include="app\libs\angular-loading-bar\README.md" />
+    <Content Include="app\libs\angular-loading-bar\index.js" />
     <Content Include="app\libs\angular-loading-bar\src\loading-bar.css" />
     <Content Include="app\libs\angular-loading-bar\src\loading-bar.js" />
-    <Content Include="app\libs\angular-material-data-table\.bower.json" />
-    <Content Include="app\libs\angular-material-data-table\bower.json" />
     <Content Include="app\libs\angular-material-data-table\dist\md-data-table.css" />
     <Content Include="app\libs\angular-material-data-table\dist\md-data-table.js" />
     <Content Include="app\libs\angular-material-data-table\dist\md-data-table.min.css" />
     <Content Include="app\libs\angular-material-data-table\dist\md-data-table.min.js" />
     <Content Include="app\libs\angular-material-data-table\index.js" />
-    <Content Include="app\libs\angular-material-data-table\LICENSE.md" />
-    <Content Include="app\libs\angular-material-data-table\package.json" />
-    <Content Include="app\libs\angular-material-data-table\README.md" />
-    <Content Include="app\libs\angular-material\.bower.json" />
     <Content Include="app\libs\angular-material\.gitignore" />
     <Content Include="app\libs\angular-material\angular-material-mocks.js" />
     <Content Include="app\libs\angular-material\angular-material.css" />
     <Content Include="app\libs\angular-material\angular-material.js" />
-    <Content Include="app\libs\angular-material\angular-material.layouts.css" />
-    <Content Include="app\libs\angular-material\angular-material.layouts.min.css" />
     <Content Include="app\libs\angular-material\angular-material.min.css" />
     <Content Include="app\libs\angular-material\angular-material.min.js" />
-    <Content Include="app\libs\angular-material\angular-material.scss" />
-    <Content Include="app\libs\angular-material\bower.json" />
-    <Content Include="app\libs\angular-material\CHANGELOG.md" />
-    <Content Include="app\libs\angular-material\demos\bottomSheet\demoBasicUsage\img\icons\copy.svg" />
-    <Content Include="app\libs\angular-material\demos\bottomSheet\demoBasicUsage\img\icons\copy2.svg" />
-    <Content Include="app\libs\angular-material\demos\bottomSheet\demoBasicUsage\img\icons\facebook.svg" />
-    <Content Include="app\libs\angular-material\demos\bottomSheet\demoBasicUsage\img\icons\hangout.svg" />
-    <Content Include="app\libs\angular-material\demos\bottomSheet\demoBasicUsage\img\icons\mail.svg" />
-    <Content Include="app\libs\angular-material\demos\bottomSheet\demoBasicUsage\img\icons\message.svg" />
-    <Content Include="app\libs\angular-material\demos\bottomSheet\demoBasicUsage\img\icons\print.svg" />
-    <Content Include="app\libs\angular-material\demos\bottomSheet\demoBasicUsage\img\icons\share-arrow.svg" />
-    <Content Include="app\libs\angular-material\demos\bottomSheet\demoBasicUsage\img\icons\twitter.svg" />
-    <Content Include="app\libs\angular-material\demos\bottomSheet\demoBasicUsage\img\icons\upload.svg" />
-    <Content Include="app\libs\angular-material\demos\chips\demoBasicUsage\style.scss" />
-    <Content Include="app\libs\angular-material\demos\chips\demoContactChips\style.scss" />
-    <Content Include="app\libs\angular-material\demos\gridList\demoBasicUsage\style.scss" />
-    <Content Include="app\libs\angular-material\demos\gridList\demoDynamicTiles\style.scss" />
-    <Content Include="app\libs\angular-material\demos\gridList\demoResponsiveUsage\style.scss" />
-    <Content Include="app\libs\angular-material\demos\icon\demoLoadSvgIconsFromUrl\img\icons\addShoppingCart.svg" />
-    <Content Include="app\libs\angular-material\demos\icon\demoLoadSvgIconsFromUrl\img\icons\android.svg" />
-    <Content Include="app\libs\angular-material\demos\icon\demoLoadSvgIconsFromUrl\img\icons\cake.svg" />
-    <Content Include="app\libs\angular-material\demos\icon\demoSvgIconSets\assets\cake.svg" />
-    <Content Include="app\libs\angular-material\demos\icon\demoSvgIconSets\assets\core-icons.svg" />
-    <Content Include="app\libs\angular-material\demos\icon\demoSvgIconSets\assets\social-icons.svg" />
-    <Content Include="app\libs\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\addShoppingCart.svg" />
-    <Content Include="app\libs\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\android.svg" />
-    <Content Include="app\libs\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\cake.svg" />
-    <Content Include="app\libs\angular-material\demos\icon\demoUsingTemplateCache\assets\android.svg" />
-    <Content Include="app\libs\angular-material\demos\icon\demoUsingTemplateCache\assets\cake.svg" />
-    <Content Include="app\libs\angular-material\demos\icon\demoUsingTemplateCache\assets\core-icons.svg" />
-    <Content Include="app\libs\angular-material\demos\input\demoIcons\icons\ic_email_24px.svg" />
-    <Content Include="app\libs\angular-material\demos\input\demoIcons\icons\ic_person_24px.svg" />
-    <Content Include="app\libs\angular-material\demos\input\demoIcons\icons\ic_phone_24px.svg" />
-    <Content Include="app\libs\angular-material\demos\input\demoIcons\icons\ic_place_24px.svg" />
-    <Content Include="app\libs\angular-material\demos\input\demoIcons\style.scss" />
-    <Content Include="app\libs\angular-material\demos\list\demoListControls\img\100-0.jpeg" />
-    <Content Include="app\libs\angular-material\demos\list\demoListControls\img\100-1.jpeg" />
-    <Content Include="app\libs\angular-material\demos\list\demoListControls\img\100-2.jpeg" />
-    <Content Include="app\libs\angular-material\demos\tabs\demoDynamicHeight\style.scss" />
-    <Content Include="app\libs\angular-material\demos\tabs\demoDynamicTabs\style.scss" />
-    <Content Include="app\libs\angular-material\demos\tabs\demoStaticTabs\style.scss" />
-    <Content Include="app\libs\angular-material\demos\toolbar\demoBasicUsage\img\icons\favorite.svg" />
-    <Content Include="app\libs\angular-material\demos\toolbar\demoBasicUsage\img\icons\menu.svg" />
-    <Content Include="app\libs\angular-material\demos\toolbar\demoBasicUsage\img\icons\more_vert.svg" />
     <Content Include="app\libs\angular-material\index.js" />
     <Content Include="app\libs\angular-material\layouts\angular-material.layout-attributes.css" />
     <Content Include="app\libs\angular-material\layouts\angular-material.layout-attributes.min.css" />
     <Content Include="app\libs\angular-material\layouts\angular-material.layouts.css" />
     <Content Include="app\libs\angular-material\layouts\angular-material.layouts.ie_fixes.css" />
     <Content Include="app\libs\angular-material\layouts\angular-material.layouts.min.css" />
-    <Content Include="app\libs\angular-material\LICENSE" />
     <Content Include="app\libs\angular-material\modules\closure\autocomplete\autocomplete-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\closure\autocomplete\autocomplete-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\closure\autocomplete\autocomplete.css" />
@@ -446,51 +758,42 @@
     <Content Include="app\libs\angular-material\modules\closure\whiteframe\whiteframe.js" />
     <Content Include="app\libs\angular-material\modules\closure\whiteframe\whiteframe.min.css" />
     <Content Include="app\libs\angular-material\modules\closure\whiteframe\whiteframe.min.js" />
-    <Content Include="app\libs\angular-material\modules\css\angular-material-layout.css" />
-    <Content Include="app\libs\angular-material\modules\css\angular-material-layouts.css" />
     <Content Include="app\libs\angular-material\modules\js\autocomplete\autocomplete-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\autocomplete\autocomplete-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\autocomplete\autocomplete.css" />
     <Content Include="app\libs\angular-material\modules\js\autocomplete\autocomplete.js" />
     <Content Include="app\libs\angular-material\modules\js\autocomplete\autocomplete.min.css" />
     <Content Include="app\libs\angular-material\modules\js\autocomplete\autocomplete.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\autocomplete\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\backdrop\backdrop-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\backdrop\backdrop-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\backdrop\backdrop.css" />
     <Content Include="app\libs\angular-material\modules\js\backdrop\backdrop.js" />
     <Content Include="app\libs\angular-material\modules\js\backdrop\backdrop.min.css" />
     <Content Include="app\libs\angular-material\modules\js\backdrop\backdrop.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\backdrop\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\bottomSheet\bottomSheet-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\bottomSheet\bottomSheet-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\bottomSheet\bottomSheet.css" />
     <Content Include="app\libs\angular-material\modules\js\bottomSheet\bottomSheet.js" />
     <Content Include="app\libs\angular-material\modules\js\bottomSheet\bottomSheet.min.css" />
     <Content Include="app\libs\angular-material\modules\js\bottomSheet\bottomSheet.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\bottomSheet\bower.json" />
-    <Content Include="app\libs\angular-material\modules\js\button\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\button\button-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\button\button-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\button\button.css" />
     <Content Include="app\libs\angular-material\modules\js\button\button.js" />
     <Content Include="app\libs\angular-material\modules\js\button\button.min.css" />
     <Content Include="app\libs\angular-material\modules\js\button\button.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\card\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\card\card-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\card\card-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\card\card.css" />
     <Content Include="app\libs\angular-material\modules\js\card\card.js" />
     <Content Include="app\libs\angular-material\modules\js\card\card.min.css" />
     <Content Include="app\libs\angular-material\modules\js\card\card.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\checkbox\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\checkbox\checkbox-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\checkbox\checkbox-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\checkbox\checkbox.css" />
     <Content Include="app\libs\angular-material\modules\js\checkbox\checkbox.js" />
     <Content Include="app\libs\angular-material\modules\js\checkbox\checkbox.min.css" />
     <Content Include="app\libs\angular-material\modules\js\checkbox\checkbox.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\chips\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\chips\chips-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\chips\chips-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\chips\chips.css" />
@@ -499,14 +802,12 @@
     <Content Include="app\libs\angular-material\modules\js\chips\chips.min.js" />
     <Content Include="app\libs\angular-material\modules\js\colors\colors.js" />
     <Content Include="app\libs\angular-material\modules\js\colors\colors.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\content\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\content\content-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\content\content-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\content\content.css" />
     <Content Include="app\libs\angular-material\modules\js\content\content.js" />
     <Content Include="app\libs\angular-material\modules\js\content\content.min.css" />
     <Content Include="app\libs\angular-material\modules\js\content\content.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\core\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\core\core-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\core\core-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\core\core.css" />
@@ -514,77 +815,64 @@
     <Content Include="app\libs\angular-material\modules\js\core\core.min.css" />
     <Content Include="app\libs\angular-material\modules\js\core\core.min.js" />
     <Content Include="app\libs\angular-material\modules\js\core\default-theme.js" />
-    <Content Include="app\libs\angular-material\modules\js\datepicker\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\datepicker\datepicker-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\datepicker\datepicker-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\datepicker\datepicker.css" />
     <Content Include="app\libs\angular-material\modules\js\datepicker\datepicker.js" />
     <Content Include="app\libs\angular-material\modules\js\datepicker\datepicker.min.css" />
     <Content Include="app\libs\angular-material\modules\js\datepicker\datepicker.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\dialog\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\dialog\dialog-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\dialog\dialog-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\dialog\dialog.css" />
     <Content Include="app\libs\angular-material\modules\js\dialog\dialog.js" />
     <Content Include="app\libs\angular-material\modules\js\dialog\dialog.min.css" />
     <Content Include="app\libs\angular-material\modules\js\dialog\dialog.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\divider\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\divider\divider-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\divider\divider-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\divider\divider.css" />
     <Content Include="app\libs\angular-material\modules\js\divider\divider.js" />
     <Content Include="app\libs\angular-material\modules\js\divider\divider.min.css" />
     <Content Include="app\libs\angular-material\modules\js\divider\divider.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\fabActions\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\fabActions\fabActions.js" />
     <Content Include="app\libs\angular-material\modules\js\fabActions\fabActions.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\fabSpeedDial\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\fabSpeedDial\fabSpeedDial.css" />
     <Content Include="app\libs\angular-material\modules\js\fabSpeedDial\fabSpeedDial.js" />
     <Content Include="app\libs\angular-material\modules\js\fabSpeedDial\fabSpeedDial.min.css" />
     <Content Include="app\libs\angular-material\modules\js\fabSpeedDial\fabSpeedDial.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\fabToolbar\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\fabToolbar\fabToolbar.css" />
     <Content Include="app\libs\angular-material\modules\js\fabToolbar\fabToolbar.js" />
     <Content Include="app\libs\angular-material\modules\js\fabToolbar\fabToolbar.min.css" />
     <Content Include="app\libs\angular-material\modules\js\fabToolbar\fabToolbar.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\fabTrigger\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\fabTrigger\fabTrigger.js" />
     <Content Include="app\libs\angular-material\modules\js\fabTrigger\fabTrigger.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\gridList\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\gridList\gridList.css" />
     <Content Include="app\libs\angular-material\modules\js\gridList\gridList.js" />
     <Content Include="app\libs\angular-material\modules\js\gridList\gridList.min.css" />
     <Content Include="app\libs\angular-material\modules\js\gridList\gridList.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\icon\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\icon\icon-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\icon\icon-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\icon\icon.css" />
     <Content Include="app\libs\angular-material\modules\js\icon\icon.js" />
     <Content Include="app\libs\angular-material\modules\js\icon\icon.min.css" />
     <Content Include="app\libs\angular-material\modules\js\icon\icon.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\input\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\input\input-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\input\input-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\input\input.css" />
     <Content Include="app\libs\angular-material\modules\js\input\input.js" />
     <Content Include="app\libs\angular-material\modules\js\input\input.min.css" />
     <Content Include="app\libs\angular-material\modules\js\input\input.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\list\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\list\list-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\list\list-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\list\list.css" />
     <Content Include="app\libs\angular-material\modules\js\list\list.js" />
     <Content Include="app\libs\angular-material\modules\js\list\list.min.css" />
     <Content Include="app\libs\angular-material\modules\js\list\list.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\menuBar\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\menuBar\menuBar-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\menuBar\menuBar-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\menuBar\menuBar.css" />
     <Content Include="app\libs\angular-material\modules\js\menuBar\menuBar.js" />
     <Content Include="app\libs\angular-material\modules\js\menuBar\menuBar.min.css" />
     <Content Include="app\libs\angular-material\modules\js\menuBar\menuBar.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\menu\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\menu\menu-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\menu\menu-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\menu\menu.css" />
@@ -603,28 +891,24 @@
     <Content Include="app\libs\angular-material\modules\js\panel\panel.js" />
     <Content Include="app\libs\angular-material\modules\js\panel\panel.min.css" />
     <Content Include="app\libs\angular-material\modules\js\panel\panel.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\progressCircular\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\progressCircular\progressCircular-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\progressCircular\progressCircular-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\progressCircular\progressCircular.css" />
     <Content Include="app\libs\angular-material\modules\js\progressCircular\progressCircular.js" />
     <Content Include="app\libs\angular-material\modules\js\progressCircular\progressCircular.min.css" />
     <Content Include="app\libs\angular-material\modules\js\progressCircular\progressCircular.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\progressLinear\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\progressLinear\progressLinear-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\progressLinear\progressLinear-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\progressLinear\progressLinear.css" />
     <Content Include="app\libs\angular-material\modules\js\progressLinear\progressLinear.js" />
     <Content Include="app\libs\angular-material\modules\js\progressLinear\progressLinear.min.css" />
     <Content Include="app\libs\angular-material\modules\js\progressLinear\progressLinear.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\radioButton\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\radioButton\radioButton-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\radioButton\radioButton-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\radioButton\radioButton.css" />
     <Content Include="app\libs\angular-material\modules\js\radioButton\radioButton.js" />
     <Content Include="app\libs\angular-material\modules\js\radioButton\radioButton.min.css" />
     <Content Include="app\libs\angular-material\modules\js\radioButton\radioButton.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\select\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\select\select-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\select\select-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\select\select.css" />
@@ -633,73 +917,62 @@
     <Content Include="app\libs\angular-material\modules\js\select\select.min.js" />
     <Content Include="app\libs\angular-material\modules\js\showHide\showHide.js" />
     <Content Include="app\libs\angular-material\modules\js\showHide\showHide.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\sidenav\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\sidenav\sidenav-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\sidenav\sidenav-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\sidenav\sidenav.css" />
     <Content Include="app\libs\angular-material\modules\js\sidenav\sidenav.js" />
     <Content Include="app\libs\angular-material\modules\js\sidenav\sidenav.min.css" />
     <Content Include="app\libs\angular-material\modules\js\sidenav\sidenav.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\slider\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\slider\slider-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\slider\slider-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\slider\slider.css" />
     <Content Include="app\libs\angular-material\modules\js\slider\slider.js" />
     <Content Include="app\libs\angular-material\modules\js\slider\slider.min.css" />
     <Content Include="app\libs\angular-material\modules\js\slider\slider.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\sticky\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\sticky\sticky.css" />
     <Content Include="app\libs\angular-material\modules\js\sticky\sticky.js" />
     <Content Include="app\libs\angular-material\modules\js\sticky\sticky.min.css" />
     <Content Include="app\libs\angular-material\modules\js\sticky\sticky.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\subheader\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\subheader\subheader-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\subheader\subheader-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\subheader\subheader.css" />
     <Content Include="app\libs\angular-material\modules\js\subheader\subheader.js" />
     <Content Include="app\libs\angular-material\modules\js\subheader\subheader.min.css" />
     <Content Include="app\libs\angular-material\modules\js\subheader\subheader.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\swipe\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\swipe\swipe.css" />
     <Content Include="app\libs\angular-material\modules\js\swipe\swipe.js" />
     <Content Include="app\libs\angular-material\modules\js\swipe\swipe.min.css" />
     <Content Include="app\libs\angular-material\modules\js\swipe\swipe.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\switch\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\switch\switch-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\switch\switch-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\switch\switch.css" />
     <Content Include="app\libs\angular-material\modules\js\switch\switch.js" />
     <Content Include="app\libs\angular-material\modules\js\switch\switch.min.css" />
     <Content Include="app\libs\angular-material\modules\js\switch\switch.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\tabs\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\tabs\tabs-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\tabs\tabs-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\tabs\tabs.css" />
     <Content Include="app\libs\angular-material\modules\js\tabs\tabs.js" />
     <Content Include="app\libs\angular-material\modules\js\tabs\tabs.min.css" />
     <Content Include="app\libs\angular-material\modules\js\tabs\tabs.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\textField\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\textField\textField-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\textField\textField-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\textField\textField.css" />
     <Content Include="app\libs\angular-material\modules\js\textField\textField.js" />
     <Content Include="app\libs\angular-material\modules\js\textField\textField.min.css" />
     <Content Include="app\libs\angular-material\modules\js\textField\textField.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\toast\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\toast\toast-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\toast\toast-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\toast\toast.css" />
     <Content Include="app\libs\angular-material\modules\js\toast\toast.js" />
     <Content Include="app\libs\angular-material\modules\js\toast\toast.min.css" />
     <Content Include="app\libs\angular-material\modules\js\toast\toast.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\toolbar\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\toolbar\toolbar-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\toolbar\toolbar-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\toolbar\toolbar.css" />
     <Content Include="app\libs\angular-material\modules\js\toolbar\toolbar.js" />
     <Content Include="app\libs\angular-material\modules\js\toolbar\toolbar.min.css" />
     <Content Include="app\libs\angular-material\modules\js\toolbar\toolbar.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\tooltip\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\tooltip\tooltip-default-theme.css" />
     <Content Include="app\libs\angular-material\modules\js\tooltip\tooltip-default-theme.min.css" />
     <Content Include="app\libs\angular-material\modules\js\tooltip\tooltip.css" />
@@ -710,12 +983,10 @@
     <Content Include="app\libs\angular-material\modules\js\truncate\truncate.js" />
     <Content Include="app\libs\angular-material\modules\js\truncate\truncate.min.css" />
     <Content Include="app\libs\angular-material\modules\js\truncate\truncate.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\virtualRepeat\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\virtualRepeat\virtualRepeat.css" />
     <Content Include="app\libs\angular-material\modules\js\virtualRepeat\virtualRepeat.js" />
     <Content Include="app\libs\angular-material\modules\js\virtualRepeat\virtualRepeat.min.css" />
     <Content Include="app\libs\angular-material\modules\js\virtualRepeat\virtualRepeat.min.js" />
-    <Content Include="app\libs\angular-material\modules\js\whiteframe\bower.json" />
     <Content Include="app\libs\angular-material\modules\js\whiteframe\whiteframe.css" />
     <Content Include="app\libs\angular-material\modules\js\whiteframe\whiteframe.js" />
     <Content Include="app\libs\angular-material\modules\js\whiteframe\whiteframe.min.css" />
@@ -725,66 +996,26 @@
     <Content Include="app\libs\angular-material\modules\layouts\angular-material.layouts.css" />
     <Content Include="app\libs\angular-material\modules\layouts\angular-material.layouts.ie_fixes.css" />
     <Content Include="app\libs\angular-material\modules\layouts\angular-material.layouts.min.css" />
-    <Content Include="app\libs\angular-material\package.json" />
-    <Content Include="app\libs\angular-material\README.md" />
-    <Content Include="app\libs\angular-messages\.bower.json" />
     <Content Include="app\libs\angular-messages\angular-messages.js" />
     <Content Include="app\libs\angular-messages\angular-messages.min.js" />
-    <Content Include="app\libs\angular-messages\angular-messages.min.js.map" />
-    <Content Include="app\libs\angular-messages\bower.json" />
     <Content Include="app\libs\angular-messages\index.js" />
-    <Content Include="app\libs\angular-messages\package.json" />
-    <Content Include="app\libs\angular-messages\README.md" />
-    <Content Include="app\libs\angular-mocks\.bower.json" />
     <Content Include="app\libs\angular-mocks\angular-mocks.js" />
-    <Content Include="app\libs\angular-mocks\bower.json" />
     <Content Include="app\libs\angular-mocks\ngAnimateMock.js" />
     <Content Include="app\libs\angular-mocks\ngMock.js" />
     <Content Include="app\libs\angular-mocks\ngMockE2E.js" />
-    <Content Include="app\libs\angular-mocks\package.json" />
-    <Content Include="app\libs\angular-mocks\README.md" />
-    <Content Include="app\libs\angular-resource\.bower.json" />
     <Content Include="app\libs\angular-resource\angular-resource.js" />
     <Content Include="app\libs\angular-resource\angular-resource.min.js" />
-    <Content Include="app\libs\angular-resource\angular-resource.min.js.map" />
-    <Content Include="app\libs\angular-resource\bower.json" />
     <Content Include="app\libs\angular-resource\index.js" />
-    <Content Include="app\libs\angular-resource\package.json" />
-    <Content Include="app\libs\angular-resource\README.md" />
-    <Content Include="app\libs\angular-sanitize\.bower.json" />
     <Content Include="app\libs\angular-sanitize\angular-sanitize.js" />
     <Content Include="app\libs\angular-sanitize\angular-sanitize.min.js" />
-    <Content Include="app\libs\angular-sanitize\angular-sanitize.min.js.map" />
-    <Content Include="app\libs\angular-sanitize\bower.json" />
     <Content Include="app\libs\angular-sanitize\index.js" />
-    <Content Include="app\libs\angular-sanitize\package.json" />
-    <Content Include="app\libs\angular-sanitize\README.md" />
-    <Content Include="app\libs\angular-signalr-hub\.bower.json" />
     <Content Include="app\libs\angular-signalr-hub\.gitignore" />
-    <Content Include="app\libs\angular-signalr-hub\bower.json" />
-    <Content Include="app\libs\angular-signalr-hub\CHANGELOG.md" />
-    <Content Include="app\libs\angular-signalr-hub\LICENSE" />
-    <Content Include="app\libs\angular-signalr-hub\package.json" />
-    <Content Include="app\libs\angular-signalr-hub\README.md" />
     <Content Include="app\libs\angular-signalr-hub\signalr-hub.js" />
     <Content Include="app\libs\angular-signalr-hub\signalr-hub.min.js" />
-    <Content Include="app\libs\angular-translate-loader-static-files\.bower.json" />
     <Content Include="app\libs\angular-translate-loader-static-files\angular-translate-loader-static-files.js" />
     <Content Include="app\libs\angular-translate-loader-static-files\angular-translate-loader-static-files.min.js" />
-    <Content Include="app\libs\angular-translate-loader-static-files\bower.json" />
-    <Content Include="app\libs\angular-translate-loader-static-files\package.json" />
-    <Content Include="app\libs\angular-translate-loader-static-files\README.md" />
-    <Content Include="app\libs\angular-translate\.bower.json" />
     <Content Include="app\libs\angular-translate\angular-translate.js" />
     <Content Include="app\libs\angular-translate\angular-translate.min.js" />
-    <Content Include="app\libs\angular-translate\bower.json" />
-    <Content Include="app\libs\angular-translate\README.md" />
-    <Content Include="app\libs\angular-ui-router\.bower.json" />
-    <Content Include="app\libs\angular-ui-router\bower.json" />
-    <Content Include="app\libs\angular-ui-router\CHANGELOG.md" />
-    <Content Include="app\libs\angular-ui-router\CONTRIBUTING.md" />
-    <Content Include="app\libs\angular-ui-router\LICENSE" />
-    <Content Include="app\libs\angular-ui-router\README.md" />
     <Content Include="app\libs\angular-ui-router\release\angular-ui-router.js" />
     <Content Include="app\libs\angular-ui-router\release\angular-ui-router.min.js" />
     <Content Include="app\libs\angular-ui-router\src\common.js" />
@@ -798,24 +1029,13 @@
     <Content Include="app\libs\angular-ui-router\src\view.js" />
     <Content Include="app\libs\angular-ui-router\src\viewDirective.js" />
     <Content Include="app\libs\angular-ui-router\src\viewScroll.js" />
-    <Content Include="app\libs\angular\.bower.json" />
     <Content Include="app\libs\angular\angular-csp.css" />
     <Content Include="app\libs\angular\angular.js" />
     <Content Include="app\libs\angular\angular.min.js" />
-    <Content Include="app\libs\angular\angular.min.js.gzip" />
-    <Content Include="app\libs\angular\angular.min.js.map" />
-    <Content Include="app\libs\angular\bower.json" />
     <Content Include="app\libs\angular\index.js" />
-    <Content Include="app\libs\angular\package.json" />
-    <Content Include="app\libs\angular\README.md" />
-    <Content Include="app\libs\animate.css\.bower.json" />
-    <Content Include="app\libs\animate.css\animate-config.json" />
     <Content Include="app\libs\animate.css\animate.css" />
     <Content Include="app\libs\animate.css\animate.min.css" />
-    <Content Include="app\libs\animate.css\bower.json" />
     <Content Include="app\libs\animate.css\gulpfile.js" />
-    <Content Include="app\libs\animate.css\LICENSE" />
-    <Content Include="app\libs\animate.css\package.json" />
     <Content Include="app\libs\animate.css\source\attention_seekers\bounce.css" />
     <Content Include="app\libs\animate.css\source\attention_seekers\flash.css" />
     <Content Include="app\libs\animate.css\source\attention_seekers\headShake.css" />
@@ -893,78 +1113,25 @@
     <Content Include="app\libs\animate.css\source\zooming_exits\zoomOutRight.css" />
     <Content Include="app\libs\animate.css\source\zooming_exits\zoomOutUp.css" />
     <Content Include="app\libs\animate.css\source\_base.css" />
-    <Content Include="app\libs\es5-shim\.bower.json" />
-    <Content Include="app\libs\es5-shim\bower.json" />
-    <Content Include="app\libs\es5-shim\CHANGES" />
-    <Content Include="app\libs\es5-shim\component.json" />
-    <Content Include="app\libs\es5-shim\CONTRIBUTORS.md" />
     <Content Include="app\libs\es5-shim\es5-sham.js" />
-    <Content Include="app\libs\es5-shim\es5-sham.map" />
     <Content Include="app\libs\es5-shim\es5-sham.min.js" />
     <Content Include="app\libs\es5-shim\es5-shim.js" />
-    <Content Include="app\libs\es5-shim\es5-shim.map" />
     <Content Include="app\libs\es5-shim\es5-shim.min.js" />
-    <Content Include="app\libs\es5-shim\LICENSE" />
-    <Content Include="app\libs\es5-shim\Makefile" />
-    <Content Include="app\libs\es5-shim\package.json" />
-    <Content Include="app\libs\es5-shim\README.md" />
-    <Content Include="app\libs\es5-shim\shims.json" />
-    <Content Include="app\libs\font-awesome\.bower.json" />
     <Content Include="app\libs\font-awesome\.gitignore" />
-    <Content Include="app\libs\font-awesome\.npmignore" />
-    <Content Include="app\libs\font-awesome\bower.json" />
     <Content Include="app\libs\font-awesome\css\font-awesome.css" />
-    <Content Include="app\libs\font-awesome\css\font-awesome.css.map" />
     <Content Include="app\libs\font-awesome\css\font-awesome.min.css" />
-    <Content Include="app\libs\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="app\libs\font-awesome\fonts\fontawesome-webfont.svg" />
-    <Content Include="app\libs\font-awesome\fonts\fontawesome-webfont.ttf" />
-    <Content Include="app\libs\font-awesome\fonts\fontawesome-webfont.woff" />
-    <Content Include="app\libs\font-awesome\fonts\fontawesome-webfont.woff2" />
-    <Content Include="app\libs\font-awesome\fonts\FontAwesome.otf" />
-    <Content Include="app\libs\font-awesome\less\animated.less" />
-    <Content Include="app\libs\font-awesome\less\bordered-pulled.less" />
-    <Content Include="app\libs\font-awesome\less\core.less" />
-    <Content Include="app\libs\font-awesome\less\fixed-width.less" />
-    <Content Include="app\libs\font-awesome\less\font-awesome.less" />
-    <Content Include="app\libs\font-awesome\less\icons.less" />
-    <Content Include="app\libs\font-awesome\less\larger.less" />
-    <Content Include="app\libs\font-awesome\less\list.less" />
-    <Content Include="app\libs\font-awesome\less\mixins.less" />
-    <Content Include="app\libs\font-awesome\less\path.less" />
-    <Content Include="app\libs\font-awesome\less\rotated-flipped.less" />
-    <Content Include="app\libs\font-awesome\less\stacked.less" />
-    <Content Include="app\libs\font-awesome\less\variables.less" />
-    <Content Include="app\libs\font-awesome\scss\font-awesome.scss" />
-    <Content Include="app\libs\font-awesome\scss\_animated.scss" />
-    <Content Include="app\libs\font-awesome\scss\_bordered-pulled.scss" />
-    <Content Include="app\libs\font-awesome\scss\_core.scss" />
-    <Content Include="app\libs\font-awesome\scss\_fixed-width.scss" />
-    <Content Include="app\libs\font-awesome\scss\_icons.scss" />
-    <Content Include="app\libs\font-awesome\scss\_larger.scss" />
-    <Content Include="app\libs\font-awesome\scss\_list.scss" />
-    <Content Include="app\libs\font-awesome\scss\_mixins.scss" />
-    <Content Include="app\libs\font-awesome\scss\_path.scss" />
-    <Content Include="app\libs\font-awesome\scss\_rotated-flipped.scss" />
-    <Content Include="app\libs\font-awesome\scss\_stacked.scss" />
-    <Content Include="app\libs\font-awesome\scss\_variables.scss" />
-    <Content Include="app\libs\jquery\.bower.json" />
+    <Content Include="app\libs\font-awesome\HELP-US-OUT.txt" />
     <Content Include="app\libs\jquery\AUTHORS.txt" />
-    <Content Include="app\libs\jquery\bower.json" />
     <Content Include="app\libs\jquery\dist\core.js" />
     <Content Include="app\libs\jquery\dist\jquery.js" />
     <Content Include="app\libs\jquery\dist\jquery.min.js" />
-    <Content Include="app\libs\jquery\dist\jquery.min.map" />
     <Content Include="app\libs\jquery\dist\jquery.slim.js" />
     <Content Include="app\libs\jquery\dist\jquery.slim.min.js" />
-    <Content Include="app\libs\jquery\dist\jquery.slim.min.map" />
     <Content Include="app\libs\jquery\external\sizzle\dist\sizzle.js" />
     <Content Include="app\libs\jquery\external\sizzle\dist\sizzle.min.js" />
-    <Content Include="app\libs\jquery\external\sizzle\dist\sizzle.min.map" />
     <Content Include="app\libs\jquery\external\sizzle\LICENSE.txt" />
     <Content Include="app\libs\jquery\LICENSE.txt" />
-    <Content Include="app\libs\jquery\README.md" />
-    <Content Include="app\libs\jquery\src\.eslintrc.json" />
     <Content Include="app\libs\jquery\src\ajax.js" />
     <Content Include="app\libs\jquery\src\ajax\jsonp.js" />
     <Content Include="app\libs\jquery\src\ajax\load.js" />
@@ -1067,15 +1234,8 @@
     <Content Include="app\libs\jquery\src\var\support.js" />
     <Content Include="app\libs\jquery\src\var\toString.js" />
     <Content Include="app\libs\jquery\src\wrap.js" />
-    <Content Include="app\libs\json3\.bower.json" />
-    <Content Include="app\libs\json3\bower.json" />
-    <Content Include="app\libs\json3\CHANGELOG.md" />
-    <Content Include="app\libs\json3\CONTRIBUTING.md" />
     <Content Include="app\libs\json3\lib\json3.js" />
     <Content Include="app\libs\json3\lib\json3.min.js" />
-    <Content Include="app\libs\json3\LICENSE" />
-    <Content Include="app\libs\json3\README.md" />
-    <Content Include="app\libs\lodash\.bower.json" />
     <Content Include="app\libs\lodash\.gitattributes" />
     <Content Include="app\libs\lodash\.gitignore" />
     <Content Include="app\libs\lodash\.markdown-doctest-setup.js" />
@@ -1202,43 +1362,21 @@
     <Content Include="app\libs\lodash\vendor\underscore\test\utility.js" />
     <Content Include="app\libs\lodash\vendor\underscore\underscore-min.js" />
     <Content Include="app\libs\lodash\vendor\underscore\underscore.js" />
-    <Content Include="app\libs\ngstorage\.bower.json" />
-    <Content Include="app\libs\ngstorage\.editorconfig" />
     <Content Include="app\libs\ngstorage\.gitattributes" />
-    <Content Include="app\libs\ngstorage\.npmignore" />
-    <Content Include="app\libs\ngstorage\bower.json" />
-    <Content Include="app\libs\ngstorage\LICENSE" />
     <Content Include="app\libs\ngstorage\ngStorage.js" />
     <Content Include="app\libs\ngstorage\ngStorage.min.js" />
     <Content Include="app\libs\ngstorage\package.js" />
-    <Content Include="app\libs\ngstorage\README.md" />
-    <Content Include="app\libs\signalr\.bower.json" />
     <Content Include="app\libs\signalr\.gitignore" />
-    <Content Include="app\libs\signalr\bower.json" />
     <Content Include="app\libs\signalr\jquery.signalR.js" />
     <Content Include="app\libs\signalr\jquery.signalR.min.js" />
-    <Content Include="app\libs\signalr\LICENSE.md" />
-    <Content Include="app\libs\signalr\package.json" />
-    <Content Include="app\libs\signalr\README.md" />
-    <Content Include="app\libs\toastr\.bower.json" />
-    <Content Include="app\libs\toastr\bower.json" />
     <Content Include="app\libs\toastr\toastr.css" />
     <Content Include="app\libs\toastr\toastr.js" />
-    <Content Include="app\libs\toastr\toastr.less" />
     <Content Include="app\libs\toastr\toastr.min.css" />
     <Content Include="app\libs\toastr\toastr.min.js" />
-    <Content Include="app\libs\toastr\toastr.scss" />
-    <Content Include="app\libs\two.js\.bower.json" />
     <Content Include="app\libs\two.js\.gitattributes" />
     <Content Include="app\libs\two.js\.gitignore" />
-    <Content Include="app\libs\two.js\.jshintrc" />
-    <Content Include="app\libs\two.js\build\two.clean.js" />
     <Content Include="app\libs\two.js\build\two.js" />
     <Content Include="app\libs\two.js\build\two.min.js" />
-    <Content Include="app\libs\two.js\Gruntfile.js" />
-    <Content Include="app\libs\two.js\license.txt" />
-    <Content Include="app\libs\two.js\package.json" />
-    <Content Include="app\libs\two.js\README.md" />
     <Content Include="app\libs\two.js\src\anchor.js" />
     <Content Include="app\libs\two.js\src\effects\gradient.js" />
     <Content Include="app\libs\two.js\src\effects\image-sequence.js" />
@@ -1261,7 +1399,6 @@
     <Content Include="app\libs\two.js\src\shapes\polygon.js" />
     <Content Include="app\libs\two.js\src\shapes\rectangle.js" />
     <Content Include="app\libs\two.js\src\shapes\rounded-rectangle.js" />
-    <Content Include="app\libs\two.js\src\shapes\sine-ring.js" />
     <Content Include="app\libs\two.js\src\shapes\star.js" />
     <Content Include="app\libs\two.js\src\text.js" />
     <Content Include="app\libs\two.js\src\two.js" />
@@ -1343,19 +1480,91 @@
     <Content Include="app\libs\two.js\tests\suite\svg-interpreter.js" />
     <Content Include="app\libs\two.js\tests\suite\svg.js" />
     <Content Include="app\libs\two.js\tests\suite\webgl.js" />
-    <Content Include="app\libs\two.js\third-party\backbone.js" />
-    <Content Include="app\libs\two.js\third-party\canvas2blob.js" />
-    <Content Include="app\libs\two.js\third-party\events.js" />
     <Content Include="app\libs\two.js\third-party\google_closure_compiler-r2388.jar" />
-    <Content Include="app\libs\two.js\third-party\qunit\qunit.css" />
-    <Content Include="app\libs\two.js\third-party\qunit\qunit.js" />
-    <Content Include="app\libs\two.js\third-party\requestAnimationFrame.js" />
-    <Content Include="app\libs\two.js\third-party\resemble.js" />
-    <Content Include="app\libs\two.js\third-party\stats.js" />
-    <Content Include="app\libs\two.js\third-party\tween.js" />
-    <Content Include="app\libs\two.js\third-party\underscore.js" />
     <Content Include="app\libs\two.js\two.extern.js" />
     <Content Include="app\libs\two.js\utils\build.js" />
+    <Content Include="app\libs\two\.gitignore" />
+    <Content Include="app\libs\two\build\two.clean.js" />
+    <Content Include="app\libs\two\build\two.js" />
+    <Content Include="app\libs\two\build\two.min.js" />
+    <Content Include="app\libs\two\Gruntfile.js" />
+    <Content Include="app\libs\two\license.txt" />
+    <Content Include="app\libs\two\src\anchor.js" />
+    <Content Include="app\libs\two\src\effects\gradient.js" />
+    <Content Include="app\libs\two\src\effects\linear-gradient.js" />
+    <Content Include="app\libs\two\src\effects\radial-gradient.js" />
+    <Content Include="app\libs\two\src\effects\texture.js" />
+    <Content Include="app\libs\two\src\group.js" />
+    <Content Include="app\libs\two\src\matrix.js" />
+    <Content Include="app\libs\two\src\path.js" />
+    <Content Include="app\libs\two\src\renderer\canvas.js" />
+    <Content Include="app\libs\two\src\renderer\svg.js" />
+    <Content Include="app\libs\two\src\renderer\webgl.js" />
+    <Content Include="app\libs\two\src\shape.js" />
+    <Content Include="app\libs\two\src\shapes\arc-segment.js" />
+    <Content Include="app\libs\two\src\shapes\ellipse.js" />
+    <Content Include="app\libs\two\src\shapes\line.js" />
+    <Content Include="app\libs\two\src\shapes\polygon.js" />
+    <Content Include="app\libs\two\src\shapes\rectangle.js" />
+    <Content Include="app\libs\two\src\shapes\rounded-rectangle.js" />
+    <Content Include="app\libs\two\src\shapes\sine-ring.js" />
+    <Content Include="app\libs\two\src\shapes\star.js" />
+    <Content Include="app\libs\two\src\text.js" />
+    <Content Include="app\libs\two\src\two.js" />
+    <Content Include="app\libs\two\src\vector.js" />
+    <Content Include="app\libs\two\tests\images\canvas\circle%401x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\circle%402x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\curve%401x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\curve%402x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\ellipse%401x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\ellipse%402x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\line%401x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\line%402x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\linear-gradient%401x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\linear-gradient%402x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\polygon%401x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\polygon%402x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\radial-gradient%401x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\radial-gradient%402x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\rectangle%401x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\rectangle%402x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\styles%401x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\styles%402x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\text%401x.png" />
+    <Content Include="app\libs\two\tests\images\canvas\text%402x.png" />
+    <Content Include="app\libs\two\tests\images\interpretation\circle.svg" />
+    <Content Include="app\libs\two\tests\images\interpretation\compound-path.svg" />
+    <Content Include="app\libs\two\tests\images\interpretation\D.svg" />
+    <Content Include="app\libs\two\tests\images\interpretation\donut.svg" />
+    <Content Include="app\libs\two\tests\images\interpretation\ellipse.svg" />
+    <Content Include="app\libs\two\tests\images\interpretation\K.svg" />
+    <Content Include="app\libs\two\tests\images\interpretation\linear-gradient.svg" />
+    <Content Include="app\libs\two\tests\images\interpretation\polygon.svg" />
+    <Content Include="app\libs\two\tests\images\interpretation\polyline.svg" />
+    <Content Include="app\libs\two\tests\images\interpretation\radial-gradient.svg" />
+    <Content Include="app\libs\two\tests\images\interpretation\rect.svg" />
+    <Content Include="app\libs\two\tests\index.html" />
+    <Content Include="app\libs\two\tests\noWebGL.html" />
+    <Content Include="app\libs\two\tests\src\utils.js" />
+    <Content Include="app\libs\two\tests\suite\bounding-box.js" />
+    <Content Include="app\libs\two\tests\suite\canvas.js" />
+    <Content Include="app\libs\two\tests\suite\core.js" />
+    <Content Include="app\libs\two\tests\suite\svg-interpreter.js" />
+    <Content Include="app\libs\two\tests\suite\svg.js" />
+    <Content Include="app\libs\two\tests\suite\webgl.js" />
+    <Content Include="app\libs\two\third-party\backbone.js" />
+    <Content Include="app\libs\two\third-party\canvas2blob.js" />
+    <Content Include="app\libs\two\third-party\events.js" />
+    <Content Include="app\libs\two\third-party\google_closure_compiler-r2388.jar" />
+    <Content Include="app\libs\two\third-party\qunit\qunit.css" />
+    <Content Include="app\libs\two\third-party\qunit\qunit.js" />
+    <Content Include="app\libs\two\third-party\requestAnimationFrame.js" />
+    <Content Include="app\libs\two\third-party\resemble.js" />
+    <Content Include="app\libs\two\third-party\stats.js" />
+    <Content Include="app\libs\two\third-party\tween.js" />
+    <Content Include="app\libs\two\third-party\underscore.js" />
+    <Content Include="app\libs\two\utils\build.js" />
+    <Content Include="app\shared %282%29.txt" />
     <Content Include="app\shared\directives\animateOnLoadDirective.js" />
     <Content Include="app\shared\directives\compareToDirective.js" />
     <Content Include="app\shared\directives\index.js" />
@@ -1374,14 +1583,14 @@
     <Content Include="app\shared\services\provider\index.js" />
     <Content Include="app\shared\services\service\baseUrlService.js" />
     <Content Include="app\shared\services\service\cultureService.js" />
+    <Content Include="app\shared\services\service\engineerService.js" />
     <Content Include="app\shared\services\service\hubService.js" />
     <Content Include="app\shared\services\service\index.js" />
     <Content Include="app\shared\services\service\mediatorService.js" />
     <Content Include="app\shared\services\service\notificationService.js" />
     <Content Include="app\shared\services\service\retryQueueService.js" />
-    <Content Include="app\shared\services\service\securityService.js" />
     <Content Include="app\shared\services\service\scheduleService.js" />
-    <Content Include="app\shared\services\service\engineerService.js" />
+    <Content Include="app\shared\services\service\securityService.js" />
     <Content Include="app\shared\services\service\userService.js" />
     <Content Include="app\shared\services\service\viewstateService.js" />
     <Content Include="app\shared\services\value\constantes.js" />
@@ -1389,13 +1598,14 @@
     <Content Include="app\shared\states\publicStates.js" />
     <Content Include="app\shared\states\restrict\engineerStates.js" />
     <Content Include="app\shared\views\formMessages.html" />
-    <Content Include="content\fonts\app-icons.eot" />
-    <Content Include="content\fonts\app-icons.ttf" />
-    <Content Include="content\fonts\app-icons.woff" />
-    <Content Include="content\fonts\ElegantIcons.eot" />
-    <Content Include="content\fonts\ElegantIcons.ttf" />
-    <Content Include="content\fonts\ElegantIcons.woff" />
+    <Content Include="content\docs\code\code.js" />
+    <Content Include="content\docs\tests\coverage.js" />
+    <Content Include="content\docs\tests\unit.js" />
+    <Content Include="content\fonts\app-icons.svg" />
+    <Content Include="content\fonts\ElegantIcons.svg" />
     <Content Include="content\styles\animation.css" />
+    <Content Include="content\styles\appIcons.css" />
+    <Content Include="content\styles\elegantIcons.css" />
     <Content Include="content\styles\supportWheel.css" />
     <Content Include="docs\css\animations.css" />
     <Content Include="docs\css\bootstrap.min.css" />
@@ -1462,140 +1672,51 @@
     <Content Include="docs\tests\unit\coverage\sorter.js" />
     <Content Include="docs\tests\unit\index.html" />
     <Content Include="gruntfile.js" />
-    <Content Include="package.json" />
-    <Content Include="protractor.conf.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="content\fonts\app-icons.svg" />
-    <Content Include="content\fonts\ElegantIcons.svg" />
-    <Content Include="content\styles\appIcons.css" />
-    <Content Include="content\styles\elegantIcons.css" />
     <Content Include="karma.conf.js" />
+    <Content Include="protractor.conf.js" />
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\libs\angular-material\demos\bottomSheet\demoBasicUsage\img\icons\" />
+    <Folder Include="app\libs\angular-material\demos\chips\demoBasicUsage\" />
+    <Folder Include="app\libs\angular-material\demos\chips\demoContactChips\" />
+    <Folder Include="app\libs\angular-material\demos\gridList\demoBasicUsage\" />
+    <Folder Include="app\libs\angular-material\demos\gridList\demoDynamicTiles\" />
+    <Folder Include="app\libs\angular-material\demos\gridList\demoResponsiveUsage\" />
+    <Folder Include="app\libs\angular-material\demos\icon\demoLoadSvgIconsFromUrl\img\icons\" />
+    <Folder Include="app\libs\angular-material\demos\icon\demoSvgIconSets\assets\" />
+    <Folder Include="app\libs\angular-material\demos\icon\demoSvgIconsFromURL\img\icons\" />
+    <Folder Include="app\libs\angular-material\demos\icon\demoUsingTemplateCache\assets\" />
+    <Folder Include="app\libs\angular-material\demos\input\demoIcons\icons\" />
+    <Folder Include="app\libs\angular-material\demos\list\demoListControls\img\" />
+    <Folder Include="app\libs\angular-material\demos\tabs\demoDynamicHeight\" />
+    <Folder Include="app\libs\angular-material\demos\tabs\demoDynamicTabs\" />
+    <Folder Include="app\libs\angular-material\demos\tabs\demoStaticTabs\" />
+    <Folder Include="app\libs\angular-material\demos\toolbar\demoBasicUsage\img\icons\" />
+    <Folder Include="app\libs\angular-material\modules\css\" />
+    <Folder Include="app\libs\two.js\third-party\qunit\" />
     <Folder Include="content\images\" />
     <Folder Include="docs\code\" />
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="web.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="app\components\core\authenticatedMenu\en.json" />
-    <Content Include="app\components\core\authenticatedMenu\pt.json" />
-    <Content Include="app\components\core\auth\en.json" />
-    <Content Include="app\components\core\auth\pt.json" />
-    <Content Include="app\components\core\dataList\en.json" />
-    <Content Include="app\components\core\dataList\pt.json" />
-    <Content Include="app\components\core\login\en.json" />
-    <Content Include="app\components\core\login\pt.json" />
-    <Content Include="app\components\cultura\culturaSelect\en.json" />
-    <Content Include="app\components\cultura\culturaSelect\pt.json" />
-    <Content Include="app\locales\en.json" />
-    <Content Include="app\locales\es.json" />
-    <Content Include="app\locales\fr.json" />
-    <Content Include="app\locales\pt.json" />
-    <Content Include="app\shared\locales\en.json" />
-    <Content Include="app\shared\locales\pt.json" />
-    <Content Include="docs\font\fontawesome-webfont.eot" />
-    <Content Include="docs\font\fontawesome-webfont.ttf" />
-    <Content Include="docs\font\fontawesome-webfont.woff" />
-    <Content Include="docs\font\FontAwesome.otf" />
-    <Content Include=".bowerrc" />
-    <Content Include=".csslintrc" />
-    <Content Include=".editorconfig" />
-    <Content Include=".jshintrc" />
-    <Content Include=".jshintrcForTests" />
-    <Content Include="bower.json" />
-    <Content Include="jsdoc.conf.json" />
-    <Content Include="app\components\about\en.json" />
-    <Content Include="app\components\about\pt.json" />
-    <Content Include="app\components\home\en.json" />
-    <Content Include="app\components\home\pt.json" />
-    <Content Include="app\components\listWeekCards\en.json" />
-    <Content Include="app\components\listWeekCards\pt.json" />
-    <Content Include="app\components\core\signup\en.json" />
-    <Content Include="app\components\core\signup\pt.json" />
-    <Content Include="app\components\engineer\engineer.form\en.json" />
-    <Content Include="app\components\engineer\engineer.form\pt.json" />
-    <Content Include="app\components\engineer\engineer.list\en.json" />
-    <Content Include="app\components\engineer\engineer.list\pt.json" />
-    <Content Include="app\components\wheel\en.json" />
-    <Content Include="app\components\wheel\pt.json" />
-    <Content Include="app\libs\angular-animate\LICENSE.md" />
-    <Content Include="app\libs\angular-aria\LICENSE.md" />
-    <Content Include="app\libs\angular-material\layouts\angular-material.layout-attributes.scss" />
-    <Content Include="app\libs\angular-material\layouts\angular-material.layouts.scss" />
-    <Content Include="app\libs\angular-material\modules\js\colors\bower.json" />
-    <Content Include="app\libs\angular-material\modules\js\navBar\bower.json" />
-    <Content Include="app\libs\angular-material\modules\js\panel\bower.json" />
-    <Content Include="app\libs\angular-material\modules\js\showHide\bower.json" />
-    <Content Include="app\libs\angular-material\modules\js\truncate\bower.json" />
-    <Content Include="app\libs\angular-material\modules\scss\angular-material.layout-attributes.scss" />
-    <Content Include="app\libs\angular-material\modules\scss\angular-material.layouts.scss" />
-    <Content Include="app\libs\angular-material\modules\scss\angular-material.scss" />
-    <Content Include="app\libs\angular-messages\LICENSE.md" />
-    <Content Include="app\libs\angular-mocks\LICENSE.md" />
-    <Content Include="app\libs\angular-resource\LICENSE.md" />
-    <Content Include="app\libs\angular-sanitize\LICENSE.md" />
-    <Content Include="app\libs\angular\LICENSE.md" />
-    <Content Include="app\libs\lodash\.editorconfig" />
-    <Content Include="app\libs\lodash\.github\CONTRIBUTING.md" />
-    <Content Include="app\libs\lodash\.jscsrc" />
-    <Content Include="app\libs\lodash\.travis.yml" />
-    <Content Include="app\libs\lodash\CHANGELOG" />
-    <Content Include="app\libs\lodash\doc\README.md" />
-    <Content Include="app\libs\lodash\lib\fp\template\doc\wiki.jst" />
-    <Content Include="app\libs\lodash\lib\fp\template\modules\alias.jst" />
-    <Content Include="app\libs\lodash\lib\fp\template\modules\category.jst" />
-    <Content Include="app\libs\lodash\lib\fp\template\modules\convert.jst" />
-    <Content Include="app\libs\lodash\lib\fp\template\modules\fp.jst" />
-    <Content Include="app\libs\lodash\lib\fp\template\modules\module.jst" />
-    <Content Include="app\libs\lodash\lib\fp\template\modules\thru.jst" />
-    <Content Include="app\libs\lodash\lib\fp\template\modules\_falseOptions.jst" />
-    <Content Include="app\libs\lodash\lib\fp\template\modules\_util.jst" />
-    <Content Include="app\libs\lodash\LICENSE" />
-    <Content Include="app\libs\lodash\package.json" />
-    <Content Include="app\libs\lodash\README.md" />
-    <Content Include="app\libs\lodash\vendor\backbone\LICENSE" />
-    <Content Include="app\libs\lodash\vendor\underscore\LICENSE" />
-    <Content Include="app\libs\lodash\yarn.lock" />
-    <Content Include="app\libs\two.js\.npmrc" />
-    <Content Include="app\libs\two.js\LICENSE" />
-    <None Include="web.Debug.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
-    <None Include="web.Release.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Configuration.cs" />
   </ItemGroup>
   <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>14656</DevelopmentServerPort>
+          <DevelopmentServerPort>50159</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:12000</IISUrl>
+          <IISUrl>http://localhost:12000/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -1605,28 +1726,14 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release (
-xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\app" "$(TargetDir)_PublishedWebsites\Crossover.Api\app" /Y /I /S
-xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\content" "$(TargetDir)_PublishedWebsites\Crossover.Api\content" /Y /I /S
-xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\app\index.html" "$(TargetDir)_PublishedWebsites\Crossover.Api" /Y /I
-xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\package.json" "$(TargetDir)_PublishedWebsites\Crossover.Api" /Y /I
-xcopy "$(TargetDir)_PublishedWebsites\Crossover.Frontend\npmBatch.bat" "$(TargetDir)_PublishedWebsites\Crossover.Api" /Y /I
-CD /D $(TargetDir)_PublishedWebsites\Crossover.Api
-call npmBatch.bat
-)</PostBuildEvent>
-  </PropertyGroup>
-  <Target Name="BeforeBuild" Condition="'$(Configuration)' == 'Release' ">
-    <!--
-    <Exec Command="npm cache clean" />
-    <Exec Command="npm install" />
-    
-    <Exec Command="npmBatch.bat" />-->
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v15.0\WebApplications\Microsoft.WebApplication.targets" />
-  <!-- 
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v15.0\WebApplications\Microsoft.WebApplication.targets" />
- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

@@ -81,5 +81,10 @@ angular.module('App', ['ngAnimate', 'ngResource', 'ngSanitize', 'angular-loading
     $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
         console.error(error);
     });
-})
-;
+  })
+
+  ;
+
+angular.element(function () {
+  angular.bootstrap(document, ['App']);
+});

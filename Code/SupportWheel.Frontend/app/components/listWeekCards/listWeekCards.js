@@ -94,7 +94,7 @@
         });
 
         //Listen for changes on schedule
-        var scheduleEvent = scheduleService.listenEvent.both.all(updateResult);
+        var scheduleEvent = scheduleService.listenEvent.both.inserted(updateResult);
 
         //Cleanup events when controller is destroyed
         $scope.$on("$destroy", scheduleEvent);
@@ -103,13 +103,19 @@
         function updateResult(result) {
           //Se já fez uma pesquisa
           if (result.type = constEventosDb.INSERTED) {
-            //Wait 3 seconds to show result in the grid to keep suspense of the wheel
-            $timeout(function () {
+            
+            function update(result) {
               result.data.weekNumber = getWeekNumber(new Date(result.data.dteSchedule));
               result.data.weekDay = new Date(result.data.dteSchedule).getDay();
               vm.scheduleShifts.push(result.data);
-            },10500)
-            
+              $scope.$apply();
+            }
+
+            //Wait 10 seconds to show result in the grid to keep suspense of the wheel
+            $timeout(function () {
+              update(result)
+            }.bind(this), 14000);
+    
           }
         }
       }
@@ -132,9 +138,9 @@
         // Get first day of year
         var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
         // Calculate full weeks to nearest Thursday
-        var weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+        var weekNo = ("0" + Math.ceil((((d - yearStart) / 86400000) + 1) / 7)).slice(-2)  ;
         // Return array of year and week number
-        return [d.getUTCFullYear(), weekNo];
+        return d.getUTCFullYear() + "/" + weekNo;
       }
       
       ////Watch for changes in the id or required parameters that has been passed

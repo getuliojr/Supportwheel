@@ -4,7 +4,7 @@
         <md-card-header-text>
           <md-toolbar layout="row">
             <div class="md-toolbar-tools">
-              <span class="md-title">{{'LISTWEEKCARDS.WEEK' | translate }}: {{week.split(',')[1]}}/{{week.split(',')[0]}}</span>
+              <span class="md-title">{{'LISTWEEKCARDS.WEEK' | translate }}: {{week.split('/')[1]}}/{{week.split('/')[0]}}</span>
             </div>
           </md-toolbar>
         </md-card-header-text>
@@ -24,7 +24,7 @@
                 </md-toolbar>
               </md-card-header>
               <md-card-content>
-                <md-list-item ng-repeat="shift in shifts | filterBy: ['weekDay']: day">
+                <md-list-item ng-repeat="shift in shifts | filterBy: ['weekDay']: day ">
                   <p>{{shift.intPeriod }} - {{shift.strNameEngineer}}</p>
                 </md-list-item>
                 <md-card-content>
