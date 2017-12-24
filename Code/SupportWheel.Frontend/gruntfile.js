@@ -201,7 +201,7 @@ module.exports = function (grunt) {
           src: './app/index.html',
           blocks: {
             'clientJS': {
-              src: './build/app.min.js'
+              src: './app/dist/app.min.js'
             }
           }
         },
@@ -320,7 +320,7 @@ module.exports = function (grunt) {
       uglify: {
         generated: {
           files: {
-            'build/app.min.js': ['.tmp/concat/dist/app.js']
+            'app/dist/app.min.js': ['.tmp/concat/dist/app.js']
           }
         }
       },
@@ -328,14 +328,7 @@ module.exports = function (grunt) {
       useminPrepare: {
         html: 'app/index.html',
         options: {
-          dest: 'build'
-        }
-      },
-
-      usemin: {
-        html: 'build/index.html',
-        options: {
-          assetsDirs: ['foo/bar', 'bar']
+          dest: 'app/build'
         }
       },
 
