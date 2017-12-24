@@ -434,7 +434,7 @@ module.exports = function (grunt) {
         
         'fileblocks:dev',                       //inject application dependencies
         
-        'wiredep',                              //inject bower dependencies
+        //'wiredep',                              //inject bower dependencies
         
         'merge-json:i18n'                      //merge all locales files in one per language
 
