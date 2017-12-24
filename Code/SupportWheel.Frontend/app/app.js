@@ -29,10 +29,11 @@ angular.module('App', ['ngAnimate', 'ngResource', 'ngSanitize', 'angular-loading
 ])
 
 //Angular material theme
-.config(function($mdThemingProvider) {
+  .config(['$mdThemingProvider',
+    function ($mdThemingProvider) {
     //placeholder/foreground color
     $mdThemingProvider.theme('default').foregroundPalette[3] = "rgba(0,0,0,0.67)";
-})
+}])
 
 //Configura o Prefixo para o Localstorage
 .config(['$localStorageProvider',
@@ -71,20 +72,15 @@ angular.module('App', ['ngAnimate', 'ngResource', 'ngSanitize', 'angular-loading
 //}])
 
 //Configura a carga no template-cache de certos itens como os erros comuns
-.run(function ($templateCache, $http, $rootScope) {
+  .run(['$templateCache', '$http', '$rootScope',
+    function ($templateCache, $http, $rootScope) {
     $http.get('app/shared/views/formMessages.html')
 		.then(function (response) {
 		    $templateCache.put('form-messages', response.data);
-		});
+		})
 
     //shows errors in dependencies injected by resolve in ui-router state configuration
     $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
         console.error(error);
     });
-  })
-
-  ;
-
-angular.element(function () {
-  angular.bootstrap(document, ['App']);
-});
+  }]);

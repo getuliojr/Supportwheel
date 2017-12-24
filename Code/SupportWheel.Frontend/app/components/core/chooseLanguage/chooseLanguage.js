@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
 
     'use strict';
 
@@ -79,7 +79,7 @@
             if (current != undefined) {
                 return current.name;
             } else {
-                return "Clique para escolher um idioma"
+              return "Click to choose a language.";
             }
         }
 

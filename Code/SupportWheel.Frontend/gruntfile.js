@@ -303,9 +303,12 @@ module.exports = function (grunt) {
             {
               dest: '.tmp/concat/js/app.js',
               src: [
+                'app/app.js',
                 'app/components/**/*.js',
-                'app/shared/**.*.js',
-                'app/app.js'
+                'app/shared/**/*.js',
+                '!app/components/**/*.spec.js',
+                '!app/shared/**/*.spec.js'
+                
               ]
             }, {
               dest: '.tmp/concat/libs/libs.js',
