@@ -43,22 +43,53 @@
           </a>
         </h2>
         <span flex></span>
-        <md-button aria-label="Home" ui-sref="home">
-          <md-icon>home</md-icon>
-          {{'HOME.HOME' | translate }}
-        </md-button>
-        <md-button aria-label="About" ui-sref="about">
-          <md-icon>info</md-icon>
-          {{'HOME.ABOUT' | translate }}
-        </md-button>
-        <a href="/docs/index.html" aria-label="documentation" target="_parent">
-          <md-icon>book</md-icon>
-          {{'HOME.DOCUMENTATION' | translate }}
-        </a>
-        <choose-language></choose-language>
-
-        <auth></auth>
-
+        <div hide-xs hide-sm>
+          <md-button aria-label="Home" ui-sref="home">
+            <md-icon>home</md-icon>
+            {{'HOME.HOME' | translate }}
+          </md-button>
+          <md-button aria-label="About" ui-sref="about">
+            <md-icon>info</md-icon>
+            {{'HOME.ABOUT' | translate }}
+          </md-button>
+          <md-button aria-label="About" href="/docs/index.html" target="_parent">
+            <md-icon>book</md-icon>
+            {{'HOME.DOCUMENTATION' | translate }}
+          </md-button>
+          <choose-language></choose-language>
+          <auth></auth>
+        </div>
+        <md-menu hide-gt-sm>
+          <md-button aria-label="Item Options" ng-click="$mdMenu.open($event)" md-menu-origin>
+            <md-icon>menu</md-icon>
+          </md-button>
+          <md-menu-content>
+            <md-menu-item>
+              <md-button aria-label="Home" ui-sref="home">
+                <md-icon>home</md-icon>
+                {{'HOME.HOME' | translate }}
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button aria-label="About" ui-sref="about">
+                <md-icon>info</md-icon>
+                {{'HOME.ABOUT' | translate }}
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button aria-label="About" href="/docs/index.html" target="_parent">
+                <md-icon>book</md-icon>
+                {{'HOME.DOCUMENTATION' | translate }}
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <choose-language></choose-language>
+            </md-menu-item>
+            <md-menu-item>
+              <auth></auth>
+            </md-menu-item>
+</md-menu-content>
+        </md-menu>
       </div>
     </md-toolbar>
     <authenticated-menu></authenticated-menu>
@@ -75,8 +106,8 @@
 
   <!--[if lt IE 9] -->
   <!-- fileblock:js oldieshim -->
-  <script src="/app/libs/es5-shim/es5-shim.min.js"></script>
-  <script src="/app/libs/json3/lib/json3.min.js"></script>
+  <script src="/app/libs/es5-shim/es5-shim.js"></script>
+  <script src="/app/libs/json3/lib/json3.js"></script>
   <!-- endfileblock -->
   <!--<![endif]-->
   <!-- bower:js -->

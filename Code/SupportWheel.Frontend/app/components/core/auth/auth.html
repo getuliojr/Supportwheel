@@ -1,4 +1,3 @@
-<span>
   <span ng-if="!auth.isAuthenticated()">
     <md-button aria-label="Login" ng-click="auth.showLogin()">
       <md-icon>account_circle</md-icon>
@@ -9,18 +8,18 @@
       {{'AUTH.SIGNUP' | translate }}
     </md-button>
   </span>
-    <span ng-if="auth.isAuthenticated()">
-        <md-menu>
-            <md-button aria-label="User Information / Log-out" ng-click="$mdMenu.open($event)" md-menu-origin md-menu-align-target>
-                <md-icon><i class="material-icons">face</i></md-icon>
-                {{auth.currentUser().strFullName}}
-            </md-button>
-            <md-menu-content>
-                <md-button aria-label="Log-out" ng-click="auth.logout()">
-                    <md-icon>exit_to_app</md-icon>
-                    {{'AUTH.LOGOUT' | translate }}
-                </md-button>
-            </md-menu-content>
-        </md-menu>
-    </span>
-</span>
+  <span ng-if="auth.isAuthenticated()">
+      <md-menu>
+          <md-button aria-label="User Information / Log-out" ng-click="$mdMenu.open($event)" md-menu-origin md-menu-align-target>
+              <md-icon><i class="material-icons">face</i></md-icon>
+              {{auth.currentUser().strFullName}}
+          </md-button>
+          <md-menu-content>
+              <md-button aria-label="Log-out" ng-click="auth.logout()">
+                  <md-icon>exit_to_app</md-icon>
+                  {{'AUTH.LOGOUT' | translate }}
+              </md-button>
+          </md-menu-content>
+      </md-menu>
+  </span>
+

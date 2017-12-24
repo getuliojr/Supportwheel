@@ -9,19 +9,19 @@
     </md-toolbar>
   </md-card-header>
   <md-card-content>
-    <div layout="row" layout-align="center center">
-      <div flex="60">
+    <div layout="row" layout-wrap layout-align="center center">
+      <div flex="100" flex-gt-xs="60">
           <div class="mount js-mount"></div><br /><br /><br />
 
       </div>
-      <div flex>
+      <div flex="100" flex-gt-xs="40">
         <p><span class="md-title">{{'WHEEL.DATE' | translate }}: <b> {{$ctrl.lastDate  | date:'dd/MMM/yyyy'}}</b></span></p>
         <p><span class="md-title">{{'WHEEL.PERIOD' | translate }}: <b>{{$ctrl.lastPeriod}}</b></span></p>
         <p ng-if="$ctrl.lastEngineer != undefined"><span class="md-title">{{'WHEEL.ENGINEER' | translate }}: <b>{{$ctrl.lastEngineer}}</b></span></p>
         <br><br><br>
       </div>
     </div>
-    <div layout="row" >
+    <div flex layout="row" >
       <md-button class="md-raised md-success md-primary flex" ng-click="$ctrl.startSpinning()" ng-disabled="$ctrl.lastDate == undefined || $ctrl.spinning == true">
         {{'WHEEL.SPIN-BUTTON' | translate }}
       </md-button>
