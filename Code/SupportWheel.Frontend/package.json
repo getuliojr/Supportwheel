@@ -4,7 +4,7 @@
   "description": "SupportWheel",
   "scripts": {
     "start": "grunt",
-    "postinstall": "bower install",
+    "postinstall": "",
     "postupdate": "bower update"
   },
   "devDependencies": {
