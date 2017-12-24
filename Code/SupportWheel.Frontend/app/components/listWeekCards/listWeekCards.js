@@ -110,7 +110,7 @@
             //Wait 10 seconds to show result in the grid to keep suspense of the wheel
             $timeout(function () {
               update(result)
-            }.bind(this), 14000);
+            }.bind(this), 11000);
 
           }
         }

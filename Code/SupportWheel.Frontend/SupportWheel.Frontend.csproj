@@ -1722,6 +1722,7 @@
   </ProjectExtensions>
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Release (
+grunt build
 xcopy "$(TargetDir)_PublishedWebsites\SupportWheel.Frontend\app" "$(TargetDir)_PublishedWebsites\SupportWheel.Api\app" /Y /I /S
 xcopy "$(TargetDir)_PublishedWebsites\SupportWheel.Frontend\content" "$(TargetDir)_PublishedWebsites\SupportWheel.Api\content" /Y /I /S
 xcopy "$(TargetDir)_PublishedWebsites\SupportWheel.Frontend\app\index.html" "$(TargetDir)_PublishedWebsites\SupportWheel.Api" /Y /I
