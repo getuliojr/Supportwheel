@@ -23,11 +23,11 @@
                             },
                             title: function () { return "TABS.ENGINEER.TITLE"; }
                         },
-                        controller: function (tabs, title) {
+                        controller: ['tabs', 'title', function (tabs, title) {
                             var vm = this;
                             vm.tabs = tabs;
                             vm.title = title;
-                        },
+                        }],
                         controllerAs: 'create'
                     }
                     

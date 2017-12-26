@@ -202,6 +202,9 @@ module.exports = function (grunt) {
           blocks: {
             'clientJS': {
               src: './app/dist/app.min.js'
+            },
+            'vendor': {
+              src: './app/dist/libs.min.js'
             }
           }
         },
@@ -227,7 +230,35 @@ module.exports = function (grunt) {
                 'oldieshim': {
                   src: ['./app/libs/es5-shim/es5-shim.js',
                     './app/libs/json3/lib/json3.js']
+                },
+                'vendor': {
+                  src: [
+                    './app/libs/es5-shim/es5-shim.js',
+                    './app/libs/jquery/dist/jquery.js',
+                    './app/libs/angular/angular.js',
+                    './app/libs/angular-animate/angular-animate.js',
+                    './app/libs/angular-loading-bar/build/loading-bar.js',
+                    './app/libs/angular-resource/angular-resource.js',
+                    './app/libs/angular-sanitize/angular-sanitize.js',
+                    './app/libs/angular-messages/angular-messages.js',
+                    './app/libs/signalr/jquery.signalR.js',
+                    './app/libs/angular-signalr-hub/signalr-hub.js',
+                    './app/libs/angular-ui-router/release/angular-ui-router.js',
+                    './app/libs/json3/lib/json3.js',
+                    './app/libs/lodash/lodash.js',
+                    './app/libs/toastr/toastr.js',
+                    './app/libs/ngstorage/ngStorage.js',
+                    './app/libs/angular-jwt/dist/angular-jwt.js',
+                    './app/libs/angular-translate/angular-translate.js',
+                    './app/libs/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+                    './app/libs/angular-aria/angular-aria.js',
+                    './app/libs/angular-material/angular-material.js',
+                    './app/libs/angular-material-data-table/dist/md-data-table.js',
+                    './app/libs/angular-filter/dist/angular-filter.js',
+                    './app/libs/two.js/build/two.js'
+                  ]
                 }
+
               }
             }
           ]
@@ -310,10 +341,33 @@ module.exports = function (grunt) {
                 '!app/shared/**/*.spec.js'
                 
               ]
-            }, {
-              dest: '.tmp/concat/libs/libs.js',
+            },
+            {
+              dest: 'app/dist/libs.min.js',
               src: [
-                'app/libs/**/*.js'
+                'app/libs/es5-shim/es5-shim.min.js',
+                'app/libs/jquery/dist/jquery.min.js',
+                'app/libs/angular/angular.min.js',
+                'app/libs/angular-animate/angular-animate.min.js',
+                'app/libs/angular-loading-bar/build/loading-bar.min.js',
+                'app/libs/angular-resource/angular-resource.min.js',
+                'app/libs/angular-sanitize/angular-sanitize.min.js',
+                'app/libs/angular-messages/angular-messages.min.js',
+                'app/libs/signalr/jquery.signalR.min.js',
+                'app/libs/angular-signalr-hub/signalr-hub.min.js',
+                'app/libs/angular-ui-router/release/angular-ui-router.min.js',
+                'app/libs/json3/lib/json3.min.js',
+                'app/libs/lodash/dist/lodash.min.js',
+                'app/libs/toastr/toastr.min.js',
+                'app/libs/ngstorage/ngStorage.min.js',
+                'app/libs/angular-jwt/dist/angular-jwt.min.js',
+                'app/libs/angular-translate/angular-translate.min.js',
+                'app/libs/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
+                'app/libs/angular-aria/angular-aria.min.js',
+                'app/libs/angular-material/angular-material.min.js',
+                'app/libs/angular-material-data-table/dist/md-data-table.min.js',
+                'app/libs/angular-filter/dist/angular-filter.min.js',
+                'app/libs/two.js/build/two.min.js'
               ]
             }
           ]
@@ -434,7 +488,7 @@ module.exports = function (grunt) {
         
         'fileblocks:dev',                       //inject application dependencies
         
-        //'wiredep',                              //inject bower dependencies
+        'wiredep',                              //inject bower dependencies (css)
         
         'merge-json:i18n'                      //merge all locales files in one per language
 
