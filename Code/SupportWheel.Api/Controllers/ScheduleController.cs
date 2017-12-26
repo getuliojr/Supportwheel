@@ -43,8 +43,11 @@ namespace SupportWheel.Api.Controllers
         }
 
         //Delete 
-        public IHttpActionResult DeleteSchedule([FromBody]DeleteScheduleCommand command)
+        [Authorize]
+        public IHttpActionResult DeleteSchedule()
         {
+            var command = new DeleteScheduleCommand { };
+           
             var response = _mediator.Send(command);
             return Ok(response);
         }

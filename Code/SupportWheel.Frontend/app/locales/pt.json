@@ -29,6 +29,9 @@
 		"REGISTER": "Inscrever",
 		"REGISTERED": "A conta foi criada com sucesso. Por favor efetue o login agora."
 	},
+	"DELETE-SCHEDULE": {
+		"DELETE": "Apagar todos os sorteios"
+	},
 	"ENGINEER-FORM": {
 		"NAME": "Nome completo do engenheiro"
 	},

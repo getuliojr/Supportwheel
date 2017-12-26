@@ -9,8 +9,9 @@
         'components.about',
         'components.home',
         'components.listWeekCards',
-          'components.engineer',
-        'components.wheel'
+        'components.engineer',
+        'components.wheel',
+        'components.deleteSchedule'
     ]);
 
 })();

@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
 
     'use strict';
 
@@ -151,10 +151,16 @@
                 var deferred = $q.defer();
                 var queryParams = _parseParams(params);
 
-                if (!queryParams.hasOwnProperty(surrogateKey)) {
-                    deferred.reject({ type: 'warning', message: ["Não foi informado o ID do registro que se deseja excluir."] });
+                if (queryParams.hasOwnProperty(surrogateKey)) {
+                  webService.remove({ id: queryParams[surrogateKey] })
+                    .$promise.then(function (data) {
+                      mediatorService.sendEvent(recurso, constEventosDb.DELETED, data, false);
+                      deferred.resolve(data);
+                    }, function (err) {
+                      deferred.reject(err);
+                    });
                 } else {
-                    webService.remove({ id: queryParams[surrogateKey] })
+                    webService.remove(queryParams)
                     .$promise.then(function (data) {
                         mediatorService.sendEvent(recurso, constEventosDb.DELETED, data, false);
                         deferred.resolve(data);

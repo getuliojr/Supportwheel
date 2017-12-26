@@ -42,6 +42,8 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include=".bowerrc" />
+    <Content Include="app\components\deleteSchedule\deleteSchedule.html" />
+    <Content Include="app\components\deleteSchedule\deleteSchedule.js" />
     <Content Include="app\components\about\en.json" />
     <Content Include="app\components\about\pt.json" />
     <Content Include="app\components\core\authenticatedMenu\en.json" />
@@ -1563,6 +1565,8 @@
     <Content Include="docs\code\public\fonts\novecento-bold.eot" />
     <Content Include="docs\code\public\fonts\novecento-bold.ttf" />
     <Content Include="docs\code\public\fonts\novecento-bold.woff" />
+    <Content Include="app\components\deleteSchedule\en.json" />
+    <Content Include="app\components\deleteSchedule\pt.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

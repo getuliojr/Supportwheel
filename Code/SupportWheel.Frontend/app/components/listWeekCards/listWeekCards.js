@@ -83,20 +83,22 @@
         ];
 
         //Load last drafts
-        scheduleService.load().then(function (data) {
-          vm.scheduleShifts = data;
+        loadSchedule();
 
-          angular.forEach(vm.scheduleShifts, function (value, key) {
-            var weekNumber = getWeekNumber(new Date(value.dteSchedule));
-            value.weekNumber = weekNumber;
-            value.weekDay = new Date(value.dteSchedule).getDay();
+        function loadSchedule () {
+          scheduleService.load().then(function (data) {
+            vm.scheduleShifts = data;
+
+            angular.forEach(vm.scheduleShifts, function (value, key) {
+              var weekNumber = getWeekNumber(new Date(value.dteSchedule));
+              value.weekNumber = weekNumber;
+              value.weekDay = new Date(value.dteSchedule).getDay();
+            });
           });
-        });
-
-        
+        }
 
         //Responsable to change the data entered and selected by the user already to a new culture set.
-        var updateResult = function (result) {
+        function updateResult (result) {
           //Se já fez uma pesquisa
           if (result.type = constEventosDb.INSERTED) {
 
@@ -110,15 +112,17 @@
             //Wait 10 seconds to show result in the grid to keep suspense of the wheel
             $timeout(function () {
               update(result)
-            }.bind(this), 11000);
+            }.bind(this), 10000);
 
           }
         }
           //Listen for changes on schedule
-          var scheduleEvent = scheduleService.listenEvent.both.inserted(updateResult);
+          var updateScheduleEvent = scheduleService.listenEvent.both.inserted(updateResult);
+          var deleteScheduleEvent = scheduleService.listenEvent.both.deleted(loadSchedule);
 
           //Cleanup events when controller is destroyed
-          $scope.$on("$destroy", scheduleEvent);
+          $scope.$on("$destroy", updateScheduleEvent);
+          $scope.$on("$destroy", deleteScheduleEvent);
         
       }
 

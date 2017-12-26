@@ -23,7 +23,7 @@ namespace SupportWheel.Commands.ScheduleCommands.CommandHandler
             var db = _dbContext.Set<Schedule>();
 
             //Delete all schedule dates higher than the received date
-            db.RemoveRange(db.Where(s => s.dteSchedule >= command.dteSchedule));
+            db.RemoveRange(db);
             _dbContext.SaveChanges();
         }
     }

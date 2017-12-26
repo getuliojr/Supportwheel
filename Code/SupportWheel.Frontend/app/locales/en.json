@@ -29,6 +29,9 @@
 		"REGISTER": "Register",
 		"REGISTERED": "The account has been successfully created. Please login now."
 	},
+	"DELETE-SCHEDULE": {
+		"DELETE": "Delete all drafts"
+	},
 	"ENGINEER-FORM": {
 		"NAME": "Engineer´s full name"
 	},
