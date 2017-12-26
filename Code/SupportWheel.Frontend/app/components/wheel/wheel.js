@@ -102,20 +102,31 @@
           .catch(handleExceptionFactory);
 
         //Get information about last draft
-        scheduleService.load({ intPageSize: 1, intPageNumber: 1 }).then(function (data) {
-          var i = 0;
-          //Try to get the last date and period from the database
-          if (data.length > 0) {
-            vm.lastDate = data[0].dteSchedule;
-            vm.lastPeriod = data[0].intPeriod;
-            vm.lastEngineer = data[0].strNameEngineer;
-            vm.lastDraftBy = data[0].strFullNameCreated;
-          } else {
-            vm.lastDate = new Date();
-            vm.lastPeriod = 1;
+        function loadLastschedule() {
+          scheduleService.load({ intPageSize: 1, intPageNumber: 1 }).then(function (data) {
+            var i = 0;
+            //Try to get the last date and period from the database
+            if (data.length > 0) {
+              vm.lastDate = data[0].dteSchedule;
+              vm.lastPeriod = data[0].intPeriod;
+              vm.lastEngineer = data[0].strNameEngineer;
+              vm.lastDraftBy = data[0].strFullNameCreated;
+            } else {
+              vm.lastDate = new Date();
+              vm.lastPeriod = 1;
+              vm.lastEngineer = undefined;
+              vm.lastDraftBy = undefined;
+            }
+          });
+        }
 
-          }
-        });
+        //Load last schedule information
+        loadLastschedule();
+
+        var deleteScheduleEvent = scheduleService.listenEvent.both.deleted(loadLastschedule);
+
+        //Cleanup events when controller is destroyed
+        $scope.$on("$destroy", deleteScheduleEvent);
       }
 
 
