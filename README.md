@@ -49,13 +49,13 @@ The rules are as follows:
 ## DESIGN AND ARCHITECTURE
 
 
-    The backend is build using .NET with (web.api 2, Owin, SignalR) it is based on the pattern CQRS (Command and Query Responsability Separation) where all the commands would be hosted on a server with a SQL database, while all queries could be stored in a separed server with another database, a denormazed one.
+The backend is build using .NET with (web.api 2, Owin, SignalR) it is based on the pattern CQRS (Command and Query Responsability Separation) where all the commands would be hosted on a server with a SQL database, while all queries could be stored in a separed server with another database, a denormazed one.
 
-    Front-end is build using Angular.JS 1.6.x with components. All frontend is documented using ng-docs and docco. Tests are done with Jamine and Karma.
+Front-end is build using Angular.JS 1.6.x with components. All frontend is documented using ng-docs and docco. Tests are done with Jamine and Karma.
 
-    OATH 2 has been implemented with JWT tokens for securiting the application in backend and frontend.
+OATH 2 has been implemented with JWT tokens for securiting the application in backend and frontend.
 
-    Angular Material has been used for the layout desing.
+Angular Material has been used for the layout desing.
 
 ### ONLINE DEMO
 
