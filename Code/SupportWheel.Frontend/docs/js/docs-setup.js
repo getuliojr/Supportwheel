@@ -259,6 +259,33 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "components.deleteSchedule",
+      "shortName": "components.deleteSchedule",
+      "type": "overview",
+      "moduleName": "components.deleteSchedule",
+      "shortDescription": "deleteSchedule - Component",
+      "keywords": "api button clean component components deleteschedule drafts overview render responsible"
+    },
+    {
+      "section": "api",
+      "id": "components.deleteSchedule.controller:DeleteScheduleController",
+      "shortName": "DeleteScheduleController",
+      "type": "controller",
+      "moduleName": "components.deleteSchedule",
+      "shortDescription": "It has the logic behind the component",
+      "keywords": "api component components controller data database delete deleteschedule function logic responsable schedule"
+    },
+    {
+      "section": "api",
+      "id": "components.deleteSchedule.directive:swDeleteSchedule",
+      "shortName": "swDeleteSchedule",
+      "type": "directive",
+      "moduleName": "components.deleteSchedule",
+      "shortDescription": "This component will show a button to clean the drafts so far in the database",
+      "keywords": "api button clean component components database deleteschedule directive drafts"
+    },
+    {
+      "section": "api",
       "id": "components.engineer",
       "shortName": "components.engineer",
       "type": "overview",

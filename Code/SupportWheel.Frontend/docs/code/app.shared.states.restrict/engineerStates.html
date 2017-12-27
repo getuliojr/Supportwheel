@@ -55,11 +55,11 @@
                             },
                             <span class="hljs-attr">title</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-string">"TABS.ENGINEER.TITLE"</span>; }
                         },
-                        <span class="hljs-attr">controller</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">tabs, title</span>) </span>{
+                        <span class="hljs-attr">controller</span>: [<span class="hljs-string">'tabs'</span>, <span class="hljs-string">'title'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">tabs, title</span>) </span>{
                             <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">this</span>;
                             vm.tabs = tabs;
                             vm.title = title;
-                        },
+                        }],
                         <span class="hljs-attr">controllerAs</span>: <span class="hljs-string">'create'</span>
                     }
                     

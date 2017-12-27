@@ -32,7 +32,7 @@
             
             <div class="content"><div class='highlight'><pre>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<span class="hljs-meta">
 
-    'use strict'</span>;</pre></div></div>
+  'use strict'</span>;</pre></div></div>
             
         </li>
         
@@ -47,19 +47,19 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    angular.module(<span class="hljs-string">'shared.services.service.user'</span>, [
-        <span class="hljs-string">'shared.services.factory.appResource'</span>
-    ])
+            <div class="content"><div class='highlight'><pre>  angular.module(<span class="hljs-string">'shared.services.service.user'</span>, [
+    <span class="hljs-string">'shared.services.factory.appResource'</span>
+  ])
 
-          <span class="hljs-comment">/**
-     * @ngdoc service
-     * @name shared.services.service.service:user
-     * @description
-     *
-     * This service is responsible to get information about the users in the system
-     *
-     */</span>
-        .service(<span class="hljs-string">'userService'</span>, userService);</pre></div></div>
+    <span class="hljs-comment">/**
+* @ngdoc service
+* @name shared.services.service.service:user
+* @description
+*
+* This service is responsible to get information about the users in the system
+*
+*/</span>
+    .service(<span class="hljs-string">'userService'</span>, userService);</pre></div></div>
             
         </li>
         
@@ -74,7 +74,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    userService.$inject = [<span class="hljs-string">'appResourceFactory'</span>];</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  userService.$inject = [<span class="hljs-string">'appResourceFactory'</span>];</pre></div></div>
             
         </li>
         
@@ -89,9 +89,9 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">userService</span>(<span class="hljs-params">appResourceFactory</span>) </span>{
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">userService</span>(<span class="hljs-params">appResourceFactory</span>) </span>{
 
-        <span class="hljs-keyword">var</span> service = appResourceFactory(<span class="hljs-string">"user"</span>, <span class="hljs-string">"intIdUser"</span>);</pre></div></div>
+    <span class="hljs-keyword">var</span> service = appResourceFactory(<span class="hljs-string">"user"</span>, <span class="hljs-string">"intIdUser"</span>);</pre></div></div>
             
         </li>
         
@@ -106,24 +106,24 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        service.validar = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">dados</span>) </span>{
-            <span class="hljs-keyword">var</span> erros = [];
+            <div class="content"><div class='highlight'><pre>    service.validar = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">dados</span>) </span>{
+      <span class="hljs-keyword">var</span> erros = [];
 
-            <span class="hljs-keyword">if</span> (!dados.strFullName)
-                erros.push(<span class="hljs-string">"O campo nome é obrigatório!"</span>);
+      <span class="hljs-keyword">if</span> (!dados.strFullName)
+        erros.push(<span class="hljs-string">"The name is required!"</span>);
 
-            <span class="hljs-keyword">if</span> (!dados.strEmail)
-                erros.push(<span class="hljs-string">"O campo e-mail é obrigatório!"</span>);
+      <span class="hljs-keyword">if</span> (!dados.strEmail)
+        erros.push(<span class="hljs-string">"The e-mail is required!"</span>);
 
-            <span class="hljs-keyword">if</span> (!dados.strPassword)
-                erros.push(<span class="hljs-string">"O campos senha é obrigatório!"</span>);
+      <span class="hljs-keyword">if</span> (!dados.strPassword)
+        erros.push(<span class="hljs-string">"The password is required!"</span>);
 
-            <span class="hljs-keyword">return</span> erros;
-        };
+      <span class="hljs-keyword">return</span> erros;
+    };
 
-        <span class="hljs-keyword">return</span> service;
-    }
-})()</pre></div></div>
+    <span class="hljs-keyword">return</span> service;
+  }
+})();</pre></div></div>
             
         </li>
         

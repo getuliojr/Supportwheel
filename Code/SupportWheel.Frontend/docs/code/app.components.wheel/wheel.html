@@ -55,7 +55,7 @@
       <span class="hljs-string">'shared.services.factory.handleException'</span>,
        <span class="hljs-string">'shared.services.service.schedule'</span>,
       <span class="hljs-string">'shared.services.service.notification'</span>,
-     <span class="hljs-string">'shared.services.value.varantes'</span>
+     <span class="hljs-string">'shared.services.value.constantes'</span>
 
     ])
 
@@ -93,7 +93,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  WheelController.$inject = [<span class="hljs-string">'handleExceptionFactory'</span>, <span class="hljs-string">'engineerService'</span>, <span class="hljs-string">'scheduleService'</span>, <span class="hljs-string">'notificationService'</span>, <span class="hljs-string">'$scope'</span>, <span class="hljs-string">'varEventosDb'</span>,<span class="hljs-string">'$timeout'</span>];
+            <div class="content"><div class='highlight'><pre>  WheelController.$inject = [<span class="hljs-string">'handleExceptionFactory'</span>, <span class="hljs-string">'engineerService'</span>, <span class="hljs-string">'scheduleService'</span>, <span class="hljs-string">'notificationService'</span>, <span class="hljs-string">'$scope'</span>, <span class="hljs-string">'constEventosDb'</span>,<span class="hljs-string">'$timeout'</span>];
 
 
    <span class="hljs-comment">/**
@@ -104,7 +104,7 @@
    * It has the logic behind the component
    *
    */</span>
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">WheelController</span>(<span class="hljs-params">handleExceptionFactory, engineerService, scheduleService, notificationService, $scope, varEventosDb, $timeout</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">WheelController</span>(<span class="hljs-params">handleExceptionFactory, engineerService, scheduleService, notificationService, $scope, constEventosDb, $timeout</span>) </span>{
     <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">this</span>;
     vm.engineersNames = [];
     vm.engineers = [];</pre></div></div>
@@ -194,8 +194,9 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        scheduleService.load({ <span class="hljs-attr">intPageSize</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">intPageNumber</span>: <span class="hljs-number">1</span> }).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
-          <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;</pre></div></div>
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadLastschedule</span>(<span class="hljs-params"></span>) </span>{
+          scheduleService.load({ <span class="hljs-attr">intPageSize</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">intPageNumber</span>: <span class="hljs-number">1</span> }).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+            <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;</pre></div></div>
             
         </li>
         
@@ -210,18 +211,19 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>          <span class="hljs-keyword">if</span> (data.length &gt; <span class="hljs-number">0</span>) {
-            vm.lastDate = data[<span class="hljs-number">0</span>].dteSchedule;
-            vm.lastPeriod = data[<span class="hljs-number">0</span>].intPeriod;
-            vm.lastEngineer = data[<span class="hljs-number">0</span>].strNameEngineer;
-            vm.lastDraftBy = data[<span class="hljs-number">0</span>].strFullNameCreated;
-          } <span class="hljs-keyword">else</span> {
-            vm.lastDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
-            vm.lastPeriod = <span class="hljs-number">1</span>;
-
-          }
-        });
-      }</pre></div></div>
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> (data.length &gt; <span class="hljs-number">0</span>) {
+              vm.lastDate = data[<span class="hljs-number">0</span>].dteSchedule;
+              vm.lastPeriod = data[<span class="hljs-number">0</span>].intPeriod;
+              vm.lastEngineer = data[<span class="hljs-number">0</span>].strNameEngineer;
+              vm.lastDraftBy = data[<span class="hljs-number">0</span>].strFullNameCreated;
+            } <span class="hljs-keyword">else</span> {
+              vm.lastDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+              vm.lastPeriod = <span class="hljs-number">1</span>;
+              vm.lastEngineer = <span class="hljs-literal">undefined</span>;
+              vm.lastDraftBy = <span class="hljs-literal">undefined</span>;
+            }
+          });
+        }</pre></div></div>
             
         </li>
         
@@ -232,11 +234,13 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p>Listen for changes on instituição</p>
+              <p>Load last schedule information</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">var</span> engineerEvent = engineerService.listenEvent.both.all(loadEngineers);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>        loadLastschedule();
+
+        <span class="hljs-keyword">var</span> deleteScheduleEvent = scheduleService.listenEvent.both.deleted(loadLastschedule);</pre></div></div>
             
         </li>
         
@@ -251,9 +255,8 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      $scope.$on(<span class="hljs-string">"$destroy"</span>, engineerEvent);
-
-      loadEngineers();</pre></div></div>
+            <div class="content"><div class='highlight'><pre>        $scope.$on(<span class="hljs-string">"$destroy"</span>, deleteScheduleEvent);
+      }</pre></div></div>
             
         </li>
         
@@ -264,11 +267,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p>Listen for changes on schedule</p>
+              <p>Listen for changes on instituição</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">var</span> scheduleEvent = scheduleService.listenEvent.hub.inserted(updateResult);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">var</span> engineerEvent = engineerService.listenEvent.both.all(loadEngineers);</pre></div></div>
             
         </li>
         
@@ -283,7 +286,9 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      $scope.$on(<span class="hljs-string">"$destroy"</span>, scheduleEvent);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>      $scope.$on(<span class="hljs-string">"$destroy"</span>, engineerEvent);
+
+      loadEngineers();</pre></div></div>
             
         </li>
         
@@ -294,11 +299,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <p>Responsable to change the data entered and selected by the user already to a new culture set.</p>
+              <p>Listen for changes on schedule</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateResult</span>(<span class="hljs-params">result</span>) </span>{</pre></div></div>
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">var</span> scheduleEvent = scheduleService.listenEvent.hub.inserted(updateResult);</pre></div></div>
             
         </li>
         
@@ -309,11 +314,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              <p>Update content if outdated</p>
+              <p>Cleanup events when controller is destroyed</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> (result.type = varEventosDb.INSERTED) {</pre></div></div>
+            <div class="content"><div class='highlight'><pre>      $scope.$on(<span class="hljs-string">"$destroy"</span>, scheduleEvent);</pre></div></div>
             
         </li>
         
@@ -323,6 +328,36 @@
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Responsable to change the data entered and selected by the user already to a new culture set.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateResult</span>(<span class="hljs-params">result</span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Update content if outdated</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> (result.type = constEventosDb.INSERTED) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
               <p>Update Data</p>
 
@@ -341,11 +376,11 @@
         </li>
         
         
-        <li id="section-15">
+        <li id="section-17">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
+                <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
               <p>Wait 10 seconds to show result in the grid to keep suspense of the wheel</p>
 
@@ -377,11 +412,11 @@
         </li>
         
         
-        <li id="section-16">
+        <li id="section-18">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-16">&#182;</a>
+                <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
               <p>Getting here means there is a new engineer drafted, so calculate how many more spins is required do stop in this name</p>
 
@@ -398,11 +433,11 @@
         </li>
         
         
-        <li id="section-17">
+        <li id="section-19">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-17">&#182;</a>
+                <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
               <p>reset speed to the original one to add an extra punch to stop in the right place</p>
 
@@ -413,11 +448,11 @@
         </li>
         
         
-        <li id="section-18">
+        <li id="section-20">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-18">&#182;</a>
+                <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
               <p>Compare result of the wheel with the desired solution</p>
 
@@ -431,11 +466,11 @@
         </li>
         
         
-        <li id="section-19">
+        <li id="section-21">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-19">&#182;</a>
+                <a class="pilcrow" href="#section-21">&#182;</a>
               </div>
               <p>reset rotation of the wheel to the original position, so it goes smooth</p>
 
@@ -462,11 +497,11 @@
         </li>
         
         
-        <li id="section-20">
+        <li id="section-22">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-20">&#182;</a>
+                <a class="pilcrow" href="#section-22">&#182;</a>
               </div>
               <p>Get a result from the server</p>
 
@@ -478,11 +513,11 @@
         </li>
         
         
-        <li id="section-21">
+        <li id="section-23">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-21">&#182;</a>
+                <a class="pilcrow" href="#section-23">&#182;</a>
               </div>
               <p>add right speed to the wheel for this result</p>
 
@@ -510,11 +545,11 @@
         </li>
         
         
-        <li id="section-22">
+        <li id="section-24">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-22">&#182;</a>
+                <a class="pilcrow" href="#section-24">&#182;</a>
               </div>
               <p>have to add speed to stop in the right one</p>
 
@@ -528,11 +563,11 @@
         </li>
         
         
-        <li id="section-23">
+        <li id="section-25">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-23">&#182;</a>
+                <a class="pilcrow" href="#section-25">&#182;</a>
               </div>
               <p>keep slowing down</p>
 
@@ -545,11 +580,11 @@
         </li>
         
         
-        <li id="section-24">
+        <li id="section-26">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-24">&#182;</a>
+                <a class="pilcrow" href="#section-26">&#182;</a>
               </div>
               <p>Unbind events so the wheel stops</p>
 
@@ -562,11 +597,11 @@
         </li>
         
         
-        <li id="section-25">
+        <li id="section-27">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-25">&#182;</a>
+                <a class="pilcrow" href="#section-27">&#182;</a>
               </div>
               <p>Show values in the screen</p>
 
@@ -581,11 +616,11 @@
         </li>
         
         
-        <li id="section-26">
+        <li id="section-28">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-26">&#182;</a>
+                <a class="pilcrow" href="#section-28">&#182;</a>
               </div>
               <p>Send a success message</p>
 
@@ -614,11 +649,11 @@
         </li>
         
         
-        <li id="section-27">
+        <li id="section-29">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-27">&#182;</a>
+                <a class="pilcrow" href="#section-29">&#182;</a>
               </div>
               <p>Colors to be used to fill the wheel</p>
 
@@ -647,11 +682,11 @@
         </li>
         
         
-        <li id="section-28">
+        <li id="section-30">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-28">&#182;</a>
+                <a class="pilcrow" href="#section-30">&#182;</a>
               </div>
               <p>Wheel Font Base:  <a href="https://codepen.io/larrybotha/pen/yMmQyG">https://codepen.io/larrybotha/pen/yMmQyG</a></p>
 

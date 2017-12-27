@@ -139,15 +139,19 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        scheduleService.load().then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
-          vm.scheduleShifts = data;
+            <div class="content"><div class='highlight'><pre>        loadSchedule();
 
-          angular.forEach(vm.scheduleShifts, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, key</span>) </span>{
-            <span class="hljs-keyword">var</span> weekNumber = getWeekNumber(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(value.dteSchedule));
-            value.weekNumber = weekNumber;
-            value.weekDay = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(value.dteSchedule).getDay();
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadSchedule</span> (<span class="hljs-params"></span>) </span>{
+          scheduleService.load().then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+            vm.scheduleShifts = data;
+
+            angular.forEach(vm.scheduleShifts, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, key</span>) </span>{
+              <span class="hljs-keyword">var</span> weekNumber = getWeekNumber(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(value.dteSchedule));
+              value.weekNumber = weekNumber;
+              value.weekDay = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(value.dteSchedule).getDay();
+            });
           });
-        });</pre></div></div>
+        }</pre></div></div>
             
         </li>
         
@@ -162,7 +166,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">var</span> updateResult = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">result</span>) </span>{</pre></div></div>
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateResult</span> (<span class="hljs-params">result</span>) </span>{</pre></div></div>
             
         </li>
         
@@ -178,8 +182,8 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>          <span class="hljs-keyword">if</span> (result.type = constEventosDb.INSERTED) {
-            
-            <span class="hljs-keyword">var</span> update = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">result</span>) </span>{
+
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">update</span>(<span class="hljs-params">result</span>) </span>{
               result.data.weekNumber = getWeekNumber(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(result.data.dteSchedule));
               result.data.weekDay = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(result.data.dteSchedule).getDay();
               vm.scheduleShifts.push(result.data);
@@ -201,9 +205,10 @@
             
             <div class="content"><div class='highlight'><pre>            $timeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
               update(result)
-            }.bind(<span class="hljs-keyword">this</span>), <span class="hljs-number">14000</span>);
-    
-          }</pre></div></div>
+            }.bind(<span class="hljs-keyword">this</span>), <span class="hljs-number">10000</span>);
+
+          }
+        }</pre></div></div>
             
         </li>
         
@@ -218,7 +223,8 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>          <span class="hljs-keyword">var</span> scheduleEvent = scheduleService.listenEvent.both.inserted(updateResult);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>          <span class="hljs-keyword">var</span> updateScheduleEvent = scheduleService.listenEvent.both.inserted(updateResult);
+          <span class="hljs-keyword">var</span> deleteScheduleEvent = scheduleService.listenEvent.both.deleted(loadSchedule);</pre></div></div>
             
         </li>
         
@@ -233,8 +239,9 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>          $scope.$on(<span class="hljs-string">"$destroy"</span>, scheduleEvent);
-        }
+            <div class="content"><div class='highlight'><pre>          $scope.$on(<span class="hljs-string">"$destroy"</span>, updateScheduleEvent);
+          $scope.$on(<span class="hljs-string">"$destroy"</span>, deleteScheduleEvent);
+        
       }
 
       <span class="hljs-comment">/**

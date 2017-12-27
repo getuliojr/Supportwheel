@@ -32,7 +32,7 @@
             
             <div class="content"><div class='highlight'><pre>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<span class="hljs-meta">
 
-    'use strict'</span>;</pre></div></div>
+  'use strict'</span>;</pre></div></div>
             
         </li>
         
@@ -47,19 +47,19 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    angular.module(<span class="hljs-string">'shared.services.service.schedule'</span>, [
-        <span class="hljs-string">'shared.services.factory.appResource'</span>
-    ])
+            <div class="content"><div class='highlight'><pre>  angular.module(<span class="hljs-string">'shared.services.service.schedule'</span>, [
+    <span class="hljs-string">'shared.services.factory.appResource'</span>
+  ])
 
-          <span class="hljs-comment">/**
-     * @ngdoc service
-     * @name shared.services.service.service:schedule
-     * @description
-     *
-     * This service is responsible to get information about the schedule in the system
-     *
-     */</span>
-        .service(<span class="hljs-string">'scheduleService'</span>, scheduleService);</pre></div></div>
+    <span class="hljs-comment">/**
+* @ngdoc service
+* @name shared.services.service.service:schedule
+* @description
+*
+* This service is responsible to get information about the schedule in the system
+*
+*/</span>
+    .service(<span class="hljs-string">'scheduleService'</span>, scheduleService);</pre></div></div>
             
         </li>
         
@@ -74,7 +74,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    scheduleService.$inject = [<span class="hljs-string">'appResourceFactory'</span>];</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  scheduleService.$inject = [<span class="hljs-string">'appResourceFactory'</span>];</pre></div></div>
             
         </li>
         
@@ -89,9 +89,9 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">scheduleService</span>(<span class="hljs-params">appResourceFactory</span>) </span>{
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">scheduleService</span>(<span class="hljs-params">appResourceFactory</span>) </span>{
 
-      <span class="hljs-keyword">var</span> service = appResourceFactory(<span class="hljs-string">"schedule"</span>, <span class="hljs-string">"intIdSchedule"</span>);</pre></div></div>
+    <span class="hljs-keyword">var</span> service = appResourceFactory(<span class="hljs-string">"schedule"</span>, <span class="hljs-string">"intIdSchedule"</span>);</pre></div></div>
             
         </li>
         
@@ -106,7 +106,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      service.createHub();</pre></div></div>
+            <div class="content"><div class='highlight'><pre>    service.createHub();</pre></div></div>
             
         </li>
         
@@ -121,21 +121,21 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        service.validar = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">dados</span>) </span>{
-            <span class="hljs-keyword">var</span> erros = [];
+            <div class="content"><div class='highlight'><pre>    service.validar = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">dados</span>) </span>{
+      <span class="hljs-keyword">var</span> erros = [];
 
-            <span class="hljs-keyword">if</span> (!dados.dteSchedule)
-                erros.push(<span class="hljs-string">"The date of the draft is required!"</span>);
+      <span class="hljs-keyword">if</span> (!dados.dteSchedule)
+        erros.push(<span class="hljs-string">"The date of the draft is required!"</span>);
 
-            <span class="hljs-keyword">if</span> (!dados.intPeriod)
-                erros.push(<span class="hljs-string">"The period of the shift to draft is required!"</span>);
+      <span class="hljs-keyword">if</span> (!dados.intPeriod)
+        erros.push(<span class="hljs-string">"The period of the shift to draft is required!"</span>);
 
-            <span class="hljs-keyword">return</span> erros;
-        };
+      <span class="hljs-keyword">return</span> erros;
+    };
 
-        <span class="hljs-keyword">return</span> service;
-    }
-})()</pre></div></div>
+    <span class="hljs-keyword">return</span> service;
+  }
+})();</pre></div></div>
             
         </li>
         

@@ -32,26 +32,26 @@
             
             <div class="content"><div class='highlight'><pre>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<span class="hljs-meta">
 
-    'use strict'</span>;
+  'use strict'</span>;
 
-    <span class="hljs-comment">/**
-     * @ngdoc service
-     *
-     * @name shared.services.service.service:culture
-     *
-     * @requires $localStorage - Source: {@link https://github.com/gsklee/ngStorage ngStorage}
-     * @requires $mdDialog - Source: {@link https://github.com/angular/material angular-material}
-     * @requires $translate - Source: {@link https://github.com/angular-translate/angular-translate angular-translate}
-     *
-     * @description
-     *
-     * This service is responsable to get and set current culture for the application
-     *
-     */</span>
-    angular.module(<span class="hljs-string">'shared.services.service.culture'</span>, [
-        
-        ])
-        .service(<span class="hljs-string">'cultureService'</span>, cultureService);</pre></div></div>
+  <span class="hljs-comment">/**
+   * @ngdoc service
+   *
+   * @name shared.services.service.service:culture
+   *
+   * @requires $localStorage - Source: {@link https://github.com/gsklee/ngStorage ngStorage}
+   * @requires $mdDialog - Source: {@link https://github.com/angular/material angular-material}
+   * @requires $translate - Source: {@link https://github.com/angular-translate/angular-translate angular-translate}
+   *
+   * @description
+   *
+   * This service is responsable to get and set current culture for the application
+   *
+   */</span>
+  angular.module(<span class="hljs-string">'shared.services.service.culture'</span>, [
+
+  ])
+    .service(<span class="hljs-string">'cultureService'</span>, cultureService);</pre></div></div>
             
         </li>
         
@@ -66,7 +66,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    cultureService.$inject = [<span class="hljs-string">'$localStorage'</span>, <span class="hljs-string">'$mdDialog'</span>, <span class="hljs-string">'$translate'</span>, <span class="hljs-string">'$q'</span>];</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  cultureService.$inject = [<span class="hljs-string">'$localStorage'</span>, <span class="hljs-string">'$mdDialog'</span>, <span class="hljs-string">'$translate'</span>, <span class="hljs-string">'$q'</span>];</pre></div></div>
             
         </li>
         
@@ -81,61 +81,61 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cultureService</span>(<span class="hljs-params">$localStorage, $mdDialog, $translate, $q</span>) </span>{
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cultureService</span>(<span class="hljs-params">$localStorage, $mdDialog, $translate, $q</span>) </span>{
 
-        <span class="hljs-keyword">var</span> _eventListenQueue = [];
+    <span class="hljs-keyword">var</span> _eventListenQueue = [];
 
-        <span class="hljs-keyword">this</span>.load = load;
-        <span class="hljs-keyword">this</span>.getCulture = getCulture;
-        <span class="hljs-keyword">this</span>.setCulture = setCulture;
-        <span class="hljs-keyword">this</span>.onCultureChange = onCultureChange;
+    <span class="hljs-keyword">this</span>.load = load;
+    <span class="hljs-keyword">this</span>.getCulture = getCulture;
+    <span class="hljs-keyword">this</span>.setCulture = setCulture;
+    <span class="hljs-keyword">this</span>.onCultureChange = onCultureChange;
 
-        init();
+    init();
 
-        <span class="hljs-comment">/**
-       
-        * @ngdoc function
-        * @name init
-        * @methodOf shared.services.service.service:culture
-        * @private
-        *
-        * @description
-        *
-        * It inits the service by loading the current set language from the localstorage.
-        * If no language is available it show a modal for the user to choose one. This modal cannot be closed or canceled.
-        *
-        */</span>
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params"></span>) </span>{
-            <span class="hljs-keyword">if</span> (getCulture() == <span class="hljs-literal">undefined</span>) {
-                setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-                    $mdDialog.show({
-                        <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;choose-language&gt;&lt;choose-language /&gt;'</span>,
-                        <span class="hljs-attr">parent</span>: angular.element(<span class="hljs-built_in">document</span>.body),
-                        <span class="hljs-attr">clickOutsideToClose</span>: <span class="hljs-literal">false</span>,
-                        <span class="hljs-attr">escapeToClose</span>: <span class="hljs-literal">false</span>
-                    });
-                }, <span class="hljs-number">4</span>)
-                onCultureChange($mdDialog.hide);
-            } <span class="hljs-keyword">else</span> {
-                <span class="hljs-keyword">var</span> currentCulture = getCulture();
-                $translate.use(currentCulture.culture);
-            }
-        }
+    <span class="hljs-comment">/**
+   
+    * @ngdoc function
+    * @name init
+    * @methodOf shared.services.service.service:culture
+    * @private
+    *
+    * @description
+    *
+    * It inits the service by loading the current set language from the localstorage.
+    * If no language is available it show a modal for the user to choose one. This modal cannot be closed or canceled.
+    *
+    */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">if</span> (getCulture() == <span class="hljs-literal">undefined</span>) {
+        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+          $mdDialog.show({
+            <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;choose-language&gt;&lt;choose-language /&gt;'</span>,
+            <span class="hljs-attr">parent</span>: angular.element(<span class="hljs-built_in">document</span>.body),
+            <span class="hljs-attr">clickOutsideToClose</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">escapeToClose</span>: <span class="hljs-literal">false</span>
+          });
+        }, <span class="hljs-number">4</span>)
+        onCultureChange($mdDialog.hide);
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">var</span> currentCulture = getCulture();
+        $translate.use(currentCulture.culture);
+      }
+    }
 
 
-        <span class="hljs-comment">/**
-       
-        * @ngdoc function
-        * @name load
-        * @methodOf shared.services.service.service:culture
-        * @private
-        *
-        * @description
-        *
-        * It returns the collection 'culture' with its value set with the current culture.
-        *
-        */</span>
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">load</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+    <span class="hljs-comment">/**
+   
+    * @ngdoc function
+    * @name load
+    * @methodOf shared.services.service.service:culture
+    * @private
+    *
+    * @description
+    *
+    * It returns the collection 'culture' with its value set with the current culture.
+    *
+    */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">load</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
             
         </li>
         
@@ -150,12 +150,12 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">var</span> data = [
-                { <span class="hljs-attr">strIdCultura</span>: <span class="hljs-string">'pt-BR'</span>, <span class="hljs-attr">strNomeCultura</span>: <span class="hljs-string">'CULTURA.PORTUGUES'</span> },
-                { <span class="hljs-attr">strIdCultura</span>: <span class="hljs-string">'en-US'</span>, <span class="hljs-attr">strNomeCultura</span>: <span class="hljs-string">'CULTURA.INGLES'</span> },              
-            ]
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">var</span> data = [
+        { <span class="hljs-attr">strIdCultura</span>: <span class="hljs-string">'pt-BR'</span>, <span class="hljs-attr">strNomeCultura</span>: <span class="hljs-string">'CULTURA.PORTUGUES'</span> },
+        { <span class="hljs-attr">strIdCultura</span>: <span class="hljs-string">'en-US'</span>, <span class="hljs-attr">strNomeCultura</span>: <span class="hljs-string">'CULTURA.INGLES'</span> },
+      ]
 
-            <span class="hljs-keyword">var</span> deferred = $q.defer();</pre></div></div>
+      <span class="hljs-keyword">var</span> deferred = $q.defer();</pre></div></div>
             
         </li>
         
@@ -170,34 +170,34 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>            $translate.onReady(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-                angular.forEach(data, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val, key</span>) </span>{
-                    data[key].strNomeCultura = $translate.instant(data[key].strNomeCultura);
-                });
+            <div class="content"><div class='highlight'><pre>      $translate.onReady(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        angular.forEach(data, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val, key</span>) </span>{
+          data[key].strNomeCultura = $translate.instant(data[key].strNomeCultura);
+        });
 
-                deferred.resolve(data);
-            });
+        deferred.resolve(data);
+      });
 
-            <span class="hljs-keyword">return</span> deferred.promise;
+      <span class="hljs-keyword">return</span> deferred.promise;
 
-        }
+    }
 
 
-        <span class="hljs-comment">/**
-        * @ngdoc function
-        * @name onCultureChange
-        * @methodOf shared.services.service.service:culture
-        * @param {function} callback expect a callback function that will be called with the new culture set
-        * @returns {function} It returns an unsubscribe function that should be used on $destroy event in the controller
-        * @description
-        *
-        * Responsable to get the current culture selected in the application
-        * It reads from localstorage in the browser.
-        *
-        */</span>
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onCultureChange</span>(<span class="hljs-params">callback</span>) </span>{
+    <span class="hljs-comment">/**
+    * @ngdoc function
+    * @name onCultureChange
+    * @methodOf shared.services.service.service:culture
+    * @param {function} callback expect a callback function that will be called with the new culture set
+    * @returns {function} It returns an unsubscribe function that should be used on $destroy event in the controller
+    * @description
+    *
+    * Responsable to get the current culture selected in the application
+    * It reads from localstorage in the browser.
+    *
+    */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onCultureChange</span>(<span class="hljs-params">callback</span>) </span>{
 
-            _eventListenQueue.push(callback);</pre></div></div>
+      _eventListenQueue.push(callback);</pre></div></div>
             
         </li>
         
@@ -212,7 +212,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">return</span> unsubscribeEvent;</pre></div></div>
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">return</span> unsubscribeEvent;</pre></div></div>
             
         </li>
         
@@ -227,51 +227,51 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">unsubscribeEvent</span>(<span class="hljs-params"></span>) </span>{
-                <span class="hljs-keyword">var</span> indexItem = _eventListenQueue.indexOf(callback);
-                <span class="hljs-keyword">if</span> (indexItem &gt; <span class="hljs-number">-1</span>) {
-                    _eventListenQueue.splice(indexItem, <span class="hljs-number">1</span>);
-                }
-            }
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">unsubscribeEvent</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> indexItem = _eventListenQueue.indexOf(callback);
+        <span class="hljs-keyword">if</span> (indexItem &gt; <span class="hljs-number">-1</span>) {
+          _eventListenQueue.splice(indexItem, <span class="hljs-number">1</span>);
         }
+      }
+    }
 
-        <span class="hljs-comment">/**
-        * @ngdoc function
-        * @name getCulture
-        * @methodOf shared.services.service.service:culture
-        * @returns {object} It returns an object with the properties { culture (string) , name (string) }
-        * @description
-        *
-        * Responsable to get the current culture selected in the application
-        * It reads from localstorage in the browser.
-        *
-        */</span>
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCulture</span>(<span class="hljs-params"></span>) </span>{
-            <span class="hljs-keyword">return</span> $localStorage.culture;
-        }
+    <span class="hljs-comment">/**
+    * @ngdoc function
+    * @name getCulture
+    * @methodOf shared.services.service.service:culture
+    * @returns {object} It returns an object with the properties { culture (string) , name (string) }
+    * @description
+    *
+    * Responsable to get the current culture selected in the application
+    * It reads from localstorage in the browser.
+    *
+    */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCulture</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> $localStorage.culture;
+    }
 
 
-        <span class="hljs-comment">/**
-        * @ngdoc function
-        * @name setCulture
-        * @methodOf shared.services.service.service:culture
-        * @param {string} culture expect a culture in the format 'pt-BR'
-        *
-        * @description
-        *
-        * Responsable to set a new culture for the application. It saves the result
-        * in the localstorage of the browser
-        *
-        */</span>
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setCulture</span>(<span class="hljs-params">culture</span>) </span>{
-            <span class="hljs-keyword">var</span> newCulture;
-            <span class="hljs-keyword">if</span> (culture == <span class="hljs-string">'pt-BR'</span>) {
-                newCulture = { <span class="hljs-attr">culture</span>: culture, <span class="hljs-attr">name</span>: <span class="hljs-string">'Português'</span> };
-            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (culture == <span class="hljs-string">'en-US'</span>) {
-                newCulture = { <span class="hljs-attr">culture</span>: culture, <span class="hljs-attr">name</span>: <span class="hljs-string">'English'</span> };
-            }
+    <span class="hljs-comment">/**
+    * @ngdoc function
+    * @name setCulture
+    * @methodOf shared.services.service.service:culture
+    * @param {string} culture expect a culture in the format 'pt-BR'
+    *
+    * @description
+    *
+    * Responsable to set a new culture for the application. It saves the result
+    * in the localstorage of the browser
+    *
+    */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setCulture</span>(<span class="hljs-params">culture</span>) </span>{
+      <span class="hljs-keyword">var</span> newCulture;
+      <span class="hljs-keyword">if</span> (culture == <span class="hljs-string">'pt-BR'</span>) {
+        newCulture = { <span class="hljs-attr">culture</span>: culture, <span class="hljs-attr">name</span>: <span class="hljs-string">'Português'</span> };
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (culture == <span class="hljs-string">'en-US'</span>) {
+        newCulture = { <span class="hljs-attr">culture</span>: culture, <span class="hljs-attr">name</span>: <span class="hljs-string">'English'</span> };
+      }
 
-            $localStorage.culture = newCulture;</pre></div></div>
+      $localStorage.culture = newCulture;</pre></div></div>
             
         </li>
         
@@ -286,7 +286,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>            $translate.use(culture);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>      $translate.use(culture);</pre></div></div>
             
         </li>
         
@@ -302,17 +302,17 @@ Call users who subscribed to event</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">var</span> lengthEvent = _eventListenQueue.length;
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> e = <span class="hljs-number">0</span>; e &lt; lengthEvent; e++) {
-                _eventListenQueue[e](newCulture);
-            }
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">var</span> lengthEvent = _eventListenQueue.length;
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> e = <span class="hljs-number">0</span>; e &lt; lengthEvent; e++) {
+        _eventListenQueue[e](newCulture);
+      }
 
-            
-        }
 
-        
     }
-})()</pre></div></div>
+
+
+  }
+})();</pre></div></div>
             
         </li>
         
