@@ -1,6 +1,6 @@
 ## Support Wheel of Fate - BAU
 
-The objetive of this project was to fullfill a position with Richmond Group for a .NET Senior Architecture Development. To test my knowledge the following taks has been assigned:
+The objetive of this project was to demonstrate knowledge of .NET and Angular for a .NET Senior Architecture Development online remote position. To test my knowledge the following taks has been assigned:
 
 
 ### Summary
